@@ -1,0 +1,32 @@
+footer {
+	text-align: center;
+	margin: 6rem 0 3em 0;
+}
+
+footer ul {
+  @include clearfix();
+  margin: 0;
+}
+footer ul li {
+	display: inline-block;
+}
+footer ul li a{ 
+	display: block;
+	color: #CCC;
+	border-radius: .5rem;
+	text-decoration: none;
+	padding: 0rem 2rem 0rem 1.5rem;
+}
+footer .logo{
+	width: 32px;
+	height: 32px;
+	margin-bottom: -1rem;
+	fill: #CCC;
+	margin-right: .5rem;
+}
+footer ul li a:hover,
+footer ul li a:hover .logo{ 
+	color: #A3A3A3;
+	fill: #A3A3A3;
+	transition: background .5s;
+}

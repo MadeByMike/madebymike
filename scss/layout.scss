@@ -1,0 +1,54 @@
+body{ padding: 0 2rem;}
+
+main{
+	max-width:800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+section{
+ margin-top: 2rem;
+}
+
+//grid
+$gutter: 1rem;
+$columns: 12;
+@include make-grid($columns,$gutter);
+
+
+ /* Spacing helpers - Thanks to Nicole Sullivan http://www.stubbornella.org/
+p,m = padding,margin
+a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+s,m,l,n = small(5px),medium(10px),large(20px),none(0px)
+*/
+.ptn,.pvn,.pan{padding-top:0 !important}
+.pts,.pvs,.pas{padding-top:1.5rem !important}
+.ptm,.pvm,.pam{padding-top:2.5rem !important}
+.ptl,.pvl,.pal{padding-top:3.5rem !important}
+.prn,.phn,.pan{padding-right:0 !important}
+.prs,.phs,.pas{padding-right:1.5rem !important}
+.prm,.phm,.pam{padding-right:2.5rem !important}
+.prl,.phl,.pal{padding-right:3.5rem !important}
+.pbn,.pvn,.pan{padding-bottom:0 !important}
+.pbs,.pvs,.pas{padding-bottom:1.5rem !important}
+.pbm,.pvm,.pam{padding-bottom:2.5rem !important}
+.pbl,.pvl,.pal{padding-bottom:3.5rem !important}
+.pln,.phn,.pan{padding-left:0 !important}
+.pls,.phs,.pas{padding-left:1.5rem !important}
+.plm,.phm,.pam{padding-left:2.5rem !important}
+.pll,.phl,.pal{padding-left:3.5rem !important}
+.mtn,.mvn,.man{margin-top:0 !important}
+.mts,.mvs,.mas{margin-top:1.5rem !important}
+.mtm,.mvm,.mam{margin-top:2.5rem !important}
+.mtl,.mvl,.mal{margin-top:3.5rem !important}
+.mrn,.mhn,.man{margin-right:0 !important}
+.mrs,.mhs,.mas{margin-right:1.5rem !important}
+.mrm,.mhm,.mam{margin-right:2.5rem !important}
+.mrl,.mhl,.mal{margin-right:3.5rem !important}
+.mbn,.mvn,.man{margin-bottom:0 !important}
+.mbs,.mvs,.mas{margin-bottom:1.5rem !important}
+.mbm,.mvm,.mam{margin-bottom:2.5rem !important}
+.mbl,.mvl,.mal{margin-bottom:3.5rem !important}
+.mln,.mhn,.man{margin-left:0 !important}
+.mls,.mhs,.mas{margin-left:1.5rem !important}
+.mlm,.mhm,.mam{margin-left:2.5rem !important}
+.mll,.mhl,.mal{margin-left:3.5rem !important}

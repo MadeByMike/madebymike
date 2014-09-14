@@ -1,0 +1,28 @@
+header{
+	text-align: right;
+	padding: 1em 2em 0 2em;
+}
+header:after {
+	content: "";
+	display: block;
+	bottom: 0;
+	height: 1px;
+	background: #ccc;
+	background: linear-gradient(to right,transparent,#ccc 25%,#ccc 75%,transparent);
+	margin-top: 1em;
+}
+
+header ul {
+  @include clearfix();
+  margin: 0;
+}
+header ul li {
+	display: inline-block;
+}
+header ul li a{ 
+	display: block;
+	Color: #333;
+	text-decoration: none;
+	margin-left: 3rem;
+}
+.home-page header ul li .home{ display: none;}

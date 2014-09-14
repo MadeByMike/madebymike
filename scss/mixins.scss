@@ -1,0 +1,35 @@
+// Thanks Nicolas: http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin make-grid($column, $gutter: 1rem) {
+	.row{
+	  margin-left:  ($gutter / -2);
+	  margin-right: ($gutter / -2);
+	  @include clearfix();
+	}
+	@media screen and (min-width: 700px){
+		.col{
+		  box-sizing: border-box;
+		  position: relative;
+		  min-height: 1px;
+		  padding-left:  ($gutter / 2);
+		  padding-right: ($gutter / 2);
+		  float: left;
+		}
+		@for $i from 0 through $column {
+			.col-#{$i} {
+			  width: percentage(($i / $column));
+			}
+		}
+	}
+}

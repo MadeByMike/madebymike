@@ -1,0 +1,127 @@
+/* Vars */
+
+$base_size: 1.8rem; // = 14pt
+$headings_scale: 1.2;
+$headings: 'Cabin', sans-serif;
+$paragraph: 'Cardo', serif;
+$line_height: 1.5;
+$leader: 1rem;
+
+/* Base */
+
+html {
+    font-family: $paragraph;
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+    line-height: $line_height;
+	color: #333;
+}
+
+/* Spacing */
+
+body{
+    font-size: $base_size;
+}
+
+table,ol,ul,p {
+    margin-top: $leader;
+}
+
+/* Links */
+
+a {
+	color: #A2263A;
+	transition: color .5s;
+	text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+	color: #A2263A;
+	text-decoration: underline;
+	text-shadow: 0 0 2px #ccc;
+}
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headings;
+	margin-bottom: $headings_scale * $leader;
+	line-height: 1;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a{
+  color: #333;
+  text-decoration: none;
+	transition: none;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+h1 {
+    font-size: 3 * $headings_scale * $base_size;
+    margin-top: 3 * $headings_scale * $leader;
+}
+h2 {
+    font-size: 2 * $headings_scale * $base_size;
+	margin-top: 2 * $headings_scale * $leader;
+}
+h3 {
+    font-size: $headings_scale * $base_size;
+	margin-top: $headings_scale * $leader;
+}
+h4 {
+    font-size: $base_size;
+	margin-top: $headings_scale * $leader;
+}
+h5 {
+    font-size: .8 * $headings_scale * $base_size;
+	margin-top: $headings_scale * $leader;
+}
+h6 {
+    font-size: $headings_scale * $base_size;
+	margin-top: $headings_scale * $leader;
+}
+/* Tables */
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+/* Special */
+
+.lead {
+    font-size: $headings_scale * $base_size;
+}
+.nav-link{
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	font-size: 1.6rem;
+	margin: 2rem 0;
+	text-decoration: none;
+	color: #555;
+}
+.nav-link:after {
+	background: url(/img/arrow.svg) no-repeat;
+	content: " ";
+	display: inline-block;
+	height: 12px;
+	margin: 0 0 0 .5em;
+	width: 10px;
+}

@@ -1,0 +1,21 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}css/styles.css">
+  <!-- ToDo: optimise this for page speed -->
+  <link href='http://fonts.googleapis.com/css?family=Cabin:700|Cardo' rel='stylesheet' type='text/css'>
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.baseurl }}atom.xml">
+  
+  <link rel="canonical" href="http://madebymike.com.au{{ page.url | replace:'index.html','' }}" />
+</head>

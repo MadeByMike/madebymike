@@ -1,0 +1,33 @@
+.post-list article:after {
+	content: "";
+	display: block;
+	margin: $leader*3 0;
+	bottom: 0;
+	height: 1px;
+	background: #ccc;
+	background: linear-gradient(to right,transparent,#ccc 25%,#ccc 75%,transparent);
+}
+.post-list article:last-of-type:after {
+	display: none;
+}
+.post-list .post-date {
+  font-style: italic;
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 1000px){
+	.post-list .post-date {
+		position: absolute;
+		width: 150px;
+		margin-left: -150px;
+		margin-top: -4rem;
+	}
+}
+.pagination{
+  text-align: center;
+  margin: 3rem;
+}
+.pagination a{ 
+	text-decoration: none;
+	margin-left: 3rem;
+}

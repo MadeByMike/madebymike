@@ -1,75 +1,45 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Made By Mike</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <section>
-        <h1>Hi, I'm Mike</h1>
-		
-		<p>I'm a web developer. When I'm not making websites, I'm usually developing tools and techniques for web enthusiasts like myself. You will find some of my creations here.</p>
-		<p>I'm passionate about good practice web development and that doesn't just mean web standards. I'm an advocate for anything and anyone that contributes to professionalism in web development.</p>
+---
+layout: default
+title: MadebyMike
+class: home-page
+---
 
-		<h3>
-			<a name="stuff-ive-made-recently" class="anchor" href="#stuff-ive-made-recently"><span class="octicon octicon-link"></span></a>Stuff I've made recently</h3>
-
-			<ul>
-				<li><a href="https://github.com/MadeByMike/Clientele">Clientele</a> – A simple client management plugin for WordPress.</li>	
-				<li><a href="http://madebymike.com.au/html5-periodic-table/">Periodic table of HTML 5 elements</a> – Credit belongs to Josh Duck for the original concept. I thought it was clever and useful, so when he removed it from his website I recreated it.</li>	
-				<li><a href="https://github.com/MadeByMike/jQA">JQA</a> – A tool for running quality assurance checks on websites.</li>	
-				<li><a href="http://wordpress.org/plugins/better-writing/">Better Writing</a> – A plugin for WordPress that helps you write better.</li>
-				<li><a href="https://github.com/MadeByMike/compare-lists">Compare lists tool</a> - An experiment with JavaScript and Web Workers. Amazingly fast list comparisons in supported browsers.</li>
-				<li><a href="https://github.com/MadeByMike/url-parser">URL Parser</a> - Not satisfied with any of the existing options I had to write my own.</li>
-			</ul>
-			<h3>
-				<a name="a-little-more-about-me" class="anchor" href="#a-little-more-about-me"><span class="octicon octicon-link"></span></a>A little more about me
-			</h3>
-
-		<p>I've been working with the web for more than 10 years. I've worked on many large government sites as well as the smallest community sites. I've developed apps, JavaScript libraries, CSS frameworks and all manner of sites small and complex.</p>
-
-		<p>Much of my work has been for private business. My goal now is to make more of my work publicly available and open source.</p>
-
-		<p>My main strengths are in working with JavaScript and PHP but I will happily work with almost any language or framework. I have my favorite tools but always use the one for the job.</p>
-
-		<p>You can checkout <a href="https://github.com/MadeByMike">some of my stuff on GitHub</a></p>
-
-		<h3>
-		<a name="reach-out" class="anchor" href="#writing">
-			<span class="octicon octicon-link"></span>
-		</a>
-		 Writing
-		</h3>
-		<p><a href="http://blog.madebymike.com.au">Blog</a> – I think stuff and sometimes I write it down.</p>
-		<h3>
-		<a name="reach-out" class="anchor" href="#reach-out">
-			<span class="octicon octicon-link"></span>
-		</a>
-		 Reach out
-		</h3>
-
-<p>You can email me at mike (at) madebymike (dot) com (dot) au</p>
+<h1>Hi, I'm Mike</h1>
+<p>I'm a web developer. I make all sorts of things for the web. You can find some of my creations here.</p>
+<p>When I'm not making things for the web I sometimes think about stuff and on rare occasions I write about it. You might find some of my writing here. </p>
+<section class="row">
+	<div class="col col-6">
+		<h2><a href="{{ site.baseurl }}writing">Stuff I wrote</a></h2>
+		{% for post in site.posts limit:2 %}
+		<article>
+		<h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		{{ post.excerpt }}
+		</article>
+		{% endfor %}
+		<a class="nav-link" href="{{ site.baseurl }}writing">Stuff I wrote before this</a>
+	</div>
+	<div class="col col-6">
+		<h2><a href="{{ site.baseurl }}stuff">Stuff I made</a></h2>
+		<ul>
+			<li><a href="https://github.com/MadeByMike/Clientele">Clientele</a> - A client management plugin for WordPress.</li>	
+			<li><a href="http://madebymike.com.au/html5-periodic-table/">Periodic table of HTML 5 elements</a> - Credit belongs to Josh Duck for the original concept. I thought it was clever and useful, so when he removed it from his website I recreated it.</li>	
+			<li><a href="https://github.com/MadeByMike/jQA">JQA</a> - A tool for running quality assurance checks on websites.</li>	
+			<li><a href="http://wordpress.org/plugins/better-writing/">Better Writing</a> - A plugin for WordPress that helps you write better.</li>
+			<li><a href="https://github.com/MadeByMike/compare-lists">Compare lists tool</a> - An experiment with JavaScript and Web Workers. Amazingly fast list comparisons in supported browsers.</li>
+			<li><a href="https://github.com/MadeByMike/url-parser">URL Parser</a> - Not satisfied with any of the existing options I wrote my own.</li>
+		</ul>
+		<!-- <a class="nav-link" href="{{ site.baseurl }}stuff">Other stuff I made</a> -->
+	</div>
 </section>
-</div>
-    <script src="js/scale.fix.js"></script>
-    <script type="text/javascript">
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	ga('create', 'UA-42027047-2', 'auto');
-	ga('send', 'pageview');
-	
-	</script>
-
-  </body>
-</html>
+<section>
+	<h2>More about me</h2>
+	<p>I'm passionate about good web development practices and that doesn't just mean standards. I'm am an advocate for anything or anyone that contributes to good quality web development.</p>
+	<p>I've worked on large government sites as well as the smallest community sites. I develop apps, JavaScript libraries, CSS frameworks and all manner of sites small and complex.</p>
+	<p>Much of my work has been for private business but my goal now is to make more of my work publicly available.</p>
+	<p>My main strength are in working with JavaScript, HTML, CSS but I will happily work with almost any language or framework. I have my favourite tools but always use the one for the job.</p>
+	<p>You can checkout <a href="https://github.com/MadeByMike">some of my stuff on GitHub</a></p>
+</section>
+<section>
+	<h2> Reach out</h2>
+	<p>You can email me at mike (at) madebymike (dot) com (dot) au</p>
+</section>
