@@ -3,9 +3,17 @@ module.exports = function (grunt) {
     // Project configuration
     grunt.initConfig({
 		sass: {
-			dist: {
+			min: {
 				options: {
 					style: 'compressed'
+				},
+				files: {
+					'css/styles.min.css': 'scss/styles.scss'
+				}
+			},
+			extended: {
+				options: {
+					style: 'extended'
 				},
 				files: {
 					'css/styles.css': 'scss/styles.scss'
