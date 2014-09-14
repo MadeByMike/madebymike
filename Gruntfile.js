@@ -5,10 +5,18 @@ module.exports = function (grunt) {
 		sass: {
 			dist: {
 				options: {
-					style: 'extended' //'compressed'
+					style: 'compressed'
 				},
 				files: {
 					'css/styles.css': 'scss/styles.scss'
+				}
+			},
+			inline: {
+				options: {
+					style: 'compressed'
+				},
+				files: {
+					'_includes/inline.css': 'scss/inline.scss'
 				}
 			}
 		},
