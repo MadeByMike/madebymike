@@ -9,7 +9,15 @@ class: post-list
   <article>
     <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 	<span class="post-date">{{ post.date | date_to_string }}</span>
-    {{ post.excerpt }}
+	{% if post.content contains '<!--more-->' %}
+		{{ post.content | split:'<!--more-->' | first | strip_html }}
+		<p><a class="nav-link" href="{{ post.url }}">Continue reading</a></p>
+	{% else %}
+		{{ post.excerpt | strip_html }}
+		<p><a class="nav-link" href="{{ post.url }}">Continue reading</a></p>
+	{% endif %}
+
+
   </article>
   {% endfor %}
 

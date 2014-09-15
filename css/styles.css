@@ -320,17 +320,8 @@ s,m,l,n = small(5px),medium(10px),large(20px),none(0px)
   margin-left: 3rem; }
 
 header {
-  text-align: right;
+  text-align: center;
   padding: 1em 2em 0 2em; }
-
-header:after {
-  content: "";
-  display: block;
-  bottom: 0;
-  height: 1px;
-  background: #ccc;
-  background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent);
-  margin-top: 1em; }
 
 header ul {
   margin: 0; }
@@ -341,7 +332,12 @@ header ul:after {
   clear: both; }
 
 header ul li {
-  display: inline-block; }
+  display: block;
+  padding: 1em 0;
+  border-bottom: solid 1px #ccc; }
+
+header ul li:first-child {
+  padding-top: 0; }
 
 header ul li a {
   display: block;
@@ -349,7 +345,30 @@ header ul li a {
   text-decoration: none;
   margin-left: 3rem; }
 
-.home-page header ul li .home {
+@media screen and (min-width: 600px) {
+  header {
+    text-align: right; }
+
+  header:after {
+    content: "";
+    display: block;
+    bottom: 0;
+    height: 1px;
+    background: #ccc;
+    background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent);
+    margin-top: 1em; }
+
+  header ul li {
+    display: inline-block;
+    padding: 0;
+    border: medium none; }
+
+  header ul li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-left: 3rem; } }
+.home-page header ul .home {
   display: none; }
 
 footer {
