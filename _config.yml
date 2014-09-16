@@ -11,7 +11,7 @@ url:  http://madebymike.com.au
 paginate:  5
 paginate_path:  "writing/:num"
 baseurl:  /
-exclude:  [node_modules, package.json, npm-debug.log, Gruntfile.js, scss]
+exclude:  [node_modules, package.json, npm-debug.log, Gruntfile.js]
 author:
   name:  Mike Riethmuller
   url:  http://madebymike.com.au
