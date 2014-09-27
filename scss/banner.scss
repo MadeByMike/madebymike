@@ -5,6 +5,7 @@ header{
 header ul {
   @include clearfix();
   margin: 0;
+  padding: 0;
 }
 header ul li {
 	display: block;
@@ -39,6 +40,7 @@ header ul li a{
 		padding: 0;
 		border: medium none;
 	}
+	header ul .home{ float: left; }
 	header ul li a{ 
 		display: block;
 		color: #333;
@@ -46,4 +48,4 @@ header ul li a{
 		margin-left: 3rem;
 	}
 }
-.home-page header ul .home{ display: none;}
+.home-page header ul .home{ display: none; }

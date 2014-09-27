@@ -344,7 +344,7 @@ a {
 a:focus, a:active, a:hover {
   color: #A2263A;
   text-decoration: underline;
-  text-shadow: 0 0 2px #ccc; }
+  text-shadow: 0 0 1px #a58489; }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -354,12 +354,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: #333;
-  text-decoration: none;
-  transition: none; }
-
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-  color: #333;
-  text-decoration: underline; }
+  text-decoration: none; }
 
 h1 {
   font-size: 6.48rem;
@@ -478,107 +473,6 @@ section {
 
   .col-12 {
     width: 100%; } }
- /* Spacing helpers - Thanks to Nicole Sullivan http://www.stubbornella.org/
-p,m = padding,margin
-a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
-s,m,l,n = small(5px),medium(10px),large(20px),none(0px)
-*/
-.ptn, .pvn, .pan {
-  padding-top: 0 !important; }
-
-.pts, .pvs, .pas {
-  padding-top: 1.5rem !important; }
-
-.ptm, .pvm, .pam {
-  padding-top: 2.5rem !important; }
-
-.ptl, .pvl, .pal {
-  padding-top: 3.5rem !important; }
-
-.prn, .phn, .pan {
-  padding-right: 0 !important; }
-
-.prs, .phs, .pas {
-  padding-right: 1.5rem !important; }
-
-.prm, .phm, .pam {
-  padding-right: 2.5rem !important; }
-
-.prl, .phl, .pal {
-  padding-right: 3.5rem !important; }
-
-.pbn, .pvn, .pan {
-  padding-bottom: 0 !important; }
-
-.pbs, .pvs, .pas {
-  padding-bottom: 1.5rem !important; }
-
-.pbm, .pvm, .pam {
-  padding-bottom: 2.5rem !important; }
-
-.pbl, .pvl, .pal {
-  padding-bottom: 3.5rem !important; }
-
-.pln, .phn, .pan {
-  padding-left: 0 !important; }
-
-.pls, .phs, .pas {
-  padding-left: 1.5rem !important; }
-
-.plm, .phm, .pam {
-  padding-left: 2.5rem !important; }
-
-.pll, .phl, .pal {
-  padding-left: 3.5rem !important; }
-
-.mtn, .mvn, .man {
-  margin-top: 0 !important; }
-
-.mts, .mvs, .mas {
-  margin-top: 1.5rem !important; }
-
-.mtm, .mvm, .mam {
-  margin-top: 2.5rem !important; }
-
-.mtl, .mvl, .mal {
-  margin-top: 3.5rem !important; }
-
-.mrn, .mhn, .man {
-  margin-right: 0 !important; }
-
-.mrs, .mhs, .mas {
-  margin-right: 1.5rem !important; }
-
-.mrm, .mhm, .mam {
-  margin-right: 2.5rem !important; }
-
-.mrl, .mhl, .mal {
-  margin-right: 3.5rem !important; }
-
-.mbn, .mvn, .man {
-  margin-bottom: 0 !important; }
-
-.mbs, .mvs, .mas {
-  margin-bottom: 1.5rem !important; }
-
-.mbm, .mvm, .mam {
-  margin-bottom: 2.5rem !important; }
-
-.mbl, .mvl, .mal {
-  margin-bottom: 3.5rem !important; }
-
-.mln, .mhn, .man {
-  margin-left: 0 !important; }
-
-.mls, .mhs, .mas {
-  margin-left: 1.5rem !important; }
-
-.mlm, .mhm, .mam {
-  margin-left: 2.5rem !important; }
-
-.mll, .mhl, .mal {
-  margin-left: 3.5rem !important; }
-
 .post-list article:after {
   content: "";
   display: block;
@@ -614,7 +508,8 @@ header {
   padding: 1em 2em 0 2em; }
 
 header ul {
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
 header ul:before, header ul:after {
   content: " ";
   display: table; }
@@ -652,6 +547,9 @@ header ul li a {
     display: inline-block;
     padding: 0;
     border: medium none; }
+
+  header ul .home {
+    float: left; }
 
   header ul li a {
     display: block;

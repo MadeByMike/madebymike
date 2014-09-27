@@ -39,7 +39,7 @@ a:active,
 a:hover {
 	color: #A2263A;
 	text-decoration: underline;
-	text-shadow: 0 0 2px #ccc;
+	text-shadow: 0 0 1px #a58489;
 }
 /* Headings */
 
@@ -61,17 +61,8 @@ h5 a,
 h6 a{
   color: #333;
   text-decoration: none;
-	transition: none;
 }
-h1 a:hover,
-h2 a:hover,
-h3 a:hover,
-h4 a:hover,
-h5 a:hover,
-h6 a:hover {
-  color: #333;
-  text-decoration: underline;
-}
+
 h1 {
     font-size: 3 * $headings_scale * $base_size;
     margin-top: 3 * $headings_scale * $leader;
