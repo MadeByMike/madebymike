@@ -398,13 +398,15 @@ table {
   text-decoration: none;
   color: #555; }
 
-.nav-link:after {
-  background: url(/img/arrow.svg) no-repeat;
-  content: " ";
+.nav-link svg {
   display: inline-block;
-  height: 12px;
-  margin: 0 0 0 .5em;
-  width: 10px; }
+  height: 10px;
+  width: 10px;
+  margin: 0 0 1px .5em; }
+
+.nav-link:hover svg, .nav-link:focus svg, .nav-link:active svg {
+  fill: #A2263A;
+  transition: fill .5s; }
 
 body {
   padding: 0 2rem; }
