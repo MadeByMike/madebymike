@@ -6,6 +6,11 @@ $headings: 'Cabin', sans-serif;
 $paragraph: 'Cardo', serif;
 $line_height: 1.5;
 $leader: 1rem;
+$text-color: #333;
+$link-color: #A2263A;
+$hover-color: #FA3656;
+
+
 
 /* Base */
 
@@ -14,7 +19,7 @@ html {
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
     line-height: $line_height;
-	color: #333;
+	color: $text-color;
 }
 
 /* Spacing */
@@ -30,16 +35,15 @@ table,ol,ul,p {
 /* Links */
 
 a {
-	color: #A2263A;
+	color: $link-color;
 	transition: color .5s;
 	text-decoration: none;
 }
 a:focus,
 a:active,
 a:hover {
-	color: #A2263A;
+	color: $hover-color;
 	text-decoration: underline;
-	text-shadow: 0 0 1px #a58489;
 }
 /* Headings */
 
@@ -52,17 +56,11 @@ h6 {
     font-family: $headings;
 	margin-bottom: $headings_scale * $leader;
 	line-height: 1;
+	a{
+	  color: $text-color;
+	  text-decoration: none;
+	}
 }
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a{
-  color: #333;
-  text-decoration: none;
-}
-
 h1 {
     font-size: 3 * $headings_scale * $base_size;
     margin-top: 3 * $headings_scale * $leader;
@@ -112,11 +110,16 @@ table {
 	display: inline-block;
 	height: 10px;
 	width: 10px;
-	margin: 0 0 1px .5em;
+	margin: 0 0 1px .3em;
+	fill: $text-color;
+	transition: fill .5s;
 }
 .nav-link:hover svg,
 .nav-link:focus svg,
 .nav-link:active svg{
-	fill: #A2263A;
-	transition: fill .5s;
+	fill: $hover-color;
+}
+
+ul.condensed{
+	padding-left: 2rem;
 }

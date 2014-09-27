@@ -13,10 +13,10 @@ class: post-list
 		<span class="post-date">{{ post.date | date_to_string }}</span>
 		{% if post.content contains '<!--more-->' %}
 			{{ post.content | split:'<!--more-->' | first | strip_html }}
-			<p><a class="nav-link" href="{{ post.url }}">Continue reading</a></p>
+			<p><a class="nav-link" href="{{ post.url }}">Continue reading<svg><use xlink:href="#arrow-icon"></use></svg></a></p>
 		{% else %}
 			{{ post.excerpt | strip_html }}
-			<p><a class="nav-link" href="{{ post.url }}">Continue reading</a></p>
+			<p><a class="nav-link" href="{{ post.url }}">Continue reading<svg><use xlink:href="#arrow-icon"></use></svg></a></p>
 		{% endif %}
 	  </article>
   {% endfor %}

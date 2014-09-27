@@ -12,7 +12,7 @@
 }
 .post-list .post-date {
   font-style: italic;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 @media screen and (min-width: 1000px){
@@ -21,6 +21,7 @@
 		width: 150px;
 		margin-left: -150px;
 		margin-top: -4rem;
+		color: #888;
 	}
 }
 .pagination{
@@ -30,4 +31,7 @@
 .pagination a{ 
 	text-decoration: none;
 	margin-left: 3rem;
+}
+.post-list main > section {
+	margin-bottom: 5rem;
 }

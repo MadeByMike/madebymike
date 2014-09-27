@@ -326,7 +326,7 @@ html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  color: #333; }
+  color: #333333; }
 
 /* Spacing */
 body {
@@ -337,23 +337,21 @@ table, ol, ul, p {
 
 /* Links */
 a {
-  color: #A2263A;
+  color: #a2263a;
   transition: color .5s;
   text-decoration: none; }
 
 a:focus, a:active, a:hover {
-  color: #A2263A;
-  text-decoration: underline;
-  text-shadow: 0 0 1px #a58489; }
+  color: #fa3656;
+  text-decoration: underline; }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Cabin", sans-serif;
   margin-bottom: 1.2rem;
   line-height: 1; }
-
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #333;
+  color: #333333;
   text-decoration: none; }
 
 h1 {
@@ -402,11 +400,15 @@ table {
   display: inline-block;
   height: 10px;
   width: 10px;
-  margin: 0 0 1px .5em; }
+  margin: 0 0 1px .3em;
+  fill: #333333;
+  transition: fill .5s; }
 
 .nav-link:hover svg, .nav-link:focus svg, .nav-link:active svg {
-  fill: #A2263A;
-  transition: fill .5s; }
+  fill: #fa3656; }
+
+ul.condensed {
+  padding-left: 2rem; }
 
 body {
   padding: 0 2rem; }
@@ -489,14 +491,15 @@ section {
 
 .post-list .post-date {
   font-style: italic;
-  font-size: 1.6rem; }
+  font-size: 1.8rem; }
 
 @media screen and (min-width: 1000px) {
   .post-list .post-date {
     position: absolute;
     width: 150px;
     margin-left: -150px;
-    margin-top: -4rem; } }
+    margin-top: -4rem;
+    color: #888; } }
 .pagination {
   text-align: center;
   margin: 3rem; }
@@ -504,6 +507,9 @@ section {
 .pagination a {
   text-decoration: none;
   margin-left: 3rem; }
+
+.post-list main > section {
+  margin-bottom: 5rem; }
 
 header {
   text-align: center;
@@ -588,7 +594,8 @@ footer .logo {
   height: 32px;
   margin-bottom: -1rem;
   fill: #CCC;
-  margin-right: .5rem; }
+  margin-right: .5rem;
+  opacity: 1; }
 
 footer ul li a:hover, footer ul li a:hover .logo {
   color: #A3A3A3;

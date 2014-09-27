@@ -2,7 +2,6 @@ footer {
 	text-align: center;
 	margin: 6rem 0 3em 0;
 }
-
 footer ul {
   @include clearfix();
   margin: 0;
@@ -23,6 +22,7 @@ footer .logo{
 	margin-bottom: -1rem;
 	fill: #CCC;
 	margin-right: .5rem;
+	opacity: 1;
 }
 footer ul li a:hover,
 footer ul li a:hover .logo{ 
