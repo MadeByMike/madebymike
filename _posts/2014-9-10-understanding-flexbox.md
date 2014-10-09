@@ -70,9 +70,9 @@ Item 2 shrink factor: (1&times;400) / (100px + 400px + 400px) = .444 &times; -30
 Item 3 shrink factor: (1&times;400) / (100px + 400px + 400px) = .444 &times; -300px = -66.666px
 </div>
 
-The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, times its flex-shrink value by its flex-basis value (1&times;100 or 1&times;400), then divided this by the combined sum of the flex-shrink times the flex-basis for all items (1&times;100) + (1&times;400) + (1&times;400).
+The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, times its flex-shrink value by its flex-basis value (1&times;100px or 1&times;400px), then divide this by the combined sum of the flex-shrink times the flex-basis for all items (1&times;100px) + (1&times;400px) + (1&times;400px).
 
-Finally times this number by the space remaining to get the amount to reduce each item by.
+Finally times this number by the space remaining (-300px) to get the amount to reduce each item by (33.33px and 66.66px).
 
 In the above example if the flex shrink of the first item was to change to 2 the result would differ as follows:
 
