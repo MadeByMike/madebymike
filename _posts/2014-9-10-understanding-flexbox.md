@@ -4,13 +4,19 @@ title: Understanding Flexbox
 extra_css:
   - understanding-flex.css 
 ---
-This is not the [complete guide to Flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/), rather it's the minimal guide. Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
+Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
 
-If you don't know what Flexbox is, it's a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change. Take a look at some examples, it might look like magic, but it's not there is a method for calculating the size of child items.
+If you don't know what Flexbox is, it's a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change. [Have a look at this guide](http://css-tricks.com/snippets/css/a-guide-to-flexbox/), and [take a look at some examples](http://codepen.io/MadeByMike/pen/26cb650eaef356da925e75139537f74e) it might look like magic, but it's not, there is a method for calculating the size of child items.
 
 ##How does it work?
 
-Flexbox is like us, it just wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
+The full algorithm for working out flexbox a layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
+
+<blockquote>Authors writing web pages should generally be served well by the individual property descriptions, and do not need to read this section unless they have a deep-seated urge to understand arcane details of CSS layout.</blockquote>
+
+While this is true, I believe that designers and developers will want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width of height of flex items and confidently assign flex values with excessive trial and error. That is what this description aims to provide, just the bare minimum of how to determine the width of an item.
+
+Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
 
 <strong>Note:</strong> If a flex item has borders, margin or padding these values need to be added to the flex-basis according to the current box-sizing method when calculating the remaining space. They should also be added to the values at then end of calculation to get the final outer width of each flex item.
 
@@ -50,7 +56,6 @@ For some reason the method for working out flex shrink differs slightly and is a
 
 Rather than working out the ratio of a items flex-shrink value against the total of all flex-shrink values, for each item we first times its flex shrink value by its basis and then workout the ratio of this number against the sum of all flex-basis values times their flex-shrink.
 
-
 <div id="example-static-flex-2" class="flex-container">
 	<div class="flex-item flex-item-1">Item 1</div>
 	<div class="flex-item flex-item-2">Item 2</div>
@@ -89,4 +94,11 @@ Item 2 shrink factor: (1&times;400) / (200px + 400px + 400px) = .444 &times; -30
 Item 3 shrink factor: (1&times;400) / (200px + 400px + 400px) = .444 &times; -300px = -120px
 </div>
 
+##More info
+
+  - I built a little [tool for testing flexbox calculations](/demos/flexbox-tester/),
+  - Chris Wright covers his [adventures with flexbox](http://chriswrightdesign.com/experiments/flexbox-adventures/),
+  - Chris Coyier [a Complete Guide to Flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/),
+  - Chris Mills, wrote a great [introduction to flexbox](https://dev.opera.com/articles/flexbox-basics/),
+  - If you really must, every detail is available [in the spec](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm)
 
