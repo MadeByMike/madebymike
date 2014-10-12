@@ -27,8 +27,8 @@ Once each flex-basis has been determined the browser adds these together along w
 When the combined size of all the flex items is less than their container, the remaining space is distributed amongst all the items. The flex-grow attribute is used to determine how the remaining space should be allocated. To work out how much space is allocated to each item, take the ratio of the item's flex-grow value, over the total of all the other flex-grow values in the same container and multiply this by the space remaining. Here is an example:
 
 <div id="example-static-flex-1" class="flex-container">
-	<div class="flex-item flex-item-1">Item 1</div>
-	<div class="flex-item flex-item-2">Item 2</div>
+	<div class="flex-item flex-item-1"><span>Item 1</span></div>
+	<div class="flex-item flex-item-2"><span>Item 2</span></div>
 </div> 
 <div class="example-container pre">
 .flex-container{ width: 600px; }
@@ -57,9 +57,9 @@ For some reason the method for working out flex shrink differs slightly and is a
 Rather than working out the ratio of a items flex-shrink value against the total of all flex-shrink values, for each item we first multiply its flex shrink value by its basis and then workout the ratio of this number against the sum of all flex-basis values multiply their flex-shrink.
 
 <div id="example-static-flex-2" class="flex-container">
-	<div class="flex-item flex-item-1">Item 1</div>
-	<div class="flex-item flex-item-2">Item 2</div>
-	<div class="flex-item flex-item-3">Item 2</div>
+	<div class="flex-item flex-item-1"><span>Item 1</span></div>
+	<div class="flex-item flex-item-2"><span>Item 2</span></div>
+	<div class="flex-item flex-item-3"><span>Item 2</span></div>
 </div>  
 <div class="example-container pre">
 .flex-container{ width: 600px; }

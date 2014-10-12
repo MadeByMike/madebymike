@@ -14,8 +14,9 @@
 	position: relative;
 	border: solid 1px;
 }
-.flex-item{
-	box-sizing: border-box;
+.flex-item span{
+	display: block;
+	font-size: .8em;
 	background: skyblue;
 	border: solid 10px steelblue;
 	text-align: center;
