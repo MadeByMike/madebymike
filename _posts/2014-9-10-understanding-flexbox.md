@@ -24,7 +24,7 @@ Once each flex-basis has been determined the browser adds these together along w
 
 ###Increasing the size of flex items (flex-growing)
 
-When the combined size of all the flex items is less than their container, the remaining space is distributed amongst all the items. The flex-grow attribute is used to determine how the remaining space should be allocated. To work out how much space is allocated to each item, take the ratio of the item's flex-grow value, over the total of all the other flex-grow values in the same container and times this by the space remaining. Here is an example:
+When the combined size of all the flex items is less than their container, the remaining space is distributed amongst all the items. The flex-grow attribute is used to determine how the remaining space should be allocated. To work out how much space is allocated to each item, take the ratio of the item's flex-grow value, over the total of all the other flex-grow values in the same container and multiply this by the space remaining. Here is an example:
 
 <div id="example-static-flex-1" class="flex-container">
 	<div class="flex-item flex-item-1">Item 1</div>
@@ -54,7 +54,7 @@ If the space remaining is a negative this means that the flex container is small
 
 For some reason the method for working out flex shrink differs slightly and is a little harder.
 
-Rather than working out the ratio of a items flex-shrink value against the total of all flex-shrink values, for each item we first times its flex shrink value by its basis and then workout the ratio of this number against the sum of all flex-basis values times their flex-shrink.
+Rather than working out the ratio of a items flex-shrink value against the total of all flex-shrink values, for each item we first multiply its flex shrink value by its basis and then workout the ratio of this number against the sum of all flex-basis values multiply their flex-shrink.
 
 <div id="example-static-flex-2" class="flex-container">
 	<div class="flex-item flex-item-1">Item 1</div>
@@ -75,9 +75,9 @@ Item 2 shrink factor: (1&times;400) / (100px + 400px + 400px) = .444 &times; -30
 Item 3 shrink factor: (1&times;400) / (100px + 400px + 400px) = .444 &times; -300px = -66.666px
 </div>
 
-The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, times its flex-shrink value by its flex-basis value (1&times;100px or 1&times;400px), then divide this by the combined sum of the flex-shrink times the flex-basis for all items (1&times;100px) + (1&times;400px) + (1&times;400px).
+The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, multiply its flex-shrink value by its flex-basis value (1&times;100px or 1&times;400px), then divide this by the combined sum of the flex-shrink multiply the flex-basis for all items (1&times;100px) + (1&times;400px) + (1&times;400px).
 
-Finally times this number by the space remaining (-300px) to get the amount to reduce each item by (33.33px and 66.66px).
+Finally multiply this number by the space remaining (-300px) to get the amount to reduce each item by (33.33px and 66.66px).
 
 In the above example if the flex shrink of the first item was to change to 2 the result would differ as follows:
 
