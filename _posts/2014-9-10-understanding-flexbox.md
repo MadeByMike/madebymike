@@ -8,13 +8,13 @@ Instead of covering all properties of Flexbox this article focuses on understand
 
 If you don't know what Flexbox is, it's a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change. [Have a look at this guide](http://css-tricks.com/snippets/css/a-guide-to-flexbox/), and [take a look at some examples](http://codepen.io/MadeByMike/pen/26cb650eaef356da925e75139537f74e) it might look like magic, but it's not, there is a method for calculating the size of child items.
 
-##How does it work?
-
 The full algorithm for working out flexbox a layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
 
 <blockquote>Authors writing web pages should generally be served well by the individual property descriptions, and do not need to read this section unless they have a deep-seated urge to understand arcane details of CSS layout.</blockquote>
 
-While this is true, I believe that designers and developers will want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width of height of flex items and confidently assign flex values with excessive trial and error. That is what this description aims to provide, just the bare minimum of how to determine the width of an item.
+While this is true, I believe that designers and developers will still want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width or height of flex items and confidently assign flex values with excessive trial and error.
+
+##How does it work?
 
 Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
 
