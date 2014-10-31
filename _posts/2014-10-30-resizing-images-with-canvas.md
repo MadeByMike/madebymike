@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Accessible contrast with Less and Sass
+title: Resizing and Cropping Images with Canvas
 ---
 I published an article on the Codrops website: [Resizing and Cropping Images with Canvas](http://tympanus.net/codrops/2014/10/30/resizing-cropping-images-canvas/)
 
