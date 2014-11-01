@@ -12,7 +12,7 @@ The full algorithm for working out flexbox a layout in any situation is [availab
 
 <blockquote>Authors writing web pages should generally be served well by the individual property descriptions, and do not need to read this section unless they have a deep-seated urge to understand arcane details of CSS layout.</blockquote>
 
-While this is true, I believe that designers and developers will still want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width or height of flex items and confidently assign flex values with excessive trial and error.
+While this is true, I believe that designers and developers will still want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width or height of flex items and confidently assign flex values without excessive trial and error.
 
 ##How does it work?
 
