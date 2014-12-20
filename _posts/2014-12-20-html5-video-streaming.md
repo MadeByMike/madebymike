@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Determining the quality of lighting in live video streams
+title: Determining the quality of light in live video streams
 ---
 I've been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
 
