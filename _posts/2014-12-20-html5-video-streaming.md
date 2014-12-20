@@ -17,8 +17,9 @@ The first thing to know is, it had a bit of a rocky start. This history is well 
 The next thing to know is that `getUserMedia()` is still not fully supported in all browsers and there are some quirks (huge gaping inconsistencies) in implementation across browsers.
 
 Not to fear because web development superhero Addy Osmani and others have come to the rescue with pollyfills such as:
- - [getUserMedia.js](https://github.com/addyosmani/getUserMedia.js/) 
- - [webcamjs](https://github.com/jhuckaby/webcamjs)
+
+  - [getUserMedia.js](https://github.com/addyosmani/getUserMedia.js/) 
+  - [webcamjs](https://github.com/jhuckaby/webcamjs)
  
 To keep it as simple as possible I haven't included any pollyfills in my demo, but I've tested them and they work, so there's no reason not to start using this now.
 
