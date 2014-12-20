@@ -12,7 +12,7 @@ These tests have some potential real world uses. For example to advise of optima
 
 Before I explain my demo, it's worth sharing what I've learnt about the history of video capture and webRTC as well as its [state today](http://caniuse.com/#search=getusermedia).
 
-The first thing to know is, it had a bit of a rocky start. This history is well covered in [this excellent HTML5rock article](http://www.html5rocks.com/en/tutorials/getusermedia/intro/) by Eric Bidelman. 
+The first thing to know is, it had a bit of a rocky start. This history is well covered in [this excellent HTML5rocks article](http://www.html5rocks.com/en/tutorials/getusermedia/intro/) by Eric Bidelman. 
 
 The next thing to know is that `getUserMedia()` is still not fully supported in all browsers and there are some quirks (huge gaping inconsistencies) in implementation across browsers.
 
