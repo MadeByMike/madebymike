@@ -10,8 +10,6 @@ $text-color: #333;
 $link-color: #A2263A;
 $hover-color: #FA3656;
 
-
-
 /* Base */
 
 html {
@@ -97,6 +95,12 @@ table {
 .lead {
     font-size: $headings_scale * $base_size;
 }
+
+.caption{ 
+  color: lighten($text-color, 20%); 
+  text-align: center; 
+}
+
 .nav-link{
 	font-weight: bold;
 	display: block;
@@ -122,4 +126,10 @@ table {
 
 ul.condensed{
 	padding-left: 2rem;
+}
+code{
+  color: #C7254E;
+  background-color: #F9F2F4;
+  border-radius: 4px;
+  padding: 2px 4px;
 }

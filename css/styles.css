@@ -326,7 +326,7 @@ html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  color: #333333; }
+  color: #333; }
 
 /* Spacing */
 body {
@@ -337,12 +337,12 @@ table, ol, ul, p {
 
 /* Links */
 a {
-  color: #a2263a;
+  color: #A2263A;
   transition: color .5s;
   text-decoration: none; }
 
 a:focus, a:active, a:hover {
-  color: #fa3656;
+  color: #FA3656;
   text-decoration: underline; }
 
 /* Headings */
@@ -351,7 +351,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.2rem;
   line-height: 1; }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #333333;
+  color: #333;
   text-decoration: none; }
 
 h1 {
@@ -387,6 +387,10 @@ table {
 .lead {
   font-size: 2.16rem; }
 
+.caption {
+  color: #666666;
+  text-align: center; }
+
 .nav-link {
   font-weight: bold;
   display: block;
@@ -401,14 +405,20 @@ table {
   height: 10px;
   width: 10px;
   margin: 0 0 1px .3em;
-  fill: #333333;
+  fill: #333;
   transition: fill .5s; }
 
 .nav-link:hover svg, .nav-link:focus svg, .nav-link:active svg {
-  fill: #fa3656; }
+  fill: #FA3656; }
 
 ul.condensed {
   padding-left: 2rem; }
+
+code {
+  color: #C7254E;
+  background-color: #F9F2F4;
+  border-radius: 4px;
+  padding: 2px 4px; }
 
 body {
   padding: 0 2rem; }
@@ -484,7 +494,7 @@ section {
   bottom: 0;
   height: 1px;
   background: #ccc;
-  background: linear-gradient(to right, transparent, #cccccc 25%, #cccccc 75%, transparent); }
+  background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent); }
 
 .post-list article:last-of-type:after {
   display: none; }
@@ -548,7 +558,7 @@ header ul li a {
     bottom: 0;
     height: 1px;
     background: #ccc;
-    background: linear-gradient(to right, transparent, #cccccc 25%, #cccccc 75%, transparent);
+    background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent);
     margin-top: 1em; }
 
   header ul li {
@@ -690,7 +700,6 @@ pre[class*="language-"] {
   font-weight: 700;
   src: local("Cabin Bold"), local("Cabin-Bold"), url(http://fonts.gstatic.com/s/cabin/v7/82B-3YlzWJm8zbCrVEmc_hTbgVql8nDJpwnrE27mub0.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
-
 /* latin */
 @font-face {
   font-family: 'Cardo';
@@ -698,3 +707,5 @@ pre[class*="language-"] {
   font-weight: 400;
   src: local("Cardo"), local("Cardo-Regular"), url(http://fonts.gstatic.com/s/cardo/v8/aTf_9cZ7xXd_XntMMbmPxQ.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+/*# sourceMappingURL=styles.css.map */
