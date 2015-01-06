@@ -84,11 +84,11 @@ If you want to understand how it works let’s look at making a simple horizonta
 }
 ```
 
-Add the class name `loading` to any element on the page and you should get something like the following positioned in the centre of the element:
+With the above css you can add a class name `loading` to any element on the page and you should get something like the following, positioned in the centre of the element:
 
 <img style="margin: 0 auto; display:block;" src="/img/zero-element-example.png">
  
-If you want to apply this to the whole page you will also need to add the following before applying the class name to the body element:
+If you want to apply this to the whole page you will also need to add the following css before applying the class name to the body element:
 
 ```css
 html, body { height: 100%; }
@@ -106,7 +106,7 @@ To our circle add the following css:
 }
 ```
 
-Important animation properties for this example are the easing and animation-direction. I selected `ease-in-out` which causes it to slow before changing direction, although linear also works, however the animation-direction must be set to `alternate` in this example.
+Important animation properties for this example are the easing and animation-direction. I selected `ease-in-out` which causes it to slow before changing direction, although `linear` also works, however the animation-direction must be set to `alternate` in this example.
 
 ```css
 @keyframes loading {
