@@ -51,6 +51,7 @@ If you want to understand how it works let’s look at making a simple horizonta
   position: relative; 
   background: rgba(255,255,255,.8);
 }
+
 .loading:before{
   content:''; 
   box-sizing: border-box;
@@ -67,6 +68,7 @@ If you want to understand how it works let’s look at making a simple horizonta
   border: solid 1px #000; 
   border-radius: 30px;
 } 
+
 .loading:after{
   content:''; 
   box-sizing: border-box;
@@ -106,22 +108,23 @@ To our circle add the following css:
 }
 ```
 
-Important animation properties for this example are the easing and animation-direction. I selected `ease-in-out` which causes it to slow before changing direction, although `linear` also works, however the animation-direction must be set to `alternate` in this example.
+Important animation properties in this example are the `animation-timing-function` and `animation-direction`. For the timing function I selected `ease-in-out` which causes it to slow before changing direction, although `linear` also works, however for this example the animation direction must be set to `alternate`. Next we add the animation keyframes.
 
 ```css
 @keyframes loading {
   0% {transform: translate(-99px, -50%);}
   100% {transform: translate(71px, -50%);}
 }
+
 @-webkit-keyframes loading {
   0% {transform: translate(-99px, -50%);}
   100% {transform: translate(71px, -50%);}
 }
 ```
 
-For the animation keyframes we translate the position of the circle so that is starts with its left edge against the left edge of the bar and ends with its right edge against the right edge of the bar. We also translate the vertical position `-50%` to maintain its vertical centring. We do not change the vertical position for this animation.
+For the animation keyframes we translate the position of the circle so that is starts with its left edge against the left edge of the bar and ends with its right edge against the right edge of the bar. We also need to translate the vertical position by `-50%` to maintain its vertical centring. We do not change the vertical position in this animation.
 
-Without any transform applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have the `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border with of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle is `28px` rather than `30px`.
+Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have the `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border with of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle is `28px` rather than `30px`.
 
 The full calculation is for the first keyframe is: 
 
@@ -139,15 +142,15 @@ The full calculation is for the final keyframe is:
 100-1-28 = 71
 ```
 
-**Note**: You might not want to confine the circle to the inner width of the bar. Take a look at some of the other examples I’ve done and adjust the calculations accordingly. 
+**Note**: You might not want to confine the circle to the inner width of the bar. Take a look at some of the examples I’ve done in the links at end of this article. 
 
 You can of course change the sizes and colors to suit your preferences, as well as the border width or other properties, just remember if you change these adjust the calculations accordingly.
 
-If you’d like to make one a now you can, [fork my zero element animation boilerplate](http://codepen.io/MadeByMike/pen/6fced0cf51ce07ef6833aa775d254652).
+If you’d like to make a horizontal zero element loading animation you can, [fork my zero element animation boilerplate](http://codepen.io/MadeByMike/pen/6fced0cf51ce07ef6833aa775d254652).
 
 This is of course only one possible type of loading animation. There are plenty of alternatives that could be made using the same technique.
 
-I’ve created some other examples such as a radial loading animation - I'll admit, this one generates some lengthy css, but in most cases it is still smaller than an image or even an SVG. To create more complex animations like this you are going to need a preprocessor or some kind of script to generate the keyframes. Otherwise minor changes are going to result in a significant re calculations and this is not something you would want to do by hand.
+I’ve created some other examples such as a radial loading animation - I'll admit, this one generates some lengthy css, but in most cases it is still smaller than an image or even an SVG. To create more complex animations like this you are going to need a preprocessor or some kind of script to generate the keyframes. Otherwise minor changes are going to result in a significant re-calculations and this is not something you would want to do by hand.
 
 Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find this useful, if you have some more examples or if you have any questions. I'll be happy to add you examples here.
 
