@@ -22,6 +22,8 @@ With a "zero element" loading animation, a loading state can be applied to any e
   </div>
 </div>
 
+First of all, I'm not a huge fan of loading animations and neither ore your users but sometimes for various reasons an action is going to take time and we need to let people know we're working on it. So if we must use a loading animation we want it to have a light foot print and be easy to toggle on and off, when and where we need it.
+
 I've seen a lot of css only loading animations. A quick search on CodePen will find thousands of examples. They are popular because they are relatively quick and easy to make, yet can be creatively challenging and the result is usually visually pleasing. These type of experiments are fun and can be a rewarding and worthwhile exercise, but the practicality of many examples is more questionable.
 
 There are definite benefits to css only solutions such as improving the number of network requests, page weight and animation performance. But in my opinion these benefits are often outweighed by the need to insert a div soup into the mark-up. Not only that, positioning a css only "spinner" can be challenging, it often requires changes to the surrounding mark-up to avoid breaking the layout.
@@ -30,12 +32,12 @@ Perhaps slightly more practical are the "single element" examples. They tend to 
 
 After all loading is a "describing word", it indicates the state of something and is not an object itself. Maybe it is a little silly to think we should apply this logic to our mark-up, but it feels right to me. So I set out to make a "zero element" loading animation, one that can be applied simply by adding a class name.
 
-I eventually settled on a solution that works almost everywhere. There are only 2 conditions related to the css of the element you are adding the loading animation to:
+I eventually settled on a solution that works almost everywhere. There are only 2 conditions.The element we're adding the loading animation to:
 
- - it cannot have `:before` or `:after` pseudo-elements applied
- - it must be possible to change the `position` property to `relative`
+ - cannot have `:before` or `:after` pseudo-elements applied
+ - must be possible to change the `position` property to `relative`
 
-This works in every situation I’ve ever needed a loading animation but if you want to apply this technique to an element that requires absolute positioning or already has pseudo-elements, it’s usually possible to add the loading class to a container or child element.
+This works in every situation I’ve ever needed a loading animation but if we want to apply this technique to an element that requires absolute positioning or already has pseudo-elements, it’s usually possible to add the loading class to a container or child element.
 
 ##How it works
 This technique works by using `:before` and `:after` pseudo-elements to create the different parts of the animation. CSS transformations and absolute positioning are applied and these properties are animated to create different types of loading indicators.
@@ -86,11 +88,11 @@ If you want to understand how it works let’s look at making a simple horizonta
 }
 ```
 
-With the above css you can add a class name `loading` to any element on the page and you should get something like the following, positioned in the centre of the element:
+With the above css we can add a class name `loading` to any element on the page and we should get something like the following, positioned in the centre:
 
 <img style="margin: 0 auto; display:block;" src="/img/zero-element-example.png">
  
-If you want to apply this to the whole page you will also need to add the following css before applying the class name to the body element:
+If you want to apply this to the whole page, by applying the class name to the body element, you will also need to add the following css:
 
 ```css
 html, body { height: 100%; }
@@ -102,7 +104,9 @@ To our circle add the following css:
 
 ```css
 .loading:after{
+
   ...
+  
   -webkit-animation: loading 3s ease-in-out infinite alternate;
   animation: loading 3s ease-in-out infinite alternate;
 }
@@ -112,19 +116,19 @@ Important animation properties in this example are the `animation-timing-functio
 
 ```css
 @keyframes loading {
-  0% {transform: translate(-99px, -50%);}
-  100% {transform: translate(71px, -50%);}
+  0% { transform: translate(-99px, -50%); }
+  100% { transform: translate(71px, -50%); }
 }
 
 @-webkit-keyframes loading {
-  0% {transform: translate(-99px, -50%);}
-  100% {transform: translate(71px, -50%);}
+  0% { transform: translate(-99px, -50%); }
+  100% { transform: translate(71px, -50%); }
 }
 ```
 
 For the animation keyframes we translate the position of the circle so that is starts with its left edge against the left edge of the bar and ends with its right edge against the right edge of the bar. We also need to translate the vertical position by `-50%` to maintain its vertical centring. We do not change the vertical position in this animation.
 
-Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have the `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border with of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle is `28px` rather than `30px`.
+Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of the circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have the `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border width of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle is `28px` rather than `30px`.
 
 The full calculation is for the first keyframe is: 
 
