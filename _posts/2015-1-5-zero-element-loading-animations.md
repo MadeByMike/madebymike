@@ -22,7 +22,7 @@ With a "zero element" loading animation, a loading state can be applied to any e
   </div>
 </div>
 
-First of all, I'm not a huge fan of loading animations and neither ore your users but sometimes for various reasons an action is going to take time and we need to let people know we're working on it. So if we must use a loading animation we want it to have a light foot print and be easy to toggle on and off, when and where we need it.
+First of all, I'm not a huge fan of loading animations and neither are your users but sometimes, for various reasons an action is going to take time and we need to let people know we're working on it. So if we must use a loading animation we want it to have a light foot print and be easy to toggle on and off, when and where we need it.
 
 I've seen a lot of css only loading animations. A quick search on CodePen will find thousands of examples. They are popular because they are relatively quick and easy to make, yet can be creatively challenging and the result is usually visually pleasing. These type of experiments are fun and can be a rewarding and worthwhile exercise, but the practicality of many examples is more questionable.
 
