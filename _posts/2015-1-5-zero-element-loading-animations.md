@@ -128,7 +128,7 @@ Important animation properties in this example are the `animation-timing-functio
 
 For the animation keyframes we translate the position of the circle so that is starts with its left edge against the left edge of the bar and ends with its right edge against the right edge of the bar. We also need to translate the vertical position by `-50%` to maintain its vertical centring. We do not change the vertical position in this animation.
 
-Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of the circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have the `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border width of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle is `28px` rather than `30px`.
+Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of the circle against the left edge of the bar we need to move it `-100px` horizontally. So why in the example do I have `-99px`? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have `box-sizing: border-box;` applied to the bar so I need to account for the border width. It’s barely noticeable with a border width of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle are `28px` rather than `30px`.
 
 The full calculation is for the first keyframe is: 
 
@@ -156,7 +156,7 @@ This is of course only one possible type of loading animation. There are plenty 
 
 I’ve created some other examples such as a radial loading animation - I'll admit, this one generates some lengthy css, but in most cases it is still smaller than an image or even an SVG. To create more complex animations like this you are going to need a preprocessor or some kind of script to generate the keyframes. Otherwise minor changes are going to result in a significant re-calculations and this is not something you would want to do by hand.
 
-Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find this useful, if you have some more examples or if you have any questions. I'll be happy to add you examples here.
+Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find this useful, if you have some more examples or if you have any questions. I'll be happy to add your examples here.
 
 ##Examples
 
