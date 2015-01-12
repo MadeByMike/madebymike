@@ -9,7 +9,7 @@ With a "zero element" loading animation, a loading state can be applied to any e
 
 <div class="row">
   <div class="col col-6">
-    <a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">
+    <a href="http://codepen.io/MadeByMike/pen/LEbYgr">
       <div class="loading horizontal-example"></div>
     </a>
     <p class="caption"><a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">view examples on codepen</a></p>
@@ -160,5 +160,5 @@ Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find
 
 ##Examples
 
- - [Horizontal zero element loaders](http://codepen.io/MadeByMike/pen/bNeyEj?editors=110)
+ - [Horizontal zero element loaders](http://codepen.io/MadeByMike/pen/LEbYgr)
  - [Radial loaders zero element](http://codepen.io/MadeByMike/pen/bNeyEj?editors=110)
