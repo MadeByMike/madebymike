@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>
+Flexbox Tester &middot; MadebyMike
+</title>
+<link rel="stylesheet" href="/css/styles.min.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+<style>
+h1{
+	text-align: center;
+}
+.flex-container {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  width: 900px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.flex-controls {
+  margin: 8rem auto 4rem auto;  
+}
+
+#fb1,#fb2,#fb3,
+.control-fb1,
+.control-fb2,
+.control-fb3{
+  order: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+.controls{
+  text-align: left;
+  display: inline-block;
+}
+label {
+  font-size: 1.8rem;
+  width: 100px;
+  display: inline-block;
+  color: #666;
+}
+input {
+  width: 60px;
+  padding: .3rem;
+  margin: .3rem 0;
+  border: solid 1px #EAEAEA;
+}
+.flex-item{
+  background: #2f5a70;
+  padding: 10px;
+  border: 6px solid #e89607;
+  
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+.flex-width{
+  padding-top: .8rem;
+  border-left: solid 1px #ccc;
+}
+#fb3 .flex-width{
+  border-right: solid 1px #ccc; 
+}
+#discuss{
+  margin-top: 4rem;
+  padding: 6rem;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #555;
+  font-size: 1.4rem;
+}
+#discuss h2 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-bottom: 2rem;
+}
+.indent {
+	padding-left: 3rem;
+}
+.step{
+	margin-top: 4rem;
+}
+.lead{ text-align: center;}
+</style>
+</head>
+<body class="demo">
+<main>
+<section>
+	<h1>Flexbox Tester</h1>
+	<p class="lead">Understand how to calculate the width of flex items.</p>
+</section>
+
+<div class="flex-container flex-controls">
+  <div class="control-fb1">
+	<div class="controls">
+	  <div class="control">
+		<label for="input-fb1-grow">flex-grow:</label>
+		<input id="input-fb1-grow" type="number" value="1" min="0"></div>
+	  <div class="control">
+		<label for="input-fb1-shrink">flex-shrink:</label>
+		<input id="input-fb1-shrink" type="number"  value="1" min="0">
+	  </div>
+	  <div class="control"> 
+		<label for="input-fb1-basis">flex-basis:</label>
+		<input id="input-fb1-basis" type="text" value="auto">
+	  </div>
+	</div>
+  </div>
+
+  <div class="control-fb2">
+	<div class="controls">
+	  <div class="control">
+		<label for="input-fb2-grow">flex-grow:</label> 
+		<input id="input-fb2-grow" type="number" value="1" min="0">
+	  </div>
+	  <div class="control">
+		<label for="input-fb2-shrink">flex-shrink:</label> 
+		<input id="input-fb2-shrink" type="number" value="1" min="0">
+	  </div>
+	  <div class="control">
+		<label for="input-fb2-basis">flex-basis:</label>
+		<input id="input-fb2-basis" type="text" value="auto">
+	  </div>
+	</div>
+  </div>
+
+  <div class="control-fb3">
+	<div class="controls">
+	  <div class="control">
+		<label for="input-fb3-grow">flex-grow:</label> 
+		<input id="input-fb3-grow" type="number" value="1" min="0">
+	  </div>
+	  <div class="control">
+		<label for="input-fb3-shrink">flex-shrink:</label> 
+		<input id="input-fb3-shrink" type="number" value="1" min="0">
+	  </div>
+	  <div class="control">
+		<label for="input-fb3-basis">flex-basis:</label> 
+		<input id="input-fb3-basis" type="text" value="auto">
+	  </div>  
+	</div>
+  </div>
+
+</div>
+<div id="example-container" class="flex-container">
+  <div id="fb1"><div class="flex-item">Flex item 1</div><div class="flex-width"> </div></div>
+  <div id="fb2"><div class="flex-item">Flex item 2</div><div class="flex-width"> </div></div>
+  <div id="fb3"><div class="flex-item">Flex item 3</div><div class="flex-width"> </div></div>
+</div>
+<div id="discuss">
+	<h2>Working it out</h2>
+	<p>1. Find the space remaining:</p>
+	<div class="indent">
+		<p>The flex container is: <span class="working-container">0</span>px</p>
+		<p>The initial size of all the flex items is: (<span class="working-basis-1">0</span>px + <span class="working-basis-2">0</span>px + <span class="working-basis-3">0</span>px) = <span class="working-basis-all">0</span>px</p>
+		<p>So the space remaining is: 
+		<span class="working-container">0</span>px - <span class="working-basis-all">0</span>px = <strong><span class="working-remaining-space">0</span>px</strong></p>
+		</p>
+	</div>
+	<div class="will-grow">
+		<p>That's a positive number, so we will be using flex-grow to work out how to distribute the remaining space between the flex items.</p>
+		<p class="step">2. Find the size of 1 flex-grow value:</p>
+		<div class="indent">
+			<p>The total of all flex-grow values is: (<span class="working-grow-1">0</span> + <span class="working-grow-2">0</span> + <span class="working-grow-3">0</span>) = <span class="working-grow-all">0</span></p>
+			<p>So 1 flex grow is: <span class="working-remaining-space">0</span>px/<span class="working-grow-all">0</span> =  <strong><span class="working-a-single-grow">0</span>px</strong></p>
+		</div>
+		<p class="step">2. Find the size of each flex item:</p>
+		<div class="indent">
+			<p>Flex item 1 should be: (<span class="working-grow-1">0</span> &times; <span class="working-a-single-grow">0</span>px) + <span class="working-basis-1">0</span>px = <strong><span class="fb1-should-be">0</span>px</strong></p>
+			<p>Flex item 2 should be: (<span class="working-grow-2">0</span> &times; <span class="working-a-single-grow">0</span>px) + <span class="working-basis-2">0</span>px = <strong><span class="fb2-should-be">0</span>px</strong></p>
+			<p>Flex item 3 should be: (<span class="working-grow-3">0</span> &times; <span class="working-a-single-grow">0</span>px) + <span class="working-basis-3">0</span>px = <strong><span class="fb3-should-be">0</span>px</strong></p>
+		</div>
+	</div>
+	<div class="will-shrink">
+		<p>That's a negative number, meaning our items don't fit in the flex container. We will be using the flex-shrink factor determine how much each flex item will shrink.</p>
+		<p class="step">2. Find the flex shrink factor for each item:</p>
+		<div class="indent">
+			<p>The total of all scaled flex shrink factors: ( (<span class="working-shrink-1">0</span> &times; <span class="working-basis-1">0</span>) + (<span class="working-shrink-2">0</span> &times; <span class="working-basis-2">0</span>) + (<span class="working-shrink-3">0</span> &times; <span class="working-basis-3">0</span>) ) = <span class="flex-shrink-all">0</span></p>
+			<p>The flex-shrink factor for item 1 is: (<span class="working-shrink-1">0</span> &times; <span class="working-basis-1">0</span>) / 
+			<span class="flex-shrink-all">0</span> = <span class="working-shrink-factor-1">0</span></p>
+			<p>The flex-shrink factor for item 2 is: (<span class="working-shrink-2">0</span> &times; <span class="working-basis-2">0</span>) / 
+			<span class="flex-shrink-all">0</span> = <span class="working-shrink-factor-2">0</span></p>
+			<p>The flex-shrink factor for item 3 is: (<span class="working-shrink-3">0</span> &times; <span class="working-basis-3">0</span>) / 
+			<span class="flex-shrink-all">0</span>  = <span class="working-shrink-factor-3">0</span></p>
+		</div>
+		<p class="step">2. Find the size of each flex item:</p>
+		<div class="indent">
+			<p>Flex item 1 should be: (<span class="working-shrink-factor-1">0</span> &times; <span class="working-remaining-space">0</span>px) + <span class="working-basis-1">0</span>px = <strong><span class="fb1-should-be">0</span>px</strong></p>
+			<p>Flex item 2 should be: (<span class="working-shrink-factor-2">0</span> &times; <span class="working-remaining-space">0</span>px) + <span class="working-basis-2">0</span>px = <strong><span class="fb2-should-be">0</span>px</strong></p>
+			<p>Flex item 3 should be: (<span class="working-shrink-factor-3">0</span> &times; <span class="working-remaining-space">0</span>px) + <span class="working-basis-3">0</span>px = <strong><span class="fb3-should-be">0</span>px</strong></p>
+		</div>
+		<p>NOTE: If these any of calculations result in a negative width, that item will be clamped at 0 and the calculations will be done again with remaining items and new remaining space.</p>
+	</div>
+	<p class="basis-is-perfect">In this case there is no remaining space, the basis will be the exact size of the elements and therefore there is nothing more to work out.</p>
+</div>
+<div id="yardstick"></div>
+</main>
+<footer>
+<ul>
+<li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+<li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+<li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+</ul>
+</footer>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="codepen-logo" viewBox="0 0 512 512">
+<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+</symbol>
+<symbol id="github-logo" viewBox="0 0 512 512">
+<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+</symbol>
+<symbol id="twitter-logo" viewBox="0 0 512 512">
+<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+</symbol>
+<symbol id="arrow-icon" viewBox="0 0 10 10">
+<polygon points="1,0 9,5 1,10 "/>
+</symbol>
+</svg>
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-42027047-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function roundit(num){
+		return Math.round(num*100)/100;
+	}
+	function update_flexness(){
+	  var grow=[],shrink=[],basis=[];
+	  for (i = 0; i < 3; i++) { 
+		grow[i] = parseInt($('#input-fb'+(i+1)+'-grow').val(),10) ;
+		shrink[i] = parseInt($('#input-fb'+(i+1)+'-shrink').val(),10);
+		basis[i] =  $('#input-fb'+(i+1)+'-basis').val();
+		if(basis[i] == 'auto'){
+		  // Flex is 'auto' so do some magic to get the width of the inner content
+		  $('#fb'+(i+1)).css({'position':'absolute','left':0});
+		   basis[i] = $('#fb'+(i+1)).innerWidth();
+		   $('#fb'+(i+1)).css('position', 'initial');
+		}else{
+		  $('#yardstick').css({'position': 'absolute', 'width': 0, 'opacity': 0});
+		  $('#yardstick').css({'width': basis[i]});
+		  basis[i] = $('#yardstick').css({'width': basis[i]}).innerWidth();
+		}
+		$('#fb'+(i+1)).css('flex-grow', String(grow[i]));
+		$('#fb'+(i+1)).css('flex-shrink', String(shrink[i]));
+		$('#fb'+(i+1)).css('flex-basis', String(basis[i] + 'px'));
+	  }
+	  for (i = 0; i < 3; i++) { 
+		$('#fb'+(i+1) + ' .flex-width').html($('#fb'+(i+1)).outerWidth()+'px');
+	  }
+	  var working_container = $('#example-container').outerWidth()
+	  $('.working-container').html(working_container);
+	  var basis_total=0;
+	  $.each(basis,function(i,val) {
+		basis_total += parseInt(val,10); // stripping and assuming PX for now
+		$('.working-basis-'+(i+1)).html(val);
+
+	  });
+	  $('.working-basis-all').html(basis_total);
+	  
+	  var grow_total=0;
+	  $.each(grow,function(i,val) {
+		grow_total += val;
+		$('.working-grow-'+(i+1)).html(val);
+	  });
+	  $('.working-grow-all').html(grow_total);
+	  
+	  var shrink_total=0;
+	  $.each(shrink,function(i,val) {
+		shrink_total += val;
+		$('.working-shrink-'+(i+1)).html(val);
+	  });
+	  $('.working-shrink-all').html(shrink_total);
+	  
+	  var space_remaining = working_container - basis_total;
+	  
+	  var fb1_should_be, fb2_should_be, fb3_should_be;
+	  
+	  if(space_remaining > 0){
+		
+		$('.will-grow').show();
+		$('.basis-is-perfect').hide();
+		$('.will-shrink').hide();
+		
+		$('.working-remaining-space').html(space_remaining);
+		var single_grow = space_remaining / grow_total;
+		$('.working-a-single-grow').html(roundit(single_grow));
+		fb1_should_be = (single_grow * grow[0]) + parseInt(basis[0],10);
+		fb2_should_be = (single_grow * grow[1]) + parseInt(basis[1],10);
+		fb3_should_be = (single_grow * grow[2]) + parseInt(basis[2],10);
+		
+	  } else if(space_remaining == 0){
+
+		$('.will-grow').hide();
+		$('.basis-is-perfect').show();
+		$('.will-shrink').hide();
+		
+		fb1_should_be = parseInt(basis[0],10);
+		fb2_should_be = parseInt(basis[1],10);
+		fb3_should_be = parseInt(basis[2],10);
+		
+	  }else{
+		$('.will-grow').hide();
+		$('.basis-is-perfect').hide();
+		$('.will-shrink').show();
+		
+		$('.working-remaining-space').html(space_remaining);
+		
+		var flex_shrink_all = (shrink[0] * basis[0]) + (shrink[1] * basis[1]) + (shrink[2] * basis[2]);
+		$('.flex-shrink-all').html(roundit(flex_shrink_all));
+		
+		var shrink_factor_1 = (shrink[0] * basis[0]) / flex_shrink_all;
+		var shrink_factor_2 = (shrink[1] * basis[1]) / flex_shrink_all;
+		var shrink_factor_3 = (shrink[2] * basis[2]) / flex_shrink_all;
+		$('.working-shrink-factor-1').html(roundit(shrink_factor_1));
+		$('.working-shrink-factor-2').html(roundit(shrink_factor_2));
+		$('.working-shrink-factor-3').html(roundit(shrink_factor_3));
+		fb1_should_be = roundit((shrink_factor_1 * space_remaining) + parseInt(basis[0],10));
+		fb2_should_be = roundit((shrink_factor_2 * space_remaining) + parseInt(basis[1],10));
+		fb3_should_be = roundit((shrink_factor_3 * space_remaining) + parseInt(basis[2],10));
+	  }
+	  
+	  $('.fb1-should-be').html(fb1_should_be);
+	  $('.fb2-should-be').html(fb2_should_be);
+	  $('.fb3-should-be').html(fb3_should_be);
+	}
+	update_flexness();
+	$('.control input').on('change', update_flexness);
+</script>
+</body>
+</html>

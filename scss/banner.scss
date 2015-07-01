@@ -1,0 +1,73 @@
+header{
+	text-align: center;
+	padding:1rem 3rem;
+}
+header ul {
+  @include clearfix();
+  margin: 0;
+  padding: 0;
+}
+header ul li {
+	display: block;
+	padding: 1em 0;
+	border-bottom: solid 1px #ccc;
+}
+header ul li:first-child {
+ padding-top: 0;
+}
+header ul li a{
+	display: block;
+	color: #333;
+	text-decoration: none;
+}
+
+.brand{ display:none }
+
+@media screen and (min-width: 600px){
+	header {
+		text-align: right;
+	}
+	header:after {
+		content: "";
+		display: block;
+		bottom: 0;
+		height: 1px;
+		background: #ccc;
+		background: linear-gradient(to right,transparent,#ccc 25%,#ccc 75%,transparent);
+		margin-top: 1em;
+	}
+	header ul li {
+		display: inline-block;
+		padding: 0;
+		border: medium none;
+	}
+	header ul .home{ float: left; }
+	header ul li a{
+		display: block;
+		color: #333;
+		text-decoration: none;
+		margin-left: 3rem;
+	}
+	// This is a bit hacky
+	header .brand {
+		display: block;
+		text-transform: uppercase;
+	  position: absolute;
+	  top: 1.15rem;
+	  left: 50%;
+	  transform: translate(-50%, 0);
+		a{
+			margin: 0;
+			transition: opacity .5s;
+		  opacity: 0.25;
+			font-weight:bold;
+			&:hover{
+				text-decoration: none;
+				color: $link-color;
+			  opacity: 0.8;
+			}
+		}
+	}
+}
+.home-page header ul .home{ display: none; }
+.post-list header ul .writing{ display: none; }

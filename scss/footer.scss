@@ -1,0 +1,32 @@
+footer {
+	text-align: center;
+	margin: 4rem 0 3em 0;
+}
+footer ul {
+  @include clearfix();
+  margin: 0;
+  padding: 0;
+}
+footer ul li {
+	display: inline-block;
+}
+footer ul li a{
+	display: block;
+	color: #CCC;
+	text-decoration: none;
+  padding-right: 2rem;
+}
+footer .logo{
+	width: 32px;
+	height: 32px;
+	margin-bottom: -10px; // This number is so magic it could fry a unicorn
+	fill: #CCC;
+	margin-right: .5rem;
+	opacity: 1;
+}
+footer ul li a:hover,
+footer ul li a:hover .logo{
+	color: #666;
+	fill: #666;
+	transition: all .5s;
+}

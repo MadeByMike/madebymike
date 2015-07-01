@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  {% include head.html %}
+
+  <body class="{{page.class}}">
+
+	<header>
+	{% include banner.html %}
+	</header>
+    <main>
+	
+      {{ content }}
+
+    </main>
+	<footer>
+	{% include footer.html %}
+	</footer>
+	{% include svg-sprite.html %}
+	{% include scripts.html %}
+  </body>
+</html>

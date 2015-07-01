@@ -1,0 +1,191 @@
+:root,html{
+  @include fluid-type(320px,1920px,14px,18px);
+}
+
+/* Vars */
+
+$font-family: 'Libre Baskerville', serif;
+
+$font-color: #333333;
+$font-size: 1.125rem;
+$line-height: 1.5;
+
+$heading-font-family: 'Handlee', cursive;
+$heading-font-weight: normal;
+$heading-font-color:  #000000;
+$heading-line-height: $line-height;
+$heading-margin-top: 1.75rem;
+$heading-margin-bottom: .75rem;
+
+$paragraph-font-size: $font-size;
+$paragraph-margin-top: .25rem;
+$paragraph-margin-bottom: .75rem;
+
+$list-font-size: $font-size;
+$list-margin-top: 0;
+$list-margin-bottom: .75rem;
+
+$table-font-size: $font-size;
+$table-margin-top: 0;
+$table-margin-bottom: .75rem;
+
+$link-color: #A2263A;
+$link-hover-color: #FA3656;
+
+$pre-font-family: 'Source Code Pro', Consolas, monospace;
+$pre-font-size: inherit;
+$pre-margin-top:.5rem;
+$pre-margin-bottom: 1.5rem;
+
+body {
+  font-family: $font-family;
+  line-height: $line-height;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  line-height: $heading-line-height;
+  margin-top: $heading-margin-top;
+  margin-bottom: $heading-margin-bottom;
+  color: $heading-font-color;
+	a{
+	  color: $heading-font-color;
+	  text-decoration: none;
+	}
+}
+
+p {
+  font-size: $paragraph-font-size;
+  margin-top: $paragraph-margin-top;
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+dl, ol, ul {
+  font-size: $list-font-size;
+  margin-top: $list-margin-top;
+  margin-bottom: $list-margin-bottom;
+}
+
+table {
+  font-size: $table-font-size;
+  margin-top: $table-margin-top;
+  margin-bottom: $table-margin-bottom;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+pre, code, samp {
+  font-family: $pre-font-family;
+  font-size: $pre-font-size;
+}
+
+pre {
+  margin-top: $pre-margin-top;
+  margin-bottom: $pre-margin-bottom;
+  overflow-x: scroll;
+}
+
+strike{
+  color: lighten($font-color,10%);
+}
+
+h1, .h1 {
+  @include fluid-type(20rem,120rem,1.602rem,3.157rem);
+}
+.page-title {
+  @include fluid-type(20rem,120rem,2.441rem,3.998rem);
+}
+h2, .h2 {
+  @include fluid-type(20rem,120rem,1.424rem,2.369rem);
+}
+h3, .h3 {
+  @include fluid-type(20rem,120rem,1.266rem,1.777rem);
+}
+h4, .h4 {
+  @include fluid-type(20rem,120rem,1.125rem,1.333rem);
+}
+h5, .h5 {
+  font-size: 1rem;
+}
+h6, .h6 {
+  @include fluid-type(20rem,120rem,.79rem,.75rem);
+}
+
+
+/* Links */
+
+a {
+  color: $link-color;
+  transition: color .5s;
+  text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+  color: $link-hover-color;
+  text-decoration: underline;
+}
+
+/* Special */
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.post-date{
+  color: #888;
+  font-size: .875rem;
+  margin-bottom: .5rem;
+	display: block;
+}
+
+.caption{
+  color: lighten($font-color, 30%);
+  text-align: center;
+}
+
+.nav-link{
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	font-size: .875rem;
+	margin: 1.5rem 0;
+	text-decoration: none;
+	color: #555;
+}
+
+.nav-link svg {
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+	margin: 0 0 0 .5rem;
+	fill: $font-color;
+	transition: fill .5s;
+}
+.nav-link:hover svg,
+.nav-link:focus svg,
+.nav-link:active svg{
+	fill: $link-hover-color;
+}
+
+.nav-link-reverse svg{
+  margin: 0 0.5rem 0 0
+}
+
+ul.condensed{
+	padding-left: 2rem;
+}
+
+.post-title{
+  font-weight: bold;
+  font-family:  'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.stuff-i-wrote{
+  color: $link-color;
+  font-weight: bold;
+}

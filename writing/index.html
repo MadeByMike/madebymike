@@ -1,0 +1,35 @@
+---
+layout: default
+title: Stuff I wrote
+class: post-list
+---
+  <section>
+	  <h1 class="page-title">{{ page.title }}</h1>
+	  <p>A range of web development ideas and experiences of varying quality. Basically <em>"I think stuff and sometimes I write it down"</em>.</p>
+  </section>
+  {% for post in paginator.posts %}
+	  <article>
+		<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+		<span class="post-date">{{ post.date | date_to_string }}</span>
+		{% if post.content contains '<!--more-->' %}
+			{{ post.content | split:'<!--more-->' | first | strip_html }}
+			<p><a class="nav-link" href="{{ post.url }}">Continue reading<svg><use xlink:href="#arrow-icon"></use></svg></a></p>
+		{% else %}
+			{{ post.excerpt | strip_html }}
+			<p><a class="nav-link" href="{{ post.url }}">Continue reading<svg><use xlink:href="#arrow-icon"></use></svg></a></p>
+		{% endif %}
+	  </article>
+  {% endfor %}
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}writing/{{paginator.next_page}}">&laquo; Older</a>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}writing/">Newer &raquo;</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}writing/{{paginator.previous_page}}">Newer &raquo;</a>
+    {% endif %}
+  {% endif %}
+</div>

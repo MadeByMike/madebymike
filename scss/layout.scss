@@ -1,0 +1,15 @@
+main{
+	width:90%;
+	max-width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media screen and (min-width: 32rem) {
+	width:80%;
+}
+
+//grid
+$gutter: 1rem;
+$columns: 12;
+@include make-grid($columns,$gutter);
