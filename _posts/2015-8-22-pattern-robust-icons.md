@@ -50,13 +50,13 @@ It's easy to extend so I can usually drop it into almost any project.
 
 ##How it works
 
-When appending or prepending icons, no matter the hight of the content the icon will always be centred. Icons are vertically positioned using absolutely pseudo elements and left and right padding is added to the parent element as required to ensure icons and content always have adequate spacing.
+When appending or prepending icons, no matter the hight of the content the icon will always be centred. Icons are vertically centred using absolutely positioned pseudo elements and left and right padding is added to the parent element as required to ensure icons and content always have adequate spacing.
 
 The clever part of this technique, apart from the vertical centring, is the use of attribute selectors to target elements that that contain various `icon-` prefixes. By targeting attribute selectors we need fewer class names to apply icon styles and adding new icons or modifiers becomes exceptionally easy.
 
 ##Extending the icon library
 
-If you follow the naming conventions all you need to add a new icon to the set is a background image. To add a new icon we just need to add following line and change {icon-name} to the name of our new icon.
+If you follow the naming conventions all you need to add a new icon to the set is a background image. To add a new icon we just need to add following line and change `{icon-name}` to the name of our new icon.
 
 ```css
 .icon-{icon-name},
