@@ -36,14 +36,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-    watch: {
-      scripts: {
-        files: ['scss/*.scss'],
-        tasks: ['sass'],
-        options: {
-          spawn: false,
-        },
-      },
+		watch: {
+		  scripts: {
+				files: ['scss/*.scss'],
+				tasks: ['sass'],
+				options: {
+					spawn: false,
+				},
+		  },
     }
     });
 
