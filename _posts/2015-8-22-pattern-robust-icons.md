@@ -66,7 +66,7 @@ Check out some <a href="http://codepen.io/MadeByMike/pen/xGoMMw?editors=010">dem
 	background-image: url(icon-name.svg);
 }
 ```
-
+This is the first of hopefully more short articles, where I share some of my favourite desing patterns.
 
 
 
