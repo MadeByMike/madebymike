@@ -126,9 +126,9 @@ In his 2012 article on [Fluid Type](http://trentwalton.com/2012/06/19/fluid-type
 
 But perhaps not all predictability and control is lost.
 
-Let's imagine that as a typography nerd with an eye for absolute precision, you want the font-size at a resolution of 600px to be 12px. Great! Looking at the table, setting a font-size of 2vw will achieve this. But you also want the font-size at 800px to be 32px. It seems you can’t do this without changing from 2vw to 4vw and this means a break-point and our font scaling will be jumpy and not fluid. I consider this to be a pretty significant limitation.
+Let's imagine that as a typography nerd with an eye for absolute precision, you want the font-size at a resolution of 600px to be 12px. Great! Looking at the table, setting a font-size of 2vw will achieve this. But you also want the font-size at 800px to be 32px. It seems you can’t do this without changing from 2vw to 4vw and this means a break-point and our font scaling will be jumpy and not fluid. I consider this a pretty significant limitation.
 
-There is a solution to this! It's not exactly pretty but it works – at least in modern browsers. As stated earlier, some browser have bugs when using calc() and viewport units together, so this might be buggy in some older browsers.
+There is a solution to this! It's not exactly pretty but it works – at least in modern browsers. As stated earlier, some browser have bugs when using calc() and viewport units together, so this might be buggy in some older browsers. (This is not really a concern anymore, just set sensible default font sizes before declaring a fluid type calc() expression.)
 
 It appears that by using calc() and vw we can get responsive typography that scales perfectly between specific pixel values within a specific viewport range.
 
@@ -146,7 +146,7 @@ Put simply, it is a function that takes a value within a range and works out wha
 
 This seems like it could be a pretty useful way to control the scaling of viewport units. It could also have uses beyond typography. You can do other interesting things, by inverting the range for example, you can have font sizes that get smaller as the viewport gets larger. Perhaps there is a use for this? I’d love to hear your thoughts and see other applications or extensions of this idea.
 
-**Update**: Each of the methods above use pixels for 'precise' control, however some readers have expressed consern that this will override user preferences for default font size. This is true, however all methods also work equally well with rem or any other unit type.
+**Update**: Each of the methods above use pixels for 'precise' control, however some readers have expressed concern that this will override user preferences for default font size. This is true, however all methods also work equally well with rem or any other unit type.
 
 ##More info
 
