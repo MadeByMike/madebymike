@@ -18,7 +18,7 @@ While this is true, I believe that designers and developers will still want to u
 
 Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
 
-**Note:** If a flex item has borders, margin or padding these values need to be added to the flex-basis according to the current box-sizing method when calculating the remaining space. They should also be added to the values at then end of calculation to get the final outer width of each flex item.
+**Note:** If a flex item has borders, margin or padding these values need to be added to the flex-basis according to the current box-sizing method when calculating the remaining space. They should also be added to the values at the end of calculation to get the final outer width of each flex item.
 
 Once each flex-basis has been determined the browser adds these together along with any margins, borders or padding and checks to see if there is any space remaining in the container. If there is space remaining it will destribute this proportionally amoungst the flex items, according to their flex-grow values. Similarly, if the space remaining is negative it will shrink each item proporitionatly, accoring to their flex-shrink values. Of course if the remaining space is 0, nothing more needs to be done.
 
