@@ -8,7 +8,7 @@ Instead of covering all properties of Flexbox this article focuses on understand
 
 If you don't know what Flexbox is, it's a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change. [Have a look at this guide](http://css-tricks.com/snippets/css/a-guide-to-flexbox/), and [take a look at some examples](http://codepen.io/MadeByMike/pen/26cb650eaef356da925e75139537f74e) it might look like magic, but it's not, there is a method for calculating the size of child items.
 
-The full algorithm for working out flexbox a layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
+The full algorithm for working out a flexbox layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
 
 <blockquote>Authors writing web pages should generally be served well by the individual property descriptions, and do not need to read this section unless they have a deep-seated urge to understand arcane details of CSS layout.</blockquote>
 
