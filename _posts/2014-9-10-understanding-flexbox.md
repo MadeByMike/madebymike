@@ -14,7 +14,7 @@ The full algorithm for working out a flexbox layout in any situation is [availab
 
 While this is true, I believe that designers and developers will still want to understand some parts of the layout algorithm. In particular so that they can roughly estimate width or height of flex items and confidently assign flex values without excessive trial and error.
 
-##How does it work?
+## How does it work?
 
 Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
 
@@ -22,7 +22,7 @@ Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis t
 
 Once each flex-basis has been determined the browser adds these together along with any margins, borders or padding and checks to see if there is any space remaining in the container. If there is space remaining it will destribute this proportionally amoungst the flex items, according to their flex-grow values. Similarly, if the space remaining is negative it will shrink each item proporitionatly, accoring to their flex-shrink values. Of course if the remaining space is 0, nothing more needs to be done.
 
-###Increasing the size of flex items (flex-growing)
+### Increasing the size of flex items (flex-growing)
 
 When the combined size of all the flex items is less than their container, the remaining space is distributed amongst all the items. The flex-grow attribute is used to determine how the remaining space should be allocated. To work out how much space is allocated to each item, take the ratio of the item's flex-grow value, over the total of all the other flex-grow values in the same container and multiply this by the space remaining. Here is an example:
 
@@ -48,7 +48,7 @@ These fractions are determined by taking the items individual flex-grow value ov
 
 To give another example; if both items had a flex-grow value of 1, or in any case where they had the same number, they would each be allocated half the remaining space. If one item had a value of 2 and the other 1, the first flex item would be allocated ⅔ of the remaining space and the other ⅓. This works the same with 3, 4, 5 or any number of items although obviously the fractions will differ.
 
-###Decreasing the size of flex items (flex-shrinking)
+### Decreasing the size of flex items (flex-shrinking)
 
 If the space remaining is a negative this means that the flex container is smaller than the preferred width of all the flex items. They are going to have to shrink. By assigning a flex-shrink value we can control much space each flex item will surrender.
 
@@ -94,7 +94,7 @@ Item 2 shrink factor: (1&times;400) / (200px + 400px + 400px) = .4 &times; -300p
 Item 3 shrink factor: (1&times;400) / (200px + 400px + 400px) = .4 &times; -300px = -120px
 </div>
 
-##More info
+## More info
 
   - I built a little [tool for testing flexbox calculations](/demos/flexbox-tester/),
   - Chris Wright covers his [adventures with flexbox](http://chriswrightdesign.com/experiments/flexbox-adventures/),
