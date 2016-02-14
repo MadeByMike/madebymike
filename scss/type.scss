@@ -1,5 +1,5 @@
 :root,html{
-  @include fluid-type(320px,1920px,14px,18px);
+  @include fluid-type(20em,60em,0.875em,1.125em);
 }
 
 /* Vars */
@@ -13,8 +13,8 @@ $line-height: 1.8;
 $heading-font-family: 'Handlee', cursive;
 $heading-font-weight: normal;
 $heading-font-color:  #000000;
-$heading-line-height: $line-height;
-$heading-margin-top: 1.75rem;
+$heading-line-height: 1.2;
+$heading-margin-top: 3.75rem;
 $heading-margin-bottom: .75rem;
 
 $paragraph-font-size: $font-size;

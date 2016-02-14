@@ -1,12 +1,19 @@
 main{
-	width:90%;
-	max-width: 50rem;
+	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-@media screen and (min-width: 32rem) {
-	width:80%;
+@media screen and (min-width: 40rem) {
+	main{
+		width: 38rem;
+	}
+}
+
+@media screen and (min-width: 50rem) {
+	main{
+		width: 42rem;
+	}
 }
 
 //grid
