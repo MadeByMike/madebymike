@@ -37,7 +37,7 @@ Responsive typography with viewport units is really easy to implement, just decl
 
 But there are a few rough edges you will need to sand back. Firstly when you get down to a very small viewport scaling is problematic. Luckily there are a few good methods for avoiding this.
 
-##Limit font scaling with calc()
+## Limit font scaling with calc()
 
 If you would like set an exact minimum font-size in pixels you can use calc().
 
@@ -51,7 +51,7 @@ This example says set the default size to 16px + 3vw.
 
 **Note**: There are still issues in some browsers when using viewport units and calc() together, so for now media queries is probably safer.
 
-##Limit font scaling with media queries
+## Limit font scaling with media queries
 
 You can prevent the text from scaling below a specific threshold simply by using a media query and only applying viewport units above a certain device resolution.
 
@@ -118,7 +118,7 @@ The calculations are not that hard but I find it easier to look at a simple tabl
 
 Looking at the table you can see there are many limitations. We have little control over the rate at which viewport units change and we are confined to the options available in the table.
 
-##Precise control with calc()
+## Precise control with calc()
 
 In his 2012 article on [Fluid Type](http://trentwalton.com/2012/06/19/fluid-type/) Trent Walton said:
 
@@ -148,7 +148,7 @@ This seems like it could be a pretty useful way to control the scaling of viewpo
 
 **Update**: Each of the methods above use pixels for 'precise' control, however some readers have expressed concern that this will override user preferences for default font size. This is true, however all methods also work equally well with rem or any other unit type.
 
-##More info
+## More info
 
   - [Fluid Type](http://trentwalton.com/2012/06/19/fluid-type/), Trent Walton
   - [Viewport units](https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/), Tim Severien
