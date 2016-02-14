@@ -720,8 +720,7 @@ footer ul li a:hover, footer ul li a:hover .logo {
 
 /* Comment */
 .highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2; }
+  color: #555555; }
 
 /* Error */
 .highlight .k {
@@ -982,7 +981,7 @@ footer ul li a:hover, footer ul li a:hover .logo {
 pre {
   border: solid 1px #ddd;
   background: #fff;
-  padding: 0;
+  padding: 10px;
   line-height: 23px;
   margin-bottom: 30px;
   white-space: pre;
