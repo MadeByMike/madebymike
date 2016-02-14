@@ -4,7 +4,7 @@ title: Detecting transition start
 ---
 If you've worked with the css transition events in JavaScript you will know that it's a little involved due to the need for multiple browser prefixes. Luckily it's easy, if slightly verbose, to detect which transition event to use:
 
-{% highlight javascript %} 
+```javascript
   // Dave Walsh says this is from Modernizr, but I can't find it
   // http://davidwalsh.name/css-animation-callback
   var whichTransitionEvent = function(){
@@ -23,17 +23,18 @@ If you've worked with the css transition events in JavaScript you will know that
     }
   };
   var transitionEvent = whichTransitionEvent();
-  
+
   // With that sorted...
   if(transitionEvent){
     document.body.addEventListener(transitionEvent, function() {
 	  // do stuff here
 	});
   }
-{% endhighlight %}
+```
+
 We need to check if `transitionEvent` exists before adding an event listener and whilst this isn't too hard, we could take this a step further and wrap it with a custom event `'transition-end'`. See: [example gist](https://gist.github.com/MadeByMike/0563ca51e08a790e553b).
 
-My reason for this extra step, apart from easy of use, relates to detecting transition start. 
+My reason for this extra step, apart from easy of use, relates to detecting transition start.
 
 ## What about transition start?
 

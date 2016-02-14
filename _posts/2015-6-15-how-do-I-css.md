@@ -10,11 +10,13 @@ There are so many methodologies and guidelines today that I wonder why you would
 It's pretty simple choose a methodology, choose a set of guidelines and choose a build process.
 
 ### Methodologies
+
   - [BEM](https://en.bem.info/)
   - [SMACSS](https://smacss.com/)
   - [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
 ### Guidelines
+
   - [codeguide.co](http://codeguide.co/#css)
   - [cssguidelin.es](http://cssguidelin.es/)
   - [idiomatic-css](https://github.com/necolas/idiomatic-css)

@@ -80,7 +80,7 @@ You can produce a range of [mathamatically determined color schemes](http://code
 
 Drop the following functions into your Sass stylesheets.
 
-{% highlight css %}
+```css
   @function luma($color){  
     // Thanks voxpelli for a very concise implementation of luminance measure in sass
     // Adapted from: https://gist.github.com/voxpelli/6304812
@@ -94,6 +94,7 @@ Drop the following functions into your Sass stylesheets.
     }
     @return (.2126 * nth($rgba2, 1) + .7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3))*100;
   }
+
   @function contrast_ratio($color1, $color2) {
     $luma1: luma($color1) + 5;
     $luma2: luma($color2) + 5;
@@ -125,25 +126,24 @@ Drop the following functions into your Sass stylesheets.
     }
     @return if(lightness($color) < 51, #FFF, #000)
   }
-{% endhighlight %}
+```
 
 Call the `text-contrast()` function and pass it the background color:
 
-{% highlight css %}
+```css
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color);
   }
-{% endhighlight %}
-
+```
 Optionally, pass a second parameter to control the text color:
 
-{% highlight css %}
+```css
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color, DarkSalmon);
   }
-{% endhighlight %}
+```
 
 ### Alternatives to compass
 

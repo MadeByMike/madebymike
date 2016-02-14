@@ -86,6 +86,7 @@ In this example the text gets smaller as the viewport gets larger. This might ha
   }
 }
 ```
+
 ### Example
 
 <p class="example-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
@@ -112,6 +113,7 @@ In this example the line-height is fluid. This is a pure CSS implementation of W
   }
 }
 ```
+
 ### Example
 
 <p class="example-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
@@ -138,6 +140,7 @@ This example shows how the technique can be applied to more than just font sizes
   }
 }
 ```
+
 ### Example
 
 <p class="example-5">The width of this box will scale and at a different rate to the viewport.</p>
