@@ -151,7 +151,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 <p class="example-5">The width of this box will scale and at a different rate to the viewport.</p>
 
-##Fluid type mixin
+## Fluid type mixin
 
 [Indrek Paas](https://twitter.com/indrekpaas) developed a Sass mixin to help make fluid type using this technique easier. [You can find the latest fluid type Sass mixin here](http://sassmeister.com/gist/7f22e44ace49b5124eec).
 

@@ -19,27 +19,27 @@ I want to share a design pattern I've been using for icons. It's a robust techni
 
 It's also easy to extend so I can usually drop it into almost any project.
 
-##Usage
+## Usage
 
-###Inline:
+### Inline:
 
 ```css
 <span class="icon icon-{icon-name}"></span>
 ```
 
-###Prepend:
+### Prepend:
 
 ```css
 <div class="icon-left-{icon-name}"></div>
 ```
 
-###Append:
+### Append:
 
 ```css
 <div class="icon-right-{icon-name}"></div>
 ```
 
-###Size modifiers:
+### Size modifiers:
 
 ```css
 <span class="icon icon-{icon-name} icon-small"></span>
@@ -47,13 +47,13 @@ It's also easy to extend so I can usually drop it into almost any project.
 <span class="icon icon-{icon-name} icon-responsive"></span>
 ```
 
-##How it works
+## How it works
 
 When appending or prepending, no matter the hight of the content, the icon will always be centred. Icons are vertically centred using absolutely positioned pseudo elements and left and right padding is added to the parent element as required to ensure icons and content always have adequate spacing.
 
 The clever part of this technique, apart from the vertical centring, is the use of attribute selectors to target elements that that contain various `icon-` prefixes. By targeting attribute selectors we need fewer class names to apply icon styles and adding new icons or modifiers becomes exceptionally easy.
 
-##Extending the icon library
+## Extending the icon library
 
 If you follow the naming conventions all you need to add a new icon to the set is a background image. To add a new icon we just need to add following line and change `{icon-name}` to the name of our new icon.
 
@@ -66,10 +66,4 @@ Check out some <a href="http://codepen.io/MadeByMike/pen/xGoMMw?editors=010">dem
 	background-image: url(icon-name.svg);
 }
 ```
-This is the first of hopefully more short articles, where I share some of my favourite desing patterns.
-
-
-
-
-
-
+This is the first of hopefully more short articles, where I share some of my favourite design patterns.
