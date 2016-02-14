@@ -12,7 +12,6 @@ A few months ago I published a [fluid type technique](/writing/precise-control-r
 This is a simplified version of my original example. The minimum font size is 14px and the maximum is 22px. I've removed a redundant media query and reduced the complexity of the calc() equation.
 
 ```css
-
 .fluid-type {
   font-size: 14px;
 }
@@ -45,7 +44,6 @@ The only catch is that all unit types must be the same for the calc() equation t
 
 
 ```css
-
 .fluid-type {
   font-size: 0.875rem;
 }
@@ -61,7 +59,6 @@ The only catch is that all unit types must be the same for the calc() equation t
     font-size: 1.375rem;
   }
 }
-
 ```
 
 ### Example
@@ -73,7 +70,6 @@ The only catch is that all unit types must be the same for the calc() equation t
 In this example the text gets smaller as the viewport gets larger. This might have novel uses or it might not.
 
 ```css
-
 .fluid-type {
   font-size: 22px;
 }
@@ -89,7 +85,6 @@ In this example the text gets smaller as the viewport gets larger. This might ha
     font-size: 14px;
   }
 }
-
 ```
 ### Example
 
@@ -101,7 +96,6 @@ In this example the text gets smaller as the viewport gets larger. This might ha
 In this example the line-height is fluid. This is a pure CSS implementation of Wilto's [Molten leading technique](https://github.com/Wilto/Molten-Leading).
 
 ```css
-
 .molten-leading {
   line-height: 1.2em;
 }
@@ -117,7 +111,6 @@ In this example the line-height is fluid. This is a pure CSS implementation of W
     line-height: 1.8em;
   }
 }
-
 ```
 ### Example
 
@@ -129,7 +122,6 @@ In this example the line-height is fluid. This is a pure CSS implementation of W
 This example shows how the technique can be applied to more than just font sizes, in this case `width`.
 
 ```css
-
 .fluid-box {
   width: 200px;
 }
@@ -145,7 +137,6 @@ This example shows how the technique can be applied to more than just font sizes
     width: 500px;
   }
 }
-
 ```
 ### Example
 
