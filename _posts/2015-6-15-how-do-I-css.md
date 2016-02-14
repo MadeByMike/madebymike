@@ -9,12 +9,12 @@ There are so many methodologies and guidelines today that I wonder why you would
 
 It's pretty simple choose a methodology, choose a set of guidelines and choose a build process.
 
-###Methodologies
+### Methodologies
   - [BEM](https://en.bem.info/)
   - [SMACSS](https://smacss.com/)
   - [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
-###Guidelines
+### Guidelines
   - [codeguide.co](http://codeguide.co/#css)
   - [cssguidelin.es](http://cssguidelin.es/)
   - [idiomatic-css](https://github.com/necolas/idiomatic-css)
@@ -29,7 +29,7 @@ Rather than doing this as a review of how you work what if you did this *before*
 
 So I've written down how I CSS for a typical website project and I thought I'd share it. Remember this is how I like to CSS and I'm not saying this is how you should CSS, or even that this always works for me. I'll be flattered if you find this useful or apply this method for arriving at a consensus within your team. But there is no expectation that what I have written is right for you.
 
-##How I CSS
+## How I CSS
 
   - [I follow SMACSS conventions](#css-architecture)
   - [I use SCSS](#preprocessors)
@@ -107,7 +107,7 @@ Finally I should say that at best I do this only about 60-70% of the time. Somet
 
 **Final disclaimer**: Things are constantly changing. This might not be how I CSS in the future. And ok, I guess this is kind of an 'in response' article.
 
-##You might like
+## You might like
 
   - [Chris Coyier's tour of CodePen's CSS](http://codepen.io/chriscoyier/blog/codepens-css)
   - [Ian Feather's tour of Lonely Planet's CSS](http://ianfeather.co.uk/css-at-lonely-planet/)
