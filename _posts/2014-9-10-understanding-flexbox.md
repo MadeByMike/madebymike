@@ -8,7 +8,7 @@ Instead of covering all properties of Flexbox this article focuses on understand
 
 If you don't know what Flexbox is, it's a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change. [Have a look at this guide](http://css-tricks.com/snippets/css/a-guide-to-flexbox/), and [take a look at some examples](http://codepen.io/MadeByMike/pen/26cb650eaef356da925e75139537f74e) it might look like magic, but it's not, there is a method for calculating the size of child items.
 
-The full algorithm for working out flexbox a layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
+The full algorithm for working out a flexbox layout in any situation is [available here](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm), but as the spec rightly states:
 
 <blockquote>Authors writing web pages should generally be served well by the individual property descriptions, and do not need to read this section unless they have a deep-seated urge to understand arcane details of CSS layout.</blockquote>
 
@@ -18,7 +18,7 @@ While this is true, I believe that designers and developers will still want to u
 
 Flexbox wants to fit in. If a flex item is allowed to be itself the flex-basis tells the browser what size it wants to be. Think of the flex-basis as a suggested size or ideal size. If a flex-basis is not set, or if it is set to 'auto', it will equal the initial size of the element. In other words, it will be the width of its inner content.
 
-**Note:** If a flex item has borders, margin or padding these values need to be added to the flex-basis according to the current box-sizing method when calculating the remaining space. They should also be added to the values at then end of calculation to get the final outer width of each flex item.
+**Note:** If a flex item has borders, margin or padding these values need to be added to the flex-basis according to the current box-sizing method when calculating the remaining space. They should also be added to the values at the end of calculation to get the final outer width of each flex item.
 
 Once each flex-basis has been determined the browser adds these together along with any margins, borders or padding and checks to see if there is any space remaining in the container. If there is space remaining it will destribute this proportionally amoungst the flex items, according to their flex-grow values. Similarly, if the space remaining is negative it will shrink each item proporitionatly, accoring to their flex-shrink values. Of course if the remaining space is 0, nothing more needs to be done.
 

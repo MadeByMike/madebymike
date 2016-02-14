@@ -85,7 +85,7 @@ I differ in some respects such as I prefer using tabs rather than 2 spaces. But 
 
 I am liberal with my use of comments. No one has ever complained a stylesheet is over documented. Comments range from highly structured block declarations describing modules to silly jokes and apologies for hacks, both are good.
 
-I've started using SASSDoc to help generate a basic style guide directly from my SCSS files. At minimum each UI component, utility class, layout module and mixin should have a block comment briefly describing it.
+Ideally each UI component, utility class, layout module and mixin should have a block comment briefly describing it.
 
 In the past I've tried a whole range of automated documentation tools for SASS and CSS. My "professional" opinion is they all suck a little bit, so I don't get too hung up about it. When you are working with a team of developers a little bit of sucky documentation is often better than none.
 

@@ -8,7 +8,7 @@ It is possible to have precise control over responsive typography. Using calc() 
 
 <p>
 <a href="http://codepen.io/MadeByMike/pen/YPJJYv" class="responsive-type">
-  This font is limited to between 20px and 40px, over a viewport range of 600px to 800px.
+  This text is limited to between 20px and 40px, over a viewport range of 600px to 800px.
 </a>
 </p>
 
