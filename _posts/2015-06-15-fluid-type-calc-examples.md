@@ -7,7 +7,7 @@ extra_css:
 
 A few months ago I published a [fluid type technique](/writing/precise-control-responsive-typography/) that doesn't require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I'd put together a bunch of examples and address some comments.
 
-##Fluid type with pixels
+## Fluid type with pixels
 
 This is a simplified version of my original example. The minimum font size is 14px and the maximum is 22px. I've removed a redundant media query and reduced the complexity of the calc() equation.
 
@@ -30,12 +30,12 @@ This is a simplified version of my original example. The minimum font size is 14
 }
 ```
 
-###Example
+### Example
 
 <p class="example-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
 
-##Fluid type with Rem units
+## Fluid type with Rem units
 
 This example should have the same result as the one above when the base font size is 16px (default).
 
@@ -64,11 +64,11 @@ The only catch is that all unit types must be the same for the calc() equation t
 
 ```
 
-###Example
+### Example
 
 <p class="example-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
-##Reverse fluid type
+## Reverse fluid type
 
 In this example the text gets smaller as the viewport gets larger. This might have novel uses or it might not.
 
@@ -91,12 +91,12 @@ In this example the text gets smaller as the viewport gets larger. This might ha
 }
 
 ```
-###Example
+### Example
 
 <p class="example-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
 
-##Fluid line-height (Molten leading)
+## Fluid line-height (Molten leading)
 
 In this example the line-height is fluid. This is a pure CSS implementation of Wilto's [Molten leading technique](https://github.com/Wilto/Molten-Leading).
 
@@ -119,12 +119,12 @@ In this example the line-height is fluid. This is a pure CSS implementation of W
 }
 
 ```
-###Example
+### Example
 
 <p class="example-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
 
-##Fluid box
+## Fluid box
 
 This example shows how the technique can be applied to more than just font sizes, in this case `width`.
 
@@ -147,7 +147,7 @@ This example shows how the technique can be applied to more than just font sizes
 }
 
 ```
-###Example
+### Example
 
 <p class="example-5">The width of this box will scale and at a different rate to the viewport.</p>
 
@@ -157,7 +157,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 I use a slightly modified version to generate the examples on this page.
 
-###Example
+### Example
 
 ```scss
 .fluid-type {
