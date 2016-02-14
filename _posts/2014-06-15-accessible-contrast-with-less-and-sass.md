@@ -18,21 +18,21 @@ Recently I've been experimenting with different implementations of text contrast
 
 I found none of the simple methods give a guaranteed accessible result, but it is possible using only Less or Sass to create a mixin that will give desired contrast ratios including WCAG2 AA or AAA level.
 
-##HSL based measurement
+## HSL based measurement
 Unfortunately it seems **the most common implementation** which is based on lightness, **is the worst visual performer**. In the demo below #7CFC00 is a particularly good example of where the HSL method fails.
 
 <p data-height="266" data-theme-id="6646" data-slug-hash="qjlpF" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/MadeByMike/pen/qjlpF/'>Contrast black\white - lightness (Sass)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 This example uses Sass, do you prefer Less? [Got you covered](http://codepen.io/MadeByMike/pen/qjlpF)!
 
-##HSV based measurement
+## HSV based measurement
 My feeling is that HSV provides slightly better results than HSL, but it is still far from perfect. In this demo #0000CD and #8B0000 are two good examples of where HSV measurement fails.
 
 <p data-height="266" data-theme-id="6646" data-slug-hash="hqvod" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/MadeByMike/pen/hqvod/'>Contrast black\white - value (Less)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 Sorry Sass people, Sass has no HSV functions :(
 
-##Luminance based measurement
+## Luminance based measurement
 Luminance is the perceived brightness of a color and as expected it was the best performer of the three methods tested.
 
 In general I'd say  these results are reasonably good. The correct color is usually picked and the text is generally readable. But closer scrutiny shows that they often don't meet [WCAG 2.0 requirements](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) for text contrast.
@@ -50,7 +50,7 @@ This examples uses Less, is Sass more your thing? [Got you covered](http://codep
 
 I'm not sure exactly how Less calculates luminance but in my tests there was only one difference I could find (#9ACD32).
 
-##Measured contrast ratios
+## Measured contrast ratios
 
 So none of the simple methods work and using only black and white text is somewhat limiting anyway. What if we could measure the contrast ratios and progressively increase the lightness and darkness until a desired contrast ratio is met?
 
@@ -65,13 +65,13 @@ Prefer Less? <strike>Sorry :( I think I may have finally found something I can d
 
 It turns out this is possible to do with Less although I can't say I like the method. Consider this [proof of concept](http://codepen.io/MadeByMike/pen/rguCF) only.
 
-##Contrast ratios with any color scheme
+## Contrast ratios with any color scheme
 
 By default when you pass only one color to the mixin the results are in the same tonal range as the background color. This produces a monochromatic color scheme, however the function accepts a 2nd parameter, allowing a different starting point for the text color.
 
 You can produce a range of [mathamatically determined color schemes](http://codepen.io/MadeByMike/pen/dqxCB) or you could just pick any color and let anarchy rule.
 
-##Usage
+## Usage
 
 <div class="special-attention">
 <p>Again we're calculating luminance in Sass which requires the <code>pow</code> function, so you will need <a href="http://compass-style.org/">compass</a>.
@@ -145,7 +145,7 @@ Optionally, pass a second parameter to control the text color:
   }
 {% endhighlight %}
 
-<h3>Alternatives to compass</h3>
+### Alternatives to compass
 
 Need an alternative to compass? Voxpelli has a [pure sass alternative]( https://gist.github.com/voxpelli/6304812#file-_math-scss) for the `pow` function.
 
