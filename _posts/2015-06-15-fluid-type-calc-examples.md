@@ -153,7 +153,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 ##Fluid type mixin
 
-[Indrek Paas](https://twitter.com/indrekpaas) developed a Sass mixin to help make fluid type using this technique easier. (You can find the latest fluid type Sass mixin here)[http://sassmeister.com/gist/7f22e44ace49b5124eec].
+[Indrek Paas](https://twitter.com/indrekpaas) developed a Sass mixin to help make fluid type using this technique easier. [You can find the latest fluid type Sass mixin here](http://sassmeister.com/gist/7f22e44ace49b5124eec).
 
 I use a slightly modified version to generate the examples on this page.
 
