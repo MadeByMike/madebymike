@@ -35,7 +35,7 @@ We need to check if `transitionEvent` exists before adding an event listener and
 
 My reason for this extra step, apart from easy of use, relates to detecting transition start. 
 
-##What about transition start?
+## What about transition start?
 
 Unfortunately there is no transition start event and it might at first seem like this is not much of a problem. A css transition is usually triggered by an event such as resize or hover and these events can be captured with JavaScript. But that is not always the case, at times it is difficult if not impossible to tell when a particular transition is triggered.
 
