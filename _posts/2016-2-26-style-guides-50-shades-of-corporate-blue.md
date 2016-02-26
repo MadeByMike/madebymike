@@ -16,7 +16,7 @@ This worked really well for developers with only a slightly steeper learning cur
 
 The next thing I learnt was that the success of a style guide depends as much on the processes you have within your organisation as it does on on the discipline of your development team. It's not just the development process that matters, content and design processes also influence your chance of success.
 
-This matters even more in large organisations. Unfortunately a lot of developers focus on the build process and no matter how clever that is it's not going to be successful if it doesn't enable content writers and designers to do their job better. They don't care how efficient your build process is. It also has to enable managers and decision makers to get an overview of how isolated changes are going to influence the boarded ascetic. Only then will they see value in it.
+This matters even more in large organisations. Unfortunately a lot of developers focus on the build process and no matter how clever that is it's not going to be successful if it doesn't enable content writers and designers to do their job better. They don't care how efficient your build process is. It also has to enable managers and decision makers to get an overview of how isolated changes are going to influence the boarded aesthetic. Only then will they see value in it.
 
 Done well style guides reduce conflict and lead to better design decisions, at worst they cause friction and the development team will soon be seen as a blocker rather than an enabler. Right from the beginning start thinking about how your style guide is going to make other people's jobs easier not your own.
 
