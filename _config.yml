@@ -7,7 +7,7 @@ permalink:  writing/:title/
 
 # Setup
 title:  MadebyMike
-url:  http://madebymike.com.au
+url:  https://madebymike.com.au
 paginate:  5
 paginate_path:  "writing/:num/"
 baseurl:  /
