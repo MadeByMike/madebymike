@@ -154,5 +154,5 @@ This seems like it could be a pretty useful way to control the scaling of viewpo
   - [Viewport units](https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/), Tim Severien
   - [CSS Viewport Units](https://dev.opera.com/articles/css-viewport-units/), Chris Mills
   - [FitText](http://fittextjs.com/), Dave Rupert
-  - [Viewport sized typography] (https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html), a similar concept by Eduardo Bouças
+  - [Viewport sized typography](https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html), a similar concept by Eduardo Bouças
   - [Molten leading](http://nicewebtype.com/notes/2012/02/03/molten-leading-or-fluid-line-height/)
