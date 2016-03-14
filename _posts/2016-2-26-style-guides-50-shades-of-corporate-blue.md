@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Style Guides: 50 shades of Corporate Blue"
+title: "Style Guides: 50 Shades of Corporate Blue"
 ---
 I recently completed my third attempt at implementing a style guide within my organisation. So far this is the first attempt that looks to be maintainable and has some traction outside the development team. I want to share with you how we got there and what I learnt from 2 failed attempts.
 
