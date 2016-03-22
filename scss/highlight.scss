@@ -1,3 +1,17 @@
+
+code{
+  color: salmon;
+  backgroound: #FFF;
+  border: solid 1px #EAEAEA;
+}
+
+pre code{
+  color: #000;
+  backgroound: transparent;
+  border: none;
+}
+
+
 .highlight .highlight { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #555555; } /* Error */

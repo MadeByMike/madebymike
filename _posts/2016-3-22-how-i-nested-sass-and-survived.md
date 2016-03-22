@@ -98,8 +98,8 @@ Typically I might write the above example something like this:
 
 If there were more changes than just the color of the `.tab-link` element I would probably consider structuring it like this:
 
-```
-css.tabs {
+```css
+.tabs {
 
   .tab {  }
 

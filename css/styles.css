@@ -716,6 +716,16 @@ footer ul li a:hover, footer ul li a:hover .logo {
   fill: #666;
   transition: all .5s; }
 
+code {
+  color: salmon;
+  backgroound: #FFF;
+  border: solid 1px #EAEAEA; }
+
+pre code {
+  color: #000;
+  backgroound: transparent;
+  border: none; }
+
 .highlight .highlight {
   background-color: #ffffcc; }
 
