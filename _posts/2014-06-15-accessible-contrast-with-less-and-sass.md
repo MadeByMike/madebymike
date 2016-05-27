@@ -37,16 +37,14 @@ Luminance is the perceived brightness of a color and as expected it was the best
 
 In general I'd say  these results are reasonably good. The correct color is usually picked and the text is generally readable. But closer scrutiny shows that they often don't meet [WCAG 2.0 requirements](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) for text contrast.
 
-<p data-height="266" data-theme-id="6646" data-slug-hash="jJFqI" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/MadeByMike/pen/jJFqI/'>Contrast black\white - luma (Less)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="266" data-theme-id="6646" data-slug-hash="jJFqI" data-default-tab="result" class="codepen">See the Pen <a href='http://codepen.io/MadeByMike/pen/jJFqI/'>Contrast black\white - luma (Less)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
 This examples uses Less, is Sass more your thing? [Got you covered](http://codepen.io/MadeByMike/pen/FoBjq)!
 
-<div class="special-attention">
-<p>Less has built-in luminance functions but Sass requires a little extra help.</p>
-<p>Calculating luminance in Sass using the <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef">w3c formula for relative luminance</a> requires the <code>pow</code> function, which is available only with <a href="http://compass-style.org/">compass</a>.
+Less has built-in luminance functions but Sass requires a little extra help.
 
-</div>
+<p>Calculating luminance in Sass using the <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef">w3c formula for relative luminance</a> requires the <code>pow</code> function, which is available only with <a href="http://compass-style.org/">compass</a>.</p>
 
 I'm not sure exactly how Less calculates luminance but in my tests there was only one difference I could find (#9ACD32).
 
@@ -56,12 +54,12 @@ So none of the simple methods work and using only black and white text is somewh
 
 Wait, we can do that! In this demo the acceptable contrast ratio is set to 4.5 (WCAG AA compliance). If the desired contrast ratio can not be met, either black or white is returned using the luminance method.
 
-I believe this method is by far the most useful. It can take a little time to compile, although in most situations you probably won't notice and if you're after guaranteed contrast ratios, this is the only option. No more `text-color` variables!
+I believe this method is by far the most useful. It can take a little time to compile, although in most situations you probably won't notice and if you're after guaranteed contrast ratios, this is the only option. No more <code>text-color</code> variables!
 
 <p data-height="266" data-theme-id="6646" data-slug-hash="sDpxg" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/MadeByMike/pen/sDpxg/'>Contrast - WCAG compliant (Sass)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
-Prefer Less? <strike>Sorry :( I think I may have finally found something I can do with Sass that I can't do with Less, although I haven't given up yet!</strike>
+<p>Prefer Less? <strike>Sorry :( I think I may have finally found something I can do with Sass that I can't do with Less, although I haven't given up yet!</strike></p>
 
 It turns out this is possible to do with Less although I can't say I like the method. Consider this [proof of concept](http://codepen.io/MadeByMike/pen/rguCF) only.
 
@@ -74,11 +72,13 @@ You can produce a range of [mathamatically determined color schemes](http://code
 ## Usage
 
 <div class="special-attention">
-<p>Again we're calculating luminance in Sass which requires the <code>pow</code> function, so you will need <a href="http://compass-style.org/">compass</a>.
-
+<p>Again we're calculating luminance in Sass which requires the <code>pow</code> function, so you will need <a href="http://compass-style.org/">compass</a>.</p>
 </div>
 
 Drop the following functions into your Sass stylesheets.
+```css
+.aasa{}
+```
 
 ```css
   @function luma($color){  
