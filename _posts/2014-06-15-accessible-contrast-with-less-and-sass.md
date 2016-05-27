@@ -76,6 +76,7 @@ You can produce a range of [mathamatically determined color schemes](http://code
 </div>
 
 Drop the following functions into your Sass stylesheets.
+
 ```css
   @function luma($color){  
     // Thanks voxpelli for a very concise implementation of luminance measure in sass
