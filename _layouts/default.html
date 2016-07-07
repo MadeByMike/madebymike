@@ -6,16 +6,17 @@
   <body class="{{page.class}}">
 
 	<header>
-	{% include banner.html %}
+	  {% include banner.html %}
 	</header>
-    <main>
-	
-      {{ content }}
 
-    </main>
+  <main>
+    {{ content }}
+  </main>
+
 	<footer>
-	{% include footer.html %}
+	  {% include footer.html %}
 	</footer>
+
 	{% include svg-sprite.html %}
 	{% include scripts.html %}
   </body>

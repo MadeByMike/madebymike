@@ -1,22 +1,88 @@
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.media-figure {
+  margin-right: 1em;
+	width: 160px;
+}
+
+.media-body {
+  flex: 1;
+}
+
 main{
+	position: relative;
+}
+
+section{
+	padding: 4rem 0;
+}
+
+aside,
+.container{
 	width: 90%;
-	margin-left: auto;
+	max-width: 50rem;
+	margin-left: 2rem;
 	margin-right: auto;
 }
 
-@media screen and (min-width: 40rem) {
-	main{
-		width: 38rem;
+aside{
+	border: solid 1px #E0E0E0;
+  border-top: solid 3px #A2263A;
+	background: #FFF;
+	padding: 1rem;
+	margin-top: 4rem;
+}
+
+@media screen and (min-width: 76rem) { /* 52 + 16 + 4 + 2 + 2 */
+
+	.container{
+		@include fluid-calc('margin-left', 76rem, 120rem, 2rem, 20rem);
+		width: 50rem;
+    max-width: none;
+	}
+  .container-wide{
+    width: 70rem;
+  }
+	aside{
+		.media {
+		  display: block;
+		}
+
+		.media-figure {
+			width: auto;
+			margin:0;
+		}
+
+		.h4{
+			margin-top: 2rem;
+		}
+
+		.speaking {
+			font-size: .8rem;
+			padding-left: 1rem;
+		}
+
+		position: absolute;
+		@include fluid-calc('margin-left', 76rem, 120rem, 2rem, 20rem);
+		top: 0;
+		left: 54rem;
+		width: 16rem;
 	}
 }
 
-@media screen and (min-width: 50rem) {
-	main{
-		width: 42rem;
-	}
+
+footer {
+	clear: both;
 }
 
 //grid
 $gutter: 1rem;
 $columns: 12;
 @include make-grid($columns,$gutter);
+
+.background-dark{
+	background: #EEE;
+}

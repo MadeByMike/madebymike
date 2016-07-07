@@ -322,13 +322,13 @@ td, th {
   padding: 0; }
 
 :root, html {
-  font-size: 0.875em; }
-@media screen and (min-width: 20em) {
+  font-size: 0.875rem; }
+@media screen and (min-width: 20rem) {
   :root, html {
-    font-size: calc(0.875em + 0.25 * ((100vw - 20em) / 40)); } }
-@media screen and (min-width: 60em) {
+    font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 100); } }
+@media screen and (min-width: 120rem) {
   :root, html {
-    font-size: 1.125em; } }
+    font-size: 1.125rem; } }
 
 /* Vars */
 body {
@@ -347,6 +347,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
   color: #000000;
   text-decoration: none; }
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child {
+  margin-top: 0; }
 
 p {
   font-size: 1.125rem;
@@ -381,7 +384,7 @@ h1, .h1 {
   font-size: 1.602rem; }
 @media screen and (min-width: 20rem) {
   h1, .h1 {
-    font-size: calc(1.602rem + 1.555 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(1.602rem + 1.555 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   h1, .h1 {
     font-size: 3.157rem; } }
@@ -390,7 +393,7 @@ h1, .h1 {
   font-size: 2.441rem; }
 @media screen and (min-width: 20rem) {
   .page-title {
-    font-size: calc(2.441rem + 1.557 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(2.441rem + 1.557 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   .page-title {
     font-size: 3.998rem; } }
@@ -399,7 +402,7 @@ h2, .h2 {
   font-size: 1.424rem; }
 @media screen and (min-width: 20rem) {
   h2, .h2 {
-    font-size: calc(1.424rem + 0.945 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(1.424rem + 0.945 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   h2, .h2 {
     font-size: 2.369rem; } }
@@ -408,7 +411,7 @@ h3, .h3 {
   font-size: 1.266rem; }
 @media screen and (min-width: 20rem) {
   h3, .h3 {
-    font-size: calc(1.266rem + 0.511 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(1.266rem + 0.511 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   h3, .h3 {
     font-size: 1.777rem; } }
@@ -417,7 +420,7 @@ h4, .h4 {
   font-size: 1.125rem; }
 @media screen and (min-width: 20rem) {
   h4, .h4 {
-    font-size: calc(1.125rem + 0.208 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(1.125rem + 0.208 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   h4, .h4 {
     font-size: 1.333rem; } }
@@ -429,7 +432,7 @@ h6, .h6 {
   font-size: 0.79rem; }
 @media screen and (min-width: 20rem) {
   h6, .h6 {
-    font-size: calc(0.79rem + -0.04 * ((100vw - 20rem) / 100)); } }
+    font-size: calc(0.79rem + -0.04 * (100vw - 20rem) / 100); } }
 @media screen and (min-width: 120rem) {
   h6, .h6 {
     font-size: 0.75rem; } }
@@ -492,12 +495,19 @@ ul.condensed {
   color: #A2263A;
   font-weight: bold; }
 
+blockquote {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-left: 0; }
+
+/* Yep! "Wow Box" - This is my site so I can name things what I like! */
 .wow-box {
   background: #FFF;
   border: solid 1px #E0E0E0;
   border-top: solid 3px #A2263A;
   padding: .5rem;
   margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
 .wow-box .post-title {
@@ -508,17 +518,67 @@ ul.condensed {
     padding: 1.5rem 1.5rem;
     margin-left: -1.5rem;
     margin-right: -1.5rem; } }
+.media {
+  display: flex;
+  align-items: flex-start; }
+
+.media-figure {
+  margin-right: 1em;
+  width: 160px; }
+
+.media-body {
+  flex: 1; }
+
 main {
+  position: relative; }
+
+section {
+  padding: 4rem 0; }
+
+aside, .container {
   width: 90%;
-  margin-left: auto;
+  max-width: 50rem;
+  margin-left: 2rem;
   margin-right: auto; }
 
-@media screen and (min-width: 40rem) {
-  main {
-    width: 38rem; } }
-@media screen and (min-width: 50rem) {
-  main {
-    width: 42rem; } }
+aside {
+  border: solid 1px #E0E0E0;
+  border-top: solid 3px #A2263A;
+  background: #FFF;
+  padding: 1rem;
+  margin-top: 4rem; }
+
+@media screen and (min-width: 76rem) {
+  /* 52 + 16 + 4 + 2 + 2 */
+  .container {
+    width: 50rem;
+    max-width: none; }
+  .container {
+    margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); }
+
+  .container-wide {
+    width: 70rem; }
+
+  aside {
+    position: absolute;
+    top: 0;
+    left: 54rem;
+    width: 16rem; }
+  aside .media {
+    display: block; }
+  aside .media-figure {
+    width: auto;
+    margin: 0; }
+  aside .h4 {
+    margin-top: 2rem; }
+  aside .speaking {
+    font-size: .8rem;
+    padding-left: 1rem; }
+  aside {
+    margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); } }
+footer {
+  clear: both; }
+
 .row {
   margin-left: -0.5rem;
   margin-right: -0.5rem; }
@@ -575,10 +635,13 @@ main {
 
   .col-12 {
     width: 100%; } }
-.post-list article:after {
+.background-dark {
+  background: #EEE; }
+
+.post-list article:before {
   content: "";
   display: block;
-  bottom: 0;
+  top: 0;
   height: 1px;
   background: #ccc;
   background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent); }
@@ -605,7 +668,8 @@ main {
 
 header {
   text-align: center;
-  padding: 1rem 3rem; }
+  padding: 1rem 0;
+  background: #282c2c; }
 
 header ul {
   margin: 0;
@@ -625,65 +689,70 @@ header ul li:first-child {
   padding-top: 0; }
 
 header ul li a {
+  border-bottom: solid 4px transparent;
   display: block;
-  color: #333;
+  color: #EEE;
+  text-decoration: none; }
+header ul li a:hover, header ul li a:focus {
   text-decoration: none; }
 
-.brand {
-  display: none; }
+.home-page header ul .home a, .hire-me header ul .hire a, .post-list header ul .writing a {
+  color: #FA3656; }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 40em) {
   header {
-    text-align: right; }
+    text-align: left;
+    position: relative; }
 
   header:after {
     content: "";
     display: block;
+    position: absolute;
     bottom: 0;
-    height: 1px;
+    height: 5px;
     background: #ccc;
-    background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent);
-    margin-top: 1em; }
+    background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent); }
 
   header ul li {
     display: inline-block;
     padding: 0;
     border: medium none; }
-
-  header ul .home {
-    float: left; }
+  header ul li:hover, header ul li:focus {
+    border-color: #FA3656; }
 
   header ul li a {
     display: block;
-    color: #333;
+    margin-right: 3rem; }
+  header ul li a:hover, header ul li a:focus {
     text-decoration: none;
-    margin-left: 3rem; }
+    border-bottom: solid 4px; }
 
-  header .brand {
-    display: block;
-    text-transform: uppercase;
-    position: absolute;
-    top: 1.15rem;
-    left: 50%;
-    transform: translate(-50%, 0); }
-  header .brand a {
-    margin: 0;
-    transition: opacity .5s;
-    opacity: 0.25;
-    font-weight: bold; }
-  header .brand a:hover {
-    text-decoration: none;
-    color: #A2263A;
-    opacity: 0.8; } }
-.home-page header ul .home {
-  display: none; }
-
-.post-list header ul .writing {
-  display: none; }
-
-footer {
+  .home-page header ul .home a, .hire-me header ul .hire a, .post-list header ul .writing a {
+    border-color: inherit; } }
+.btn {
+  display: inline-block;
   text-align: center;
-  margin: 4rem 0 3em 0; }
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background: #A2263A;
+  color: white;
+  border: 1px solid #daa8b0;
+  padding: 5px 10px; }
+.btn:active {
+  background-image: none;
+  outline: 0;
+  color: white !important; }
+.btn:active:focus {
+  border-color: #FA3656; }
+.btn:hover, .btn:focus {
+  text-decoration: none;
+  background: #791c2b;
+  color: white !important; }
+
+.btn-block {
+  display: block; }
 
 footer ul {
   margin: 0;
@@ -707,6 +776,7 @@ footer .logo {
   width: 32px;
   height: 32px;
   margin-bottom: -10px;
+  /* This number is so magic it could fry a unicorn */
   fill: #CCC;
   margin-right: .5rem;
   opacity: 1; }
@@ -1114,5 +1184,11 @@ pre {
 
 .mll, .mhl, .mal {
   margin-left: 20px !important; }
+
+.pull-left {
+  float: left !important; }
+
+.pull-right {
+  float: right !important; }
 
 /*# sourceMappingURL=styles.css.map */

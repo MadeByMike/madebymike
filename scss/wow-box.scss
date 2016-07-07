@@ -1,4 +1,4 @@
-// Yep! "Wow Box" - This is my site so I can name things what I like!
+/* Yep! "Wow Box" - This is my site so I can name things what I like! */
 
 .wow-box{
   background: #FFF;
@@ -6,6 +6,7 @@
   border-top: solid 3px $link-color;
   padding: .5rem;
   margin-top: $heading-margin-top;
+  margin-bottom: $heading-margin-top;
   margin-left: -0.75rem;
   margin-right: -0.75rem;
   .post-title{

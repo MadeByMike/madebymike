@@ -23,25 +23,25 @@ It's also easy to extend so I can usually drop it into almost any project.
 
 ### Inline:
 
-```css
+```html
 <span class="icon icon-{icon-name}"></span>
 ```
 
 ### Prepend:
 
-```css
+```html
 <div class="icon-left-{icon-name}"></div>
 ```
 
 ### Append:
 
-```css
+```html
 <div class="icon-right-{icon-name}"></div>
 ```
 
 ### Size modifiers:
 
-```css
+```html
 <span class="icon icon-{icon-name} icon-small"></span>
 <div class="icon-right-{icon-name} icon-large"></div>
 <span class="icon icon-{icon-name} icon-responsive"></span>

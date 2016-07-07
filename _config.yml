@@ -1,6 +1,7 @@
 # Dependencies
 markdown:  kramdown
 highlighter:  rouge
+gems: [jekyll-paginate]
 
 # Permalinks
 permalink:  writing/:title/
@@ -8,14 +9,16 @@ permalink:  writing/:title/
 # Setup
 title:  MadebyMike
 url:  https://madebymike.com.au
-paginate:  5
-paginate_path:  "writing/:num/"
 baseurl:  /
 exclude:  [node_modules, package.json, npm-debug.log, Gruntfile.js]
 author:
   name:  Mike Riethmuller
   url:  https://madebymike.com.au/
   email:  mike@madebymike.com.au
+
+# Pagination
+paginate:  5
+paginate_path:  "writing/:num/"
 
 # Custom vars
 version:  1.0.0

@@ -1,7 +1,7 @@
-.post-list article:after {
+.post-list article:before {
 	content: "";
 	display: block;
-	bottom: 0;
+	top: 0;
 	height: 1px;
 	background: #ccc;
 	background: linear-gradient(to right,transparent,#ccc 25%,#ccc 75%,transparent);

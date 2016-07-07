@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding Flexbox
+title: Understanding flexbox
 extra_css:
   - understanding-flex.css
 ---

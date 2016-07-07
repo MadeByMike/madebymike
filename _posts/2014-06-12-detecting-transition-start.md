@@ -58,4 +58,4 @@ Although not the ideal method I'd like, I've come up with a solution for detecti
 
 As I said, it is not ideal. It requires some specific css with a 0.00001s transition to detect the transition start.
 
-I'm looking forward to findind a better method. If you do let me know.
+I'm looking forward to finding a better method. If you do let me know.

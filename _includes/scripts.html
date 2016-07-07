@@ -8,6 +8,11 @@
     ga('send', 'pageview');
   }
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/sw.js');
+}
+</script>
 
 {% for js_name in page.extra_js %}
 	<script type="text/javascript" src="/js/{{ js_name }}"></script>

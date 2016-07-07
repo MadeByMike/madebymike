@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 					'css/fluid-type-examples.css': 'scss/fluid-type-examples.scss'
 				}
 			}
-		},
+    },
 		watch: {
 		  scripts: {
 				files: ['scss/*.scss'],
