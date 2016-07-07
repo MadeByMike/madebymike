@@ -123,15 +123,15 @@ var data = new Uint32Array(buf);
 We can then replace our loop with the following:
 
 ```javascript
+var j=0;
 for (var i = 0; i < data.length; i += 4) {
-  var i = y * canvas.width + x;
   var grey = (0.2126 * imgData.data[i]) + (0.7152 * imgData.data[i + 1]) + (0.0722 * imgData.data[i + 2]);
-
-  data[i] =
+  data[j] =
       (255  << 24) |    // alpha
       (grey << 16) |    // blue
       (grey <<  8) |    // green
        grey;            // red
+  j++; // Advance current the increment
 }
 ```
 
