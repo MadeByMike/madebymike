@@ -346,7 +346,7 @@ Once you understand a little about how shaders works it’s not that difficult t
 
 As is often the case with modern web development, there are many features you can use to achieve the same results. For image effects CSS, SVG and canvas each have different strengths. Even after choosing the right technology, differences in implementation can make a huge difference in performance.
 
-Whilst it is tempting to pick the simplest implementation from a development perspective, what is simple is sometimes more nuanced than this. The rendering process for CSS and SVG filters, whilst largely hidden from developers, is complicated due to its many features and abstractions. If we need to, we can take more direct control over the rendering process and have purpose-built applications that are amazingly fast. Although the path is less clear, and it may be more work initially, canvas can open a range [unique possibilities](demos/image-effects/webgl-interactive.html) not available using more defined "paint by number" solutions.
+Whilst it is tempting to pick the simplest implementation from a development perspective, what is simple is sometimes more nuanced than this. The rendering process for CSS and SVG filters, whilst largely hidden from developers, is complicated due to its many features and abstractions. If we need to, we can take more direct control over the rendering process and have purpose-built applications that are amazingly fast. Although the path is less clear, and it may be more work initially, canvas can open a range [unique possibilities](/demos/image-effects/webgl-interactive.html) not available using more defined "paint by number" solutions.
 
 ## You might also be interested in reading
 
