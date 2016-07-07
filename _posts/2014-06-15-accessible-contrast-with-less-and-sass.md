@@ -59,7 +59,7 @@ I believe this method is by far the most useful. It can take a little time to co
 <p data-height="266" data-theme-id="6646" data-slug-hash="sDpxg" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/MadeByMike/pen/sDpxg/'>Contrast - WCAG compliant (Sass)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
-<p>Prefer Less? <strike>Sorry :( I think I may have finally found something I can do with Sass that I can't do with Less, although I haven't given up yet!</strike></p>
+<p>Prefer Less? <s>Sorry :( I think I may have finally found something I can do with Sass that I can't do with Less, although I haven't given up yet!</s></p>
 
 It turns out this is possible to do with Less although I can't say I like the method. Consider this [proof of concept](http://codepen.io/MadeByMike/pen/rguCF) only.
 
