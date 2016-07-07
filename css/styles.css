@@ -338,7 +338,7 @@ body {
   color: #333333; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Handlee", cursive;
+  font-family: "Handlee", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
   font-weight: normal;
   line-height: 1.2;
   margin-top: 3.75rem;
@@ -538,9 +538,12 @@ section {
 aside, .container {
   width: 90%;
   max-width: 50rem;
-  margin-left: 2rem;
+  margin-left: auto;
   margin-right: auto; }
 
+@media screen and (min-width: 40em) {
+  aside, .container {
+    margin-left: 2rem; } }
 aside {
   border: solid 1px #E0E0E0;
   border-top: solid 3px #A2263A;
