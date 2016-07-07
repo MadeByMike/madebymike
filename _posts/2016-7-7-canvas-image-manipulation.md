@@ -17,7 +17,9 @@ Recently my friend Una Kravets wrote an excellent article for Smashing Magazine,
 
 Una knows a lot when it comes to applying image effects in the browser. You should checkout some of her other work including her A List Apart article, [Finessing feColorMatrix](http://alistapart.com/article/finessing-fecolormatrix) and [CSSgram](https://una.im/CSSgram/) which implements Instagram style filters using only CSS!
 
-That’s amazing right? But it leaves the question; why would we ever want to use Canvas? The answer is when we want to do more than just apply image effects.
+That’s amazing right? But it leaves the question; why would we ever want to use Canvas?
+
+**The answer is when we want to do more than just apply image effects.**
 
 Filters and blend modes don’t change images directly. Instead they are applied like mask layers in Photoshop where the source image is not modified. This means that if a user tries to save the image, they will get the original image without any effects. This might be exactly what you want, but for the average web user it’s probably a little confusing. That’s why I think CSS filters and blend modes work best for subtle effects and on background images, but not so much for applications where you want to make use of the end result.
 
@@ -74,7 +76,7 @@ var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 var data = imgData.data;
 ```
 
-Now that we have the image data we want apply an effect and write it back onto the canvas. Each pixel has 4 pieces of color information, one for each rgb value and an alpha value. Because of this you might expect <code>getImageData</code> to return some kind of structured data, instead—for reasons that become clear in the next example—it returns a simple unstructured array. The first four values in the array represent the first pixel and so on. This means we have to loop over it in chunks of four. We can do this like so:
+Now that we have the image data we want to apply an effect and write it back onto the canvas. Each pixel has 4 pieces of color information, one for each rgb value and an alpha value. Because of this you might expect <code>getImageData</code> to return some kind of structured data, instead—for reasons that become clear in the next example—it returns a simple unstructured array. The first four values in the array represent the first pixel and so on. This means we have to loop over it in chunks of four. We can do this like so:
 
 ```javascript
 for (var i = 0; i < data.length; i += 4) {
