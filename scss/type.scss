@@ -8,18 +8,18 @@ $font-family: 'Libre Baskerville', serif;
 
 $font-color: #333333;
 $font-size: 1.125rem;
-$line-height: 1.8;
+$line-height: 2;
 
 $heading-font-family: 'Handlee', Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
 $heading-font-weight: normal;
 $heading-font-color:  #000000;
-$heading-line-height: 1.2;
+$heading-line-height: 1.4;
 $heading-margin-top: 3.75rem;
 $heading-margin-bottom: .75rem;
 
 $paragraph-font-size: $font-size;
-$paragraph-margin-top: .25rem;
-$paragraph-margin-bottom: .75rem;
+$paragraph-margin-top: .5rem;
+$paragraph-margin-bottom: 1.2rem;
 
 $list-font-size: $font-size;
 $list-margin-top: 0;
@@ -197,6 +197,6 @@ ul.condensed{
 
 blockquote{
   font-weight: bold;
-  font-size: 2rem;
+  @include fluid('font-size',20rem,120rem,1.2rem,2rem);
   margin-left: 0;
 }

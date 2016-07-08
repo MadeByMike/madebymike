@@ -15,9 +15,13 @@
 main{
 	position: relative;
 }
-
 section{
-	padding: 4rem 0;
+  padding: 2rem 0;
+}
+@media screen and (min-width: 32rem) {
+  section{
+  	padding: 4rem 0;
+  }
 }
 
 aside,

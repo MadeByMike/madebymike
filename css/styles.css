@@ -333,14 +333,14 @@ td, th {
 /* Vars */
 body {
   font-family: "Libre Baskerville", serif;
-  line-height: 1.8;
+  line-height: 2;
   font-size: 1.125rem;
   color: #333333; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Handlee", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.4;
   margin-top: 3.75rem;
   margin-bottom: 0.75rem;
   color: #000000; }
@@ -353,8 +353,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 
 p {
   font-size: 1.125rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.75rem; }
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem; }
 
 dl, ol, ul {
   font-size: 1.125rem;
@@ -497,8 +497,15 @@ ul.condensed {
 
 blockquote {
   font-weight: bold;
-  font-size: 2rem;
   margin-left: 0; }
+blockquote {
+  font-size: 1.2rem; }
+@media screen and (min-width: 20rem) {
+  blockquote {
+    font-size: calc(1.2rem + 0.8 * (100vw - 20rem) / 100); } }
+@media screen and (min-width: 120rem) {
+  blockquote {
+    font-size: 2rem; } }
 
 /* Yep! "Wow Box" - This is my site so I can name things what I like! */
 .wow-box {
@@ -533,8 +540,11 @@ main {
   position: relative; }
 
 section {
-  padding: 4rem 0; }
+  padding: 2rem 0; }
 
+@media screen and (min-width: 32rem) {
+  section {
+    padding: 4rem 0; } }
 aside, .container {
   width: 90%;
   max-width: 50rem;
