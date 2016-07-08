@@ -13,7 +13,7 @@ $line-height: 2;
 $heading-font-family: 'Handlee', Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
 $heading-font-weight: normal;
 $heading-font-color:  #000000;
-$heading-line-height: 1.4;
+$heading-line-height: 1.6;
 $heading-margin-top: 3.75rem;
 $heading-margin-bottom: .75rem;
 
@@ -197,6 +197,7 @@ ul.condensed{
 
 blockquote{
   font-weight: bold;
-  @include fluid('font-size',20rem,120rem,1.2rem,2rem);
+  line-height: $heading-line-height;
+  @include fluid('font-size',20rem,120rem,1.5rem,2rem);
   margin-left: 0;
 }
