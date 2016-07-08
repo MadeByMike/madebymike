@@ -373,10 +373,15 @@ pre, code, samp {
   font-size: inherit; }
 
 pre {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem !important;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   overflow-x: scroll; }
 
+@media screen and (min-width: 32rem) {
+  pre {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem; } }
 strike {
   color: #4d4d4d; }
 

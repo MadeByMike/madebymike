@@ -34,8 +34,8 @@ $link-hover-color: #FA3656;
 
 $pre-font-family: 'Source Code Pro', Consolas, monospace;
 $pre-font-size: inherit;
-$pre-margin-top:.5rem;
-$pre-margin-bottom: 1.5rem;
+$pre-margin-top: 2rem;
+$pre-margin-bottom: 2.5rem;
 
 body {
   font-family: $font-family;
@@ -88,10 +88,19 @@ pre, code, samp {
 }
 
 pre {
+  padding: 1rem 1.5rem !important;
   margin-top: $pre-margin-top;
   margin-bottom: $pre-margin-bottom;
   overflow-x: scroll;
 }
+
+@media screen and (min-width: 32rem) {
+  pre{
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+
 
 strike{
   color: lighten($font-color,10%);
