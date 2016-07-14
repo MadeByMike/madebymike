@@ -207,6 +207,13 @@ ul.condensed{
 blockquote{
   font-weight: bold;
   line-height: $heading-line-height;
+  @include fluid('font-size',20rem,120rem,1.2rem,1.5rem);
+  margin-left: 0;
+}
+
+.hire blockquote{
+  font-weight: bold;
+  line-height: $heading-line-height;
   @include fluid('font-size',20rem,120rem,1.5rem,2rem);
   margin-left: 0;
 }
