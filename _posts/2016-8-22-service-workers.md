@@ -13,7 +13,7 @@ Having said that, there are a few things I wish I had known before getting start
 
 Service workers are an easy candidate for progressive enhancement and on the surface, it's easy to check for support before registering a service worker. You do that like this:
 
-```
+```javascript
 if ('serviceWorker' in navigator) {
   // Yay, service workers work!
   navigator.serviceWorker.register('/sw.js');
@@ -28,7 +28,7 @@ In the end, with such a small number of users, that is only getting smaller, I o
 
 So, my feature detection now becomes:
 
-```
+```javascript
 if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
   // Yay, this is a problem we didn't need to have!
   navigator.serviceWorker.register('/sw.js');
@@ -55,7 +55,7 @@ You'll soon learn that, where offline content is concerned, there are 3 main eve
 
 The **install** event is fired only once when the service worker is first registered. Here we setup the cache prime it with essential resources. My install event is pretty simple, nothing special here. I cache the homepage, CSS and an offline page:
 
-```
+```javascript
 var CACHE_NAME = 'v1::madebymike';
 var urlsToCache = [
   '/',
@@ -77,7 +77,7 @@ The **activate** event is fired after install and every time you navigate to the
 
 My activate event is also pretty standard. I'm only using one cache for my service worker. This pattern checks the names of any caches to ensure they match the variable `CACHE_NAME`, if they don't, it will delete them. This gives me a manual means of invalidating my service worker cache.     
 
-```
+```javascript
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
@@ -98,7 +98,7 @@ Finally, the **fetch** event is fired every time a page is requested. The fetch 
 
 Here is my first example of a fetch event. It's really little more than custom error page, but it's a start.
 
-```
+```javascript
 self.addEventListener('fetch', function(event) {
   e.respondWith(
     // If network fetch fails serve offline page form cache
@@ -117,7 +117,7 @@ At this point I was pretty happy with myself and if you want to implement offlin
 
 It took me a lot of testing and several mistakes to finally arrive at this pattern. You need to be really careful when serving cached pages by default. You could end up showing really old content, or even breaking your site.
 
-```
+```javascript
 self.addEventListener('fetch', function(event) {
 
   var requestURL = new URL(event.request.url);
@@ -164,7 +164,7 @@ There is a method for communicating with service workers and web workers called 
 
 In the service worker, I listen for a `message` event. Once received I get a list of pages from the cache that match the URL pattern for blog posts on my site and post a response back to the offline page.
 
-```
+```javascript
 self.addEventListener('message', function(event) {
   caches.open(CACHE_NAME).then(function(cache) {
 
@@ -187,7 +187,7 @@ self.addEventListener('message', function(event) {
 
 In my offline page I send a message to the service worker and listen for a response. It's not very clever. At the moment it doesn't matter what message I post, I will always get the same response. But this is sufficient for now and I didn't want to complicate it more than necessary.  
 
-```
+```javascript
 var messageChannel = new MessageChannel();
 messageChannel.port1.onmessage = function(event) {
   // Add list of offline pages to body with JavaScript
