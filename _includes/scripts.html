@@ -8,9 +8,10 @@
     ga('send', 'pageview');
   }
 </script>
+
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/js/sw.js');
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
 }
 </script>
 
