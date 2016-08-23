@@ -15,6 +15,14 @@
 	<noscript>
 		<link rel="stylesheet" href="{{ site.baseurl }}css/styles.min.css">
 	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="MadebyMike - {{ page.title }}" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}{% endif %}" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
 	<script>
 		{% include inline.js %}
@@ -24,11 +32,5 @@
 	{% for css_name in page.extra_css %}
 		<link rel="stylesheet" href="/css/{{ css_name }}">
 	{% endfor %}
-
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}{% endif %}" />
-	<meta name="twitter:title" content="MadebyMike - {{ page.title }}" />
-	<meta name="twitter:site" content="@MikeRiethmuller" />
-	<meta name="twitter:image" content="https://madebymike.com.au/stuff/mug.jpg" />
 
 </head>
