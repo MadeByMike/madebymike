@@ -9,6 +9,7 @@ permalink:  writing/:title/
 # Setup
 title:  MadebyMike
 url:  https://madebymike.com.au
+description: "A range of unique and possibly interesting web development ideas of varying quality."
 baseurl:  /
 exclude:  [node_modules, package.json, npm-debug.log, Gruntfile.js]
 author:
