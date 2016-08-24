@@ -201,6 +201,6 @@ My worst case offline experience now looks something like this:
 
 ## What next?
 
-I'd like to give users an indication of when they are reading something an offline. I think this could be helpful, and in poor network conditions it might not always be obvious. This would probably would use the message API as well, but I might also investigate push notifications. I'll update this post if I ever get around to it.
+I'd like to give users an indication of when they are reading something offline. I think this could be helpful, and in poor network conditions it might not always be obvious. This would probably would use the message API as well, but I might also investigate push notifications. I'll update this post if I ever get around to it.
 
 I hope explaining my experience implementing offline content can help make it easier for you or just inspire you to get started. I think the most difficult thing was understanding the impact of choices when serving cached content to all users. Making sure you get this right is important and it takes some time to understanding how service workers, and caching in general works. I'm not an expert at this so please, if I've got anything wrong, let me know so I can update it.
