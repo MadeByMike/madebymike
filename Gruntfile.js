@@ -35,16 +35,19 @@ module.exports = function (grunt) {
 					'css/fluid-type-examples.css': 'scss/fluid-type-examples.scss'
 				}
 			}
-    },
+		},
+		cqdemo: {
+			
+		},
 		watch: {
-		  scripts: {
+			scripts: {
 				files: ['scss/*.scss'],
 				tasks: ['sass'],
 				options: {
 					spawn: false,
 				},
-		  },
-    }
+			},
+		}
     });
 
     // These plugins provide necessary tasks

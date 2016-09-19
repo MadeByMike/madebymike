@@ -5,6 +5,11 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-template": "^4.0.0"
   }
 }

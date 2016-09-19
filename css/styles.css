@@ -26,14 +26,28 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
   display: block; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
@@ -51,7 +65,8 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-[hidden], template {
+[hidden],
+template {
   display: none; }
 
 /* Links
@@ -65,7 +80,8 @@ a {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active, a:hover {
+a:active,
+a:hover {
   outline: 0; }
 
 /* Text-level semantics
@@ -79,7 +95,8 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-b, strong {
+b,
+strong {
   font-weight: bold; }
 
 /**
@@ -112,7 +129,8 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -164,7 +182,10 @@ pre {
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, monospace;
   font-size: 1em; }
 
@@ -180,7 +201,11 @@ code, kbd, pre, samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   color: inherit;
   /* 1 */
   font: inherit;
@@ -200,7 +225,8 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button, select {
+button,
+select {
   text-transform: none; }
 
 /**
@@ -210,7 +236,10 @@ button, select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -219,13 +248,15 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
   cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -243,7 +274,8 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -254,7 +286,8 @@ input[type="checkbox"], input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
 /**
@@ -275,7 +308,8 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
@@ -318,17 +352,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-td, th {
+td,
+th {
   padding: 0; }
 
 :root, html {
   font-size: 0.875rem; }
-@media screen and (min-width: 20rem) {
-  :root, html {
-    font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  :root, html {
-    font-size: 1.125rem; } }
+  @media screen and (min-width: 20rem) {
+    :root, html {
+      font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    :root, html {
+      font-size: 1.125rem; } }
 
 /* Vars */
 body {
@@ -337,18 +372,21 @@ body {
   font-size: 1.125rem;
   color: #333333; }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Handlee", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
   font-weight: normal;
   line-height: 1.6;
   margin-top: 3.75rem;
   margin-bottom: 0.75rem;
   color: #000000; }
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
-  color: #000000;
-  text-decoration: none; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+  .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
+    color: #000000;
+    text-decoration: none; }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child {
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child,
+.h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child {
   margin-top: 0; }
 
 p {
@@ -382,65 +420,69 @@ pre {
   pre {
     margin-left: -1.5rem;
     margin-right: -1.5rem; } }
+
 strike {
   color: #4d4d4d; }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 1.602rem; }
-@media screen and (min-width: 20rem) {
-  h1, .h1 {
-    font-size: calc(1.602rem + 1.555 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  h1, .h1 {
-    font-size: 3.157rem; } }
+  @media screen and (min-width: 20rem) {
+    h1,
+    .h1 {
+      font-size: calc(1.602rem + 1.555 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    h1,
+    .h1 {
+      font-size: 3.157rem; } }
 
 .page-title {
   font-size: 2.441rem; }
-@media screen and (min-width: 20rem) {
-  .page-title {
-    font-size: calc(2.441rem + 1.557 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  .page-title {
-    font-size: 3.998rem; } }
+  @media screen and (min-width: 20rem) {
+    .page-title {
+      font-size: calc(2.441rem + 1.557 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    .page-title {
+      font-size: 3.998rem; } }
 
 h2, .h2 {
   font-size: 1.424rem; }
-@media screen and (min-width: 20rem) {
-  h2, .h2 {
-    font-size: calc(1.424rem + 0.945 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  h2, .h2 {
-    font-size: 2.369rem; } }
+  @media screen and (min-width: 20rem) {
+    h2, .h2 {
+      font-size: calc(1.424rem + 0.945 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    h2, .h2 {
+      font-size: 2.369rem; } }
 
 h3, .h3 {
   font-size: 1.266rem; }
-@media screen and (min-width: 20rem) {
-  h3, .h3 {
-    font-size: calc(1.266rem + 0.511 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  h3, .h3 {
-    font-size: 1.777rem; } }
+  @media screen and (min-width: 20rem) {
+    h3, .h3 {
+      font-size: calc(1.266rem + 0.511 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    h3, .h3 {
+      font-size: 1.777rem; } }
 
 h4, .h4 {
   font-size: 1.125rem; }
-@media screen and (min-width: 20rem) {
-  h4, .h4 {
-    font-size: calc(1.125rem + 0.208 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  h4, .h4 {
-    font-size: 1.333rem; } }
+  @media screen and (min-width: 20rem) {
+    h4, .h4 {
+      font-size: calc(1.125rem + 0.208 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    h4, .h4 {
+      font-size: 1.333rem; } }
 
 h5, .h5 {
   font-size: 1rem; }
 
 h6, .h6 {
   font-size: 0.79rem; }
-@media screen and (min-width: 20rem) {
-  h6, .h6 {
-    font-size: calc(0.79rem + -0.04 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  h6, .h6 {
-    font-size: 0.75rem; } }
+  @media screen and (min-width: 20rem) {
+    h6, .h6 {
+      font-size: calc(0.79rem + -0.04 * (100vw - 20rem) / 100); } }
+  @media screen and (min-width: 120rem) {
+    h6, .h6 {
+      font-size: 0.75rem; } }
 
 /* Links */
 a {
@@ -448,7 +490,9 @@ a {
   transition: color .5s;
   text-decoration: none; }
 
-a:focus, a:active, a:hover {
+a:focus,
+a:active,
+a:hover {
   color: #FA3656;
   text-decoration: underline; }
 
@@ -483,7 +527,9 @@ a:focus, a:active, a:hover {
   fill: #333333;
   transition: fill .5s; }
 
-.nav-link:hover svg, .nav-link:focus svg, .nav-link:active svg {
+.nav-link:hover svg,
+.nav-link:focus svg,
+.nav-link:active svg {
   fill: #FA3656; }
 
 .nav-link-reverse svg {
@@ -504,27 +550,27 @@ blockquote {
   font-weight: bold;
   line-height: 1.6;
   margin-left: 0; }
-blockquote {
-  font-size: 1.2rem; }
-@media screen and (min-width: 20rem) {
   blockquote {
-    font-size: calc(1.2rem + 0.3 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  blockquote {
-    font-size: 1.5rem; } }
+    font-size: 1.2rem; }
+    @media screen and (min-width: 20rem) {
+      blockquote {
+        font-size: calc(1.2rem + 0.3 * (100vw - 20rem) / 100); } }
+    @media screen and (min-width: 120rem) {
+      blockquote {
+        font-size: 1.5rem; } }
 
 .hire blockquote {
   font-weight: bold;
   line-height: 1.6;
   margin-left: 0; }
-.hire blockquote {
-  font-size: 1.5rem; }
-@media screen and (min-width: 20rem) {
   .hire blockquote {
-    font-size: calc(1.5rem + 0.5 * (100vw - 20rem) / 100); } }
-@media screen and (min-width: 120rem) {
-  .hire blockquote {
-    font-size: 2rem; } }
+    font-size: 1.5rem; }
+    @media screen and (min-width: 20rem) {
+      .hire blockquote {
+        font-size: calc(1.5rem + 0.5 * (100vw - 20rem) / 100); } }
+    @media screen and (min-width: 120rem) {
+      .hire blockquote {
+        font-size: 2rem; } }
 
 /* Yep! "Wow Box" - This is my site so I can name things what I like! */
 .wow-box {
@@ -536,14 +582,15 @@ blockquote {
   margin-bottom: 3.75rem;
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
-.wow-box .post-title {
-  margin-top: 1.5rem; }
+  .wow-box .post-title {
+    margin-top: 1.5rem; }
 
 @media screen and (min-width: 32rem) {
   .wow-box {
     padding: 1.5rem 1.5rem;
     margin-left: -1.5rem;
     margin-right: -1.5rem; } }
+
 .media {
   display: flex;
   align-items: flex-start; }
@@ -564,15 +611,19 @@ section {
 @media screen and (min-width: 32rem) {
   section {
     padding: 4rem 0; } }
-aside, .container {
+
+aside,
+.container {
   width: 90%;
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto; }
 
 @media screen and (min-width: 40em) {
-  aside, .container {
+  aside,
+  .container {
     margin-left: 2rem; } }
+
 aside {
   border: solid 1px #E0E0E0;
   border-top: solid 3px #A2263A;
@@ -585,40 +636,39 @@ aside {
   .container {
     width: 50rem;
     max-width: none; }
-  .container {
-    margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); }
-
+    .container {
+      margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); }
   .container-wide {
     width: 70rem; }
-
   aside {
     position: absolute;
     top: 0;
     left: 54rem;
     width: 16rem; }
-  aside .media {
-    display: block; }
-  aside .media-figure {
-    width: auto;
-    margin: 0; }
-  aside .h4 {
-    margin-top: 2rem; }
-  aside .speaking {
-    font-size: .8rem;
-    padding-left: 1rem; }
-  aside {
-    margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); } }
+    aside .media {
+      display: block; }
+    aside .media-figure {
+      width: auto;
+      margin: 0; }
+    aside .h4 {
+      margin-top: 2rem; }
+    aside .speaking {
+      font-size: .8rem;
+      padding-left: 1rem; }
+    aside {
+      margin-left: calc(2rem + 18 * (100vw - 76rem) / 44); } }
+
 footer {
   clear: both; }
 
 .row {
   margin-left: -0.5rem;
   margin-right: -0.5rem; }
-.row:before, .row:after {
-  content: " ";
-  display: table; }
-.row:after {
-  clear: both; }
+  .row:before, .row:after {
+    content: " ";
+    display: table; }
+  .row:after {
+    clear: both; }
 
 @media screen and (min-width: 700px) {
   .col {
@@ -628,45 +678,33 @@ footer {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     float: left; }
-
   .col-0 {
     width: 0%; }
-
   .col-1 {
     width: 8.33333%; }
-
   .col-2 {
     width: 16.66667%; }
-
   .col-3 {
     width: 25%; }
-
   .col-4 {
     width: 33.33333%; }
-
   .col-5 {
     width: 41.66667%; }
-
   .col-6 {
     width: 50%; }
-
   .col-7 {
     width: 58.33333%; }
-
   .col-8 {
     width: 66.66667%; }
-
   .col-9 {
     width: 75%; }
-
   .col-10 {
     width: 83.33333%; }
-
   .col-11 {
     width: 91.66667%; }
-
   .col-12 {
     width: 100%; } }
+
 .background-dark {
   background: #EEE; }
 
@@ -683,11 +721,11 @@ footer {
 
 .pagination {
   text-align: center; }
-.pagination:before, .pagination:after {
-  content: " ";
-  display: table; }
-.pagination:after {
-  clear: both; }
+  .pagination:before, .pagination:after {
+    content: " ";
+    display: table; }
+  .pagination:after {
+    clear: both; }
 
 .pagination a {
   text-decoration: none; }
@@ -706,11 +744,11 @@ header {
 header ul {
   margin: 0;
   padding: 0; }
-header ul:before, header ul:after {
-  content: " ";
-  display: table; }
-header ul:after {
-  clear: both; }
+  header ul:before, header ul:after {
+    content: " ";
+    display: table; }
+  header ul:after {
+    clear: both; }
 
 header ul li {
   display: block;
@@ -725,17 +763,18 @@ header ul li a {
   display: block;
   color: #EEE;
   text-decoration: none; }
-header ul li a:hover, header ul li a:focus {
-  text-decoration: none; }
+  header ul li a:hover, header ul li a:focus {
+    text-decoration: none; }
 
-.home-page header ul .home a, .hire-me header ul .hire a, .post-list header ul .writing a {
+.home-page header ul .home a,
+.hire-me header ul .hire a,
+.post-list header ul .writing a {
   color: #FA3656; }
 
 @media screen and (min-width: 40em) {
   header {
     text-align: left;
     position: relative; }
-
   header:after {
     content: "";
     display: block;
@@ -744,23 +783,23 @@ header ul li a:hover, header ul li a:focus {
     height: 5px;
     background: #ccc;
     background: linear-gradient(to right, transparent, #ccc 25%, #ccc 75%, transparent); }
-
   header ul li {
     display: inline-block;
     padding: 0;
     border: medium none; }
-  header ul li:hover, header ul li:focus {
-    border-color: #FA3656; }
-
+    header ul li:hover, header ul li:focus {
+      border-color: #FA3656; }
   header ul li a {
     display: block;
     margin-right: 3rem; }
-  header ul li a:hover, header ul li a:focus {
-    text-decoration: none;
-    border-bottom: solid 4px; }
-
-  .home-page header ul .home a, .hire-me header ul .hire a, .post-list header ul .writing a {
+    header ul li a:hover, header ul li a:focus {
+      text-decoration: none;
+      border-bottom: solid 4px; }
+  .home-page header ul .home a,
+  .hire-me header ul .hire a,
+  .post-list header ul .writing a {
     border-color: inherit; } }
+
 .btn {
   display: inline-block;
   text-align: center;
@@ -772,16 +811,16 @@ header ul li a:hover, header ul li a:focus {
   color: white;
   border: 1px solid #daa8b0;
   padding: 5px 10px; }
-.btn:active {
-  background-image: none;
-  outline: 0;
-  color: white !important; }
-.btn:active:focus {
-  border-color: #FA3656; }
-.btn:hover, .btn:focus {
-  text-decoration: none;
-  background: #791c2b;
-  color: white !important; }
+  .btn:active {
+    background-image: none;
+    outline: 0;
+    color: white !important; }
+    .btn:active:focus {
+      border-color: #FA3656; }
+  .btn:hover, .btn:focus {
+    text-decoration: none;
+    background: #791c2b;
+    color: white !important; }
 
 .btn-block {
   display: block; }
@@ -789,11 +828,11 @@ header ul li a:hover, header ul li a:focus {
 footer ul {
   margin: 0;
   padding: 0; }
-footer ul:before, footer ul:after {
-  content: " ";
-  display: table; }
-footer ul:after {
-  clear: both; }
+  footer ul:before, footer ul:after {
+    content: " ";
+    display: table; }
+  footer ul:after {
+    clear: both; }
 
 footer ul li {
   display: inline-block; }
@@ -813,7 +852,8 @@ footer .logo {
   margin-right: .5rem;
   opacity: 1; }
 
-footer ul li a:hover, footer ul li a:hover .logo {
+footer ul li a:hover,
+footer ul li a:hover .logo {
   color: #666;
   fill: #666;
   transition: all .5s; }
@@ -1223,4 +1263,30 @@ pre {
 .pull-right {
   float: right !important; }
 
-/*# sourceMappingURL=styles.css.map */
+.js-resizable {
+  position: relative;
+  width: 95%;
+  width: calc(100% - 30px);
+  padding-right: 10px; }
+
+.js-resizable-image {
+  width: 100%;
+  background: #FFF; }
+
+.js-resizable-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  border-right: dashed 2px black;
+  cursor: col-resize; }
+
+.js-resizable-handle::after {
+  content: 'resize';
+  right: 5px;
+  top: 50%;
+  display: block;
+  position: absolute;
+  color: #888;
+  transform: translate(100%, -50%) rotate(90deg); }
