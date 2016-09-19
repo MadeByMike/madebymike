@@ -4,7 +4,7 @@ title: "SVG has more potential"
 extra_js: "resize-image.js"
 ---
 
-I think many of us are not using SVG it to its full potential. I often see SVG used as an alternative image format or as a simple solution for icons, and whilst it's great for these things, it's also a lot more than that. SVG can solve problems that HTML and CSS alone can't. It has responsive properties that go beyond vector scaling, such as control over aspect ratio, embedded CSS and a unique co-ordinate system. I rarely see all the features of SVG used together to create unique responsive solutions.
+I think many of us are not using SVG to its full potential. I often see SVG used as an alternative image format or as a simple solution for icons, and whilst it's great for these things, it's also a lot more than that. SVG can solve problems that HTML and CSS alone can't. It has responsive properties that go beyond vector scaling, such as control over aspect ratio, embedded CSS and a unique co-ordinate system. I rarely see all the features of SVG used together to create unique responsive solutions.
 
 Perhaps the full potential of SVG on the web remains untapped because to get the most out of it, you need care a little more about the mark-up. I'm not advocating writing SVG by hand, but the level of control that most graphics applications give us is not adequate for implementing anything more than basic techniques.
 
