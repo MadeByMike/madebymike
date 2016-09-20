@@ -101,13 +101,15 @@ Let's try and reproduce another influential example. Remember Mat Marquis' artic
   <img class="js-resizable-image" src="/demos/svg/cq-main.svg">
 </div>
 
+**Note**: Sorry I made a change and this demo is a little buggy in Firefox &amp; IE at the moment. I'm working on a fix now.
+
 ### Caveats and limitations
 
 Now that you are hopefully excited, I'm sorry to say this example is intended to demonstrate some limitations. It is obviously not the type of content you would normally use an image for, and this technique dose not change that. It is definitely not accessible. On top of that, I've detailed some further technical limitations below.
 
 #### Setting X & Y attributes with CSS
 
-For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is only one exception to the rule, and that is `<image>` elements. It is also possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well. For these reasons, I've used `<image>` elements where I want to control the X and Y position.
+For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is an exception to this rule in Chrome with regard  to `<image>` elements. It is also possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well.
 
 #### External sources in embedded SVG
 
