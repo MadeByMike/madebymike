@@ -54,14 +54,9 @@ You may recognise the image from an [influential blog post](http://cloudinary.co
 
 To achieve this technique I'm loading an SVG as the `src` attribute for an image. The SVG itself has an image element and embedded CSS that resizes and reframes the image using media queries.
 
-The image element inside the SVG, has a base64 encoded dataURI. I'm using a dataURI because when loading external SVG files in an HTML document, such as via:
+The image element inside the SVG, has a base64 encoded dataURI. I'm using a dataURI because when loading external SVG files in an image element, such as via `<image src="image.svg" >` they will not load additional linked resources. This is perhaps to prevent recursive references or for network performance reasons. Either way, to get around this limitation I'm using a dataURI.
 
-- `<image src="image.svg" >`,
-- `background-image: url('image.svg')`,
-- `<iframe src="image.svg">`, or
-- `<object data="image.svg">`
-
-they will not load additional linked resources. This is perhaps to prevent recursive references or for network performance reasons. Either way, to get around this limitation I'm using a dataURI.
+**Note:** Thanks to Amelia Bellamy-Royds for letting me know that external resources will load in SVG files referenced via an `object` or `iframe` element.
 
 CSS is global, so when embedding SVG in HTML (inline SVG), any CSS in the HTML document can also style SVG elements. Likewise `<style>` tags embedded in the SVG, when used inline, will not be scoped to the SVG element. They will be treated just like any other `<style>` tag found in the HTML body, that is, applied globally.
 
@@ -101,7 +96,7 @@ Let's try and reproduce another influential example. Remember Mat Marquis' artic
   <img class="js-resizable-image" src="/demos/svg/cq-main.svg">
 </div>
 
-**Note**: Sorry I made a change and this demo is a little buggy in Firefox &amp; IE at the moment. I'm working on a fix now.
+**Note**: Sorry this demo is a little buggy in Firefox &amp; IE.
 
 ### Caveats and limitations
 
@@ -113,7 +108,7 @@ For the most part setting and changing X and Y attributes of SVG elements with C
 
 #### External sources in embedded SVG
 
-As I mentioned in the earlier example of responsive art directed images, external SVG files will not load additional link references in the SVG source. Other limitations require that I use images, so I've used base64 encoded dataURIs.
+As I mentioned in the earlier example of responsive art directed images, external SVG files loaded as an `img` source, will not load additional link references in the SVG source. Other limitations require that I use images, so I've used base64 encoded dataURIs.
 
 In this case I'm encoding additional SVG files as the image source. Each has their own CSS and the ability to be responsive based on their own width. This can get complicated quickly, but it can also be a powerful technique.
 
