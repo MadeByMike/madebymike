@@ -8,7 +8,7 @@ I think many of us are not using SVG to its full potential. I often see SVG used
 
 Perhaps the full potential of SVG on the web remains untapped because to get the most out of it, you need care a little more about the mark-up. I'm not advocating writing SVG by hand, but the level of control that most graphics applications give us is not adequate for implementing anything more than basic techniques.
 
-How we overcome this I'm not sure, unlike HTML we need a graphical interface for producing SVG images, but SVG is also a mark-up language, and there are good reasons why we use text editors for HTML. Perhaps SVG will always need both designers and a developers to get the most out of it.
+How we overcome this I'm not sure, unlike HTML we need a graphical interface for producing SVG images, but SVG is also a mark-up language, and there are good reasons why we use text editors for HTML. Perhaps SVG will always need both designers and developers to get the most out of it.
 
 With that in mind, let's take some things you can do with SVG that you might not have seen, and perhaps not even considered possible.
 
