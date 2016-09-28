@@ -28,9 +28,9 @@ Take a look at this example of an ornate border and try to imaging how you might
 
 Dig into the SVG source and you will see we're taking advantage of symbols, masks, transformations and other goodness that HTML and CSS have only ever dreamt of. It works great, but it is by no means the extent of the responsive capabilities of SVG.
 
-One interesting and little known fact about SVG that is that the `viewBox` is an optional attribute. Did you also know that you can nest SVG elements and establish a new coordinate system on nested SVG and symbol elements, by applying a new `viewBox`?
+One interesting and little known fact about SVG is that the `viewBox` is an optional attribute. Did you also know that you can nest SVG elements and establish a new coordinate system on nested SVG and symbol elements, by applying a new `viewBox`?
 
-With that in mind, imaging for a minute that this is not an image on the web. How might a traditional artist adapt this design for different sized page? They would probably not just be uniformly scale the design. More likely, the corner flourishes and diamond would remain roughly same size and the length of the line connecting them would be reduced.
+With that in mind, imaging for a minute that this is not an image on the web. How might a traditional artist adapt this design for a different sized page? They would probably not just uniformly scale the design. More likely, the corner flourishes and diamond would remain roughly same size and the length of the line connecting them would be reduced.
 
 <div class="js-resizable">
   <img class="js-resizable-image" src="/demos/svg/complex-border.svg">
@@ -104,7 +104,7 @@ Now that you are hopefully excited, I'm sorry to say this example is intended to
 
 #### Setting X & Y attributes with CSS
 
-For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is an exception to this rule in Chrome with regard  to `<image>` elements. It is also possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well.
+For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is an exception to this rule in Chrome with regard  to `<image>` elements. It is sometimes possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well.
 
 #### External sources in embedded SVG
 
@@ -120,7 +120,7 @@ There's still plenty you can do, given these limitations.
 
 ## Time of discovery
 
-Every new technology has limitations, and the web has many. Because of this, I think we often give ourselves perceived limitations, based on our past experience. In this case it's easy to approach SVG with the same mindset as HTML and CSS, because "I know how image work on the web".
+Every new technology has limitations, and the web has many. Because of this, I think we often give ourselves perceived limitations, based on our past experience. In this case it's easy to approach SVG with the same mindset as HTML and CSS, because "I know how images work on the web".
 
 When we do this it's easy to miss opportunities to explore new and creative techniques. The examples I've demonstrated, probably only scratch the surface of unique possibilities with SVG. I hope I've got you thinking and I would love to see more examples.
 
