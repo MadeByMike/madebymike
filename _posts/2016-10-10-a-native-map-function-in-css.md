@@ -70,7 +70,7 @@ One disadvantage this technique has over `srcset` or the `picture` element is th
 
 On the flip side, this technique works anywhere SVG does including in IE and offers the opportunity for customisation beyond just supplying a different source image. For example you could apply different filters for particular image sizes or anything else you can do with CSS and SVG.
 
-Depending on the situation, this technique will not necessarily result in a larger download. So be clever and creative; use this technique where it makes sense.
+Depending on the situation, this technique will not necessarily result in a larger download. So be clever and creative; use this technique where it make sense.
 
 ## Adaptive images
 
