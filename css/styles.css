@@ -376,7 +376,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Handlee", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
   font-weight: normal;
-  line-height: 1.6;
+  line-height: 1.2;
   margin-top: 3.75rem;
   margin-bottom: 0.75rem;
   color: #000000; }
@@ -548,7 +548,7 @@ ul.condensed {
 
 blockquote {
   font-weight: bold;
-  line-height: 1.6;
+  line-height: 1.2;
   margin-left: 0; }
   blockquote {
     font-size: 1.2rem; }
@@ -561,7 +561,7 @@ blockquote {
 
 .hire blockquote {
   font-weight: bold;
-  line-height: 1.6;
+  line-height: 1.2;
   margin-left: 0; }
   .hire blockquote {
     font-size: 1.5rem; }
