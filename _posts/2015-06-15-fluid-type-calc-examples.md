@@ -145,7 +145,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 <p class="example-5">The width of this box will scale and at a different rate to the viewport.</p>
 
-## Fluid type mixin
+## Fluid type in Sass
 
 [Indrek Paas](https://twitter.com/indrekpaas) developed a Sass mixin to help make fluid type using this technique easier. [You can find the latest fluid type Sass mixin here](http://sassmeister.com/gist/7f22e44ace49b5124eec).
 
@@ -159,4 +159,13 @@ I use a slightly modified version to generate the examples on this page.
 }
 ```
 
-So that's it. [Let me know](https://twitter.com/MikeRiethmuller) if you have any more examples.
+## Fluid type in Less
+
+If Less is how you roll I've got you covered with a [Less mixin](http://codepen.io/MadeByMike/pen/RWJyML).
+
+## Fluid type in PostCSS
+
+[Rucksack is a postCSS module](https://www.npmjs.com/package/rucksack-css) that makes use of this technique for fluid typography.
+
+
+I have a collection of [other examples on codePen](http://codepen.io/MadeByMike/pens/tags/2/?selected_tag=responsive+typography). [Let me know](https://twitter.com/MikeRiethmuller) if you have one you'd like me to share.
