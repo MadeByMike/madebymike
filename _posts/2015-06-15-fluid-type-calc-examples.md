@@ -168,4 +168,4 @@ If Less is how you roll I've got you covered with a [Less mixin](http://codepen.
 [Rucksack is a postCSS module](https://www.npmjs.com/package/rucksack-css) that makes use of this technique for fluid typography.
 
 
-I have a collection of [other examples on codePen](http://codepen.io/MadeByMike/pens/tags/2/?selected_tag=responsive+typography). [Let me know](https://twitter.com/MikeRiethmuller) if you have one you'd like me to share.
+I have a collection of [other examples on CodePen](http://codepen.io/MadeByMike/pens/tags/2/?selected_tag=responsive+typography). [Let me know](https://twitter.com/MikeRiethmuller) if you have one you'd like me to share.
