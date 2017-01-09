@@ -83,7 +83,7 @@ In his article Andrew mentions a need for
 
 My main concern is that many of these 'axes of variation' are not length values and therefor, whilst I'm excited for the opportunities that variable font will provide, I see their potential limited by existing constraints.
 
-## How interpolation works in browsers today
+## How interpolation and animation works in browsers
 
 CSS is already great at interpolating values and it knows how to do this with a whole bunch of different [animatable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties) and [property types](https://www.w3.org/TR/css3-transitions/#animatable-types).
 
@@ -126,6 +126,8 @@ And could be used like this:
   width: interpolate(0px, 500px, 0.5, linear);
 }
 ```
+
+**Note**: This is a not real CSS, it is a hypothetical solution to a real problem for the purpose of discussion.  
 
 Obviously in the example above it would be far easier to set the width to 250px. So, interpolation functions are not that useful without variables. We do have some variable values in CSS. Things like:
 
