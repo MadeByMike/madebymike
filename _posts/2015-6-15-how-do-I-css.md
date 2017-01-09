@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How do I CSS?
+update: This article is a little dated now. Whilst some of my processes may have changed, I think the overall message of not attempting to write and maintain a unique set of guidelines and methodologies, but articulating how you apply existing guidelines is still a good idea for front-end teams.
 ---
 
 When starting a new project with new developers one of the first things I want to do is get on the same page in terms of how we structure and manage CSS.

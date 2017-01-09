@@ -881,6 +881,12 @@ footer ul li a:hover .logo {
   fill: #666;
   transition: all .5s; }
 
+.post-update {
+  background: #EAEAEA;
+  padding: .5em;
+  font-size: .8em;
+  display: block; }
+
 code {
   color: salmon;
   backgroound: #FFF;
