@@ -162,7 +162,34 @@ The generic offline page, from my first fetch example, is still served when the 
 
 There is a method for communicating with service workers and web workers called the [channel messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API).
 
-In the service worker, I listen for a `message` event. Once received I get a list of pages from the cache that match the URL pattern for blog posts on my site and post a response back to the offline page.
+**IMPORTANT UPDATE** 
+
+I don't need to use the channel messaging API to get URL from the  cache in this example (Thanks to [Nicolas Hoizey](https://twitter.com/nhoizey) for brining that to my attention). The channel messaging API is useful when you want to respond to an event that only the service worker is aware of. In this case, since I am only grabbing a list of pages fron the cache I can access the `window.caches` object in the offline page. The only thing the service worker is aware of that my ofline page is not, is the `CACHE_NAME` variable. I didn't have to update this variable in different places but since it follows a predictable pattern I can do something like the following:
+
+```javascript
+// Get a list of cache keys
+window.caches.keys().then(function(cacheNames){
+  
+  // Find the key that matches my cacheName
+  cacheName = cacheNames.filter(function(cacheName) {
+    return cacheName.indexOf("::madebymike") !== -1;
+  })[0]
+
+  // Open the cache for that key
+  caches.open(cacheName).then(function(cache) {
+
+    // The rest of this function is very similar to the Channel messaging API example
+    // where I fetch and return a list of URLs that are cached for offline reading
+
+  })
+}
+```
+
+## Channel messaging API
+
+This is the old method I used to fetch a cached pages from the service worker. Although it turned out I didn't need to message the service worker to do this, it's still a valuable technique for other purposes. 
+
+In the service worker, I listen for a `message` event. Once received, I get a list of pages from the cache that match the URL pattern for blog posts on my site and post a response back to the offline page.
 
 ```javascript
 self.addEventListener('message', function(event) {

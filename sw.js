@@ -1,4 +1,4 @@
-var CACHE_NAME = 'v10::madebymike';
+var CACHE_NAME = 'v11::madebymike';
 var urlsToCache = [
     '/',
     '/offline.html',
@@ -71,24 +71,4 @@ self.addEventListener('fetch', function(event) {
 
   )
 
-});
-
-// List pages
-self.addEventListener('message', function(event) {
-  caches.open(CACHE_NAME).then(function(cache) {
-
-    return cache.keys().then(function(requests) {
-
-      var urls = requests.filter(function(request){
-        return request.url.indexOf("/writing/") !== -1;
-      }).map(function(request) {
-        return request.url;
-      });
-      return urls.sort();
-
-    }).then(function(urls) {
-      event.ports[0].postMessage(urls);
-    });
-
-  });
 });
