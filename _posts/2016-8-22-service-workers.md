@@ -164,7 +164,7 @@ There is a method for communicating with service workers and web workers called 
 
 **IMPORTANT UPDATE** 
 
-I don't need to use the channel messaging API to get URL from the  cache in this example (Thanks to [Nicolas Hoizey](https://twitter.com/nhoizey) for brining that to my attention). The channel messaging API is useful when you want to respond to an event that only the service worker is aware of. In this case, since I am only grabbing a list of pages fron the cache I can access the `window.caches` object in the offline page. The only thing the service worker is aware of that my ofline page is not, is the `CACHE_NAME` variable. I didn't have to update this variable in different places but since it follows a predictable pattern I can do something like the following:
+I don't need to use the channel messaging API to get URL from the  cache in this example (Thanks to [Nicolas Hoizey](https://twitter.com/nhoizey) for brining that to my attention). The channel messaging API is useful when you want to respond to an event that only the service worker is aware of. In this case, since I am only grabbing a list of pages fron the cache I can access the `window.caches` object in the offline page. The only thing the service worker is aware of that my ofline page is not, is the `CACHE_NAME` variable. It contains the cache version and I didn't want to update it in multiple places each time it changed, but since it follows a predictable pattern I can do something like the following:
 
 ```javascript
 // Get a list of cache keys
