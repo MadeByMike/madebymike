@@ -100,7 +100,7 @@ Let's try and reproduce another influential example. Remember Mat Marquis' artic
 
 ### Caveats and limitations
 
-Now that you are hopefully excited, I'm sorry to say this example is intended to demonstrate some limitations. It is obviously not the type of content you would normally use an image for, and this technique dose not change that. It is definitely not accessible. On top of that, I've detailed some further technical limitations below.
+Now that you are hopefully excited, I'm sorry to say this example is intended to demonstrate some limitations. It is obviously not the type of content you would normally use an image for, and this technique does not change that. It is definitely not accessible. On top of that, I've detailed some further technical limitations below.
 
 #### Setting X & Y attributes with CSS
 
