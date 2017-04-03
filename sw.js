@@ -1,4 +1,4 @@
-var CACHE_NAME = 'v11::madebymike';
+var CACHE_NAME = 'v12::madebymike';
 var urlsToCache = [
     '/',
     '/offline.html',

@@ -1,9 +1,6 @@
 ---
 title: The invisible parts of CSS
 layout: post
-description: We often care less about how CSS works than the correct syntax and visual results. You may not have realised it, but the visual results of CSS are often an indirect consequence of manipulating hidden properties.
-extra_css:
-  - downscale-images.css
 ---
 
 If you use CSS in your daily work, your primary goal is probably focused around making things 'look right'. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.
@@ -127,7 +124,7 @@ Every element in HTML is a rectangular box. Each box has four regions defining t
 
 By default, when you set the width of an element, this sets the width of the content area only. When you add padding, border or margin to an element, this is added in addition to the width. In practical terms this means that two elements with a width of 50%, will not fit side-by-side if padding, margin or borders are added.
 
-![shows the content-width within the box model](/img/content-width.png)
+<img alt="shows the content-width within the box model" src="/img/content-width.png" style="max-width:550px;">
 
 That's it! It’s pretty simple right? So why is this often a source of confusion? Well, you might have encountered a few situations where things seem to behave a little differently…
 
@@ -135,7 +132,7 @@ That's it! It’s pretty simple right? So why is this often a source of confusio
 
 When you set the background of an element this fills not only the content area but also the padding and border areas as well.
 
-![shows the fill area within the box model](/img/fill-area.png)
+<img style="max-width:550px;" alt="shows the fill area within the box model" src="/img/fill-area.png" >
 
 Conceptually we think of an HTML element as a single thing, so it's easy to think that the visual boundaries of an element are equal to its width however this is not the case. Although the visual boundaries of an element include the padding and border areas the width property is applied explicitly to the content box.
 
@@ -147,13 +144,13 @@ Another source of potential confusion is how `width: auto` works. A width of aut
 
 In this situation it can feel like adding padding and margins push inwards on the content, but in reality, the width is being recalculated to ensure everything fits. By comparison when setting a width of `100%, the content area will fill the space available regardless of margin, padding and borders.
 
-![shows how width:auto works compared to width:100%](/img/width-auto.png)
+<img style="max-width:550px;" alt="shows how width auto works compared to width:100%" src="/img/width-auto.png" >
 
 ### Box-sizing
 
 The box-sizing property changes the way the box model works. When box-sizing is set to `border-box` padding and border will reduce the inner width of the content area, rather than adding to the overall width of an element. This means that a width of an element is now the same as its visual width.
 
-![shows how box-sizing:border-box works](/img/box-sizing.png)
+<img style="max-width:550px;" alt="shows how box-sizing:border-box works" src="/img/box-sizing.png" >
 
 A lot of people prefer this, and if you're building a grid system, or any other kind of layout that requires aligning items horizontally, this can be much more intuitive way to work.
 
@@ -232,6 +229,8 @@ Positioned with overlapping offset can result in elements occupying the same spa
 Stacking context determines the order that things are rendered to the page. You can think of a stacking context like a layer. Layers on the bottom of the stack are painted first and elements higher up the stack appear on top.
 
 Placing a `z-index` on an element that is absolutely or relatively positioned is the most common way to establish a new stacking context. But there are a number of other ways a stacking context can be formed including, setting opacity, transforms, filters or using the `will-change` property.
+
+Some of these reasons are not intuitive and have more to do with rendering performance than developers expectations. It helps to understand that these layers can be rendered separately by the browsers. As a result it can sometimes be useful to intentionally to create a new stacking context for performance reasons.
 
 Setting a z-index has no effect unless a stacking context is established. The higher the z-index the higher up the stack the layer is placed.
 
