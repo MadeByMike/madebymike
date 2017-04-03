@@ -2,8 +2,7 @@
 title: The invisible parts of CSS
 layout: post
 author: michaelriethmuller
-source-id: 1E4_ytEa3NBmuWVGljabbKKbSa89-KzXhu0YM8JH3jvI
-published: true
+published: false
 ---
 # The invisible parts of CSS
 
