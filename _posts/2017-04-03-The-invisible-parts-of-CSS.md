@@ -1,7 +1,6 @@
 ---
 title: The invisible parts of CSS
 layout: post
-author: michaelriethmuller
 published: false
 ---
 # The invisible parts of CSS
