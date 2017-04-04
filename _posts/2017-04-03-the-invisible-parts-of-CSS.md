@@ -9,7 +9,7 @@ You may not have realised it, but the visual results of CSS are often an indirec
 
 I doubt many developers could describe in simple terms what setting `display: block` actually does. At best you probably have an intuitive understanding of how properties like this work. That's ok, you can have a pretty good wrangle of CSS without understanding the underlying principles. Although, this might be knowing the solution without necessarily understanding the problem.
 
-If this describes you, that's ok. I learnt how to work with CSS, long before I understood *how *it worked. I guess that doesn’t make it ok, ...but at least you’re not alone!
+If this describes you, that's ok. I learnt how to work with CSS, long before I understood *how* it worked. I guess that doesn’t make it ok, ...but at least you’re not alone!
 
 The underlying features of CSS are complicated and intentionally abstracted, yet we can't be completely unaware of them. Concepts such as the Box Model, Cascade and Specificity will be familiar to many of us. Although they are often misunderstood, knowing a little of how these work can help us write better CSS.
 
@@ -73,7 +73,7 @@ During the cascade stylesheets are interpreted in the following order:
 
 3. Browser default stylesheets
 
-**Note: **I've skipped over user stylesheets here because they are not a common thing anymore and probably wouldn’t factor in consideration for anyone reading this.
+**Note:** I've skipped over user stylesheets here because they are not a common thing anymore and probably wouldn’t factor in consideration for anyone reading this.
 
 After combining these sources, if multiple rules apply to the same element, specificity is used to determine which rules to apply.
 
@@ -142,7 +142,7 @@ Conceptually we think of an HTML element as a single thing, so it's easy to thin
 
 Another source of potential confusion is how `width: auto` works. A width of auto is the default setting for most HTML elements and for block elements such as divs and paragraphs, `auto` will calculate the width so that the margin, border, padding and content areas combined all fit within the available space.
 
-In this situation it can feel like adding padding and margins push inwards on the content, but in reality, the width is being recalculated to ensure everything fits. By comparison when setting a width of `100%, the content area will fill the space available regardless of margin, padding and borders.
+In this situation it can feel like adding padding and margins push inwards on the content, but in reality, the width is being recalculated to ensure everything fits. By comparison when setting a width of `100%`, the content area will fill the space available regardless of margin, padding and borders.
 
 <img style="max-width:550px;" alt="shows how width auto works compared to width:100%" src="/img/width-auto.png" >
 
