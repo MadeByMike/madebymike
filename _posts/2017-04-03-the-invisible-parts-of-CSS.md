@@ -208,7 +208,7 @@ Normal Flow describes the default positioning scheme and 'in-flow' describes ele
 
 Float is a CSS property that causes an element to be taken out of the normal flow and shifted to the left or right as far as possible, until it touches the edge of its containing box or another floated element. When this happens, text and inline elements will wrap around the floated elements.
 
-Normally if not set, the height of an element will adjust to fit all of its descendant elements. When elements are floated they are taken out of flow and this means containers will not adjust their height to clear floated elements.
+Normally if not set, the height of an element will adjust to fit all of its descendant elements. When elements are floated they are taken out of flow and this means containers will not adjust their height to clear them.
 
 It is this behaviour that allow multiple lines of text, heading and other elements to fluid wrap around floated content. But sometimes this is problematic. Clearfixes and establishing a new block formatting context will causes a container to clear its floated children. This technique has allowed floats to be used for layout which has been a corner-stone of web development techniques for a long time. It's still important to know but this is gradually being replaced with newer layout techniques such as Flexbox and Grid.
 
