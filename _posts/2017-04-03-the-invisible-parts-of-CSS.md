@@ -45,7 +45,7 @@ You might have heard the term DOM. This stands for Document Object Model. It is 
 
 As HTML is being parsed, stylesheets and other resources are fetched. Style declarations are interpreted and resolved through a process known as the [Cascade](#cascade).
 
-During this process the final values of CSS properties are resolved. After calculation these values may be different to what is written our stylesheets. For example keywords like `auto` and relative units are assigned real values, and inherited values are applied. These computed values are stored in a tree, similar to elements in the DOM, in what is unsurprisingly called the CSS Object Model or CSSOM.
+During this process the final values of CSS properties are resolved. After calculation these values may be different to what is written in our stylesheets. For example keywords like `auto` and relative units are assigned real values, and inherited values are applied. These computed values are stored in a tree, similar to elements in the DOM, in what is unsurprisingly called the CSS Object Model or CSSOM.
 
 It is now possible to begin the process of rendering the page. The first step in this process is the calculation of [the Box Model](#the-box-model). This is an important step for working out the size and spacing of elements, although not their final position.
 
