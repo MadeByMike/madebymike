@@ -210,7 +210,7 @@ Float is a CSS property that causes an element to be taken out of the normal flo
 
 Normally if not set, the height of an element will adjust to fit all of its descendant elements. When elements are floated they are taken out of flow and this means containers will not adjust their height to clear them.
 
-It is this behaviour that allow multiple lines of text, heading and other elements to fluid wrap around floated content. But sometimes this is problematic. Clearfixes and establishing a new block formatting context will causes a container to clear its floated children. This technique has allowed floats to be used for layout which has been a corner-stone of web development techniques for a long time. It's still important to know but this is gradually being replaced with newer layout techniques such as Flexbox and Grid.
+It is this behaviour that allows multiple lines of text, heading and other elements to fluid wrap around floated content. But sometimes this is problematic. Clearfixes and establishing a new block formatting context will causes a container to clear its floated children. This technique has allowed floats to be used for layout which has been a corner-stone of web development techniques for a long time. It's still important to know but this is gradually being replaced with newer layout techniques such as Flexbox and Grid.
 
 ### Absolute positioning
 
