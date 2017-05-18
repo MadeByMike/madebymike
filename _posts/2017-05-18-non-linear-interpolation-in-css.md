@@ -1,5 +1,5 @@
 ---
-title: Non-Linear Interpolation in CSS
+title: Non-linear interpolation in CSS
 layout: post
 ---
 
