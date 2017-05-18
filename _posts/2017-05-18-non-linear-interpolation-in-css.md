@@ -67,7 +67,11 @@ Here are some examples to get you started:
   @include interpolate('font-size', 600px, 12px, 900px, 24px, 'ease-in-ease-out', 10);
 }
 ```
-
-If you want to [use this in a project grab it here](https://www.sassmeister.com/gist/beac01f68da4f9ef3007c0d17f72d8c6).
-
 This aims to show how I think native interpolation should work in browsers, but it still only works where calc does. I think there is a lot more discussion to be had and problems that we need to solve before we can have a real native interpolation in CSS. I welcome contributions to this discussion and ideas from maths, statistics, animation or any areas. One thing that I think is increasingly apparent is that the web is fluid medium and breakpoints will not continue to be the only answer, or the key feature in the future of responsive design.
+
+
+If you want to [use this in a project grab the mixin here](https://www.sassmeister.com/gist/beac01f68da4f9ef3007c0d17f72d8c6).
+
+If you want to don't want multiple bending points you can still use the example above, but if you want a simple linear interpolation mixin [you can find my previous example here](https://www.sassmeister.com/gist/d8714d9b987e376ad52db5ede5401ff3).
+
+Finally if you want to look at some more examples [I have a fluid typography collection on CodePen](http://codepen.io/collection/nLbRMZ/).
