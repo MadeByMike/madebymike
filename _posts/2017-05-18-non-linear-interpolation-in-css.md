@@ -9,7 +9,7 @@ Recently these ideas have circulated and gained more traction. I've seen more la
 
 One of the most interesting things in Jake's article is the idea of having multiple points of transition. He refers to these as "*Breakpoints + Multiple Linear Equations*" but I like to think of these as "bending points". I like the term bending points rather than breakpoints for these because to me, a breakpoint implies there should be a jump and that's not what this is. These are intermediary points where the rate of scale changes.
 
-This idea of using multiple transitions is something I’ve been thinking about for a while, and I've occasionally been asked about doing this. Unfortunately at the moment we can’t do this with CSS alone. When I’m asked about this I usually reply with the same suggestion Jake has, that is to use multiple linear transitions. But I remain a little hesitant about how people might use this technique.
+This idea of non-linear transitions is something I’ve been thinking about for a while. Unfortunately at the moment we can't do this with CSS alone. So when I’m asked about this, I usually reply with the same suggestion Jake has, that is to use multiple linear transitions. But I remain a little hesitant about how people might use this technique.
 
 I'd love to be able to use non-linear equations for transitions of font-size or other properties, but until there is a native function in CSS, I think adding a large number of intermediary steps only adds complexity.
 

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'v15::madebymike';
+var CACHE_NAME = 'v16::madebymike';
 var urlsToCache = ['/', '/offline.html', '/css/styles.min.css'];
 
 // Install
