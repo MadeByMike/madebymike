@@ -184,7 +184,7 @@ The outer display type usually resolves to either 'block' or ‘inline’ and is
 
 The inner display type determines what [formatting context](#formatting-contexts) that element will generate. This will impact how its child elements are laid out.
 
-Think of how a Flexbox container works. Its outer type is `block` and its inner type is `flex`. Its children can also have an outer type is block but their layout is influenced by the formatting context of the Flexbox container.
+Think of how a Flexbox container works. Its outer type is `block` and its inner type is `flex`. Its children can also have an outer type of block, but their layout is influenced by the formatting context of the Flexbox container.
 
 One way of thinking about this is that the responsibility for display is shared between an element and it's parent element.
 
