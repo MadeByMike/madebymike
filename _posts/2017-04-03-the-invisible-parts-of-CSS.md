@@ -222,7 +222,7 @@ Relatively positioned elements can also be given an offset but this offset is re
 
 CSS properties `top`, `bottom`, `left` and `right` are used to calculate 'box offsets'. These properties are not two dimensional offsets but allow positioning of each edge, relative to its container’s content box.
 
-Positioned with overlapping offset can result in elements occupying the same space. A stacking context is used to resolve this.
+Positioned elements with overlapping offsets can result in elements occupying the same space. A stacking context is used to resolve this.
 
 ### Stacking contexts
 
