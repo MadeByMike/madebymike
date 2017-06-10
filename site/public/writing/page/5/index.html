@@ -19,6 +19,13 @@
 	<meta name="twitter:description" content="" />
 	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
+	<meta name="theme-color" content="#FF6E4A">
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
 	<script>
 		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
@@ -28,24 +35,31 @@ loadCSS( "/css/styles.min.css" );
 	
 
 </head>
-<body class="">
-<header>
-	<div class="container">
-		<ul>
-			<li class="home"><a href="/">Home</a></li>
-			<li class="writing"><a href="/writing">Writing</a></li>
-			<li class="hire"><a href="/hire">Hire Me</a></li>
-		</ul>
-	</div>
-</header>
-
+<body class="post-list">
+	<header>
+		<div class="container">
+			<ul>
+				<li class="home"><a href="/">Home</a></li>
+				<li class="writing"><a href="/writing">Writing</a></li>
+				<li class="hire"><a href="/hire">Hire Me</a></li>
+			</ul>
+		</div>
+	</header>
+	
+<section>
+  <div class="container">
+    <h1 class="page-title">Stuff I wrote</h1>
+    <p>A range of unique and possibly interesting web development ideas of varying quality. Basically <em>"I think stuff and sometimes I write it down"</em>.</p>
+  </div>
+</section>
+ 
 <main>
   
   <article>
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/merging-json-data-sets/">Merging JSON data sets</a></h2>
-        <span class="post-date"><time>August 22, 2014</time>
+        <span class="post-date"><time>August 22, 2014</time></span>
           Merging deeply nested data in JSON is more difficult than it might seem.
 In the past I&rsquo;ve used a brute force approach when dealing with small and well structured data. This approach proved completely inadequate for large volumes of real world data.
 Imagine we have a monthly darts competition and at the end of each month record the scores in a JSON file:
@@ -59,7 +73,7 @@ Imagine we have a monthly darts competition and at the end of each month record 
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/accessible-contrast-with-less-and-sass/">Accessible contrast with Less and Sass</a></h2>
-        <span class="post-date"><time>June 15, 2014</time>
+        <span class="post-date"><time>June 15, 2014</time></span>
           Contrast is a critical factor in web design, it&rsquo;s important to get right because it has a strong influence on the visual aesthetic, but it&rsquo;s especially important for readability and accessibility of text on the page.
 It&rsquo;s not a revolutionary idea to suggest that we use Less or Sass to help choose an appropriate text color for a particular background. There are plenty of examples of this, but what is the best way?
         <p><a class="nav-link" href="/writing/accessible-contrast-with-less-and-sass/">Continue reading</a></p>
@@ -71,7 +85,7 @@ It&rsquo;s not a revolutionary idea to suggest that we use Less or Sass to help 
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/detecting-transition-start/">Detecting transition start</a></h2>
-        <span class="post-date"><time>June 12, 2014</time>
+        <span class="post-date"><time>June 12, 2014</time></span>
           If you&rsquo;ve worked with the css transition events in JavaScript you will know that it&rsquo;s a little involved due to the need for multiple browser prefixes. Luckily it&rsquo;s easy, if slightly verbose, to detect which transition event to use:
 // Dave Walsh says this is from Modernizr, but I can't find it // http://davidwalsh.name/css-animation-callback var whichTransitionEvent = function(){ var t; var el = document.createElement('fakeelement'); var transitions = { 'transition':'transitionend', 'OTransition':'oTransitionEnd', 'MozTransition':'transitionend', 'WebkitTransition':'webkitTransitionEnd' }; for(t in transitions){ if( el.
         <p><a class="nav-link" href="/writing/detecting-transition-start/">Continue reading</a></p>
@@ -83,7 +97,7 @@ It&rsquo;s not a revolutionary idea to suggest that we use Less or Sass to help 
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/thoughts-on-design-patterns-in-css/">Thoughts on how we structure projects</a></h2>
-        <span class="post-date"><time>May 25, 2014</time>
+        <span class="post-date"><time>May 25, 2014</time></span>
           Typically when we begin a new web project we start by creating a number of directories for CSS, JavaScript and other resources. This task hasn&rsquo;t changed much and it&rsquo;s a typical step for most developers. In many cases, this structure is a non-optional part of the workflow enforced by scaffolding tools like yeoman, an MVC framework or a boilerplate.
 Reasons behind it relate to the well-established principle separation of concerns. In web development we get separation of concerns for free.
         <p><a class="nav-link" href="/writing/thoughts-on-design-patterns-in-css/">Continue reading</a></p>

@@ -20,6 +20,13 @@
 	<meta name="twitter:description" content="" />
 	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
+	<meta name="theme-color" content="#FF6E4A">
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
 	<script>
 		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
@@ -30,85 +37,70 @@ loadCSS( "/css/styles.min.css" );
 
 </head>
 <body class="">
-<header>
-	<div class="container">
-		<ul>
-			<li class="home"><a href="/">Home</a></li>
-			<li class="writing"><a href="/writing">Writing</a></li>
-			<li class="hire"><a href="/hire">Hire Me</a></li>
-		</ul>
-	</div>
-</header>
+	<header>
+		<div class="container">
+			<ul>
+				<li class="home"><a href="/">Home</a></li>
+				<li class="writing"><a href="/writing">Writing</a></li>
+				<li class="hire"><a href="/hire">Hire Me</a></li>
+			</ul>
+		</div>
+	</header>
+	
 
-<section>
-  <div class="container">
-    <h1 class="page-title">Hello, I’m Mike Riethmuller</h1>
-    <p>I’m a <strong>web developer</strong> and I make all sorts of stuff for the web. You can find some of my <s>code</s> <s>work</s> <s>experiments</s> <s>creations</s> shame on <a href="http://codepen.io/MadeByMike/">CodePen</a> or <a href="https://github.com/MadeByMike">GitHub</a> and you can talk to me on <a href="https://twitter.com/MikeRiethmuller">Twitter</a>.</p>
-    <p>When I’m not making things for the web I sometimes think about stuff and on rare occasions I write about it. You can find some of my writing here. </p>
+  <section>
+    <div class="container">
+      <h1 class="page-title">Hello, I’m Mike Riethmuller</h1>
+      <p>I’m a <strong>web developer</strong> and I make all sorts of stuff for the web. You can find some of my <s>code</s> <s>work</s> <s>experiments</s> <s>creations</s> shame on <a href="http://codepen.io/MadeByMike/">CodePen</a> or <a href="https://github.com/MadeByMike">GitHub</a> and you can talk to me on <a href="https://twitter.com/MikeRiethmuller">Twitter</a>.</p>
+      <p>When I’m not making things for the web I sometimes think about stuff and on rare occasions I write about it. You can find some of my writing here. </p>
 
-    <div class="wow-box">
-      <h2 class="mtn"><a class="stuff-i-wrote" href="https://madebymike.com.auwriting">Stuff I wrote:</a></h2>
-      
-      <article>
-        <h3 class="post-title"><a href="/writing/precise-control-responsive-typography/">Precise control over responsive typography</a></h3>
-            <span class="post-date"><time>March 17, 2015</time>
-              It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.
- This text is limited to between 20px and 40px, over a viewport range of 600px to 800px.  I don’t know why we don’t see viewport units being used more extensively for creating designs with responsive typography.
-      </article>
-      
-      <article>
-        <h3 class="post-title"><a href="/writing/zero-element-loading-animations/">Zero element loading animations</a></h3>
-            <span class="post-date"><time>January 5, 2015</time>
-              With a &ldquo;zero element&rdquo; loading animation, a loading state can be applied to any element with just the addition of a class name.
-  view examples on codepen
-   view examples on codepen
-  First of all, I&rsquo;m not a huge fan of loading animations and neither are your users but sometimes, for various reasons an action is going to take time and we need to let people know we&rsquo;re working on it.
-      </article>
-      
-      <article>
-        <h3 class="post-title"><a href="/writing/html5-video-streaming/">Determine the quality of light in live video streams</a></h3>
-            <span class="post-date"><time>December 20, 2014</time>
-              I&rsquo;ve been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
-To view the demo you are going to need a web cam and a modern Chrome, Firefox or Opera browser. If you have what it takes you can view my demo here. Please select allow when asked for permission to use the web cam.
-      </article>
-      
-      <article>
-        <h3 class="post-title"><a href="/writing/resizing-images-with-canvas/">Resizing and Cropping Images with Canvas</a></h3>
-            <span class="post-date"><time>October 30, 2014</time>
-              Learn how to resize and crop images using JavaScript and the HTML5 Canvas element using controls, commonly seen in photo editing applications.
-I published an article on the Codrops website: Resizing and Cropping Images with Canvas
-This tutorial focuses on the interaction and design aspects of this task rather than just the technical details of using Canvas for image resampling.
-I also recommend using this example with the FileReader and Drag and Drop APIs which are not covered in this tutorial.
-      </article>
-      
-      <article>
-        <h3 class="post-title"><a href="/writing/understanding-flexbox/">Understanding flexbox</a></h3>
-            <span class="post-date"><time>September 10, 2014</time>
-              Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
-If you don&rsquo;t know what Flexbox is, it&rsquo;s a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change.
-      </article>
-      
-      <a class="nav-link nav-link-reverse mbn" href="https://madebymike.com.auwriting"><svg><use xlink:href="#arrow-icon-reverse"></use></svg>Stuff I wrote before this</a>
+      <div class="wow-box">
+        <h2 class="mtn"><a class="stuff-i-wrote" href="https://madebymike.com.auwriting">Stuff I wrote:</a></h2>
+        
+        <article>
+          <h3 class="post-title"><a href="/writing/style-guides-50-shades-of-corporate-blue/">Style Guides: 50 shades of corporate blue</a></h3>
+              <span class="post-date"><time>February 26, 2016</time></span>
+                I recently completed my third attempt at implementing a style guide within my organisation. So far this is the first attempt that looks to be maintainable and has some traction outside the development team. I want to share with you how we got there and what I learnt from 2 failed attempts.
+My first attempt at a style guide used an automated tool called KSS, it automatically generated a style guide from comments in the CSS.
+        </article>
+        
+        <article>
+          <h3 class="post-title"><a href="/writing/love-letter-to-jquery/">A love letter to jQuery</a></h3>
+              <span class="post-date"><time>February 19, 2016</time></span>
+                jQuery I love you. We&rsquo;ve been together for 10 years and that&rsquo;s more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.
+I’ll never forget our first function together:
+$(document).ready(function(){ alert(‘page loaded’); });  Ha! I hope you will forgive me for that alert. That’s how we did things then and I wanted to be sure you worked; of course you worked, I would never doubt it now.
+        </article>
+        
+        <article>
+          <h3 class="post-title"><a href="/writing/pattern-robust-icons/">Pattern: Robust icons</a></h3>
+              <span class="post-date"><time>August 22, 2015</time></span>
+                I want to share a design pattern I&rsquo;ve been using for icons. It&rsquo;s a robust technique that works in almost any situation. With this technique you can use icons inline or append &amp; prepend them to existing content. It works with paragraphs, headings, navigation items, buttons &hellip;almost any element.
+Examples View more examples  on CodePen.
+View Examples   It&rsquo;s also easy to extend so I can usually drop it into almost any project.
+        </article>
+        
+        <a class="nav-link nav-link-reverse mbn" href="https://madebymike.com.auwriting"><svg><use xlink:href="#arrow-icon-reverse"></use></svg>Stuff I wrote before this</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="background-dark">
-  <div class="container">
-    <h2>More about me</h2>
-    <p>Oh, hey! You’re still here, good for you! You should know I’m passionate about web development and that doesn’t just mean standards; I’m an advocate for anything and anyone that contributes to good quality web development.</p>
-    <p>I’ve worked as a front-end developer on some of Australia’s largest websites as well as some of the smallest community sites. When I’m not building sites or blogging I like to experiment with code. I love learning new things and finding techniques that challenge what we think is best practice. Although very few ideas make it into my production toolkit, I find experimentation is the best way learn and the only way to discover new techniques.</p>
-    <p>I try to share everything I learn, I speak, I blog and sometimes help organise community events &amp; meetups.</p>
-    <p>I’m available for hire! Why don’t you <a href="mailto:mike@madebymike.com.au">get in touch</a>?</p>
-  </div>
-</section>
+  <section class="background-dark">
+    <div class="container">
+      <h2>More about me</h2>
+      <p>Oh, hey! You’re still here, good for you! You should know I’m passionate about web development and that doesn’t just mean standards; I’m an advocate for anything and anyone that contributes to good quality web development.</p>
+      <p>I’ve worked as a front-end developer on some of Australia’s largest websites as well as some of the smallest community sites. When I’m not building sites or blogging I like to experiment with code. I love learning new things and finding techniques that challenge what we think is best practice. Although very few ideas make it into my production toolkit, I find experimentation is the best way learn and the only way to discover new techniques.</p>
+      <p>I try to share everything I learn, I speak, I blog and sometimes help organise community events &amp; meetups.</p>
+      <p>I’m available for hire! Why don’t you <a href="mailto:mike@madebymike.com.au">get in touch</a>?</p>
+    </div>
+  </section>
 
-<section>
-  <div class="container">
-    <h2>Reach out</h2>
-    <p>Feel free to send me an email. You can reach me at <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>. Go for it! You can actually email me and I will actually reply, if you’re still reading this you’re worth my time!</p>
-  </div>
-</section>
+  <section>
+    <div class="container">
+      <h2>Reach out</h2>
+      <p>Feel free to send me an email. You can reach me at <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>. Go for it! You can actually email me and I will actually reply, if you’re still reading this you’re worth my time!</p>
+    </div>
+  </section>
 
     <footer>
       <section>

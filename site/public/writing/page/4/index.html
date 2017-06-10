@@ -19,6 +19,13 @@
 	<meta name="twitter:description" content="" />
 	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
+	<meta name="theme-color" content="#FF6E4A">
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
 	<script>
 		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
@@ -28,24 +35,31 @@ loadCSS( "/css/styles.min.css" );
 	
 
 </head>
-<body class="">
-<header>
-	<div class="container">
-		<ul>
-			<li class="home"><a href="/">Home</a></li>
-			<li class="writing"><a href="/writing">Writing</a></li>
-			<li class="hire"><a href="/hire">Hire Me</a></li>
-		</ul>
-	</div>
-</header>
-
+<body class="post-list">
+	<header>
+		<div class="container">
+			<ul>
+				<li class="home"><a href="/">Home</a></li>
+				<li class="writing"><a href="/writing">Writing</a></li>
+				<li class="hire"><a href="/hire">Hire Me</a></li>
+			</ul>
+		</div>
+	</header>
+	
+<section>
+  <div class="container">
+    <h1 class="page-title">Stuff I wrote</h1>
+    <p>A range of unique and possibly interesting web development ideas of varying quality. Basically <em>"I think stuff and sometimes I write it down"</em>.</p>
+  </div>
+</section>
+ 
 <main>
   
   <article>
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/precise-control-responsive-typography/">Precise control over responsive typography</a></h2>
-        <span class="post-date"><time>March 17, 2015</time>
+        <span class="post-date"><time>March 17, 2015</time></span>
           It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.
  This text is limited to between 20px and 40px, over a viewport range of 600px to 800px.  I don’t know why we don’t see viewport units being used more extensively for creating designs with responsive typography.
         <p><a class="nav-link" href="/writing/precise-control-responsive-typography/">Continue reading</a></p>
@@ -57,7 +71,7 @@ loadCSS( "/css/styles.min.css" );
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/zero-element-loading-animations/">Zero element loading animations</a></h2>
-        <span class="post-date"><time>January 5, 2015</time>
+        <span class="post-date"><time>January 5, 2015</time></span>
           With a &ldquo;zero element&rdquo; loading animation, a loading state can be applied to any element with just the addition of a class name.
   view examples on codepen
    view examples on codepen
@@ -71,7 +85,7 @@ loadCSS( "/css/styles.min.css" );
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/html5-video-streaming/">Determine the quality of light in live video streams</a></h2>
-        <span class="post-date"><time>December 20, 2014</time>
+        <span class="post-date"><time>December 20, 2014</time></span>
           I&rsquo;ve been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
 To view the demo you are going to need a web cam and a modern Chrome, Firefox or Opera browser. If you have what it takes you can view my demo here. Please select allow when asked for permission to use the web cam.
         <p><a class="nav-link" href="/writing/html5-video-streaming/">Continue reading</a></p>
@@ -83,7 +97,7 @@ To view the demo you are going to need a web cam and a modern Chrome, Firefox or
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/resizing-images-with-canvas/">Resizing and Cropping Images with Canvas</a></h2>
-        <span class="post-date"><time>October 30, 2014</time>
+        <span class="post-date"><time>October 30, 2014</time></span>
           Learn how to resize and crop images using JavaScript and the HTML5 Canvas element using controls, commonly seen in photo editing applications.
 I published an article on the Codrops website: Resizing and Cropping Images with Canvas
 This tutorial focuses on the interaction and design aspects of this task rather than just the technical details of using Canvas for image resampling.
@@ -97,7 +111,7 @@ I also recommend using this example with the FileReader and Drag and Drop APIs w
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/understanding-flexbox/">Understanding flexbox</a></h2>
-        <span class="post-date"><time>September 10, 2014</time>
+        <span class="post-date"><time>September 10, 2014</time></span>
           Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
 If you don&rsquo;t know what Flexbox is, it&rsquo;s a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change.
         <p><a class="nav-link" href="/writing/understanding-flexbox/">Continue reading</a></p>

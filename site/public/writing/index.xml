@@ -27,8 +27,7 @@ Recently these ideas have circulated and gained more traction. I&amp;rsquo;ve se
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://madebymike.com.au/writing/the-invisible-parts-of-CSS/</guid>
-      <description>If you use CSS in your daily work, your primary goal is probably focused around making things &amp;lsquo;look right&amp;rsquo;. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.
-You may not have realised it, but the visual results of CSS are often an indirect consequence of manipulating hidden properties. Some CSS properties such as background-color have a direct and obvious relationship with what you see.</description>
+      <description>&lt;p&gt;If you use CSS in your daily work, your primary goal is probably focused around making things &amp;lsquo;look right&amp;rsquo;. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,7 +36,7 @@ You may not have realised it, but the visual results of CSS are often an indirec
       <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>https://madebymike.com.au/writing/interpolation-without-animation/</guid>
-      <description>Interpolation is the estimation of a new value between two known values. This simple concept is vastly useful and it&amp;rsquo;s commonly seen in animation on the web. With animation you declare the target properties and the end-state, and the browser will workout out the values in-between. Animation happens over time, but this is not the only dimension where interpolation can occur. In fact we interpolate values regularly in design, albeit manually, and particularly in responsive design.</description>
+      <description>&lt;p&gt;Interpolation is the estimation of a new value between two known values. This simple concept is vastly useful and it&amp;rsquo;s commonly seen in animation on the web. With animation you declare the target properties and the end-state, and the browser will workout out the values in-between. Animation happens over time, but this is not the only dimension where interpolation can occur. In fact we interpolate values regularly in design, albeit manually, and particularly in responsive design. You may even do it unknowingly. Because of this, I think there is a need for a more native way of interpolating CSS values outside animation.&lt;/p&gt;</description>
     </item>
     
     <item>

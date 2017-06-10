@@ -19,6 +19,13 @@
 	<meta name="twitter:description" content="" />
 	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
+	<meta name="theme-color" content="#FF6E4A">
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
 	<script>
 		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
@@ -28,24 +35,31 @@ loadCSS( "/css/styles.min.css" );
 	
 
 </head>
-<body class="">
-<header>
-	<div class="container">
-		<ul>
-			<li class="home"><a href="/">Home</a></li>
-			<li class="writing"><a href="/writing">Writing</a></li>
-			<li class="hire"><a href="/hire">Hire Me</a></li>
-		</ul>
-	</div>
-</header>
-
+<body class="post-list">
+	<header>
+		<div class="container">
+			<ul>
+				<li class="home"><a href="/">Home</a></li>
+				<li class="writing"><a href="/writing">Writing</a></li>
+				<li class="hire"><a href="/hire">Hire Me</a></li>
+			</ul>
+		</div>
+	</header>
+	
+<section>
+  <div class="container">
+    <h1 class="page-title">Stuff I wrote</h1>
+    <p>A range of unique and possibly interesting web development ideas of varying quality. Basically <em>"I think stuff and sometimes I write it down"</em>.</p>
+  </div>
+</section>
+ 
 <main>
   
   <article>
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/love-letter-to-jquery/">A love letter to jQuery</a></h2>
-        <span class="post-date"><time>February 19, 2016</time>
+        <span class="post-date"><time>February 19, 2016</time></span>
           jQuery I love you. We&rsquo;ve been together for 10 years and that&rsquo;s more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.
 I’ll never forget our first function together:
 $(document).ready(function(){ alert(‘page loaded’); });  Ha! I hope you will forgive me for that alert. That’s how we did things then and I wanted to be sure you worked; of course you worked, I would never doubt it now.
@@ -58,7 +72,7 @@ $(document).ready(function(){ alert(‘page loaded’); });  Ha! I hope you will
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/pattern-robust-icons/">Pattern: Robust icons</a></h2>
-        <span class="post-date"><time>August 22, 2015</time>
+        <span class="post-date"><time>August 22, 2015</time></span>
           I want to share a design pattern I&rsquo;ve been using for icons. It&rsquo;s a robust technique that works in almost any situation. With this technique you can use icons inline or append &amp; prepend them to existing content. It works with paragraphs, headings, navigation items, buttons &hellip;almost any element.
 Examples View more examples  on CodePen.
 View Examples   It&rsquo;s also easy to extend so I can usually drop it into almost any project.
@@ -71,7 +85,7 @@ View Examples   It&rsquo;s also easy to extend so I can usually drop it into alm
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/fluid-type-calc-examples/">Fluid type examples</a></h2>
-        <span class="post-date"><time>June 15, 2015</time>
+        <span class="post-date"><time>June 15, 2015</time></span>
           A few months ago I published a fluid type technique that doesn&rsquo;t require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I&rsquo;d put together a bunch of examples and address some comments.
 Fluid type with pixels This is a simplified version of my original example. The minimum font size is 14px and the maximum is 22px.
         <p><a class="nav-link" href="/writing/fluid-type-calc-examples/">Continue reading</a></p>
@@ -83,7 +97,7 @@ Fluid type with pixels This is a simplified version of my original example. The 
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/how-do-I-css/">How do I CSS?</a></h2>
-        <span class="post-date"><time>June 15, 2015</time>
+        <span class="post-date"><time>June 15, 2015</time></span>
           When starting a new project with new developers one of the first things I want to do is get on the same page in terms of how we structure and manage CSS.
 There are so many methodologies and guidelines today that I wonder why you would bother writing your own detailed documentation.
 It&rsquo;s pretty simple choose a methodology, choose a set of guidelines and choose a build process.
@@ -97,7 +111,7 @@ Methodologies  BEM SMACSS OOCSS  Guidelines  codeguide.
     <section>
       <div class="container">
         <h2 class="post-title"><a href="/writing/html5-periodic-table-dmca-takedown/">HTML5 periodic table DMCA takedown request</a></h2>
-        <span class="post-date"><time>April 16, 2015</time>
+        <span class="post-date"><time>April 16, 2015</time></span>
           Today I received a DMCA takedown request against my personal website over a trivial GitHub project that involves a periodic table layout and information about HTML5 elements.
 Update: The legal threats and the DMCA takedown request were withdrawn. In addition to that the person involved has apologised and as such I&rsquo;ve removed the name from this post -I think that&rsquo;s fair.
 Normally I like to write about my projects and experiments but it seems this an unfortunate part of what we do so I will detail it here in case anyone else has this experience.
