@@ -1,4 +1,12 @@
 backend:
   name: github
-  repo: MadeMyMike/adebymike.github.io # Path to your Github repository
-  branch: hugo # Branch to update
+  repo: MadeByMike/madebymike.github.io 
+  branch: hugo
+media_folder: "site/static/img/uploads"
+public_folder: "/images/img/uploads"
+collections:
+  - name: "writing"
+    label: "Post"
+    folder: "writing"
+    fields:
+      - {label: "Language", name: "language"}
