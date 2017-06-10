@@ -1,0 +1,354 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  The invisible parts of CSS - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="The invisible parts of CSS - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">The invisible parts of CSS</h1>
+      <span class="post-date"><time>April 3, 2017</time></span>
+
+      
+
+      
+
+<p>If you use CSS in your daily work, your primary goal is probably focused around making things &lsquo;look right&rsquo;. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.</p>
+
+<p>You may not have realised it, but the visual results of CSS are often an indirect consequence of manipulating hidden properties. Some CSS properties such as <code>background-color</code> have a direct and obvious relationship with what you see. While others such as <code>display</code> remain ambiguous to many of us because the results seem highly dependant on context.</p>
+
+<p>I doubt many developers could describe in simple terms what setting <code>display: block</code> actually does. At best you probably have an intuitive understanding of how properties like this work. That&rsquo;s ok, you can have a pretty good wrangle of CSS without understanding the underlying principles. Although, this might be knowing the solution without necessarily understanding the problem.</p>
+
+<p>If this describes you, that&rsquo;s ok. I learnt how to work with CSS, long before I understood <em>how</em> it worked. I guess that doesn’t make it ok, &hellip;but at least you’re not alone!</p>
+
+<p>The underlying features of CSS are complicated and intentionally abstracted, yet we can&rsquo;t be completely unaware of them. Concepts such as the Box Model, Cascade and Specificity will be familiar to many of us. Although they are often misunderstood, knowing a little of how these work can help us write better CSS.</p>
+
+<p>The same can be said for many other hidden parts of CSS. The problem with understanding these better is that the barrier to entry is even higher. It often feels like nothing can be explained in isolation. You need to know everything before you can understand the smallest part of the process.</p>
+
+<p>Because of this I want to attempt to shed some light on the invisible parts of CSS, touching only on what you need to know and hopefully explaining the process in a logical order, so that you can gain a better understand of how CSS actually works.</p>
+
+<p>This is a long article so if you want to skip ahead to one of these sections, I&rsquo;m totally fine with that:</p>
+
+<ul>
+<li><a href="#overview-of-the-rendering-process">Overview of the rendering process</a></li>
+<li><a href="#cascade">Cascade</a></li>
+<li><a href="#the-box-model">The Box Model</a>
+
+<ul>
+<li><a href="#fill-area">Fill Area</a></li>
+<li><a href="#width-auto">Width Auto</a></li>
+<li><a href="#box-sizing">Box-sizing</a></li>
+<li><a href="#collapsing-margins">Collapsing margins</a></li>
+</ul></li>
+<li><a href="#the-visual-formatting-model">The Visual Formatting Model</a></li>
+<li><a href="#display-types">Display types</a></li>
+<li><a href="#formatting-contexts">Formatting contexts</a></li>
+<li><a href="#positioning-schemes">Positioning schemes</a>
+
+<ul>
+<li><a href="#normal-flow">Normal flow</a></li>
+<li><a href="#floats">Floats</a></li>
+<li><a href="#absolute-positioning">Absolute positioning</a></li>
+<li><a href="#stacking-contexts">Stacking context</a></li>
+</ul></li>
+</ul>
+
+<h2 id="overview-of-the-rendering-process">Overview of the rendering process</h2>
+
+<p>When you load an HTML document there is a lot that happens in order for that page to render.</p>
+
+<p>The first step is to parse the HTML document. From this the browser builds a &lsquo;document tree&rsquo;. A tree structure is a way of representing information with an obvious hierarchy like HTML. Elements in a tree can be described in terms similar to a family tree, such as descendants, parents, children and siblings.</p>
+
+<p>You might have heard the term DOM. This stands for Document Object Model. It is an extension of the document tree structure, and is used to store and manipulate information about the content of a web document.</p>
+
+<p>As HTML is being parsed, stylesheets and other resources are fetched. Style declarations are interpreted and resolved through a process known as the <a href="#cascade">Cascade</a>.</p>
+
+<p>During this process the final values of CSS properties are resolved. After calculation these values may be different to what is written in our stylesheets. For example keywords like <code>auto</code> and relative units are assigned real values, and inherited values are applied. These computed values are stored in a tree, similar to elements in the DOM, in what is unsurprisingly called the CSS Object Model or CSSOM.</p>
+
+<p>It is now possible to begin the process of rendering the page. The first step in this process is the calculation of <a href="#the-box-model">the Box Model</a>. This is an important step for working out the size and spacing of elements, although not their final position.</p>
+
+<p>Less well known than the <a href="#the-box-model">Box Model</a> is a process called the <a href="#the-visual-formatting-model">Visual Formatting Model</a>. This process determines the layout and positioning of elements on the page. It encompases some concepts you might already be familiar with such as <a href="#positioning-schemes">positioning schemes</a>, <a href="#formatting-contexts">formatting contexts</a>, <a href="#display-types">display modes</a>, and <a href="#stacking-contexts">stacking contexts</a>.</p>
+
+<p>Finally the page is rendered.</p>
+
+<p>There might be a few terms in the paragraphs above that you are not yet familiar with. If so, what&rsquo;s most important is to understand that the <a href="#cascade">Cascade</a>, the <a href="#the-box-model">Box Model</a>, and the <a href="#the-visual-formatting-model">Visual Formatting Model</a> are the key steps involved in interpreting, processing and rendering HTML and CSS. I’ve skipped over a lot of detail when describing each of these so we’re now going to look at these 3 steps more closely.</p>
+
+<h2 id="cascade">Cascade</h2>
+
+<p>The cascade is probably one of the most misunderstood features of CSS. It refers to the process of combining different stylesheets and resolving conflicts between CSS selectors.</p>
+
+<p>The cascade looks at the importance, origin, specificity, and order of declarations to determine which style rules to use.</p>
+
+<p><strong>What you need to know:</strong></p>
+
+<p>Most websites have multiple stylesheets. Typically styles are added with a <code>link</code> tag that references a css file, or with a <code>style</code> tag in the HTML body. Even the most basic page will have default styles provided by the browser. This default stylesheet is sometimes called the user-agent stylesheet.</p>
+
+<p>During the cascade stylesheets are interpreted in the following order:</p>
+
+<ol>
+<li><p>!important declarations</p></li>
+
+<li><p>Author stylesheets</p></li>
+
+<li><p>Browser default stylesheets</p></li>
+</ol>
+
+<p><strong>Note:</strong> I&rsquo;ve skipped over user stylesheets here because they are not a common thing anymore and probably wouldn’t factor in consideration for anyone reading this.</p>
+
+<p>After combining these sources, if multiple rules apply to the same element, specificity is used to determine which rules to apply.</p>
+
+<h3 id="specificity">Specificity</h3>
+
+<p>Specificity is a weighting given to selectors. It&rsquo;s a common mistake to think of this as a single number. It’s actually 4 separate numbers or 4 categories of weighting.</p>
+
+<p>To calculate specificity, count the number of:</p>
+
+<ol>
+<li><p>IDs,</p></li>
+
+<li><p>classes, attributes and pseudo-classes,</p></li>
+
+<li><p>elements and pseudo-elements</p></li>
+</ol>
+
+<p>For example: <code>#nav .selected:hover &gt; a::before</code> will be 1, 2, 2.</p>
+
+<p>No number of classes will ever have a higher specificity than an ID. When comparing selectors you compare the specificity of IDs first. Only if these match do you compare the value of classes, attributes and pseudo-classes and finally, if still equal, elements and pseudo-elements.</p>
+
+<p>If specificity is equal in every category, the last declaration in the source takes precedence.</p>
+
+<p>Yes! I know I said 4 categories. Inlines styles have a higher specificity than IDs. Although they are technically the first category in specificity calculations you don&rsquo;t typically end up with competing inline styles, so it’s easier just remember that inline styles will always win specificity.</p>
+
+<p><strong>Important note:</strong> !important declarations are not factored in specificity calculations but they do have a greater precedence than normal declarations in the cascade.</p>
+
+<h3 id="inheritance">Inheritance</h3>
+
+<p>Inheritance is not part of the cascade but I&rsquo;ve included it here because it is often discussed in conjunction with the cascade.</p>
+
+<p>Inheritance is the process where values that apply to an element can be passed on (or inherited) by its children.</p>
+
+<p>You are likely familiar with the fact that font properties, when applied to the body or another container element, are also inherited by every element inside that container. This is inheritance.</p>
+
+<p>Not all properties are inherited by default. Understanding inheritance is key to writing more deliberate and less verbose CSS. Forcing inheritance with the <code>inherit</code> keyword can be incredibly useful.</p>
+
+<p><strong>Note:</strong> Some properties are such as <code>border-color</code> have a default value of <code>currentcolor</code>. This means they will use the value set on the <code>color</code> property. This default value is not the same thing as inheritance. Although the color property itself is often inherited so I tend to think of this as defacto kind of inheritance.</p>
+
+<h2 id="the-box-model">The Box Model</h2>
+
+<p>Understanding the Box Model is essential and necessary for limiting frustration when working with layout and positioning. It is one of the most fundamental concepts in CSS.</p>
+
+<p>The box model is used to calculate the width and height of elements. It is a calculation step and not solely relied upon for determining the final layout and positioning of elements.</p>
+
+<p><strong>What you need to know:</strong></p>
+
+<p>Every element in HTML is a rectangular box. Each box has four regions defining the margin, borders, padding, and content areas of an element.</p>
+
+<p>By default, when you set the width of an element, this sets the width of the content area only. When you add padding, border or margin to an element, this is added in addition to the width. In practical terms this means that two elements with a width of 50%, will not fit side-by-side if padding, margin or borders are added.</p>
+
+<p><img alt="shows the content-width within the box model" src="/img/content-width.png" style="width:100%; max-width:550px;"></p>
+
+<p>That&rsquo;s it! It’s pretty simple right? So why is this often a source of confusion? Well, you might have encountered a few situations where things seem to behave a little differently…</p>
+
+<h3 id="fill-area">Fill Area</h3>
+
+<p>When you set the background of an element this fills not only the content area but also the padding and border areas as well.</p>
+
+<p><img style="width:100%; max-width:550px;" alt="shows the fill area within the box model" src="/img/fill-area.png" ></p>
+
+<p>Conceptually we think of an HTML element as a single thing, so it&rsquo;s easy to think that the visual boundaries of an element are equal to its width however this is not the case. Although the visual boundaries of an element include the padding and border areas the width property is applied explicitly to the content box.</p>
+
+<p><strong>Note:</strong> Altering the <code>box-sizing</code> property can change this behaviour.</p>
+
+<h3 id="width-auto">Width Auto</h3>
+
+<p>Another source of potential confusion is how <code>width: auto</code> works. A width of auto is the default setting for most HTML elements and for block elements such as divs and paragraphs, <code>auto</code> will calculate the width so that the margin, border, padding and content areas combined all fit within the available space.</p>
+
+<p>In this situation it can feel like adding padding and margins push inwards on the content, but in reality, the width is being recalculated to ensure everything fits. By comparison when setting a width of <code>100%</code>, the content area will fill the space available regardless of margin, padding and borders.</p>
+
+<p><img style="width:100%; max-width:550px;" alt="shows how width auto works compared to width:100%" src="/img/width-auto.png" ></p>
+
+<h3 id="box-sizing">Box-sizing</h3>
+
+<p>The box-sizing property changes the way the box model works. When box-sizing is set to <code>border-box</code> padding and border will reduce the inner width of the content area, rather than adding to the overall width of an element. This means that a width of an element is now the same as its visual width.</p>
+
+<p><img style="width:100%; max-width:550px;" alt="shows how box-sizing:border-box works" src="/img/box-sizing.png" ></p>
+
+<p>A lot of people prefer this, and if you&rsquo;re building a grid system, or any other kind of layout that requires aligning items horizontally, this can be much more intuitive way to work.</p>
+
+<h3 id="collapsing-margins">Collapsing margins</h3>
+
+<p>It can be really confusing when margins collapse unexpectedly and you don&rsquo;t know what is going on. Margins will sometimes collapse when two or more adjacent vertical margins touch and they are not separated with padding or border. A collapsing margin can also occur if the margin of a child element extends into that of its parent and is not separated by padding.</p>
+
+<p>Margins will not collapse if elements are absolutely positioned, floated, or have a different <a href="#formatting-contexts">formatting context</a>, as well as in a few other less likely situations.</p>
+
+<p>If you&rsquo;re confused that’s ok. The rules for when margins will and will not collapse are complicated. The main thing you need to know is when elements don’t have padding or borders, vertical margins can collapse.</p>
+
+<p>If you need more detail CSS Tricks has a wonderful <a href="https://css-tricks.com/what-you-should-know-about-collapsing-margins/">explanation of collapsing margins</a>.</p>
+
+<h2 id="the-visual-formatting-model">The Visual Formatting Model</h2>
+
+<p>While the box model calculates an element&rsquo;s dimensions, it’s the Visual Formatting Model that is responsible for determining the layout of these boxes. The Visual Formatting Model takes into account the box type, <a href="#positioning-schemes">positioning scheme</a>, relationships between elements and constraints imposed by content to determine the final position and presentation of each element on the page.</p>
+
+<p><strong>What you need to know:</strong></p>
+
+<p>The visual formatting model traverses the document tree and generates one or more boxes required to render elements according to the CSS box model. The CSS <code>display</code> property plays a key role in determining how an element participates in the current formatting context and positioning scheme. Together these pieces determine the final layout and positioning of elements.</p>
+
+<p>This is a complex step and was by far the most difficult to try and summarise. If you don&rsquo;t follow everything that’s ok. Understanding how we manipulate <a href="#positioning-schemes">positioning schemes</a> and <a href="#formatting-contexts">formatting contexts</a> through the CSS properties is a good start. If you can follow the interplay between different pieces of this model you are doing better than most. At very least you should know that they exist.</p>
+
+<h2 id="display-types">Display types</h2>
+
+<p>We know that setting the <code>display</code> property in CSS determines the how an element is rendered but it&rsquo;s not immediately clear how this works. In fact sometimes, it can even seem unpredictable.</p>
+
+<p>This is because the display property determines the element&rsquo;s &lsquo;box type’. This hidden property consists of an inner display type, and an outer display type which together help determine how the element is rendered.</p>
+
+<p>The outer display type usually resolves to either &lsquo;block&rsquo; or ‘inline’ and is pretty much consistent what you expect of theses <code>display</code> properties in CSS. Technically speaking the outer display type dictates how an element participates in its parent <a href="#formatting-contexts">formatting context</a>.</p>
+
+<p>The inner display type determines what <a href="#formatting-contexts">formatting context</a> that element will generate. This will impact how its child elements are laid out.</p>
+
+<p>Think of how a Flexbox container works. Its outer type is <code>block</code> and its inner type is <code>flex</code>. Its children can also have an outer type of block, but their layout is influenced by the formatting context of the Flexbox container.</p>
+
+<p>One way of thinking about this is that the responsibility for display is shared between an element and it&rsquo;s parent element.</p>
+
+<h2 id="formatting-contexts">Formatting contexts</h2>
+
+<p>Formatting context are all about layout. They are the rules that govern the layout of elements inside a container and how they interact with each other.</p>
+
+<p>Some formatting contexts can be established directly on containers such as through the use of <code>display</code> values <code>flex</code>, <code>grid</code> or <code>table</code>. Other types such as block and inline formatting contexts are created as required by the browser.</p>
+
+<p><strong>Note:</strong> At one time, because of the way it interacts with floats, it was important to understand how to make the browser establish a new block formatting context. Elements with a block formatting context will contain floats. This is not as important today as it once was. In fact it&rsquo;s not even how modern <a href="https://css-tricks.com/snippets/css/clear-fix/">clearfix techniques</a> work.</p>
+
+<h2 id="positioning-schemes">Positioning schemes</h2>
+
+<p>A box can be laid out according to one of three positioning schemes. These are <a href="#normal-flow">Normal flow</a>, <a href="#floats">Floats </a>and <a href="#absolute-positioning">Absolute positioning</a>. You are probably familiar with floats and absolute positioning because we interact with these more directly when writing CSS. Normal flow is just a name for the default positioning scheme when an element is not floated or positioned.</p>
+
+<h3 id="normal-flow">Normal flow</h3>
+
+<p>Normal Flow describes the default positioning scheme and &lsquo;in-flow&rsquo; describes elements that conform to this. You could consider in flow to be the natural position of elements laid out according to their source order and <a href="#formatting-contexts">formatting context</a>.</p>
+
+<h3 id="floats">Floats</h3>
+
+<p>Float is a CSS property that causes an element to be taken out of the normal flow and shifted to the left or right as far as possible, until it touches the edge of its containing box or another floated element. When this happens, text and inline elements will wrap around the floated elements.</p>
+
+<p>Normally if not set, the height of an element will adjust to fit all of its descendant elements. When elements are floated they are taken out of flow and this means containers will not adjust their height to clear them.</p>
+
+<p>It is this behaviour that allows multiple lines of text, heading and other elements to fluid wrap around floated content. But sometimes this is problematic. Clearfixes and establishing a new block formatting context will causes a container to clear its floated children. This technique has allowed floats to be used for layout which has been a corner-stone of web development techniques for a long time. It&rsquo;s still important to know but this is gradually being replaced with newer layout techniques such as Flexbox and Grid.</p>
+
+<h3 id="absolute-positioning">Absolute positioning</h3>
+
+<p>Elements with absolute positioning are removed from the flow entirely and unlike floated elements they have no impact on surrounding content.</p>
+
+<p>A container with relative positioning allows you to control the offset of descendant elements using absolute positioning.</p>
+
+<p>Relatively positioned elements can also be given an offset but this offset is relative to the element&rsquo;s normal position not another relative container.</p>
+
+<p>CSS properties <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code> are used to calculate &lsquo;box offsets&rsquo;. These properties are not two dimensional offsets but allow positioning of each edge, relative to its container’s content box.</p>
+
+<p>Positioned elements with overlapping offsets can result in elements occupying the same space. A stacking context is used to resolve this.</p>
+
+<h3 id="stacking-contexts">Stacking contexts</h3>
+
+<p>Stacking context determines the order that things are rendered to the page. You can think of a stacking context like a layer. Layers on the bottom of the stack are painted first and elements higher up the stack appear on top.</p>
+
+<p>Placing a <code>z-index</code> on an element that is absolutely or relatively positioned is the most common way to establish a new stacking context. But there are a number of other ways a stacking context can be formed including, setting opacity, transforms, filters or using the <code>will-change</code> property.</p>
+
+<p>Some of these reasons are not intuitive and have more to do with rendering performance than developers expectations. It helps to understand that these layers can be rendered separately by the browsers. As a result it can sometimes be useful to intentionally to create a new stacking context for performance reasons.</p>
+
+<p>Setting a z-index has no effect unless a stacking context is established. The higher the z-index the higher up the stack the layer is placed.</p>
+
+<p>One of the most confusing parts about stacking is that a new stacking context can be established inside an existing one. This means you can have layers of layers.</p>
+
+<p>In this situation, it&rsquo;s not always a case of the highest z-index wins.</p>
+
+<h2 id="that-s-it">That&rsquo;s it!</h2>
+
+<p>Almost 3000 words and I&rsquo;ve only briefly touched some of the important hidden parts of CSS. If you’ve read this in full congratulations and please be sure to let me know, because you deserve some kind of reward!</p>
+
+<p>If you&rsquo;ve just read some parts that’s ok too. I hope I’ve managed to clarify something or give a general insight into the processes involved. It’s been a real challenge to explain this stuff in simple terms without sacrificing accuracy. I hope got it right.</p>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

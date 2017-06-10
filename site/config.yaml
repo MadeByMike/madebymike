@@ -1,0 +1,7 @@
+baseURL: https://madebymike.com.au
+disablePathToLower: true
+languageCode: en-us
+title: MadebyMike
+permalinks:
+  writing: /writing/:filename/
+number_of_related_posts: 3

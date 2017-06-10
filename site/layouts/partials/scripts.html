@@ -1,0 +1,9 @@
+<script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+{{ range $.Param "extra_js" }}
+	<script type="text/javascript" src="/js/{{ . }}"></script>
+{{ end }}

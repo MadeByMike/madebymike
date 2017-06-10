@@ -1,9 +1,0 @@
-<script type="text/javascript">
-if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
-  navigator.serviceWorker.register('/sw.js');
-}
-</script>
-
-{% for js_name in page.extra_js %}
-	<script type="text/javascript" src="/js/{{ js_name }}"></script>
-{% endfor %}

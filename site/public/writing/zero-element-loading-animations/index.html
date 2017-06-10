@@ -1,0 +1,259 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  Zero element loading animations - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="Zero element loading animations - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+		<link rel="stylesheet" href="/css/zero-element.css">
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">Zero element loading animations</h1>
+      <span class="post-date"><time>January 5, 2015</time></span>
+
+      
+
+      <p>With a &ldquo;zero element&rdquo; loading animation, a loading state can be applied to any element with just the addition of a class name.</p>
+
+<div class="row">
+  <div class="col col-6">
+    <a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">
+      <div class="loading horizontal-example"></div>
+    </a>
+    <p class="caption"><a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">view examples on codepen</a></p>
+  </div>
+  <div class="col col-6">
+    <a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">
+      <div class="loading radial-example"></div>
+    </a>
+    <p class="caption"><a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">view examples on codepen</a></p>
+  </div>
+</div>
+
+<p>First of all, I&rsquo;m not a huge fan of loading animations and neither are your users but sometimes, for various reasons an action is going to take time and we need to let people know we&rsquo;re working on it. So if we must use a loading animation we want it to have a light footprint and be easy to toggle on and off when and where we need it.</p>
+
+<p>I&rsquo;ve seen a lot of css only loading animations. A quick search on CodePen will find thousands of examples. They are popular because they are relatively quick and easy to make, yet can be creatively challenging and the result is usually visually pleasing. These type of experiments are fun and can be a rewarding and worthwhile exercise, but the practicality of many examples is more questionable.</p>
+
+<p>There are definite benefits to css only solutions such as improving the number of network requests, page weight and animation performance. But in my opinion these benefits are often outweighed by the need to insert a div soup into the mark-up. Not only that, positioning a css only &ldquo;spinner&rdquo; can be challenging, it often requires changes to the surrounding mark-up to avoid breaking the layout.</p>
+
+<p>Perhaps slightly more practical are the &ldquo;single element&rdquo; examples. They tend to be a bit more robust and whilst it&rsquo;s simple enough to toggle a single element to show and hide the loading animation, I don&rsquo;t like toggling element visibility or adding and removing elements with JavaScript. To me this seems to defeat the purpose of a CSS only solution. It feels like the correct way to approach a css loading animation would be for it to work simply by adding a class name such as <code>loading</code> to an element to indicate that it&rsquo;s in a loading state.</p>
+
+<p>After all loading is a &ldquo;describing word&rdquo;, it indicates the state of something and is not an object itself. Maybe it is a little silly to think we should apply this logic to our mark-up, but it feels right to me. So I set out to make a &ldquo;zero element&rdquo; loading animation, one that can be applied simply by adding a class name.</p>
+
+<p>I eventually settled on a solution that works almost everywhere. There are only 2 conditions. The element we&rsquo;re adding the loading animation to:</p>
+
+<ul>
+<li>cannot have <code>:before</code> or <code>:after</code> pseudo-elements applied</li>
+<li>must be possible to change the <code>position</code> property to <code>relative</code></li>
+</ul>
+
+<p>This works in every situation I’ve ever needed a loading animation but if we want to apply this technique to an element that requires absolute positioning or already has pseudo-elements, it’s usually possible to add the loading class to a container or child element.</p>
+
+<p>##How it works</p>
+
+<p>This technique works by using <code>:before</code> and <code>:after</code> pseudo-elements to create the different parts of the animation. CSS transformations and absolute positioning are applied and these properties are animated to create different types of loading indicators.</p>
+
+<p>The difficult part is working out how to position and animate the various parts, taking into account the width, height, borders and css transformations.</p>
+
+<p>For a typical horizontal loading animation we can work this out without too much trouble but to create a smooth radial animation or anything more complex you will probably want to rely on something like sass or a generator.</p>
+
+<p>If you want to understand how it works let’s look at making a simple horizontal example.</p>
+
+<pre><code class="language-css">.loading{
+  position: relative;
+  background: rgba(255,255,255,.8);
+}
+
+.loading:before{
+  content:'';
+  box-sizing: border-box;
+
+  /* centre everything */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 200px;
+  height: 30px;
+
+  border: solid 1px #000;
+  border-radius: 30px;
+}
+
+.loading:after{
+  content:'';
+  box-sizing: border-box;
+
+  /* centre everything */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+
+  border: solid 5px #000;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+</code></pre>
+
+<p>With the above css we can add a class name <code>loading</code> to any element on the page and we should get something like the following, positioned in the centre:</p>
+
+<p><img style="margin: 0 auto; display:block;" src="/img/zero-element-example.png"></p>
+
+<p>If you want to apply this to the whole page, by applying the class name to the body element, you will also need to add the following css:</p>
+
+<pre><code class="language-css">html, body { height: 100%; }
+</code></pre>
+
+<p>To complete the loading animation we need to move the circle back and forward along the bar.</p>
+
+<p>To our circle add the following css:</p>
+
+<pre><code class="language-css">.loading:after{
+
+  ...
+
+  -webkit-animation: loading 3s ease-in-out infinite alternate;
+  animation: loading 3s ease-in-out infinite alternate;
+}
+</code></pre>
+
+<p>Important animation properties in this example are the <code>animation-timing-function</code> and <code>animation-direction</code>. For the timing function I selected <code>ease-in-out</code> which causes it to slow before changing direction, although <code>linear</code> also works, however for this example the animation direction must be set to <code>alternate</code>. Next we add the animation keyframes.</p>
+
+<pre><code class="language-css">@keyframes loading {
+  0% { transform: translate(-99px, -50%); }
+  100% { transform: translate(71px, -50%); }
+}
+
+@-webkit-keyframes loading {
+  0% { transform: translate(-99px, -50%); }
+  100% { transform: translate(71px, -50%); }
+}
+</code></pre>
+
+<p>For the animation keyframes we translate the position of the circle so that is starts with its left edge against the left edge of the bar and ends with its right edge against the right edge of the bar. We also need to translate the vertical position by <code>-50%</code> to maintain its vertical centring. We do not change the vertical position in this animation.</p>
+
+<p>Without any transformations applied, the left edge of the circle is positioned in the centre of the bar. Since we know the width of the bar is 200px, to position the left edge of the circle against the left edge of the bar we need to move it <code>-100px</code> horizontally. So why in the example do I have <code>-99px</code>? This is simply because I want the circle to bounce against the inside edge of the bar. In the css I have <code>box-sizing: border-box;</code> applied to the bar so I need to account for the border width. It’s barely noticeable with a border width of 1px but with a thick border it will make a difference. This is the same reason the width and height of the circle are <code>28px</code> rather than <code>30px</code>.</p>
+
+<p>The full calculation for the first keyframe is:</p>
+
+<pre><code>-(half the width of the bar - border width of the bar)
+-(100 - 1) = -99
+</code></pre>
+
+<p>For the final keyframe the calculation is similar however as already stated positions in css are relative to the top left corner of the element, so we need to take off the width of the circle.</p>
+
+<p>The full calculation is for the final keyframe is:</p>
+
+<pre><code>(half the width of the bar - border width of the bar – width of circle)
+100-1-28 = 71
+</code></pre>
+
+<p><strong>Note</strong>: You might not want to confine the circle to the inner width of the bar. Take a look at some of the examples I’ve done in the links at end of this article.</p>
+
+<p>You can of course change the sizes and colors to suit your preferences, as well as the border width or other properties, just remember if you change these adjust the calculations accordingly.</p>
+
+<p>If you’d like to make a horizontal zero element loading animation you can, <a href="http://codepen.io/MadeByMike/pen/6fced0cf51ce07ef6833aa775d254652">fork my zero element animation boilerplate</a>.</p>
+
+<p>This is of course only one possible type of loading animation. There are plenty of alternatives that could be made using the same technique.</p>
+
+<p>I’ve created some other examples such as a radial loading animation - I&rsquo;ll admit, this one generates some lengthy css, but in most cases it is still smaller than an image or even an SVG. To create more complex animations like this you are going to need a preprocessor or some kind of script to generate the keyframes. Otherwise minor changes are going to result in a significant re-calculations and this is not something you would want to do by hand.</p>
+
+<p>Please let me know on <a href="https://twitter.com/MikeRiethmuller">twitter</a> if you find this useful, if you have some more examples or if you have any questions. I&rsquo;ll be happy to add your examples here.</p>
+
+<p>##Examples</p>
+
+<ul>
+<li><a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">Horizontal zero element loaders</a></li>
+<li><a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">Radial loaders zero element</a></li>
+</ul>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

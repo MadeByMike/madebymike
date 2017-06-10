@@ -1,0 +1,4 @@
+backend:
+  name: github
+  repo: MadeMyMike/adebymike.github.io # Path to your Github repository
+  branch: hugo # Branch to update

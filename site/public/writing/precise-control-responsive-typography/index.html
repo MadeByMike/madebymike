@@ -1,0 +1,257 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  Precise control over responsive typography - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="Precise control over responsive typography - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+		<link rel="stylesheet" href="/css/responsive-type.css">
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">Precise control over responsive typography</h1>
+      <span class="post-date"><time>March 17, 2015</time></span>
+
+      
+
+      
+
+<p>It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.</p>
+
+<p>
+<a href="http://codepen.io/MadeByMike/pen/YPJJYv" class="responsive-type">
+  This text is limited to between 20px and 40px, over a viewport range of 600px to 800px.
+</a>
+</p>
+
+<p>I don’t know why we don’t see viewport units being used more extensively for creating designs with responsive typography.</p>
+
+<p>Viewport units have been around since 2012 and are <a href="http://caniuse.com/#feat=viewport-units">fairly well supported</a>. In fact Internet Explorer was an early mover on this and supports viewport units as far back as IE9.</p>
+
+<p>They are also really easy to understand. One viewport unit is simply 1% of the viewport and there are 4 types of viewport units:</p>
+
+<ul>
+<li>vw - viewport width,</li>
+<li>vh - viewport height,</li>
+<li>vmin - height or width, whichever is smaller,</li>
+<li>vmax - height or width, whichever is larger</li>
+</ul>
+
+<p>So the reason viewport units are not used more extensively is probably not due to a lack of browser support or developers&rsquo; understanding. My guess is it’s probably more likely to do with the lack of precise control designers have over the font-size.</p>
+
+<p>Designers that love typography often really love typography and they enjoy precise control over line-height, font-size, letter-spacing and other elements of typography those of us not in the club might not even know exist.</p>
+
+<p>This desire for precise control is the reason that some designers still prefer to declare these properties using pixels. But it doesn’t really matter, whether they use ems, rems or percentages the truth is, they are all just abstractions of a base font size and that is usually 16 pixels. So they have never really had to give up complete control. It’s not difficult to work out what font-size an element is, as long as we know the base font-size.</p>
+
+<p>But viewport units are different! They represent a fundamental change in approach. Unlike all the other units, viewport units are not relative to the base font size in any way. Instead they are relative to the viewport, which the user controls, and that might be scary for some.</p>
+
+<p>But there are advantages to using viewport units, a font-size declared with viewport units is fluid, meaning it will scale smoothly. This is a clearly a better experience than <a href="http://codepen.io/MadeByMike/pen/c54dfa521cf08e0439943b7a745f77f0">clunky responsive typography techniques</a> that require multiple media queries.</p>
+
+<p>Responsive typography with viewport units is really easy to implement, just declare the base font-size using vw; as long as you are not using pixels elsewhere in your stylesheet, other units are relative to the base font-size, (which is now viewport units) so they will all scale accordingly.</p>
+
+<p>But there are a few rough edges you will need to sand back. Firstly when you get down to a very small viewport scaling is problematic. Luckily there are a few good methods for avoiding this.</p>
+
+<h2 id="limit-font-scaling-with-calc">Limit font scaling with calc()</h2>
+
+<p>If you would like set an exact minimum font-size in pixels you can use calc().</p>
+
+<pre><code class="language-css">:root{
+  font-size: calc(16px + 3vw);
+}
+</code></pre>
+
+<p>This example says set the default size to 16px + 3vw.</p>
+
+<p><strong>Note</strong>: There are still issues in some browsers when using viewport units and calc() together, so for now media queries is probably safer.</p>
+
+<h2 id="limit-font-scaling-with-media-queries">Limit font scaling with media queries</h2>
+
+<p>You can prevent the text from scaling below a specific threshold simply by using a media query and only applying viewport units above a certain device resolution.</p>
+
+<pre><code class="language-css">:root { font-size: 18px;  /* default below 600px */ }
+@media (min-width: 600px){
+  :root {
+    font-size: 3vw;
+  }
+}
+</code></pre>
+
+<p>We can also stop scaling above a specific font-size, but for this we need to first work out what the viewport size will be at the font-size we want to stop scaling. For that we need a bit of maths:</p>
+
+<pre><code class="language-text">font-size / ( number of viewport units / 100 )
+Eg. 24 / ( 3 / 100 ) = 800px
+</code></pre>
+
+<p>With that result just set another media query to change the root font-size back to a fixed unit.</p>
+
+<pre><code class="language-css">...
+@media (min-width: 800px){
+  :root {
+    font-size: 24px;  /*above 800px */
+  }
+}
+</code></pre>
+
+<p>The calculations are not that hard but I find it easier to look at a simple table. This helps me visualise the change in font-size across different resolutions.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Viewport units:</th><th>1vw</th><th>2vw</th><th>3vw</th><th>4vw</th><th>5vw</th>
+    </tr>
+    <tr>
+      <th>Viewport size</th><th colspan="5">font-size in pixels</th>
+    </tr>
+    <tr>
+      <th>400px</th><td>4px</td><td>8px</td><td>12px</td><td>16px</td><td>20px</td>
+    </tr>
+    <tr>
+      <th>500px</th><td>5px</td><td>10px</td><td>15px</td><td>20px</td><td>25px</td>
+    </tr>
+    <tr>
+      <th>600px</th><td>6px</td><td>12px</td><td>18px</td><td>24px</td><td>30px</td>
+    </tr>
+    <tr>
+      <th>700px</th><td>7px</td><td>14px</td><td>21px</td><td>28px</td><td>35px</td>
+    </tr>
+    <tr>
+      <th>800px</th><td>8px</td><td>16px</td><td>24px</td><td>32px</td><td>40px</td>
+    </tr>
+    <tr>
+      <th>900px</th><td>9px</td><td>18px</td><td>27px</td><td>36px</td><td>45px</td>
+    </tr>
+    <tr>
+      <th>1000px</th><td>10px</td><td>20px</td><td>30px</td><td>40px</td><td>50px</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Looking at the table you can see there are many limitations. We have little control over the rate at which viewport units change and we are confined to the options available in the table.</p>
+
+<h2 id="precise-control-with-calc">Precise control with calc()</h2>
+
+<p>In his 2012 article on <a href="http://trentwalton.com/2012/06/19/fluid-type/">Fluid Type</a> Trent Walton said:</p>
+
+<blockquote>"It's been hard to let go of setting a static font-size for a site and calling things done. I’m realizing that the predictability & control we've had over web type is becoming a thing of the past."</blockquote>
+
+<p>But perhaps not all predictability and control is lost.</p>
+
+<p>Let&rsquo;s imagine that as a typography nerd with an eye for absolute precision, you want the font-size at a resolution of 600px to be 12px. Great! Looking at the table, setting a font-size of 2vw will achieve this. But you also want the font-size at 800px to be 32px. It seems you can’t do this without changing from 2vw to 4vw and this means a break-point and our font scaling will be jumpy and not fluid. I consider this a pretty significant limitation.</p>
+
+<p>There is a solution to this! It&rsquo;s not exactly pretty but it works – at least in modern browsers. As stated earlier, some browser have bugs when using calc() and viewport units together, so this might be buggy in some older browsers. (This is not really a concern anymore, just set sensible default font sizes before declaring a fluid type calc() expression.)</p>
+
+<p>It appears that by using calc() and vw we can get responsive typography that scales perfectly between specific pixel values within a specific viewport range.</p>
+
+<p>This means you can have perfect smooth scaling between any 2 font sizes over any viewport range. The font will start scaling and stop scaling exactly where you want.</p>
+
+<p>Try the demo: <a href="http://codepen.io/MadeByMike/pen/YPJJYv?editors=110">Precise control over responsive typography</a>
+The demo uses SASS so you can easily change the upper and lower limits of the font-size and media queries. But the important part looks something like this:</p>
+
+<pre><code class="language-css">  font-size: calc( 12px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
+</code></pre>
+
+<p><strong>Note</strong>: In the example above, 12px is the minimum font-size and 24px is the maximum. 400px is the start of the viewport range and 800px is where it should stop scaling. The inclusion or absence of the units after each value is important.</p>
+
+<p>Put simply, it is a function that takes a value within a range and works out what the new value would be if applied to a different range. I can take the current viewport width (100vw) as input into this ‘function’. For example if I had viewport range of 500px to 1000px, and let’s imagine the current viewport is 750px, I then apply this to a font-size range. If my font-size range was 20px to 30px, because the input of 750px is right in the middle of 500px and 1000px my new font-size will also be right in the middle, 25px. Simple right?</p>
+
+<p>This seems like it could be a pretty useful way to control the scaling of viewport units. It could also have uses beyond typography. You can do other interesting things, by inverting the range for example, you can have font sizes that get smaller as the viewport gets larger. Perhaps there is a use for this? I’d love to hear your thoughts and see other applications or extensions of this idea.</p>
+
+<p><strong>Update</strong>: Each of the methods above use pixels for &lsquo;precise&rsquo; control, however some readers have expressed concern that this will override user preferences for default font size. This is true, however all methods also work equally well with rem or any other unit type.</p>
+
+<h2 id="more-info">More info</h2>
+
+<ul>
+<li><a href="http://trentwalton.com/2012/06/19/fluid-type/">Fluid Type</a>, Trent Walton</li>
+<li><a href="https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/">Viewport units</a>, Tim Severien</li>
+<li><a href="https://dev.opera.com/articles/css-viewport-units/">CSS Viewport Units</a>, Chris Mills</li>
+<li><a href="http://fittextjs.com/">FitText</a>, Dave Rupert</li>
+<li><a href="https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html">Viewport sized typography</a>, a similar concept by Eduardo Bouças</li>
+<li><a href="http://nicewebtype.com/notes/2012/02/03/molten-leading-or-fluid-line-height/">Molten leading</a></li>
+</ul>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-helper($min-vw, $max-vw, $min-font-size, $max-font-size, $dec:'font-size') {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  & {
+    #{$dec}: $min-font-size;
+
+    @media screen and (min-width: $min-vw) {
+      #{$dec}: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+    }
+
+    @media screen and (min-width: $max-vw) {
+      #{$dec}: $max-font-size;
+    }
+  }
+}
+
+.example-1,
+.example-2,
+.example-3,
+.example-4,
+.example-5,{
+  background: #d5c3e2;
+  text-align: center;
+  padding: 1rem;
+}
+
+.example-1 {
+  @include fluid-helper(320px, 1280px, 14px, 22px);
+}
+
+.example-2 {
+  @include fluid-helper(20rem, 80rem, .875rem, 1.375rem);
+}
+
+.example-3 {
+  @include fluid-helper(320px, 1280px, 22px, 14px);
+}
+
+.example-4 {
+  @include fluid-helper(20em, 80em, 1.2em, 1.8em, 'line-height');
+}
+
+.example-5 {
+  @include fluid-helper(320px, 1280px, 200px, 500px, 'width');
+  margin: 0 auto;
+  border: solid 1px black;
+}

@@ -1,0 +1,161 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  Determine the quality of light in live video streams - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="Determine the quality of light in live video streams - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">Determine the quality of light in live video streams</h1>
+      <span class="post-date"><time>December 20, 2014</time></span>
+
+      
+
+      
+
+<p>I&rsquo;ve been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.</p>
+
+<p>To view the demo you are going to need a web cam and a modern Chrome, Firefox or Opera browser. If you have what it takes you can <a href="http://codepen.io/MadeByMike/full/d8369096b18e2192d0c9d721b9b2a673/">view my demo here</a>. Please select allow when asked for permission to use the web cam.</p>
+
+<p>These tests have some potential real world uses. For example to advise of optimal lighting in a camera app or to estimate the size of the subject in the frame.</p>
+
+<h2 id="a-brief-history-of-html-video-capture">A brief history of html video capture</h2>
+
+<p>Before I explain my demo, it&rsquo;s worth sharing what I&rsquo;ve learnt about the history of video capture and webRTC as well as its <a href="http://caniuse.com/#search=getusermedia">state today</a>.</p>
+
+<p>The first thing to know is, it had a bit of a rocky start. This history is well covered in <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">this excellent HTML5rocks article</a> by Eric Bidelman.</p>
+
+<p>The next thing to know is that <code>getUserMedia()</code> is still not fully supported in all browsers and there are some quirks (huge gaping inconsistencies) in implementation across browsers.</p>
+
+<p>Not to fear because web development superhero Addy Osmani and others have come to the rescue with pollyfills such as:</p>
+
+<ul>
+<li><a href="https://github.com/addyosmani/getUserMedia.js/">getUserMedia.js</a></li>
+<li><a href="https://github.com/jhuckaby/webcamjs">webcamjs</a></li>
+</ul>
+
+<p>To keep it as simple as possible I haven&rsquo;t included any pollyfills in my demo, but I&rsquo;ve tested them and they work, so there&rsquo;s no reason not to start using this now.</p>
+
+<h2 id="estimating-the-quality-of-lighting">Estimating the quality of lighting</h2>
+
+<p>In my demo there were 2 methods I trialed for determining the brightness.</p>
+
+<p>The first method was to find the average color of all the pixels in the frame then work out the relative brightness of this color. This method worked really well, in most situations it gave a good indication of the general brightness and would be suitable for uses such as a light indicator in a camera app.</p>
+
+<p>But eventually I found some limitations with the average color method when testing subjects with a high level of contrast. Images with a very dark background can give a false indication of the overall brightness and there is not enough information in the average color method to determine the &lsquo;quality&rsquo; of light.</p>
+
+<p>I realised that I wanted to know not just the average brightness but also how much of the frame was lit. To do this I applied a threshold filter to the incoming video stream. The threshold filter determines the brightness of each pixel and sets it to either black or white depending on whether it&rsquo;s above or below a certian level of brightness. In the end I can tell what percentage of the frame is lit and this is number can be very differnt to the average brightness.</p>
+
+<p>Used together we can determine a lot about the composition and lighting of the frame.</p>
+
+<h2 id="taking-it-further">Taking it further</h2>
+
+<p>If I apply more than one threshold I can set a maximum and minimum brightness and measure which parts of the image are potentially under or over exposed.</p>
+
+<p>Finally and it&rsquo;s not in my demo but you could potentially automatically adjust the threshold based on the average color brightness.</p>
+
+<p>So there we have a ton of information we can use to make inferences about the quality of lighting in a video stream. Now it&rsquo;s up to you work out how to put them to practical application.</p>
+
+<h2 id="performance-tips">Performance tips</h2>
+
+<p>Despite being very poorly optomised my demo seems to run ok. Not only am I adjusting the brightness before rendering each frame to a canvas, I&rsquo;m also showing the results of the threshold and average filters on a separate smaller canvas. In most cases you won&rsquo;t need to do either of these things.</p>
+
+<p>I was able to get these methods working on an average machine with a HD video input by combining each of the filters so that I was only looping over the pixel data once. I used an off screen canvas and only processed every 5th frame and every 5th pixel. The results were as accurate as the method shown in this demo.</p>
+
+<h2 id="further-reading">Further reading</h2>
+
+<p>Interesting articles I found along the way include:</p>
+
+<ul>
+<li><a href="https://dev.opera.com/articles/getusermedia-access-camera-privacy-ui/">getUserMedia: Accessing the Camera and Privacy UI</a> - Bruce Lawson</li>
+<li><a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">Capturing Audio &amp; Video in HTML5</a> - Eric Bidelman</li>
+<li><a href="http://www.sitepoint.com/introduction-getusermedia-api/">introduction to the getUserMedia API</a> - Aurelio De Rosa</li>
+</ul>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

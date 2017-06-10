@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stuff I wrote on MadebyMike</title>
+    <link>https://madebymike.com.au/post/</link>
+    <description>Recent content in Stuff I wrote on MadebyMike</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://madebymike.com.au/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Non-linear interpolation in CSS</title>
+      <link>https://madebymike.com.au/writing/non-linear-interpolation-in-css/</link>
+      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/non-linear-interpolation-in-css/</guid>
+      <description>A few years ago I wrote about fluid typography techniques that show how you can use calc() and viewport units to create transitions between different font-sizes as the viewport size changes. If you&amp;rsquo;d like to know more about how this technique works you should read my article Precise control over responsive typography.
+Recently these ideas have circulated and gained more traction. I&amp;rsquo;ve seen more large sites using fluid typography and other people writing about it and expanding on my initial ideas and techniques.</description>
+    </item>
+    
+    <item>
+      <title>The invisible parts of CSS</title>
+      <link>https://madebymike.com.au/writing/the-invisible-parts-of-CSS/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/the-invisible-parts-of-CSS/</guid>
+      <description>If you use CSS in your daily work, your primary goal is probably focused around making things &amp;lsquo;look right&amp;rsquo;. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.
+You may not have realised it, but the visual results of CSS are often an indirect consequence of manipulating hidden properties. Some CSS properties such as background-color have a direct and obvious relationship with what you see.</description>
+    </item>
+    
+    <item>
+      <title>Interpolation in CSS without animation</title>
+      <link>https://madebymike.com.au/writing/interpolation-without-animation/</link>
+      <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/interpolation-without-animation/</guid>
+      <description>Interpolation is the estimation of a new value between two known values. This simple concept is vastly useful and it&amp;rsquo;s commonly seen in animation on the web. With animation you declare the target properties and the end-state, and the browser will workout out the values in-between. Animation happens over time, but this is not the only dimension where interpolation can occur. In fact we interpolate values regularly in design, albeit manually, and particularly in responsive design.</description>
+    </item>
+    
+    <item>
+      <title>VR Pong</title>
+      <link>https://madebymike.com.au/writing/vr-pong/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/vr-pong/</guid>
+      <description>I published a new project today named VR Pong. It&amp;rsquo;s a collaboration where Una Kravets and I learn about WebVR and hopefully make something cool.
+The idea is that each week one of us adds something to a VR scene then passes it back for the other person to build upon. We&amp;rsquo;ll also write a short blog post about what we learnt both creative and technical.
+So far we added one &amp;lsquo;Pong&amp;rsquo; each.</description>
+    </item>
+    
+    <item>
+      <title>On maths and coding</title>
+      <link>https://madebymike.com.au/writing/maths-and-code/</link>
+      <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/maths-and-code/</guid>
+      <description>When I was at school I had a strong interest in learning to code, but I was terrible at maths. My teachers and parents told me I would need strong mathematical abilities to be a good developer and although they didn&amp;rsquo;t mean it to be, I found this discouraging. I really wasn&amp;rsquo;t good with numbers and I couldn&amp;rsquo;t see this changing.
+On the one hand I was right, it didn&amp;rsquo;t change and I&amp;rsquo;ve only recently learnt to use maths to great effect when coding.</description>
+    </item>
+    
+    <item>
+      <title>SVG has more potential</title>
+      <link>https://madebymike.com.au/writing/svg-has-more-potential/</link>
+      <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/svg-has-more-potential/</guid>
+      <description>I think many of us are not using SVG to its full potential. I often see SVG used as an alternative image format or as a simple solution for icons, and whilst it&amp;rsquo;s great for these things, it&amp;rsquo;s also a lot more than that. SVG can solve problems that HTML and CSS alone can&amp;rsquo;t. It has responsive properties that go beyond vector scaling, such as control over aspect ratio, embedded CSS and a unique co-ordinate system.</description>
+    </item>
+    
+    <item>
+      <title>Offline content with service workers</title>
+      <link>https://madebymike.com.au/writing/service-workers/</link>
+      <pubDate>Mon, 22 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/service-workers/</guid>
+      <description>Service workers can do a lot more than make web pages work offline but for most people, myself included, this will be their first experience with them. I recently implemented a simple offline page for my blog and was surprised with how easy it was. Full of confidence, I wanted to do more. I decided to start saving blog posts for offline reading and things escalated quickly. I soon learnt the rabbit hole is deep.</description>
+    </item>
+    
+    <item>
+      <title>Canvas image manipulation techniques</title>
+      <link>https://madebymike.com.au/writing/canvas-image-manipulation/</link>
+      <pubDate>Thu, 07 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/canvas-image-manipulation/</guid>
+      <description>Canvas is a really interesting piece of our web development toolkit, but it is often overlooked or misunderstood. It is, as the name suggests, very much a blank canvas; not providing much in the way of prebaked solutions. It is up to us as developers to ensure what we make with canvas, is accessible and performant.
+Canvas has no DOM, so when compared to working with HTML and CSS it may be less intuitive, and more work.</description>
+    </item>
+    
+    <item>
+      <title>How I nested my Sass and lived</title>
+      <link>https://madebymike.com.au/writing/how-i-nested-sass-and-survived/</link>
+      <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/how-i-nested-sass-and-survived/</guid>
+      <description>Here is a secret. I like to nest my Sass. When I write SCSS I’ll happily go 3 or 4 levels deep. I’m so bad, I don’t even give a shit. I thought I would come out and talk about this because it is so heavily shamed by many developers, and I can’t quite figure out why. At risk of being the target of ridicule, let me explore this a little more.</description>
+    </item>
+    
+    <item>
+      <title>Style Guides: 50 shades of corporate blue</title>
+      <link>https://madebymike.com.au/writing/style-guides-50-shades-of-corporate-blue/</link>
+      <pubDate>Fri, 26 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/style-guides-50-shades-of-corporate-blue/</guid>
+      <description>I recently completed my third attempt at implementing a style guide within my organisation. So far this is the first attempt that looks to be maintainable and has some traction outside the development team. I want to share with you how we got there and what I learnt from 2 failed attempts.
+My first attempt at a style guide used an automated tool called KSS, it automatically generated a style guide from comments in the CSS.</description>
+    </item>
+    
+    <item>
+      <title>A love letter to jQuery</title>
+      <link>https://madebymike.com.au/writing/love-letter-to-jquery/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/love-letter-to-jquery/</guid>
+      <description>jQuery I love you. We&amp;rsquo;ve been together for 10 years and that&amp;rsquo;s more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.
+I’ll never forget our first function together:
+$(document).ready(function(){ alert(‘page loaded’); });  Ha! I hope you will forgive me for that alert. That’s how we did things then and I wanted to be sure you worked; of course you worked, I would never doubt it now.</description>
+    </item>
+    
+    <item>
+      <title>Pattern: Robust icons</title>
+      <link>https://madebymike.com.au/writing/pattern-robust-icons/</link>
+      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/pattern-robust-icons/</guid>
+      <description>I want to share a design pattern I&amp;rsquo;ve been using for icons. It&amp;rsquo;s a robust technique that works in almost any situation. With this technique you can use icons inline or append &amp;amp; prepend them to existing content. It works with paragraphs, headings, navigation items, buttons &amp;hellip;almost any element.
+Examples View more examples  on CodePen.
+View Examples   It&amp;rsquo;s also easy to extend so I can usually drop it into almost any project.</description>
+    </item>
+    
+    <item>
+      <title>Fluid type examples</title>
+      <link>https://madebymike.com.au/writing/fluid-type-calc-examples/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/fluid-type-calc-examples/</guid>
+      <description>A few months ago I published a fluid type technique that doesn&amp;rsquo;t require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I&amp;rsquo;d put together a bunch of examples and address some comments.
+Fluid type with pixels This is a simplified version of my original example. The minimum font size is 14px and the maximum is 22px.</description>
+    </item>
+    
+    <item>
+      <title>How do I CSS?</title>
+      <link>https://madebymike.com.au/writing/how-do-I-css/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/how-do-I-css/</guid>
+      <description>When starting a new project with new developers one of the first things I want to do is get on the same page in terms of how we structure and manage CSS.
+There are so many methodologies and guidelines today that I wonder why you would bother writing your own detailed documentation.
+It&amp;rsquo;s pretty simple choose a methodology, choose a set of guidelines and choose a build process.
+Methodologies  BEM SMACSS OOCSS  Guidelines  codeguide.</description>
+    </item>
+    
+    <item>
+      <title>HTML5 periodic table DMCA takedown request</title>
+      <link>https://madebymike.com.au/writing/html5-periodic-table-dmca-takedown/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/html5-periodic-table-dmca-takedown/</guid>
+      <description>Today I received a DMCA takedown request against my personal website over a trivial GitHub project that involves a periodic table layout and information about HTML5 elements.
+Update: The legal threats and the DMCA takedown request were withdrawn. In addition to that the person involved has apologised and as such I&amp;rsquo;ve removed the name from this post -I think that&amp;rsquo;s fair.
+Normally I like to write about my projects and experiments but it seems this an unfortunate part of what we do so I will detail it here in case anyone else has this experience.</description>
+    </item>
+    
+    <item>
+      <title>Precise control over responsive typography</title>
+      <link>https://madebymike.com.au/writing/precise-control-responsive-typography/</link>
+      <pubDate>Tue, 17 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/precise-control-responsive-typography/</guid>
+      <description>It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.
+ This text is limited to between 20px and 40px, over a viewport range of 600px to 800px.  I don’t know why we don’t see viewport units being used more extensively for creating designs with responsive typography.</description>
+    </item>
+    
+    <item>
+      <title>Zero element loading animations</title>
+      <link>https://madebymike.com.au/writing/zero-element-loading-animations/</link>
+      <pubDate>Mon, 05 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/zero-element-loading-animations/</guid>
+      <description>With a &amp;ldquo;zero element&amp;rdquo; loading animation, a loading state can be applied to any element with just the addition of a class name.
+  view examples on codepen
+   view examples on codepen
+  First of all, I&amp;rsquo;m not a huge fan of loading animations and neither are your users but sometimes, for various reasons an action is going to take time and we need to let people know we&amp;rsquo;re working on it.</description>
+    </item>
+    
+    <item>
+      <title>Determine the quality of light in live video streams</title>
+      <link>https://madebymike.com.au/writing/html5-video-streaming/</link>
+      <pubDate>Sat, 20 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/html5-video-streaming/</guid>
+      <description>I&amp;rsquo;ve been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
+To view the demo you are going to need a web cam and a modern Chrome, Firefox or Opera browser. If you have what it takes you can view my demo here. Please select allow when asked for permission to use the web cam.</description>
+    </item>
+    
+    <item>
+      <title>Resizing and Cropping Images with Canvas</title>
+      <link>https://madebymike.com.au/writing/resizing-images-with-canvas/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/resizing-images-with-canvas/</guid>
+      <description>Learn how to resize and crop images using JavaScript and the HTML5 Canvas element using controls, commonly seen in photo editing applications.
+I published an article on the Codrops website: Resizing and Cropping Images with Canvas
+This tutorial focuses on the interaction and design aspects of this task rather than just the technical details of using Canvas for image resampling.
+I also recommend using this example with the FileReader and Drag and Drop APIs which are not covered in this tutorial.</description>
+    </item>
+    
+    <item>
+      <title>Understanding flexbox</title>
+      <link>https://madebymike.com.au/writing/understanding-flexbox/</link>
+      <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/understanding-flexbox/</guid>
+      <description>Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
+If you don&amp;rsquo;t know what Flexbox is, it&amp;rsquo;s a layout method best suited for distributing the available space inside a container, amongst child items, even when the number of child items, their size and even their DOM order is not known or might change.</description>
+    </item>
+    
+    <item>
+      <title>Merging JSON data sets</title>
+      <link>https://madebymike.com.au/writing/merging-json-data-sets/</link>
+      <pubDate>Fri, 22 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/merging-json-data-sets/</guid>
+      <description>Merging deeply nested data in JSON is more difficult than it might seem.
+In the past I&amp;rsquo;ve used a brute force approach when dealing with small and well structured data. This approach proved completely inadequate for large volumes of real world data.
+Imagine we have a monthly darts competition and at the end of each month record the scores in a JSON file:
+ data_jan = { &#34;name&#34;: &#34;mike&#34;, &#34;score&#34;: 47 } data_feb = { &#34;</description>
+    </item>
+    
+    <item>
+      <title>Accessible contrast with Less and Sass</title>
+      <link>https://madebymike.com.au/writing/accessible-contrast-with-less-and-sass/</link>
+      <pubDate>Sun, 15 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/accessible-contrast-with-less-and-sass/</guid>
+      <description>Contrast is a critical factor in web design, it&amp;rsquo;s important to get right because it has a strong influence on the visual aesthetic, but it&amp;rsquo;s especially important for readability and accessibility of text on the page.
+It&amp;rsquo;s not a revolutionary idea to suggest that we use Less or Sass to help choose an appropriate text color for a particular background. There are plenty of examples of this, but what is the best way?</description>
+    </item>
+    
+    <item>
+      <title>Detecting transition start</title>
+      <link>https://madebymike.com.au/writing/detecting-transition-start/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/detecting-transition-start/</guid>
+      <description>If you&amp;rsquo;ve worked with the css transition events in JavaScript you will know that it&amp;rsquo;s a little involved due to the need for multiple browser prefixes. Luckily it&amp;rsquo;s easy, if slightly verbose, to detect which transition event to use:
+// Dave Walsh says this is from Modernizr, but I can&#39;t find it // http://davidwalsh.name/css-animation-callback var whichTransitionEvent = function(){ var t; var el = document.createElement(&#39;fakeelement&#39;); var transitions = { &#39;transition&#39;:&#39;transitionend&#39;, &#39;OTransition&#39;:&#39;oTransitionEnd&#39;, &#39;MozTransition&#39;:&#39;transitionend&#39;, &#39;WebkitTransition&#39;:&#39;webkitTransitionEnd&#39; }; for(t in transitions){ if( el.</description>
+    </item>
+    
+    <item>
+      <title>Thoughts on how we structure projects</title>
+      <link>https://madebymike.com.au/writing/thoughts-on-design-patterns-in-css/</link>
+      <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://madebymike.com.au/writing/thoughts-on-design-patterns-in-css/</guid>
+      <description>Typically when we begin a new web project we start by creating a number of directories for CSS, JavaScript and other resources. This task hasn&amp;rsquo;t changed much and it&amp;rsquo;s a typical step for most developers. In many cases, this structure is a non-optional part of the workflow enforced by scaffolding tools like yeoman, an MVC framework or a boilerplate.
+Reasons behind it relate to the well-established principle separation of concerns. In web development we get separation of concerns for free.</description>
+    </item>
+    
+  </channel>
+</rss>

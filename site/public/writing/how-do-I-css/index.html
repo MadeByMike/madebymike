@@ -1,0 +1,228 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  How do I CSS? - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="How do I CSS? - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">How do I CSS?</h1>
+      <span class="post-date"><time>June 15, 2015</time></span>
+
+      
+        <span class="post-update">This article is a little dated now. Whilst some of my processes may have changed, I think the overall message of not attempting to write and maintain a unique set of guidelines and methodologies, but articulating how you apply existing guidelines is still a good idea for front-end teams.</span>
+      
+
+      
+
+<p>When starting a new project with new developers one of the first things I want to do is get on the same page in terms of how we structure and manage CSS.</p>
+
+<p>There are so many methodologies and guidelines today that I wonder why you would bother writing your own detailed documentation.</p>
+
+<p>It&rsquo;s pretty simple choose a methodology, choose a set of guidelines and choose a build process.</p>
+
+<h3 id="methodologies">Methodologies</h3>
+
+<ul>
+<li><a href="https://en.bem.info/">BEM</a></li>
+<li><a href="https://smacss.com/">SMACSS</a></li>
+<li><a href="http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">OOCSS</a></li>
+</ul>
+
+<h3 id="guidelines">Guidelines</h3>
+
+<ul>
+<li><a href="http://codeguide.co/#css">codeguide.co</a></li>
+<li><a href="http://cssguidelin.es/">cssguidelin.es</a></li>
+<li><a href="https://github.com/necolas/idiomatic-css">idiomatic-css</a></li>
+</ul>
+
+<p>It doesn&rsquo;t matter which set of methodologies or guidelines you prefer at the end of the day consistency is what you are after. You could just place these all on a big wheel and spin it.</p>
+
+<p>The problem we might have with this approach is they overlap, methodologies wander into the territory of guidelines, and guidelines get opinionated our build tools and processes. In my view we&rsquo;d be better off if there were clearer guidelines for our guidelines. No, I&rsquo;m not <em>actually</em> suggesting we write guidelines about guidelines. But if methodologies were primarily about organisation, structure and other big picture stuff, and guidelines were mostly about the style, formatting and other fine detail, we&rsquo;d be more able to mix and match.</p>
+
+<p>So what do you do about that short of specifying every detail? I recently came across <a href="http://codepen.io/chriscoyier/blog/codepens-css">Chris Coyier&rsquo;s tour of CodePen&rsquo;s CSS</a> which was a response to <a href="http://ianfeather.co.uk/css-at-lonely-planet/">Ian Feather&rsquo;s tour of Lonely Planet&rsquo;s CSS</a>, which was in response to <a href="http://markdotto.com/2014/07/23/githubs-css/">Mark Otto&rsquo;s tour of GitHub&rsquo;s CSS</a>. I promise I am not going to add another &lsquo;in response&rsquo; article to add to that chain! But it did get me thinking. This is the perfect way to state your preferred methodologies and guidelines and how you apply them.</p>
+
+<p>Rather than doing this as a review of how you work what if you did this <em>before</em> starting a project as an agreed way of how you would like to work? You could state how strictly you follow certain guidelines, the things that matter most and where you are more agnostic. You can list your key points of difference and detail your preferred build process and importantly the reasons for these choices. It seems like a much faster way to arrive at a consensus in a new team.</p>
+
+<p>So I&rsquo;ve written down how I CSS for a typical website project and I thought I&rsquo;d share it. Remember this is how I like to CSS and I&rsquo;m not saying this is how you should CSS, or even that this always works for me. I&rsquo;ll be flattered if you find this useful or apply this method for arriving at a consensus within your team. But there is no expectation that what I have written is right for you.</p>
+
+<h2 id="how-i-css">How I CSS</h2>
+
+<ul>
+<li><a href="#css-architecture">I follow SMACSS conventions</a></li>
+<li><a href="#preprocessors">I use SCSS</a></li>
+<li><a href="#autoprefixer">I use Autoprefixer</a></li>
+<li><a href="#linting">I use CSSLint</a></li>
+<li><a href="#comments-docs">I comment extensively</a></li>
+<li><a href="#build-it">I use Grunt for my build process</a></li>
+<li><a href="#human-am-i">I don&rsquo;t always follow my own advice</a></li>
+</ul>
+
+<h3 id="css-architecture">CSS Architecture</h3>
+
+<p>I lean towards the naming conventions in SMACSS and generally aim to structure my CSS according to these guidelines. However I also prefer common-sense over strict adherence to naming conventions and guidelines.</p>
+
+<p>I try to follow <a href="http://mdo.github.io/code-guide/#css">these guidelines</a> by Mark Otto for the smaller things like formatting and declaration order. I also have immense respect for Harry Robert&rsquo;s <a href="http://cssguidelin.es/">CSS Guidelines</a> but my personal preferences differ (slightly) from Harry&rsquo;s and his guidelines are so extensive it&rsquo;s easier for me to list my points of difference from Mark&rsquo;s code guide.</p>
+
+<p>Some of my key personal preferences include:</p>
+
+<ul>
+<li>using &lsquo;classy&rsquo; selectors and not IDs</li>
+<li>don&rsquo;t nest media queries, it makes me sad :(</li>
+<li>I like tabs, but I don&rsquo;t hate spaces so don&rsquo;t hate me</li>
+<li>unlike this bullet point, I try to keep class names and selectors chains as short as possible without sacrificing clarity</li>
+<li>I care about accessibility and valid mark-up</li>
+<li>I like REM units, but I&rsquo;m happy to use the odd pixel</li>
+</ul>
+
+<h3 id="preprocessors">Preprocessors</h3>
+
+<p>I use SASS and the SCSS syntax because it&rsquo;s widely used and understood. But more importantly because it works for me.</p>
+
+<p>Source SCSS files are compiled into two separate stylesheets:</p>
+
+<ul>
+<li>a bare minimum set of styles for older devices and &lt;IE9</li>
+<li>a fully featured and enhanced version for everything else</li>
+</ul>
+
+<p>I minifiy my CSS files straight out of SASS. I also generate source map files and publish my .SCSS files to production.</p>
+
+<p>I did use LESS for a long time because it felt more declarative like CSS is &lsquo;meant&rsquo; to be, however also I enjoyed creating wild experimental things with SASS. Eventually I made the switch using SASS almost exclusively, in part because of its growing popularity. I know, I&rsquo;m a sell-out and a sheep!</p>
+
+<p><strong>Note:</strong> I don&rsquo;t get too excited about my SASS (in production). I keep it basic with variables, keep mixins simple, use color and math functions, don&rsquo;t nest too deeply and don&rsquo;t try to be clever or fancy.</p>
+
+<p>I also frequently inline my critical CSS and load additional styles asynchronously for better performance using the method described by Scott Jhel in <a href="https://www.filamentgroup.com/lab/performance-rwd.html">How we make RWD sites load fast as heck</a> the results of this can be amazingly noticeable.</p>
+
+<h3 id="autoprefixer">Autoprefixer</h3>
+
+<p>I don&rsquo;t use any vendor prefixes in my SCSS or use mixins to generate them. Rather I write regular CSS according to the specification and run Autoprefixer as a post process (after SASS produces the CSS files). Not only is this easier, but it produces a better quality result because developers are human and sometimes forget to use prefixes and mixins. It also allows me to easily remove large chunks of legacy code by simply updating the target browsers in the Autoprefixer config.</p>
+
+<h3 id="linting">Linting</h3>
+
+<p>Rather than maintaining my own set of rules for code formatting I mostly follow suggestions from <a href="http://mdo.github.io/code-guide/#css">Mark Otto&rsquo;s code-guide</a></p>
+
+<p>I differ in some respects such as I prefer using tabs rather than 2 spaces. But importantly, I don&rsquo;t get upset about this or any other code formatting convention. I understand that each developer has their own habits and preferences. When working together it is nice when if our code looks the same and is reasonably tidy, so that&rsquo;s why my build process usually includes linting.</p>
+
+<h3 id="comments-docs">Commenting &amp; Documentation</h3>
+
+<p>I am liberal with my use of comments. No one has ever complained a stylesheet is over documented. Comments range from highly structured block declarations describing modules to silly jokes and apologies for hacks, both are good.</p>
+
+<p>Ideally each UI component, utility class, layout module and mixin should have a block comment briefly describing it.</p>
+
+<p>In the past I&rsquo;ve tried a whole range of automated documentation tools for SASS and CSS. My &ldquo;professional&rdquo; opinion is they all suck a little bit, so I don&rsquo;t get too hung up about it. When you are working with a team of developers a little bit of sucky documentation is often better than none.</p>
+
+<p>At the end of the day documentation is made for humans and machines are only good at providing us a with the templates and structure. You need to put in real work to get good CSS documentation and this is only good if someone is going to read it. Find the right balance of documentation for your project, it might be none or it might be a lot.</p>
+
+<p>I think of the <a href="http://rizzo.lonelyplanet.com/styleguide/">lonely planet style guide</a> and the process described by <a href="http://ianfeather.co.uk/a-maintainable-style-guide/">Ian Feather</a> as the standard we should be aiming for.</p>
+
+<h3 id="build-it">Build process</h3>
+
+<p>I chose Grunt to string together the various tasks that help me build and maintain my stylesheets:</p>
+
+<p>Linting -&gt; Preprocessor -&gt; Autoprefixer -&gt; CSS</p>
+
+<p>I probably should have chosen Gulp cause word is it&rsquo;s much cooler now, but at the end of the day I just want to keep my build process as simple as possible and Grunt has allowed me to do this. I try not to over engineer the build process.</p>
+
+<h3 id="human-am-i">I am a Human</h3>
+
+<p>Finally I should say that at best I do this only about 60-70% of the time. Sometimes for small projects I very loosely apply these guidelines or don&rsquo;t follow them at all. Sometimes I&rsquo;m lazy or tired or I&rsquo;m tricked into thinking some marketing element will only be on the homepage for &ldquo;2 weeks absolute maximum&rdquo; and it&rsquo;s Friday so I just do it quickly. Two years later it&rsquo;s still there. I&rsquo;m ok with that, these are only guidelines and we are humans not machines.</p>
+
+<p><strong>Final disclaimer</strong>: Things are constantly changing. This might not be how I CSS in the future. And ok, I guess this is kind of an &lsquo;in response&rsquo; article.</p>
+
+<h2 id="you-might-like">You might like</h2>
+
+<ul>
+<li><a href="http://codepen.io/chriscoyier/blog/codepens-css">Chris Coyier&rsquo;s tour of CodePen&rsquo;s CSS</a></li>
+<li><a href="http://ianfeather.co.uk/css-at-lonely-planet/">Ian Feather&rsquo;s tour of Lonely Planet&rsquo;s CSS</a></li>
+<li><a href="http://markdotto.com/2014/07/23/githubs-css/">Mark Otto&rsquo;s tour of GitHub&rsquo;s CSS</a>.</li>
+</ul>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

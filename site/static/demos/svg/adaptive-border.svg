@@ -1,0 +1,67 @@
+<svg x="0%" y="0%" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <style>
+    .sml,.med,.lrg { visibility: hidden; }
+
+		@media screen and (min-width: 200px){
+      .sml { visibility: visible; }
+    }
+		@media screen and (min-width: 400px){
+			.med { visibility: visible; }
+			.sml,.lrg { visibility: hidden; }
+		}
+
+		@media screen and (min-width: 600px){
+			.lrg { visibility: visible; }
+			.med { visibility: hidden; }
+		}
+  </style>
+
+  <symbol id="corner" viewBox="0 0 50 50">
+
+		<polygon class="sml" points="0,3 21,3 24,0 0,0"/>
+		<polygon class="sml" points="0,0 3,0 3,19 0,22"/>
+		<rect class="sml" x="6" y="6" width="5" height="5"/>
+
+		<polygon class="med" points="13,3 32,3 35,0 13,0"/>
+		<polygon class="med" points="0,13 3,13 3,30 0,33"/>
+		<polygon class="med" points="10,6 10,0 0,0 0,10 17,10 20,7 3,7 3,3 7,3 7,6"/>
+		<polygon class="med" points="7,11 10,11 10,16 7,19"/>
+
+		<path class="lrg" d="M17,18v6l-3,3v-9H17"/>
+		<path class="lrg" d="M11,14v3h13l3-3H11"/>
+		<rect class="lrg" x="14" y="11" width="3" height="2"/>
+		<polygon class="lrg" points="14,6 14,0 50,0 50,3 17,3 17,6"/>
+		<polygon class="lrg" points="0,14 6,14 6,17 3,17 3,50 0,50"/>
+		<polygon class="lrg" points="10,6 10,0 0,0 0,10 32,10 35,7 3,7 3,3 7,3 7,6"/>
+		<polygon class="lrg" points="7,11 10,11 10,30 7,33"/>
+
+	</symbol>
+
+	<symbol id="diamond" viewBox="0 0 14 14">
+		<path d="M7,0L0,7l7,7l7-7L7,0z M4,7l3-3l3,3l-3,3L4,7z"/>
+	</symbol>
+
+	<mask id="mask">
+
+		<rect x="0" y="0" width="100%" height="100%" fill="white"/>
+
+		<rect class="sml" x="0%" y="0%" width="30" height="30" fill="black"/>
+		<rect class="sml" x="-100%" y="0%" width="30" height="30" transform="scale(-1,1)" fill="black"/>
+
+		<rect class="med" x="0%" y="0%" width="40" height="40" fill="black"/>
+		<rect class="med" x="-100%" y="0%" width="40" height="60" transform="scale(-1,1)" fill="black"/>
+
+		<rect class="lrg" x="0%" y="0%" width="60" height="60" fill="black"/>
+		<rect class="lrg" x="-100%" y="0%" width="60" height="60" transform="scale(-1,1)" fill="black"/> -->
+
+		<circle r="12" cx="50%" cy="10" fill="black"/>
+	</mask>
+
+	<rect mask="url(#mask)" class="line" x="0" y="8" width="100%" height="2" />
+
+	<use xlink:href="#corner" x="0%" y="0%" width="40" height="40" transform="translate(8 8)" />
+	<use xlink:href="#diamond" x="50%" y="4" width="12" height="12" transform="translate(-6)"/>
+	<use xlink:href="#corner" x="-100%" y="0%" width="40" height="40" transform="scale(-1,1) translate(8 8)"/>
+
+</svg>

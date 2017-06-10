@@ -1,0 +1,258 @@
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+	
+	<title>
+	
+	  Fluid type examples - Mike Riethmuller
+	
+	</title>
+
+	<noscript>
+		<link rel="stylesheet" href="https://madebymike.com.aucss/styles.min.css">
+	</noscript>
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@MikeRiethmuller" />
+	<meta name="twitter:title" content="Fluid type examples - Mike Riethmuller" />
+	<meta name="twitter:creator" content="@MikeRiethmuller" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" />
+
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<script>
+		function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
+loadCSS( "/css/styles.min.css" );
+	</script>
+
+	
+		<link rel="stylesheet" href="/css/fluid-type-examples.css">
+	
+
+</head>
+<body class="">
+<header>
+	<div class="container">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="writing"><a href="/writing">Writing</a></li>
+			<li class="hire"><a href="/hire">Hire Me</a></li>
+		</ul>
+	</div>
+</header>
+
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">Fluid type examples</h1>
+      <span class="post-date"><time>June 15, 2015</time></span>
+
+      
+
+      
+
+<p>A few months ago I published a <a href="/writing/precise-control-responsive-typography/">fluid type technique</a> that doesn&rsquo;t require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I&rsquo;d put together a bunch of examples and address some comments.</p>
+
+<h2 id="fluid-type-with-pixels">Fluid type with pixels</h2>
+
+<p>This is a simplified version of my original example. The minimum font size is 14px and the maximum is 22px. I&rsquo;ve removed a redundant media query and reduced the complexity of the calc() equation.</p>
+
+<pre><code class="language-css">.fluid-type {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 320px) {
+  .fluid-type {
+    font-size: calc(14px + 8 * ((100vw - 320px) / 960));
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fluid-type {
+    font-size: 22px;
+  }
+}
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<p class="example-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+
+<h2 id="fluid-type-with-rem-units">Fluid type with Rem units</h2>
+
+<p>This example should have the same result as the one above when the base font size is 16px (default).</p>
+
+<p>It shows that the technique works with any length unit, as long as you can use it in a media query. It also addresses comments regarding how my initial example will override user preferences for the default font size.</p>
+
+<p>The only catch is that all unit types must be the same for the calc() equation to work. That&rsquo;s a shame because we often use different unit types for breakpoints in media queries than we do for <code>font-size</code>.</p>
+
+<pre><code class="language-css">.fluid-type {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 20rem) {
+  .fluid-type {
+    font-size: calc(0.875rem + 0.5 * ((100vw - 20rem) / 60));
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .fluid-type {
+    font-size: 1.375rem;
+  }
+}
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<p class="example-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+
+<h2 id="reverse-fluid-type">Reverse fluid type</h2>
+
+<p>In this example the text gets smaller as the viewport gets larger. This might have novel uses or it might not.</p>
+
+<pre><code class="language-css">.fluid-type {
+  font-size: 22px;
+}
+
+@media screen and (min-width: 320px) {
+  .fluid-type {
+    font-size: calc(22px + -8 * ((100vw - 320px) / 960));
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fluid-type {
+    font-size: 14px;
+  }
+}
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<p class="example-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+
+<h2 id="fluid-line-height-molten-leading">Fluid line-height (Molten leading)</h2>
+
+<p>In this example the line-height is fluid. This is a pure CSS implementation of Wilto&rsquo;s <a href="https://github.com/Wilto/Molten-Leading">Molten leading technique</a>.</p>
+
+<pre><code class="language-css">.molten-leading {
+  line-height: 1.2em;
+}
+
+@media screen and (min-width: 20em) {
+  .molten-leading {
+    line-height: calc(1.2em + 0.6 * ((100vw - 20em) / 60));
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .molten-leading {
+    line-height: 1.8em;
+  }
+}
+</code></pre>
+
+<h3 id="example-3">Example</h3>
+
+<p class="example-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+
+<h2 id="fluid-box">Fluid box</h2>
+
+<p>This example shows how the technique can be applied to more than just font sizes, in this case <code>width</code>.</p>
+
+<pre><code class="language-css">.fluid-box {
+  width: 200px;
+}
+
+@media screen and (min-width: 320px) {
+  .fluid-box {
+    width: calc(200px + 300 * ((100vw - 320px) / 960));
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fluid-box {
+    width: 500px;
+  }
+}
+</code></pre>
+
+<h3 id="example-4">Example</h3>
+
+<p class="example-5">The width of this box will scale and at a different rate to the viewport.</p>
+
+<h2 id="fluid-type-in-sass">Fluid type in Sass</h2>
+
+<p><a href="https://twitter.com/indrekpaas">Indrek Paas</a> developed a Sass mixin to help make fluid type using this technique easier. <a href="http://sassmeister.com/gist/7f22e44ace49b5124eec">You can find the latest fluid type Sass mixin here</a>.</p>
+
+<p>I use a slightly modified version to generate the examples on this page.</p>
+
+<h3 id="example-5">Example</h3>
+
+<pre><code class="language-scss">.fluid-type {
+  @include fluid-type(320px, 1280px, 14px, 18px);
+}
+</code></pre>
+
+<h2 id="fluid-type-in-less">Fluid type in Less</h2>
+
+<p>If Less is how you roll I&rsquo;ve got you covered with a <a href="http://codepen.io/MadeByMike/pen/RWJyML">Less mixin</a>.</p>
+
+<h2 id="fluid-type-in-postcss">Fluid type in PostCSS</h2>
+
+<p><a href="https://www.npmjs.com/package/rucksack-css">Rucksack is a postCSS module</a> that makes use of this technique for fluid typography.</p>
+
+<p>I have a collection of <a href="http://codepen.io/MadeByMike/pens/tags/2/?selected_tag=responsive+typography">other examples on CodePen</a>. <a href="https://twitter.com/MikeRiethmuller">Let me know</a> if you have one you&rsquo;d like me to share.</p>
+ 
+
+    </div>
+  </section>
+</article>
+
+
+
+
+
+    <footer>
+      <section>
+        <div class="container">
+          <ul>
+            <li><a href="http://codepen.io/MadeByMike/"><svg class="logo"><use xlink:href="#codepen-logo"></use></svg>Me</a></li>
+            <li><a href="https://twitter.com/MikeRiethmuller"><svg class="logo"><use xlink:href="#twitter-logo"></use></svg>Me</a></li>
+            <li><a href="https://github.com/MadeByMike"><svg class="logo"><use xlink:href="#github-logo"></use></svg>Me</a></li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+      <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="codepen-logo" viewBox="0 0 512 512">
+		<path d="M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z"/>
+	</symbol>
+	<symbol id="github-logo" viewBox="0 0 512 512">
+		<path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/>
+	</symbol>
+	<symbol id="twitter-logo" viewBox="0 0 512 512">
+		<path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"/>
+	</symbol>
+	<symbol id="arrow-icon" viewBox="0 0 10 10">
+		<polygon points="1,0 9,5 1,10 "/>
+	</symbol>
+	<symbol id="arrow-icon-reverse" viewBox="0 0 10 10">
+		<polygon points="9,0 1,5 9,10"/>
+	</symbol>
+  </svg>
+
+    <script type="text/javascript">
+if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
+
+
+
+  </body>
+</html>

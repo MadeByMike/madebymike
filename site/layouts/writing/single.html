@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+
+<article>
+  <section>
+    <div class="container">
+      <h1 class="post-title">{{ .Page.Title }}</h1>
+      <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
+
+      {{ if .Params.update }}
+        <span class="post-update">{{ .Params.update }}</span>
+      {{ end }}
+
+      {{ .Content }} 
+
+    </div>
+  </section>
+</article>
+
+{{ partial "related-content.html" . }}
+
+{{ partial "footer.html" . }}
