@@ -7,6 +7,6 @@ public_folder: "/images/img/uploads"
 collections:
   - name: "writing"
     label: "Post"
-    folder: "writing"
+    folder: "site/content/writing"
     fields:
       - {label: "Language", name: "language"}
