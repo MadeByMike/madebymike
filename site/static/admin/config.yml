@@ -4,6 +4,7 @@ backend:
   branch: hugo
 media_folder: "site/static/img/uploads"
 public_folder: "/img/uploads"
+publish_mode: editorial_workflow
 collections:
   - name: "post"
     label: "Post"
@@ -12,6 +13,10 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Extra css", name: "extra_css", widget: "list"}
+      - {label: "Extra js", name: "extra_js", widget: "list"}
+      - {label: "Body class", name: "body_class", widget: "text"}
+      - {label: "Update", name: "update", widget: "text"}
