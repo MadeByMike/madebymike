@@ -8,7 +8,7 @@ collections:
   - name: "post"
     label: "Post"
     folder: "site/content/writing"
-	create: true
+    create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
