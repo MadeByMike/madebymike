@@ -1,6 +1,6 @@
 ---
 title: Stuff I wrote
-body-class: post-list
+body_class: post-list
 ---
 <section>
   <div class="container">

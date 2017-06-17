@@ -28,7 +28,12 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
 	<meta name="theme-color" content="#FF6E4A">
 
+	<style>
+		{{ partial "inline.css" | safeCSS }}
+	</style>
+
 	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+
 	<script>
 		{{ partial "inline.js" | safeJS }}
 	</script>

@@ -4,8 +4,8 @@ class: hire-me
 ---
   <section>
     <div class="container container-wide">
-      <h1 class="page-title">{{ page.title }}</h1>
-      <blockquote>I’m Mike Riethmuller, I’m a creative front-end developer.
+      <h1 class="page-title">{{< title >}}</h1>
+      <blockquote>I’m Mike Riethmuller. I’m a creative front-end developer.
         I&nbsp;like&nbsp;to solve problems.
         I can help you build innovative websites and applications.
         I care about quality, standards, accessibility &amp; scalable front-end
@@ -37,9 +37,8 @@ class: hire-me
         <p>Got something else you think I would be good at or interested in that doesn’t fit with the above? That’s great! <a href="mailto:mike@madebymike.com.au">Get in touch</a>. Let’s do something creative together. Let’s win the internet!</p>
 
         <h2>Speaking and Workshops</h2>
-        <p>I love talking about and sharing what I do. I often speak about CSS, layout, fluid typography and front-end development practices.</p>
-        <p>If you want to learn about advanced layout techniques or how implement fluid typography? I also run workshops.</p>
-        <p>If you would like me to speak or run a workshop at your conference or event, please <a href="mailto:mike@madebymike.com.au">get in touch</a>.</p>
+        <p>I love talking about and sharing what I do. I often speak about CSS, responsive design, layout, fluid typography and front-end development practices in general.</p>
+        <p>If you want to learn about advanced layout techniques or how implement fluid typography? I can also run workshops. <a href="mailto:mike@madebymike.com.au">Get in touch</a>.</p>
 
     </div>
   </section>

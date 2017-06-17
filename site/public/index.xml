@@ -259,23 +259,12 @@ Reasons behind it relate to the well-established principle separation of concern
     </item>
     
     <item>
-      <title>404: Page not found</title>
-      <link>https://madebymike.com.au/404/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://madebymike.com.au/404/</guid>
-      <description>I’m so sorry! I can’t find that page.I’ve misplaced the URL or it’s pointing to something that doesn’t exist. Head back home to try finding it again.
-You can email me if you think I need to fix something.
-</description>
-    </item>
-    
-    <item>
       <title>Hire Me</title>
-      <link>https://madebymike.com.au/hire-me/</link>
+      <link>https://madebymike.com.au/hire/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://madebymike.com.au/hire-me/</guid>
-      <description>{{ page.title }} I’m Mike Riethmuller, I’m a creative front-end developer. I&amp;nbsp;like&amp;nbsp;to solve problems. I can help you build innovative websites and applications. I care about quality, standards, accessibility &amp;amp; scalable front-end architecture.   If you care about these things too, then I want to work with you. I’m currently available to discuss short-term projects.
+      <guid>https://madebymike.com.au/hire/</guid>
+      <description>Hire Me I’m Mike Riethmuller. I’m a creative front-end developer. I&amp;nbsp;like&amp;nbsp;to solve problems. I can help you build innovative websites and applications. I care about quality, standards, accessibility &amp;amp; scalable front-end architecture.   If you care about these things too, then I want to work with you. I’m currently available to discuss short-term projects.
  Get in touch
  What else can I do?  I can help your team write more robust scalable CSS.</description>
     </item>
@@ -297,7 +286,7 @@ You can email me if you think I need to fix something.
       
       <guid>https://madebymike.com.au/login/</guid>
       <description>Hello curious soul Thank you for trying to login to my website. Unfortunately there is no admin backend for this site. All the pages for this site are generated using a static site generator called Jekyll.
-Fortunately the source code for this site is hosted on GitHub. That&amp;rsquo;s great news! If you are curious and want to learn more about how this site works, just head on over and judge my code.</description>
+Fortunately the source code for this site is hosted on GitHub. That&#39;s great news! If you are curious and want to learn more about how this site works, just head on over and judge my code.</description>
     </item>
     
   </channel>
