@@ -4,6 +4,9 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Maybe webpack is not the right tool for this job :)
+// But I need practice with webpack.
+
 module.exports = {
     entry: {
         app: path.join(__dirname, 'src/js/main.js'),

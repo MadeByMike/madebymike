@@ -1,5 +1,4 @@
 # Global settings applied to the whole site.
 [build]
-  base    = "site"
   publish = "site/public"
-  command = "hugo"
+  command = "webpack && cd site && hugo"

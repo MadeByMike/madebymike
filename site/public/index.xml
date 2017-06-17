@@ -225,7 +225,7 @@ If you don&amp;rsquo;t know what Flexbox is, it&amp;rsquo;s a layout method best
       <description>Merging deeply nested data in JSON is more difficult than it might seem.
 In the past I&amp;rsquo;ve used a brute force approach when dealing with small and well structured data. This approach proved completely inadequate for large volumes of real world data.
 Imagine we have a monthly darts competition and at the end of each month record the scores in a JSON file:
- data_jan = { &#34;name&#34;: &#34;mike&#34;, &#34;score&#34;: 47 } data_feb = { &#34;</description>
+data_jan = { &#34;name&#34;: &#34;mike&#34;, &#34;score&#34;: 47 }data_feb = { &#34;</description>
     </item>
     
     <item>
