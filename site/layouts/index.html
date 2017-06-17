@@ -8,7 +8,7 @@
       <p>When I’m not making things for the web I sometimes think about stuff and on rare occasions I write about it. You can find some of my writing here. </p>
 
       <div class="wow-box">
-        <h2 class="mtn"><a class="stuff-i-wrote" href="{{ .Site.BaseURL }}writing">Stuff I wrote:</a></h2>
+        <h2 class="mtn"><a class="stuff-i-wrote" href="{{ .Site.BaseURL }}/writing">Stuff I wrote:</a></h2>
         {{ range (.Paginator 3).Pages }}
         <article>
           <h3 class="post-title"><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
@@ -16,7 +16,7 @@
                 {{ .Summary }}
         </article>
         {{ end }}
-        <a class="nav-link nav-link-reverse mbn" href="{{ .Site.BaseURL }}writing"><svg><use xlink:href="#arrow-icon-reverse"></use></svg>Stuff I wrote before this</a>
+        <a class="nav-link nav-link-reverse mbn" href="{{ .Site.BaseURL }}/writing"><svg><use xlink:href="#arrow-icon-reverse"></use></svg>Stuff I wrote before this</a>
       </div>
     </div>
   </section>
