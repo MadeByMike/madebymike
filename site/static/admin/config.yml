@@ -13,10 +13,10 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Extra css", name: "extra_css", widget: "list"}
-      - {label: "Extra js", name: "extra_js", widget: "list"}
-      - {label: "Body class", name: "body_class", widget: "text"}
-      - {label: "Update", name: "update", widget: "text"}
+      - {label: "Extra css", name: "extra_css", widget: "list", required: false}
+      - {label: "Extra js", name: "extra_js", widget: "list", required: false}
+      - {label: "Body class", name: "body_class", widget: "text", required: false}
+      - {label: "Update", name: "update", widget: "text", required: false}
