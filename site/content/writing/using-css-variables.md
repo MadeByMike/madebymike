@@ -11,40 +11,68 @@ title = "Using CSS Variables"
 update = ""
 
 +++
+
+
 Native CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen examples of people using them without considering the advantages they offer.
- 
+
 I thought I'd do a quick demo and show some good and bad ways to use them.
 
 ## How do they differ?
 
 The main difference is CSS variables can change, as variables typically do. You might not have thought about it but variables in preprocessors like Sass don't really change. Sure, you can update the value of a variable at different points in the compilation, but when it's rendered to CSS all values are static.
- 
+
 This makes variables in preprocessors a great tool for writing DRY (Don't Repeat Yourself) and manageable CSS. CSS variables on the other hand, can respond to context within the page.
 
 They are subject to the cascade. This is great because you can change the value inside a media query, or when an element is the child of a particular container. The same variables can provide different values in different places on the page. You even read and manipulate them with JavaScript.
- 
+
 If you haven't thought of a ton of uses for this already we will come back to that. First let me demonstrate how not to use CSS variables.
- 
-##Modular Scale with CSS variables
+
+## Modular Scale with CSS variables
 
 I'm going to use modular scales as an example. A modular scale is a mathematical scale that can be used as a basis for choosing heading sizes. I like to do this, and I like to choose different scales for small and large screens.
- 
-I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I don't like maths so I got these values from [modularscale.com](http://www.modularscale.com/) and these are my heading sizes:
- 
-| 1.2        | 1.33       | 
-|:----------:|:----------:|
-| 2.488rem   |  4.209rem  |
-| 2.074rem   |  3.157rem  |
-| 1.728rem   |  2.369rem  |
-| 1.44rem    |  1.777rem  |
-| 1.2rem     |  1.333rem  |
-| 1rem       |  1rem      |
 
-###Not like this...
+I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I don't like maths so I got these values from [modularscale.com](http://www.modularscale.com/) and these are my heading sizes:
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1.2</th>
+<th style="text-align:center">1.33</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2.488rem</td>
+<td style="text-align:center">4.209rem</td>
+</tr>
+<tr>
+<td style="text-align:center">2.074rem</td>
+<td style="text-align:center">3.157rem</td>
+</tr>
+<tr>
+<td style="text-align:center">1.728rem</td>
+<td style="text-align:center">2.369rem</td>
+</tr>
+<tr>
+<td style="text-align:center">1.44rem</td>
+<td style="text-align:center">1.777rem</td>
+</tr>
+<tr>
+<td style="text-align:center">1.2rem</td>
+<td style="text-align:center">1.333rem</td>
+</tr>
+<tr>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+</tr>
+</tbody>
+</table>
+
+## Not like this...
 
 This is a perfect situation to use CSS variables. They way I would have approached this in Sass and how I've seen most people use CSS variables so far is something like this:
- 
-```css
+
+```
 :root {	
   /* scale for 1.2 */
   --ms-small-1: 1em;
@@ -62,11 +90,12 @@ This is a perfect situation to use CSS variables. They way I would have approach
   --ms-large-5: 3.157rem;
   --ms-large-6: 4.209rem;
 }
+
 ```
 
 This seems fairly logical, We've defined variables for each of the values in the different scales. Next I'd expect to see this:
 
-```css
+```
 /* Small scale for small screens: */
 h1 {
   font-size: var(--ms-small-6);
@@ -108,17 +137,18 @@ h6 {
     font-size: var(--ms-large-1);
   }
 }
+
 ```
 
 <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRoLpJ">This works!</a> More than that, if I want to change any of these values I can do it in one place. That's an even bigger advantage if I'm using variables elsewhere in my CSS. This is DRY like Sass and I guess that's better than regular CSS. But we can do better.
- 
+
 The example above might seem like the most logical way to do things but it's not taking advantage of how CSS variables work.
 
-###More like this...
+## More like this...
 
-Let's try again, remembering that CSS variables are scoped to the DOM therefore subject to inheritance and the cascade. 
- 
-```css
+Let's try again, remembering that CSS variables are scoped to the DOM therefore subject to inheritance and the cascade.
+
+```
 :root {
   /* scale for 1.2 */
   --font-size-1: 1em;
@@ -140,15 +170,18 @@ Let's try again, remembering that CSS variables are scoped to the DOM therefore 
     --font-size-6: 4.209rem;
   }
 }
+
 ```
+
 Notice that I have only one set of variables now and not one for each scale. I change the value of the variables depending on the screen size. This indirectly results in two things:
- 
-  1. I'm forced to name the variables differently (not small or large anymore)
-  2. There is no need for media queries elsewhere in my CSS
- 
+
+1. I'm forced to name the variables differently (not small or large anymore)
+
+1. There is no need for media queries elsewhere in my CSS
+
 I can now just use variables in the correct place. All of the responsive logic is contained where the variables are declared. The rest of my CSS looks like this:
- 
-```css
+
+```
 h1 {
   font-size: var(--font-size-6);
 }
@@ -167,24 +200,24 @@ h5 {
 h6 {
   font-size: var(--font-size-1);
 }
+
 ```
 
 ##Techniques for using CSS variables
 
-CSS variables have the potential to change how we write CSS. 
- 
+CSS variables have the potential to change how we write CSS.
+
 In most cases I'd now consider it code smell if a media query or CSS selector swaps one variable for another (such as in the first example). Rather than swapping variables it's better to define one variable, set it's initial value and change this with a selector or media query.
 
 Separating variables form property declarations is considered good practice when working with preprocessors. The same should be done with CSS variables.
 
 In fact, I'm pretty convinced that in almost all cases, responsive design logic should now be contained in variables. There is probably a strong argument to say that when changing any value, whether in a media query or an element scope, this should be separated from  design. It makes sense for all the logic related to the variable to be at the top of the document.
- 
-It's easier to maintain and you can read 
 
+It's easier to maintain and you can read
 
 In this example I have an aside and a main element with different font-sizes. The aside has a dark background and the main element has a light background.
- 
-```css
+
+```
 /* Default values */
 :root {
   --font-size: 1.2em;
@@ -206,17 +239,16 @@ aside {
   background-color: var(--background-color);
 }
  
+
 ```
+
 This has resulted in a completely different appearance for these two elements, even though the property declarations are identical.
 
-<p data-height="265" data-theme-id="dark" data-slug-hash="YQNVox" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+See the Pen [Organising code with CSS Variables](https://codepen.io/MadeByMike/pen/YQNVox/) by Mike ([@MadeByMike](https://codepen.io/MadeByMike)) on [CodePen](https://codepen.io).
+<script type="null"></script>
 
 This is pretty powerful but for larger projects, separating components into different files still makes sense. It's far better to repeat these declarations even if it feels like duplication.
 
 You should also be sensible about reusing variables. If you change the value of a variable on the `body` element for example, this will now be the value of that variable for every child element of the `body`.
 
-Keeping these things in mind it should be possible to write 
-
-
-
+Keeping these things in mind it should be possible to write
