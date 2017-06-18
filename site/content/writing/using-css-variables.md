@@ -20,7 +20,7 @@ I thought I'd do a quick demo and show some good and bad ways to use them.
 
 ## How do they differ?
 
-How do they differ? The main difference is CSS variables can change, as variables typically do. You might not have thought about it but variables in preprocessors like Sass don't really change. Sure, you can update the value of a variable at different points in the compilation, but when it's rendered to CSS all values are static.
+The main difference is CSS variables can change, as variables typically do. You might not have thought about it but variables in preprocessors like Sass don't really change. Sure, you can update the value of a variable at different points in the compilation, but when it's rendered to CSS all values are static.
  
 This makes variables in preprocessors a great tool for writing DRY (Don't Repeat Yourself) and manageable CSS. CSS variables on the other hand, can respond to context within the page.
 
@@ -28,7 +28,7 @@ They are subject to the cascade. This is great because you can change the value 
  
 If you haven't thought of a ton of uses for this already we will come back to that. First let me demonstrate how not to use CSS variables.
  
-##An example
+##Modular Scale with CSS variables
 
 I'm going to use modular scales as an example. A modular scale is a mathematical scale that can be used as a basis for choosing heading sizes. I like to do this, and I like to choose different scales for small and large screens.
  
@@ -43,7 +43,7 @@ I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I do
 | 1.2rem     |  1.333rem  |
 | 1rem       |  1rem      |
 
-###My first attempt
+###Not like this...
 
 This is a perfect situation to use CSS variables. They way I would have approached this in Sass and how I've seen most people use CSS variables so far is something like this:
  
@@ -66,9 +66,9 @@ This is a perfect situation to use CSS variables. They way I would have approach
   --ms-large-6: 4.209rem;
 }
 ```
- 
+
 This seems fairly logical, We've defined variables for each of the values in the different scales. Next I'd expect to see this:
- 
+
 ```css
 /* Small scale for small screens: */
 h1 {
@@ -112,11 +112,12 @@ h6 {
   }
 }
 ```
+
 <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRoLpJ">This works!</a> More than that, if I want to change any of these values I can do it in one place. That's an even bigger advantage if I'm using variables elsewhere in my CSS. This is DRY like Sass and I guess that's better than regular CSS. But we can do better.
  
 The example above might seem like the most logical way to do things but it's not taking advantage of how CSS variables work.
 
-###A better way
+###More like this...
 
 Let's try again, remembering that CSS variables are scoped to the DOM therefore subject to inheritance and the cascade. 
  
@@ -170,16 +171,20 @@ h6 {
   font-size: var(--font-size-1);
 }
 ```
-##Good practices for CSS Variables
+
+##Techniques for using CSS variables
 
 This is hugely significant and has the potential to change how we write CSS. 
  
-In most cases I'd now consider it code smell if a media query or CSS selector swaps one variable for another (such as in the first example). Rather than swapping variables it's better to define one variable, set it's initial value, and change this value with a selector or media query.
+In most cases I'd now consider it code smell if a media query or CSS selector swaps one variable for another (such as in the first example). Rather than swapping variables it's better to define one variable, set it's initial value and change this with a selector or media query.
+
+Separating variables form property declarations is considered good practice when working with preprocessors. The same should be done with CSS Variables.
+
+In fact I'm pretty convinced that in almost all cases, responsive design logic should now be contained in CSS Variables. There is probably a strong argument to say that when changing any value, whether in a media query or an element scope, this should be separated from  design.  It makes sense for all the logic related to the variable to be at the top of the document.
  
-Sites that use CSS variables well, should have very few media queries other than for changing the value of variables. Even for variables scoped to an element it makes sense for all the logic related to the variable to be at the top of the document.
- 
-Separating variable declarations form property declarations should be considered good practice when using CSS Variables, just the same as it is with preprocessors.
- 
+This means you can at a glace read 
+
+
 In this example I have an aside and a main element with different font-sizes. The aside has a dark background and the main element has a light background.
  
 ```css
@@ -205,11 +210,11 @@ aside {
 }
  
 ```
-This has resulted in completely different appearance for these two elements, even though the property declarations are identical.
+This has resulted in a completely different appearance for these two elements, even though the property declarations are identical.
 
 <p data-height="265" data-theme-id="dark" data-slug-hash="YQNVox" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
- 
+
 This is pretty powerful but for larger projects, separating components into different files still makes sense. It's far better to repeat these declarations even if it feels like duplication.
 
 You should also be sensible about reusing variables. If you change the value of a variable on the `body` element for example, this will now be the value of that variable for every child element of the `body`.
