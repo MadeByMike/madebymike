@@ -1,4 +1,4 @@
 # Global settings applied to the whole site.
 [build]
   publish = "site/public"
-  command = "webpack && cd site && hugo"
+  command = "npm start"
