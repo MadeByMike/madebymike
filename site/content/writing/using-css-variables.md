@@ -11,13 +11,11 @@ title = "Using CSS Variables"
 update = ""
 
 +++
-
-
 Native CSS Variables (also known as Custom Properties) are supported in all modern browsers now and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
 
 I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and talk about how their differences from preprocessors will change how we write and structure CSS.
 
-<span style="color: rgb(40, 40, 40); font-size: 2.1em; word-spacing: 0.5px;">How do they differ?</span>
+## How do they differ?
 
 Firstly how do they differ? The main difference is CSS variables can change. This might not sound surprising, variables typically do change. You might not have thought about it, but variables in preprocessors like Sass don't really change. Sure, you can update the value of a variable at different points in the compilation process, but when it's rendered to CSS the values are always static.
 
@@ -203,17 +201,47 @@ h6 {
 
 ```
 
-## Techniques for organising CSS variables
+The example above demonstrates a better way of writing CSS with variables.
 
-The above example demonstrates a better way of writing CSS with variables. Variables have the potential to change how we organise and structure CSS, especially in relation to responsive design.
+## Techniques for organising code with CSS variables
 
-In most cases I'd now consider it code smell if a media query or CSS selector swaps one variable for another (such as in the first example). Rather than swapping variables it's better to define one variable, set it's initial value and change this with a selector or media query.
+Variables have the potential to change how we organise and structure CSS, especially in relation to responsive design.
 
-Separating variables form property declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
+### Separate logic from design
 
-In fact, **I'm convinced that in almost all cases, responsive design logic should now be contained in variables**. There is a strong argument too, that when changing any value, whether in a media query or an element scope, it belongs in a variable. If it changes it is by definition a variable and this logic should be separated from  design.
+The main advantage is we now have the ability to fully separate logic from design. Effectively this means separating variable declarations from property declarations.
 
-Effectively separating logic from design can make CSS
+```css
+.this-is-a-variable-declaration {
+  --my-var: red;
+}
+
+.this-is-a-property-declaration {
+  background: var(--my-var)
+}
+```
+
+Separating variables form the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
+
+### Don't swap variables
+
+In most cases, **I'd now consider it code smell if a media query or CSS selector swaps one variable for another**. Rather than swapping variables it's better to define one variable, set it's initial value and change this with a selector or media query.
+
+### If it changes it's a variable
+
+**I'm convinced that in almost all cases, responsive design logic should now be contained in variables**. There is a strong argument too, that when changing any value, whether in a media query or an element scope, it belongs in a variable. If it changes, it is by definition a variable and this logic should be separated from  design.
+
+### Fewer media queries
+
+It makes sense for all the logic related to variables to be at the top of the document. It's easier to maintain because you can change it in one place and it's easier to read because you can see what is changing without reading the entire stylesheet.
+
+We couldn't do this with media queries because it fragmented the rules for styling an element across different parts the stylesheet. This was not practical or maintainable, so it made sense group media queries with the selectors they changed. 
+
+Variables now provide a link between the logic and the implementation of design. **This means in most cases media queries should not be required except for changing CSS variables** and they belong at the top of the document with the rest of the logic.
+
+### Simplify selectors
+
+Effectively separating logic from design also keeps the complexity out of the main property declarations to the point that you can combine selectors.
 
 In this example I have an aside and a main element with different font-sizes. The aside has a dark background and the main element has a light background.
 
@@ -238,20 +266,68 @@ aside {
   color: var(--text-color);
   background-color: var(--background-color);
 }
+```
+
+See the Pen [Organising code with CSS Variables](https://codepen.io/MadeByMike/pen/YQNVox/) by Mike ([@MadeByMike](https://codepen.io/MadeByMike)) on [CodePen](https://codepen.io).
+<script type="null"></script>
+
+Despite having a completely different appearance these two elements have exactly the same property declarations.
+
+### Less generic variables
+
+A quick warning about combining selectors with overly generic variables. You might think it's a fun idea to have a universal selector and let variables handle all the logic:
+
+```
+/* Don't do this. */
+*{
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  border: var(--border);
+  background: var(--background);
+  ...
+}
 
 ```
 
-This has resulted in a completely different appearance for these two elements, even though the property declarations are identical.
+Although fun, we should be careful about reusing variables and combining selectors. CSS variables are subject to the cascade. With the above example setting a border on a class `.container` like this:
 
-See the Pen [Organising code with CSS Variables](https://codepen.io/MadeByMike/pen/YQNVox/) by Mike ([@MadeByMike](https://codepen.io/MadeByMike)) on [CodePen](https://codepen.io).
+```
+.container {
+  --border: solid 2px tomato;
+}
+
+```
+
+will result in everything inside that container having the same border. Pretty soon you will be overriding variables on everything, and you don't need a universal `*` selector to fall into this trap.
+
+### Use preprocessors for static variables
+
+Do CSS variables replace preprocessors? No. Using preprocessors still makes sense. It's a good idea to keep all your static variables in Sass (or whatever preprocessor you use). 
+
+```css
+// Static variables:
+$breakpoint-small: 600px;
+$theme-color: rebeccapurple;
+
+// Dynamic variables
+@media screen and (min-width: $breakpoint-small) {
+  body {
+    background: $theme-color;
+  }
+}
+```
+
+Not only does this denote static variables from dynamic variables in your code, but CSS variables can only be used for property declarations. In other words they can't be used in media queries. 
+
+Preprocessor also have color functions, mixins and allows us to separate components into different files. All of this stuff still makes sense.
+
+## Responsive design
+
+I think SS
+
+I made a detailed example simple responsivesite that follows these rules. [CodePen to demonstrate](https://codepen.io/MadeByMike/pen/dRNqNw/) this:
+
+See the Pen [Responsive design with CSS variables](https://codepen.io/MadeByMike/pen/dRNqNw/) by Mike ([@MadeByMike](https://codepen.io/MadeByMike)) on [CodePen](https://codepen.io).
 <script type="null"></script>
 
-This is pretty powerful but for larger projects, separating components into different files still makes sense. It's far better to repeat these declarations even if it feels like duplication.
-
-It makes sense for all the logic related to variables to be at the top of the document. It's easier to maintain because you can change it in one place and it's easier to read because you can see what properties are changing and when.
-
-See the Pen Responsive design with CSS variables by Mike (@MadeByMike) on CodePen.
-
-You should also be sensible about reusing variables. If you change the value of a variable on the `body` element for example, this will now be the value of that variable for every child element of the `body`.
-
-Keeping these things in mind it should be possible to write
