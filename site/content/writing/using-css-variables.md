@@ -5,7 +5,7 @@ publish_date = "2017-06-18T08:38:10.388Z"
 title = "Using CSS variables correctly"
 +++
 
-CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
+CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them production. This great but they're different from variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
 
 They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and how their differences from preprocessors might change how we write and structure CSS.
 
@@ -213,7 +213,7 @@ The main advantage is we now have the ability to fully separate logic from desig
 }
 ```
 
-Separating variables form the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
+Separating variables from the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
 
 ### Change the value not the variable
 
