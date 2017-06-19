@@ -260,9 +260,8 @@ aside {
 }
 ```
 
-<p data-height="240" data-theme-id="12180" data-slug-hash="YQNVox" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
+<div><p data-height="240" data-theme-id="12180" data-slug-hash="YQNVox" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></div>
 
 Despite having a completely different appearance these two elements have exactly the same property declarations.
 
@@ -319,9 +318,11 @@ Preprocessor also have color functions, mixins and allows us to keep styles rela
 I think CSS variables offer a completely new approach to responsive design and will challenge some techniques and thinking we've developed over many years. These tips are just a few of the obvious things we need to consider.
 
 I made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">detailed example</a> of a simple responsive site that demonstrates some of the techniques and suggestions outlined in this article.
-
+<div>
 <p data-height="425" data-theme-id="12180" data-slug-hash="dRNqNw" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
- <p>I'd recommend having a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">look at the code</a>.</p>
+</div>
+
+I'd recommend having a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">look at the code</a>.
 
 If you have you got any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).
