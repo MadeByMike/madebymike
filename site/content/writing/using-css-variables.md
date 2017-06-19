@@ -2,7 +2,6 @@
 body_class = ""
 date = "2017-06-18T18:38:07+00:00"
 description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
-draft = true
 extra_css = []
 extra_js = []
 image = ""
