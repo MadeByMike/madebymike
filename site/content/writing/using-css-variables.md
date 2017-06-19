@@ -2,9 +2,9 @@
 date = "2017-06-18T18:38:07+00:00"
 description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
 publish_date = "2017-06-18T08:38:10.388Z"
-title = "Using CSS variables correctly"
-
+title = "Using CSS variables correctly
 +++
+
 CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
 
 They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and how their differences from preprocessors might change how we write and structure CSS.
@@ -84,7 +84,6 @@ This is a perfect situation to use CSS variables. They way I would have approach
   --ms-large-5: 3.157rem;
   --ms-large-6: 4.209rem;
 }
-
 ```
 
 This seems fairly logical, We've defined variables for each of the values in each of the different scales. Next I'd expect to see this:
@@ -131,7 +130,6 @@ h6 {
     font-size: var(--ms-large-1);
   }
 }
-
 ```
 
 <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRoLpJ">This works!</a> More than that, if I want to change any of these values I can do it in one place. That's an even bigger advantage if I'm using variables elsewhere in my CSS.
@@ -164,7 +162,6 @@ The example above might seem like the most logical way to do things but it's not
     --font-size-6: 4.209rem;
   }
 }
-
 ```
 
 Notice that I have only one set of variables now and not one for each scale. I change the value of the variable depending on the screen size. This indirectly results in two things:
@@ -194,7 +191,6 @@ h5 {
 h6 {
   font-size: var(--font-size-1);
 }
-
 ```
 
 The example above demonstrates a better way of writing CSS with variables.
@@ -215,7 +211,6 @@ The main advantage is we now have the ability to fully separate logic from desig
 .this-is-a-property-declaration {
   background: var(--my-var)
 }
-
 ```
 
 Separating variables form the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
@@ -263,11 +258,11 @@ aside {
   color: var(--text-color);
   background-color: var(--background-color);
 }
-
 ```
 
 <p data-height="240" data-theme-id="12180" data-slug-hash="YQNVox" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
 Despite having a completely different appearance these two elements have exactly the same property declarations.
 
@@ -285,7 +280,6 @@ A quick warning about combining selectors with overly generic variables. You mig
   background: var(--background);
   ...
 }
-
 ```
 
 Although fun, we should be careful about reusing variables and combining selectors. CSS variables are subject to the cascade. With the above example, when setting a border on a class `.container` like this:
@@ -294,7 +288,6 @@ Although fun, we should be careful about reusing variables and combining selecto
 .container {
   --border: solid 2px tomato;
 }
-
 ```
 
 Everything inside that container will inherrit the same border. Pretty soon you will be overriding variables on everything, and you don't need a universal `*` selector to fall into this trap.
