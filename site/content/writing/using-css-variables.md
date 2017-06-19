@@ -289,7 +289,7 @@ Although fun, we should be careful about reusing variables and combining selecto
 }
 ```
 
-Everything inside that container will inherrit the same border. Pretty soon you will be overriding variables on everything, and you don't need a universal `*` selector to fall into this trap.
+Everything inside that container will inherit the same border. Pretty soon you will be overriding variables on everything, and you don't need a universal `*` selector to fall into this trap.
 
 ### Use preprocessors for static variables
 
