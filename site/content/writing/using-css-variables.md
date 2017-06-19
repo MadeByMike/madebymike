@@ -1,18 +1,13 @@
 +++
-body_class = ""
 date = "2017-06-18T18:38:07+00:00"
 description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
-extra_css = []
-extra_js = []
-image = ""
 publish_date = "2017-06-18T08:38:10.388Z"
 title = "Using CSS variables correctly"
-update = ""
 
 +++
-Native CSS Variables (also known as Custom Properties) are supported in all modern browsers now and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
+CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them production. This great but they're different form variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
 
-I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and talk about how their differences from preprocessors will change how we write and structure CSS.
+They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and how their differences from preprocessors might change how we write and structure CSS.
 
 ## How do they differ?
 
