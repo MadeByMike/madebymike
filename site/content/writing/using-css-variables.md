@@ -322,12 +322,13 @@ Not only does this denote static variables from dynamic variables in your code, 
 
 Preprocessor also have color functions, mixins and allows us to separate components into different files. All of this stuff still makes sense.
 
-## Responsive design
+## New approach to responsive design
 
-I think SS
+I think CSS variables offer a completly new approach to responsive design and will challenge some techniques and thinking we've developed over many years. 
 
-I made a detailed example simple responsivesite that follows these rules. [CodePen to demonstrate](https://codepen.io/MadeByMike/pen/dRNqNw/) this:
+I've made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/YQNVox">detailed example</a> of a simple responsive site that demonstrates some of the techniques and guidelines outlined in this article. 
 
-See the Pen [Responsive design with CSS variables](https://codepen.io/MadeByMike/pen/dRNqNw/) by Mike ([@MadeByMike](https://codepen.io/MadeByMike)) on [CodePen](https://codepen.io).
-<script type="null"></script>
+<p data-height="300" data-theme-id="12180" data-slug-hash="dRNqNw" data-default-tab="html,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+Have you got any thoughts about how CSS variable change how we manage and organise code? <a href="https://twitter.com/MikeRiethmuller">Let me know on Twitter</a>.
