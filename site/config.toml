@@ -1,0 +1,12 @@
+baseURL = "https://madebymike.com.au"
+disablePathToLower = true
+languageCode = "en-au"
+title = "MadebyMike"
+number_of_related_posts = 3.0
+
+[author]
+name = "Mike Riethmuller"
+email = "mike@madebymike.com.au"
+
+[permalinks]
+writing = "/writing/:filename/"
