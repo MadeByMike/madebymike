@@ -325,4 +325,4 @@ I made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">det
 
 I'd recommend having a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">look at the code</a>.
 
-If you have got any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).
+If you have any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).
