@@ -2,6 +2,7 @@
 body_class = ""
 date = "2017-06-18T18:38:07+00:00"
 description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
+draft = true
 extra_css = []
 extra_js = []
 image = ""
@@ -22,7 +23,7 @@ This makes variables in preprocessors a great tool for writing DRY (Don't Repeat
 
 We can refer to variables as statically or dynamically scoped and CSS variables as dynamically scoped.
 
-In this instance, dynamically scoped means they are subject to inherritance and the cascade. This is great because you can change the value of a CSS variable inside a media query or when an element when an element matches a CSS selector. Using the same variable we can have different values in different places on the page. You even read and manipulate CSS variables with JavaScript.
+In this instance, dynamically scoped means they are subject to inheritance and the cascade. This is great because you can change the value of a CSS variable inside a media query or when an element when an element matches a CSS selector. Using the same variable we can have different values in different places on the page. You even read and manipulate CSS variables with JavaScript.
 
 If you haven't thought of a ton of uses for CSS Variables already you will have by the end of this article. But first let me demonstrate how not to use CSS variables.
 
@@ -139,7 +140,7 @@ h6 {
 
 ```
 
-<a target="_blank" href="https://codepen.io/MadeByMike/pen/dRoLpJ">This works!</a> More than that, if I want to change any of these values I can do it in one place. That's an even bigger advantage if I'm using variables elsewhere in my CSS. 
+<a target="_blank" href="https://codepen.io/MadeByMike/pen/dRoLpJ">This works!</a> More than that, if I want to change any of these values I can do it in one place. That's an even bigger advantage if I'm using variables elsewhere in my CSS.
 
 This is DRY like Sass and I guess that's better than regular CSS. But we can do better.
 
@@ -175,6 +176,7 @@ The example above might seem like the most logical way to do things but it's not
 Notice that I have only one set of variables now and not one for each scale. I change the value of the variable depending on the screen size. This indirectly results in two things:
 
 1. I'm forced to name the variables differently (not small or large anymore)
+
 1. There is no need for media queries elsewhere in my CSS
 
 I can now use variables directly in my property declarations knowing they will change as required. All the responsive logic is in the variable. The rest of my CSS looks like this:
@@ -211,7 +213,7 @@ Variables have the potential to change how we organise and structure CSS, especi
 
 The main advantage is we now have the ability to fully separate logic from design. Effectively this means separating variable declarations from property declarations.
 
-```css
+```
 .this-is-a-variable-declaration {
   --my-var: red;
 }
@@ -219,6 +221,7 @@ The main advantage is we now have the ability to fully separate logic from desig
 .this-is-a-property-declaration {
   background: var(--my-var)
 }
+
 ```
 
 Separating variables form the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
@@ -235,9 +238,9 @@ In most cases, **I'd now consider it code smell if a media query or CSS selector
 
 It makes sense for all the logic related to variables to be at the top of the document. It's easier to maintain because you can change it in one place and it's easier to read because you can see what is changing without reading the entire stylesheet.
 
-We couldn't do this with media queries because it fragmented the rules for styling an element across different parts the stylesheet. This was not practical or maintainable, so it made sense group media queries with declarations relating to the sames selectors they changed. 
+We couldn't do this with media queries because it fragmented the rules for styling an element across different parts the stylesheet. This was not practical or maintainable, so it made sense group media queries with declarations relating to the sames selectors they changed.
 
-Variables now provide a link between the logic and the implementation of design. **This means in most cases media queries should not be required except for changing CSS variables** and they belong at the top of the document with variable declatations. Above the 'logic fold'.
+Variables now provide a link between the logic and the implementation of design. **This means in most cases media queries should not be required except for changing CSS variables** and they belong at the top of the document with variable declarations. Above the 'logic fold'.
 
 ### Simplify selectors
 
@@ -266,6 +269,7 @@ aside {
   color: var(--text-color);
   background-color: var(--background-color);
 }
+
 ```
 
 <p data-height="240" data-theme-id="12180" data-slug-hash="YQNVox" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -287,6 +291,7 @@ A quick warning about combining selectors with overly generic variables. You mig
   background: var(--background);
   ...
 }
+
 ```
 
 Although fun, we should be careful about reusing variables and combining selectors. CSS variables are subject to the cascade. With the above example, when setting a border on a class `.container` like this:
@@ -302,9 +307,9 @@ Everything inside that container will inherrit the same border. Pretty soon you 
 
 ### Use preprocessors for static variables
 
-Do CSS variables replace preprocessors? No. Using preprocessors still makes sense. It's a good idea to keep all your static variables in Sass (or whatever preprocessor you use). 
+Do CSS variables replace preprocessors? No. Using preprocessors still makes sense. It's a good idea to keep all your static variables in Sass (or whatever preprocessor you use).
 
-```css
+```
 // Static variables:
 $breakpoint-small: 600px;
 $theme-color: rebeccapurple;
@@ -315,19 +320,21 @@ $theme-color: rebeccapurple;
     background: $theme-color;
   }
 }
+
 ```
 
-Not only does this denote static variables from dynamic variables in your code, but CSS variables can only be used for property declarations. In other words they can't be used in media queries. 
+Not only does this denote static variables from dynamic variables in your code, but CSS variables can only be used for property declarations. In other words they can't be used in media queries.
 
 Preprocessor also have color functions, mixins and allows us to keep styles related to different components in different files. All of this stuff still makes sense.
 
 ## New approach to responsive design
 
-I think CSS variables offer a completly new approach to responsive design and will challenge some techniques and thinking we've developed over many years. These tips are just a few of the obvious things we need to consider.
+I think CSS variables offer a completely new approach to responsive design and will challenge some techniques and thinking we've developed over many years. These tips are just a few of the obvious things we need to consider.
 
-I've made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/YQNVox">detailed example</a> of a simple responsive site that demonstrates some of the techniques and suggestions outlined in this article. 
+I made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">detailed example</a> of a simple responsive site that demonstrates some of the techniques and suggestions outlined in this article.
 
-<p data-height="300" data-theme-id="12180" data-slug-hash="dRNqNw" data-default-tab="html,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="425" data-theme-id="12180" data-slug-hash="dRNqNw" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+ <p>I'd recommend having a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">look at the code</a>.</p>
 
-Have you got any thoughts about how CSS variables might change how we think about, manage and structure CSS? <a href="https://twitter.com/MikeRiethmuller">Let me know on Twitter</a>.
+If you have you got any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).
