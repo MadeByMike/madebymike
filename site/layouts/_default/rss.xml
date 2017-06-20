@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
     <description>{{ .Site.Title }} - A range of unique and possibly interesting web development ideas of varying quality. Basically "I think stuff and sometimes I write it down".</description>
     {{ with .Site.LanguageCode }}
