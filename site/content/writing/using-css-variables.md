@@ -64,7 +64,7 @@ I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I do
 
 ## Not like this...
 
-This is a perfect situation to use CSS variables. They way I would have approached this with Sass and how I've seen most people use CSS variables so far, is something like this:
+This is a perfect situation to use CSS variables. The way I would have approached this with Sass, and how I've seen most people use CSS variables so far, is something like this:
 
 ```
 :root {
