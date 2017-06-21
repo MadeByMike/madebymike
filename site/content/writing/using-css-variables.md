@@ -69,8 +69,8 @@ This is a perfect situation to use CSS variables. The way I would have approache
 ```
 :root {
   /* scale for 1.2 */
-  --ms-small-1: 1em;
-  --ms-small-2: 1.2em;
+  --ms-small-1: 1rem;
+  --ms-small-2: 1.2rem;
   --ms-small-3: 1.44rem;
   --ms-small-4: 1.728rem;
   --ms-small-5: 2.074rem;
@@ -143,8 +143,8 @@ The example above might seem like the most logical way to do things but it's not
 ```
 :root {
   /* scale for 1.2 */
-  --font-size-1: 1em;
-  --font-size-2: 1.2em;
+  --font-size-1: 1rem;
+  --font-size-2: 1.2rem;
   --font-size-3: 1.44rem;
   --font-size-4: 1.728rem;
   --font-size-5: 2.074rem;
@@ -240,13 +240,13 @@ In this example I have an aside and a main element with different font-sizes. Th
 ```
 /* Default values */
 :root {
-  --font-size: 1.2em;
+  --font-size: 1.2rem;
   --background-color: #fff;
   --text-color: #222;
 }
 /* Values in aside */
 aside {
-  --font-size: 1em;
+  --font-size: 1rem;
   --background-color: #222;
   --text-color: #FAFAFA;
 }
