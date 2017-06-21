@@ -271,7 +271,7 @@ A quick warning about combining selectors with overly generic variables. You mig
 
 ```
 /* Don't do this. */
-*{
+* {
   display: var(--display);
   width: var(--width);
   height: var(--height);
@@ -303,7 +303,7 @@ $theme-color: rebeccapurple;
 // Dynamic variables
 @media screen and (min-width: $breakpoint-small) {
   body {
-    background: $theme-color;
+    --background: $theme-color;
   }
 }
 
