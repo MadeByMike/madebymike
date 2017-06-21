@@ -17,7 +17,7 @@ This makes variables in preprocessors a great tool for writing DRY (Don't Repeat
 
 We can refer to variables as statically or dynamically scoped and CSS variables as dynamically scoped.
 
-In this instance, dynamically scoped means they are subject to inheritance and the cascade. This is great because you can change the value of a CSS variable inside a media query or when an element matches a CSS selector. Using the same variable we can have different values in different places on the page. You even read and manipulate CSS variables with JavaScript.
+In this instance, dynamically scoped means they are subject to inheritance and the cascade. This is great because you can change the value of a CSS variable inside a media query or when an element matches a CSS selector. Using the same variable we can have different values in different places on the page. You can even read and manipulate CSS variables with JavaScript.
 
 If you haven't thought of a ton of uses for CSS Variables already you will have by the end of this article. But first let me demonstrate how not to use CSS variables.
 
