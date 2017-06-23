@@ -193,7 +193,7 @@ h6 {
 }
 ```
 
-The example above demonstrates a better way of writing CSS with variables.
+The example above demonstrates a better way of writing CSS with variables. Now let's see if we can define some of these techniques in more detail.
 
 ## Techniques for organising code with CSS variables
 
@@ -217,7 +217,7 @@ Separating variables from the rest of the declarations is considered good practi
 
 ### Change the value not the variable
 
-In most cases, **I'd now consider it code smell if a media query or CSS selector swaps one variable for another**. Rather than swapping variables it's better to define one variable, set it's initial value and change it with a selector or media query.
+In most cases, **I'd now consider it code smell if a media query or CSS selector swaps one variable for another**. Rather than swapping variables it's better to define one variable, set its initial value and change it with a selector or media query.
 
 ### If it changes it's a variable
 
