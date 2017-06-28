@@ -204,16 +204,17 @@ Variables have the potential to change how we organise and structure CSS, especi
 The main advantage is we now have the ability to fully separate logic from design. Effectively this means separating variable declarations from property declarations.
 
 ```
-.this-is-a-variable-declaration {
+/* This is a variable declaration */
+.thing {
   --my-var: red;
 }
-
-.this-is-a-property-declaration {
-  background: var(--my-var)
+/* This is a property declaration */
+.thing {
+  background: var(--my-var);
 }
 ```
 
-Separating variables from the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
+My view is you should probably keep variable declarations and property declaration separate. Separating variables from the rest of the declarations is considered good practice when working with preprocessors. This shouldn't change when working with CSS variables.
 
 ### Change the value not the variable
 
