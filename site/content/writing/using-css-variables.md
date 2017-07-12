@@ -1,11 +1,11 @@
 +++
 date = "2017-06-18T18:38:07+00:00"
-description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
+description = "CSS Variables (also known as Custom Properties) are supported in all modern browsers and people are starting to use them in production. They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos showing how this might happen."
 publish_date = "2017-06-18T08:38:10.388Z"
 title = "Using CSS variables correctly"
 +++
 
-CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them production. This is great but they're different from variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
+CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them in production. This is great but they're different from variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
 
 They have the potential to change how we write and think about CSS. I thought I'd do a few quick demos that show some good and bad ways to use CSS variables, and how their differences from preprocessors might change how we structure CSS.
 
