@@ -1,26 +1,27 @@
+<!DOCTYPE html>
+<html>
 {{ partial "header.html" . }}
 
-<main>
-<article>
-  <section>
-    <div class="container">
-      <h1 class="post-title">{{ .Page.Title }}</h1>
-      <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
+<body class="{{ $.Param " body_class " }}">
+  {{ partial "banner.html" . }}
+  <main>
+    <article>
+      <section>
+        <div class="container">
+          <h1 class="post-title">{{ .Page.Title }}</h1>
+          <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> {{ if .Params.update }}
+          <span class="post-update">{{ .Params.update }}</span> {{ end }} {{ .Content }}
+        </div>
+      </section>
+    </article>
 
-      {{ if .Params.update }}
-        <span class="post-update">{{ .Params.update }}</span>
-      {{ end }}
+    <section>
+      <div class="container">
+        {{ partial "related-content.html" . }}
+      </div>
+    </section>
+  </main>
+  {{ partial "footer.html" . }}
+</body>
 
-      {{ .Content }} 
-
-    </div>
-  </section>
-</article>
-
-  <section>
-    <div class="container">
-      {{ partial "related-content.html" . }}
-    </div>
-  </section>
-</main>
-{{ partial "footer.html" . }}
+</html>

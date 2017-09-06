@@ -1,20 +1,18 @@
-{{ partial "header.html" . }}
-{{ .Content }} 
+{{ define "main"}}
 <main>
-  {{ range (.Paginator 5).Pages }}
+  {{ .Content }} {{ range (.Paginator 5).Pages.ByPublishDate }}
   <article>
     <section>
       <div class="container">
         <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
-          {{ .Summary }}
+        <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> {{ .Summary }}
         <p><a class="nav-link" href="{{ .RelPermalink }}">Continue reading</a></p>
       </div>
     </section>
   </article>
   {{ end }}
-      <div class="container pagination">
-  {{ partial "pagination.html" . }}
-      </div>
+  <div class="container pagination">
+    {{ partial "pagination.html" . }}
+  </div>
 </main>
-{{ partial "footer.html" . }}
+{{ end }}

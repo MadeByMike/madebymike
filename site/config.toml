@@ -3,6 +3,7 @@ disablePathToLower = true
 languageCode = "en-au"
 title = "MadebyMike"
 number_of_related_posts = 3.0
+PygmentsCodeFences = true
 
 [author]
 name = "Mike Riethmuller"

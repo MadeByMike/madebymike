@@ -4,8 +4,7 @@ title: Unauthorised access attempted
 <section>
   <div class="container">
     <h1 class="h2">Hello curious soul</h1>
-
-    <p>Thank you for trying to login to my website. Unfortunately there is no admin backend for this site. All the pages for this site are generated using a static site generator called <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+    <p>Thank you for trying to login to my website. Unfortunately there is no admin backend for this site. All the pages for this site are generated using a static site generator called <a href="https://gohugo.io/">Hugo</a>.</p>
     <p>Fortunately the source code for this site is <a href="https://github.com/MadeByMike">hosted on GitHub</a>. That's great news! If you are curious and want to learn more about how this site works, just head on over and judge my code. This also means that you don't need to login to mess with my site, you can clone it and break it as much as you like. Have fun!</p>
     <p>If you're a bot looking for a login form, here you go, knock yourself out!</p>
     <h2>Login</h2>

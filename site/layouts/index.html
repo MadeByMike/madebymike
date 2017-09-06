@@ -1,22 +1,28 @@
-{{ partial "header.html" . }}
-
-  <main>
+{{ define "main"}}
+<main>
   <section>
     <div class="container">
       <h1 class="page-title">Hello, I’m Mike Riethmuller</h1>
-      <p>I’m a <strong>web developer</strong> and I make all sorts of stuff for the web. You can find some of my <s>code</s> <s>work</s> <s>experiments</s> <s>creations</s> shame on <a href="http://codepen.io/MadeByMike/">CodePen</a> or <a href="https://github.com/MadeByMike">GitHub</a> and you can talk to me on <a href="https://twitter.com/MikeRiethmuller">Twitter</a>.</p>
-      <p>When I’m not making things for the web I sometimes think about stuff and on rare occasions I write about it. You can find some of my writing here. </p>
+      <p>I’m a <strong>web developer</strong> and I make all sorts of stuff for the web. You can find some of my
+        <s>code</s>
+        <s>work</s>
+        <s>experiments</s>
+        <s>creations</s> shame on <a href="http://codepen.io/MadeByMike/">CodePen</a> or <a href="https://github.com/MadeByMike">GitHub</a>        and you can talk to me on <a href="https://twitter.com/MikeRiethmuller">Twitter</a>.</p>
+      <p>When I’m not making things for the web I sometimes think about stuff and on rare occasions I write about it. You can
+        find some of my writing here. </p>
 
       <div class="wow-box">
         <h2 class="mtn"><a class="stuff-i-wrote" href="{{ .Site.BaseURL }}/writing">Stuff I wrote:</a></h2>
         {{ range (.Paginator 3).Pages }}
         <article>
           <h3 class="post-title"><a href="{{ .RelPermalink}}">{{ .Title }}</a></h3>
-              <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
-                {{ .Summary }}
+          <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> {{ .Summary }}
         </article>
         {{ end }}
-        <a class="nav-link nav-link-reverse mbn" href="{{ .Site.BaseURL }}/writing"><svg><use xlink:href="#arrow-icon-reverse"></use></svg>Stuff I wrote before this</a>
+        <a class="nav-link nav-link-reverse mbn" href="{{ .Site.BaseURL }}/writing">
+          <svg>
+            <use xlink:href="#arrow-icon-reverse"></use>
+          </svg>Stuff I wrote before this</a>
       </div>
     </div>
   </section>
@@ -24,8 +30,12 @@
   <section class="background-dark">
     <div class="container">
       <h2>More about me</h2>
-      <p>Oh, hey! You’re still here, good for you! You should know I’m passionate about web development and that doesn’t just mean standards; I’m an advocate for anything and anyone that contributes to good quality web development.</p>
-      <p>I’ve worked as a front-end developer on some of Australia’s largest websites as well as some of the smallest community sites. When I’m not building sites or blogging I like to experiment with code. I love learning new things and finding techniques that challenge what we think is best practice. Although very few ideas make it into my production toolkit, I find experimentation is the best way learn and the only way to discover new techniques.</p>
+      <p>Oh, hey! You’re still here, good for you! You should know I’m passionate about web development and that doesn’t just
+        mean standards; I’m an advocate for anything and anyone that contributes to good quality web development.</p>
+      <p>I’ve worked as a front-end developer on some of Australia’s largest websites as well as some of the smallest community
+        sites. When I’m not building sites or blogging I like to experiment with code. I love learning new things and finding
+        techniques that challenge what we think is best practice. Although very few ideas make it into my production toolkit,
+        I find experimentation is the best way learn and the only way to discover new techniques.</p>
       <p>I try to share everything I learn, I speak, I blog and sometimes help organise community events &amp; meetups.</p>
       <p>I’m available for hire! Why don’t you <a href="mailto:mike@madebymike.com.au">get in touch</a>?</p>
     </div>
@@ -34,11 +44,10 @@
   <section>
     <div class="container">
       <h2>Reach out</h2>
-      <p>Feel free to send me an email. You can reach me at <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>. Go for it! You can actually email me and I will actually reply, if you’re still reading this you’re worth my time!</p>
+      <p>Feel free to send me an email. You can reach me at <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>.
+        Go for it! You can actually email me and I will actually reply, if you’re still reading this you’re worth my time!</p>
     </div>
   </section>
   {{ partial "aside.html" . }}
 </main>
-
-{{ partial "footer.html" . }}
- 
+{{end}}
