@@ -3,15 +3,15 @@
   <style>
     .sml,.med,.lrg { visibility: hidden; }
 
-		@media screen and (min-width: 200px){
+		@media screen and (min-width: 450px){
       .sml { visibility: visible; }
     }
-		@media screen and (min-width: 400px){
+		@media screen and (min-width: 550px){
 			.med { visibility: visible; }
 			.sml,.lrg { visibility: hidden; }
 		}
 
-		@media screen and (min-width: 600px){
+		@media screen and (min-width: 700px){
 			.lrg { visibility: visible; }
 			.med { visibility: hidden; }
 		}

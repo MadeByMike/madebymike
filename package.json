@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack && cd site && hugo",
-    "start": "webpack && cd site && hugo serve"
+    "serve": "webpack && cd site && hugo serve",
+    "start": "webpack && cd site && hugo"
   },
   "author": "Mike Riethmuller",
   "license": "ISC",
