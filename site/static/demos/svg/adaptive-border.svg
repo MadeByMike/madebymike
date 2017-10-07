@@ -1,20 +1,19 @@
 <svg x="0%" y="0%" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <style>
-    .sml,.med,.lrg { visibility: hidden; }
+	.sml,.med,.lrg { visibility: hidden; }
 
-		@media screen and (min-width: 450px){
-      .sml { visibility: visible; }
-    }
-		@media screen and (min-width: 550px){
-			.med { visibility: visible; }
-			.sml,.lrg { visibility: hidden; }
-		}
-
-		@media screen and (min-width: 700px){
-			.lrg { visibility: visible; }
-			.med { visibility: hidden; }
-		}
+	@media screen and (min-width: 350px){
+		.sml { visibility: visible; }
+	}
+	@media screen and (min-width: 450px){
+		.med { visibility: visible; }
+		.sml,.lrg { visibility: hidden; }
+	}
+	@media screen and (min-width: 600px){
+		.lrg { visibility: visible; }
+		.med { visibility: hidden; }
+	}
   </style>
 
   <symbol id="corner" viewBox="0 0 50 50">
