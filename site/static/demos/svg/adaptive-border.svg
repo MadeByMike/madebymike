@@ -60,7 +60,7 @@
 	<rect mask="url(#mask)" class="line" x="0" y="8" width="100%" height="2" />
 
 	<use xlink:href="#corner" x="0%" y="0%" width="60" height="60" transform="translate(8 8)" />
-	<use xlink:href="#diamond" x="50%" y="4" width="22" height="22" transform="translate(-6)"/>
+	<use xlink:href="#diamond" x="50%" y="0" width="22" height="22" transform="translate(-11)"/>
 	<use xlink:href="#corner" x="-100%" y="0%" width="60" height="60" transform="scale(-1,1) translate(8 8)"/>
 
 </svg>
