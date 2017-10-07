@@ -16,7 +16,7 @@
 	}
   </style>
 
-  <symbol id="corner" width="50" height="50">
+  <symbol id="corner" viewBox="0 0 50 50">
 
 		<polygon class="sml" points="0,3 21,3 24,0 0,0"/>
 		<polygon class="sml" points="0,0 3,0 3,19 0,22"/>
