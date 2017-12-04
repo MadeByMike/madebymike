@@ -5,13 +5,13 @@ title: Smashing Conf 2017
   <section class="container">
     <h1 class="page-title">Smashing Conf 2017</h1>
 
-    <p class="ptl lead">Hello friend. Here is a lits of resources blog posts and demos you might be interested in if you saw my talk Beyond Media Queries at Smashing Conf 2017.</p>
+    <p class="ptl lead">Hello friends. Here is a list of resources, blog posts and demos you might be interested in if you saw my talk Beyond Media Queries at Smashing Conf 2017.</p>
 
     <h2>Fluid Typography</h2>
     <ul>
       <li><a href="https://codepen.io/collection/nLbRMZ/">
       Fluid Typography collection
-      </a> -  a coillection of demos related to fluid typography</li>
+      </a> -  a collection of demos related to fluid typography</li>
       <li><a href="https://codepen.io/MadeByMike/pen/vNrvdZ">Fluid Type Sass Mixin</a></li>
       <li><a href="https://codepen.io/MadeByMike/pen/RWJyML">Fluid Type Less Mixin</a></li>
       <li><a href="https://codepen.io/MadeByMike/pen/EmzxYR">Using CH units</a> - Fluid Typography with a non fluid RootEM and CH units</li>
