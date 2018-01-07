@@ -28,33 +28,33 @@ gulp.task("build", ["css", "css-no-vars", "js", "cms-assets", "hugo"]);
 gulp.task("build-preview", ["css", "css-no-vars", "js", "cms-assets", "hugo-preview"]);
 
 gulp.task("css", () => (
-  gulp.src("./src/css/main.scss")
+  gulp.src("./src/css/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([
       autoprefixer(),
       cssnano(),
     ]))
-    .pipe(rename("styles.css"))
+    .pipe(rename({extname:".css"}))
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
 ));
 
 gulp.task("css-no-vars", () => (
-  gulp.src("./src/css/main.scss")
+  gulp.src("./src/css/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([
       autoprefixer(),
       cssvariables(),
       cssnano(),
     ]))
-    .pipe(rename("styles.old.css"))
+    .pipe(rename({extname:".old.css"}))
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
 ));
 
 
 gulp.task("cms-assets", () => (
-  gulp.src("./node_modules/netlify-cms/dist/*.{woff,eot,woff2,ttf,svg,png}")
+  gulp.src("./node_modules/netlify-cms/dist/*.{woff,eot,woff2,ttf,svg,png,css}")
     .pipe(gulp.dest("./dist/css"))
 ))
 
