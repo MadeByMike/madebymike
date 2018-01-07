@@ -1,0 +1,26 @@
+
+
+:root {
+  --display-title-align: center;
+  --display-title-padding-bottom: var(--VERTICAL_SPACING);
+}
+
+@media screen and (min-width: $BREAKPOINT) {
+  :root {
+    --display-title-align: inherit;
+    --display-title-padding-bottom: 0;
+  }
+}
+
+.display-title { 
+  @include interpolate(font-size, 14.29rem, 50rem, 1.5rem, 2rem);
+  font-family: $FONT-DISPLAY;
+  line-height: 1.1;
+  margin-bottom: .255em;
+  text-align: var(--display-title-align);
+  padding: 0 0 var(--display-title-padding-bottom) 0;
+} 
+
+.display-title--large { 
+  @include interpolate(font-size, 14.29rem, 50rem, 2rem, 3.5rem);
+}

@@ -1,0 +1,52 @@
+{{ $.context.Scratch.Set "link" .context.RelPermalink }}
+{{if .context.Params.external_link }} {{ $.context.Scratch.Set "link" .context.Params.external_link }} {{ end }}
+{{if .context.Params.no_link }} {{ $.context.Scratch.Set "link" false }} {{ end }}
+{{$link := $.context.Scratch.Get "link" }}
+
+<div class="note note-{{.color}}{{ if $link }} note-block-link{{end}}{{ if .context.Params.card_size }} note-size-{{.context.Params.card_size}}{{end}}">
+    {{ if $link }}
+    <a class="note-link-overlay" href="{{ $link }}"></a>
+    {{ end }}
+ 
+    <div class="note-inner">      
+      <div class="note-header">
+        <h3 class="note-title">{{ .context.Title }}</h3>
+      </div>
+
+      <div class="note-body">{{ .context.Params.description | markdownify }}</div>
+
+      {{ if .meta }} 
+        <div class="note-meta">
+
+            {{ if eq .context.Type "pens" }}
+              <svg class="note-meta-logo">
+                <use xlink:href="#icon-codepen"></use>
+              </svg> 
+            {{ end }}
+            
+            {{ if eq .context.Type "writing" }}
+              <svg class="note-meta-logo">
+                <use xlink:href="#icon-book"></use>
+              </svg>
+            {{ end }}
+
+            {{ if eq .context.Type "videos" }}
+              <svg class="note-meta-logo">
+                <use xlink:href="#icon-video"></use>
+              </svg>
+            {{ end }}
+
+            {{ if eq .context.Type "lists" }}
+              <svg class="note-meta-logo">
+                <use xlink:href="#icon-list"></use>
+              </svg>
+            {{ end }}
+
+          <time class="note-meta-date">{{ .context.Date.Format "Jan 2, 2006" }}</time> 
+          {{ range .context.Params.tags }}
+          <span class="note-meta-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div> 

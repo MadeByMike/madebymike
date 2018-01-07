@@ -1,0 +1,46 @@
+$main-grid-main-column: 65ch;
+
+:root {
+	--grid-right-text-align: center;
+}
+
+@media screen and (min-width: $BREAKPOINT) {
+
+	:root {
+		--grid-right-text-align: right;
+	}
+	
+}
+
+////////////////////////////////////////////////////////
+
+.grid-left,
+.grid-right {
+	display: grid;
+	grid-row-gap: 1em;
+	margin: var(--VERTICAL_SPACING) 0;
+}
+
+.grid-left {
+	grid-template-columns: [full-width-start main-start] minmax(0, $main-grid-main-column) [main-end] 1fr [full-width-end];
+
+}
+
+.grid-right {
+	text-align: var(--grid-right-text-align);
+	grid-template-columns: [full-width-start] 1fr [main-start] minmax(0, $main-grid-main-column) [full-width-end main-end];
+
+}
+
+.grid-left > * ,
+.grid-right > * {
+	grid-column: main;
+	margin: 0;
+  padding-left: var(--HORIZONTAL_SPACING);
+  padding-right: var(--HORIZONTAL_SPACING);
+	
+	&.grid-full-width {
+		grid-column: full-width !important;
+		margin: 0.5em 0;
+	}
+} 

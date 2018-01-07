@@ -1,0 +1,11 @@
++++
+date = 2017-06-16T00:00:00Z
+title = "Front End Center"
+external_link = "http://frontend.center/"
+description = '''
+
+An awesome bunch of videos by the equally awesome Glen Maddern.
+
+![ABC](https://frontend.center/front-end-center-logo.png)
+'''
++++

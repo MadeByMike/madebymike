@@ -1,0 +1,278 @@
+$grid-gap: 10;
+$breakpoint-small: 650px;
+$breakpoint-large: 1100px;
+$breakpoint-huge: 1450px; // More than 4 cols wide
+$grid-padding: 2rem;
+
+$note-color-schemes: (
+  red: (background:hsl(5, 100%, 95%), title:hsl(5, 100%, 85%), meta:hsl(5, 100%, 90%) ), 
+  salmon: (background:hsl(23, 100%, 95%), title:hsl(23, 100%, 85%), meta:hsl(23, 100%, 90%) ),
+  orange: (background:hsl(39, 100%, 95%), title:hsl(39, 100%, 85%), meta:hsl(39, 100%, 90%) ),
+  gold: (background:hsl(48, 100%, 95%), title:hsl(48, 100%, 85%), meta:hsl(48, 100%, 90%) ),
+  yellow: (background:hsl(60, 100%, 95%), title:hsl(60, 100%, 85%), meta:hsl(60, 100%, 90%) ),
+  lime: (background:hsl(69, 100%, 95%), title:hsl(69, 100%, 85%), meta:hsl(69, 100%, 90%) ),
+  green: (background:hsl(92, 100%, 95%), title:hsl(92, 78%, 80%), meta:hsl(92, 78%, 90%) ),
+  cyan: (background:hsl(172, 100%, 95%), title:hsl(172, 76%, 80%), meta:hsl(172, 76%, 90%) ),
+  blue: (background:hsl(201, 100%, 95%), title:hsl(201, 100%, 85%), meta:hsl(201, 100%, 90%) ),
+  skyblue: (background:hsl(220, 100%, 95%), title:hsl(220, 100%, 85%), meta:hsl(220, 100%, 90%) ),
+  purple: (background:hsl(273, 100%, 95%), title:hsl(273, 100%, 85%), meta:hsl(273, 100%, 90%) ),
+  pink: (background:hsl(335, 100%, 95%), title:hsl(335, 100%, 88%), meta:hsl(335, 100%, 90%) ),
+  // Grey and white break color rules
+  grey: (background:hsl(0, 0%, 98%), title:hsl(216, 100%, 90%), meta:hsl(0, 0%, 90%) ),
+  white: (background:hsl(0, 100%, 100%), title:hsl(0, 0%, 90%), meta:hsl(0, 0%, 90%) )
+);
+
+:root { 
+  --not-adds-grid-row-start: initial;
+  --not-adds-grid-row-end: initial;
+  --not-adds-grid-order: 1;
+  --not-adds-grid-col-span: 1;
+  --not-adds-grid-margin-top: var(--VERTICAL_SPACING);
+  --grid-template-columns: 1fr;
+  --note-col-span: 1; 
+  --note-row-span: 1;
+}
+
+.note-size-large,
+.note-size-huge,
+.note-size-tall {
+  --note-row-span: 2;
+}
+
+@media screen and (min-width: $breakpoint-small) {
+  :root {
+    --notes-grid-column: right;
+    --not-adds-grid-column: left;
+    --not-adds-grid-order: 1;
+    --not-adds-grid-col-span: 2;
+    --grid-template-columns: repeat(2, minmax(250px, 1fr));
+    --not-adds-grid-template-columns: repeat(2, minmax(210px, 1fr));
+  }
+  
+  .note-size-large,
+  .note-size-huge {
+    --note-col-span: 2;
+    --note-row-span: 2;
+  }
+
+  .note-size-wide {
+    --note-col-span: 2;
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  :root {
+    --not-adds-grid-row-start: 1;
+    --not-adds-grid-row-end: 999;
+    --not-adds-grid-order: 0;
+    --not-adds-grid-col-span: 1;
+    --grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    --not-adds-grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
+    --not-adds-grid-margin-top: 0;
+  }
+}
+
+@media screen and (min-width: $breakpoint-huge) {
+  .note-size-huge {
+    --note-col-span: 3;
+    --note-row-span: 3;
+  }
+}
+
+
+/////////////////////////////////////////////////////////////
+
+
+// Container Layout
+
+.notes-grid {
+	display: grid;
+	grid-template-columns: var(--grid-template-columns);
+  padding: var(--VERTICAL_SPACING) calc( var(--HORIZONTAL_SPACING) - (#{$UI_SPACING_UNIT} * 2) );
+  grid-auto-flow: dense;
+}
+
+.not-adds-grid {
+  display: grid;
+	grid-template-columns: var(--not-adds-grid-template-columns);
+  align-items: start;
+  justify-content: start;
+  margin: 0 (-$UI_SPACING_UNIT);
+}
+
+.not-adds {
+	grid-row-start: var(--not-adds-grid-row-start);
+  grid-row-end: var(--not-adds-grid-row-end);
+  order: var(--not-adds-grid-order);
+  grid-column: span var(--not-adds-grid-col-span);
+  margin-top: calc(var(--not-adds-grid-margin-top) * 2);
+  max-width: 100%;  
+}
+
+// Component Layout
+
+.note {
+  position: relative;
+  font-size: .75rem;
+  padding: $UI_SPACING_UNIT ($UI_SPACING_UNIT*2);
+  margin: $UI_SPACING_UNIT;
+  color: $COLOR-TEXT;
+  text-decoration: none;
+  transition: all 250ms ease-in;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25);
+  grid-column: span var(--note-col-span, 1);
+  grid-row: span var(--note-row-span, 1);
+  font-weight: 400;
+}
+
+.note-link-overlay {
+  position: absolute;
+  transition: background 250ms ease-in;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0;
+}
+
+.note-inner {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.note-inner a {
+  pointer-events: all;
+  position: relative;
+}
+
+.note-header {
+  flex-grow: 0;
+  margin-top: $UI_SPACING_UNIT;
+}
+
+.note-title {
+  display: inline;
+  margin: 0;
+  line-height: 1.4;
+  font-family: system-ui;
+  font-weight: 500;
+}
+
+.note-body {
+  flex-grow: 1;
+  margin-top: 10px;
+
+  & > * {
+    margin-top: 0; 
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;    
+  }
+
+  li a {
+    position: relative;
+    padding-left: 30px;
+    fill: inherit;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translate(0, -35%);
+      display: block;
+      width: 12px;
+      height: 12px;
+      border: solid 1px #555;
+      border-radius: 2px;
+    }
+
+    .link-check {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 9px;
+      bottom: 3px;
+    }
+
+    &:visited {
+      color: $COLOR-TEXT-ALT;
+      text-decoration: none;
+    }
+
+    &:visited .link-check {
+      fill: $COLOR-TEXT;
+    }
+
+  }
+
+}
+
+.note-meta {
+  position: relative;
+  flex-grow: 0;
+  margin: 20px 0;
+  display: block;
+  font-size: .5rem;
+  color: inherit;
+  text-decoration: none;
+  text-align: right;
+  font-family: system-ui;
+  font-weight: 400;
+}
+
+.note-meta-logo {
+  width: 25px;
+  height: 25px;
+  fill: rgba(0,0,0,0.75);
+  background: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+// Theming
+
+@each $name, $colors in $note-color-schemes {
+
+  .note-#{$name} {
+    background: map-get($colors, "background");
+    fill: map-get($colors, "background");
+
+    .note-title {
+      background: rgba(map-get($colors, "title"), 0.5);
+    }
+    .note-meta-date,
+    .note-meta-tag {
+      background: rgba(map-get($colors, "meta"), 0.25);
+    }
+  
+    .note-link-overlay:focus {
+      background: map-get($colors, "title");
+    } 
+
+    &.note-block-link:hover,
+    &.note-block-link:focus {
+      transform: scale(1.015);
+      fill: map-get($colors, "title");
+      background: map-get($colors, "title");
+      box-shadow: 0 5px 5px rgba(0,0,0,0.25); 
+      .note-meta-date,
+      .note-meta-tags,
+      .note-title {
+        background: transparent;
+      }
+      .note-title {
+        text-decoration: underline;
+      }
+    }
+    
+  } 
+}

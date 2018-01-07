@@ -1,8 +1,10 @@
----
-date: 2017-05-18T00:00:00Z
-title: Non-linear interpolation in CSS
++++
+title = "Non-linear interpolation in CSS"
+description = "A solution for transitioning lengths values in CSS through more than one 'bending point'."
+date = "2017-05-18T00:00:00Z"
+publish_date = "2017-05-18T00:00:00Z"
++++
 
----
 
 A few years ago I wrote about fluid typography techniques that show how you can use calc() and viewport units to create transitions between different font-sizes as the viewport size changes. If you'd like to know more about how this technique works you should read my article [Precise control over responsive typography](https://madebymike.com.au/writing/precise-control-responsive-typography/).
 
@@ -37,7 +39,7 @@ It might sound a little complex but it's the same mathematics we use when creati
 
 Fluid typography doesn’t need to be hard, so I've taken these ideas and feedback from the community to create a mixin that generates one or more bending points with a syntax that closely aligns with animation-functions:
 
-<p data-height="550" data-theme-id="dark" data-slug-hash="oWqvNa" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Bending points " class="codepen">See the Pen <a href="http://codepen.io/MadeByMike/pen/oWqvNa/">Bending points </a> by Mike (<a href="http://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="550" data-theme-id="dark" data-slug-hash="oWqvNa" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Bending points" class="codepen" data-preview="true">See the Pen <a href="http://codepen.io/MadeByMike/pen/oWqvNa/">Bending points </a> by Mike (<a href="http://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 To properly see this in action you might want to <a href="http://codepen.io/MadeByMike/pen/oWqvNa/?editors=0100" target="_blank">open it in a new window</a> so you can resize it.
@@ -54,7 +56,7 @@ The final optional parameter is the number of bending points. This defaults to 2
 
 Here are some examples to get you started:
 
-```scss
+```css
 .classic-linear {
   @include interpolate('font-size', 600px, 12px, 900px, 24px);
 }

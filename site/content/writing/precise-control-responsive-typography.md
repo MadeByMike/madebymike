@@ -1,10 +1,11 @@
----
-date: 2015-03-17T00:00:00Z
-extra_css:
-- responsive-type.css
-title: Precise control over responsive typography
 
----
++++
+title = "Precise control over responsive typography"
+description = "Creating fluid responsive typography with calc and viewport units."
+date = "2015-03-17T00:00:00Z"
+publish_date = "2015-03-17T00:00:00Z"
+extra_css = ["responsive-type.css"]
++++
 
 It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.
 

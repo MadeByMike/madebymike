@@ -1,10 +1,10 @@
----
-date: 2016-09-19T00:00:00Z
-extra_js: 
-- resize-image.js
-title: SVG has more potential
-
----
++++
+title = "SVG has more potential"
+description = "A bunch of interesting techniques for using SVG to make unique responsive components."
+date = "2016-09-19T00:00:00Z"
+publish_date = "2016-09-19T00:00:00Z"
+extra_js = ["resize-image.js"]
++++
 
 I think many of us are not using SVG to its full potential. I often see SVG used as an alternative image format or as a simple solution for icons, and whilst it's great for these things, it's also a lot more than that. SVG can solve problems that HTML and CSS alone can't. It has responsive properties that go beyond vector scaling, such as control over aspect ratio, embedded CSS and a unique co-ordinate system. I rarely see all the features of SVG used together to create unique responsive solutions.
 

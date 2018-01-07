@@ -1,0 +1,24 @@
+.footer-list {
+  list-style: none;
+  text-align: right;
+  font-size: .5rem;
+  margin: calc(var(--VERTICAL_SPACING) * 2) 20px var(--HORIZONTAL_SPACING) 0;
+}
+
+.footer-link:visited,
+.footer-link {
+  fill: $COLOR-TEXT-ALT;
+  color: transparent;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $COLOR-LINK;
+    fill: $COLOR-LINK;
+  }
+}
+
+.footer-logo { 
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
+}

@@ -1,14 +1,6 @@
-baseURL = "https://madebymike.com.au"
-disablePathToLower = true
-languageCode = "en-au"
-title = "MadebyMike"
-number_of_related_posts = 3.0
-pygmentsCodeFences = true
-pygmentsUseClasses = true
-
-[author]
-name = "Mike Riethmuller"
-email = "mike@madebymike.com.au"
-
-[permalinks]
-writing = "/writing/:filename/"
+baseurl = "/"
+languageCode = "en-us"
+title = "MadeByMike"
+pygmentsUseClasses=true
+pygmentsCodefencesGuessSyntax=true
+pygmentsCodefences=true

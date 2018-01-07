@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html>
-{{ partial "header.html" . }}
+{{ define "main"}}
 
-<body class="{{ $.Param " body_class " }}">
-  {{ partial "banner.html" . }}
-  <main>
-    <article>
-      <section>
-        <div class="container">
-          <h1 class="post-title">{{ .Page.Title }}</h1>
-          <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> {{ if .Params.update }}
-          <span class="post-update">{{ .Params.update }}</span> {{ end }} {{ .Content }}
+  <main class="post">
+
+    <article class="grid-left">
+        <div class="post-meta">
+          <h1 class="display-title display-title--large">{{ .Page.Title }}</h1>
+          <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
         </div>
-      </section>
+        {{ if .Params.update }}
+          <span class="post-update">{{ .Params.update }}</span> 
+        {{ end }} 
+        {{ .Content }}
     </article>
 
     <section>
-      <div class="container">
-        {{ partial "related-content.html" . }}
-      </div>
+      {{ partial "related-content" . }}
     </section>
-  </main>
-  {{ partial "footer.html" . }}
-</body>
 
-</html>
+  </main>
+
+  {{ end }} 

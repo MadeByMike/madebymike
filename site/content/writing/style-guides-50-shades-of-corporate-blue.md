@@ -1,8 +1,9 @@
----
-date: 2016-02-26T00:00:00Z
-title: 'Style Guides: 50 shades of corporate blue'
-
----
++++
+title = "Style Guides: 50 shades of corporate blue"
+description = "Sharing some experiences trying to get a design system\\living style guide working in a corprate environment."
+date = "2016-02-26T00:00:00Z"
+publish_date = "2016-02-26T00:00:00Z"
++++
 
 I recently completed my third attempt at implementing a style guide within my organisation. So far this is the first attempt that looks to be maintainable and has some traction outside the development team. I want to share with you how we got there and what I learnt from 2 failed attempts.
 

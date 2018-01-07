@@ -1,10 +1,10 @@
----
-date: 2014-09-10T00:00:00Z
-extra_css:
-- understanding-flex.css
-title: Understanding flexbox
-
----
++++
+title = "Understanding flexbox"
+description = "A detailed exploration of how the space and size of items is determined when using flexbox."
+date = "2014-09-10T00:00:00Z"
+publish_date = "2014-09-10T00:00:00Z"
+extra_css = ["understanding-flex.css"]
++++
 
 Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
 

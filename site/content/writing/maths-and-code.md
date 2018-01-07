@@ -1,8 +1,10 @@
----
-date: 2016-10-16T00:00:00Z
-title: On maths and coding
++++
+title = "On maths and coding"
+description = "A more personal article on being a developer and having only avarage mathamatical ability."
+date = "2016-10-16T00:00:00Z"
+publish_date = "2016-10-16T00:00:00Z"
++++
 
----
 
 When I was at school I had a strong interest in learning to code, but I was terrible at maths. My teachers and parents told me I would need strong mathematical abilities to be a good developer and although they didn't mean it to be, I found this discouraging. I really wasn't good with numbers and I couldn't see this changing.
 
@@ -26,7 +28,7 @@ But whilst I understood the results of what I was doing, initially I didn't deep
 
 This opened my eyes to a lot of maths I already knew. I found I already had a reasonable understanding of how colour transitions worked in different 2D and 3D colour spaces. I was already using triangles and circles to calculate distance like Pythagoras himself. Occasionally, I was even playing with vectors, calculus and trigonometry in HTML canvas to create complex physics based animation.
 
-Experimenting with these things does not require any mental arithmetic. With code it's easy for me to visualise mathematical concepts and for once I can begin to understand how and why maths work. This was completely different from my attempts at school to understand a black-box with several disconnected, one dimensional experiments.
+Experimenting with these things does not require any mental arithmetic. With code it's easy for me to visualise mathematical concepts and for once I can begin to understand how and why maths works. This was completely different from my attempts at school to understand a black-box with several disconnected, one dimensional experiments.
 
 Suddenly I was not hating maths any more. I looked at the things I was doing with my eyes more open. The more I learnt, the more I discovered mathamatical rules underpin a lot of my work. Daniel Shiffman's book [The Nature of Code](http://natureofcode.com/) and [his videos](https://www.youtube.com/user/shiffman) showed me even more examples and formulas I could use. I found new practical applications for mathematical concepts everywhere.
 

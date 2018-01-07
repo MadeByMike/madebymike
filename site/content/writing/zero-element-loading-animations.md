@@ -1,10 +1,10 @@
----
-date: 2015-01-05T00:00:00Z
-extra_css:
-- zero-element.css
-title: Zero element loading animations
-
----
++++
+title = "Zero element loading animations"
+description = "A technique for loading animations that can be applied to existing elements."
+date = "2015-01-05T00:00:00Z"
+publish_date = "2015-01-05T00:00:00Z"
+extra_css = ["zero-element.css"]
++++
 
 With a "zero element" loading animation, a loading state can be applied to any element with just the addition of a class name.
 
