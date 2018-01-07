@@ -11,27 +11,26 @@ collections: # A list of collections the CMS should be able to edit
     folder: "site/content/writing" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "List", name: "list", widget: "list", required: false}
-      - {label: "Extra CSS", name: "extra_css", widget: "list", required: false}
-      - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-      
+    - {label: Title, name: title, widget: string}
+    - {label: Date, name: date, widget: datetime}
+    - {label: Description, name: description, widget: markdown}
+    - {label: 'Extra CSS', name: extra_css, widget: list, required: false}
+    - {label: 'Extra JS', name: extra_js, widget: list, required: false}
+    - {label: 'Card size', name: card_size, widget: select, options: [{label: Tall, value: tall}, {label: Wide, value: wide}, {label: Large, value: large}, {label: Huge, value: huge}], required: false}
+    - {label: Image, name: image, widget: image, required: false}
+    - {label: Body, name: body, widget: markdown}
+
   - name: "lists" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "List" # Used in the UI, ie.: "New Post"
     folder: "site/content/lists" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "List", name: "list", widget: "list", required: false}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Extra CSS", name: "extra_css", widget: "list", required: false}
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
-      - {label: "Card Size", name: "card_size", widget: "select", options: [{label:"Tall", value:"tall"}, {label:"Wide", value: "wide"}, {label:"Large", value: "large"}, {label:"Huge", value: "huge"}], required: false }
+      - {label: "Card size", name: "card_size", widget: "select", options: [{label:"Tall", value:"tall"}, {label:"Wide", value: "wide"}, {label:"Large", value: "large"}, {label:"Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       
@@ -41,11 +40,11 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "List", name: "list", widget: "list", required: false}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Extra CSS", name: "extra_css", widget: "list", required: false}
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
+      - {label: "Card size", name: "card_size", widget: "select", options: [{label:"Tall", value:"tall"}, {label:"Wide", value: "wide"}, {label:"Large", value: "large"}, {label:"Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -55,9 +54,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "List", name: "list", widget: "list", required: false}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Extra CSS", name: "extra_css", widget: "list", required: false}
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Image", name: "image", widget: "image", required: false}
@@ -76,4 +74,3 @@ collections: # A list of collections the CMS should be able to edit
         name: "Hire Me"
         fields:
           - {label: Title, name: title, widget: string}
-      
