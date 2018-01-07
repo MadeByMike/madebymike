@@ -1,4 +1,3 @@
-
 +++
 title = "Precise control over responsive typography"
 description = "Creating fluid responsive typography with calc and viewport units."

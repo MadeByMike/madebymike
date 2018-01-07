@@ -1,4 +1,3 @@
-
 +++
 title = "Resizing and Cropping Images with Canvas"
 description = "A tutorial for Codrops on using HTML5 canvas to crop and resize images on the client side."

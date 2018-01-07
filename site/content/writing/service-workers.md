@@ -1,4 +1,3 @@
-
 +++
 title = "Offline content with service workers"
 description = "My experience implementing service workers to cache and serve content offline."
