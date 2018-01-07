@@ -37,7 +37,7 @@ $initialize-html5-boilerplate-overwrites: true !default; // toggle HTML5 Boilerp
 // Optional values
 //
 $initialize-color: $COLOR-TEXT !default;
-$initialize-heading-color: $COLOR-TEXT !default;
+$initialize-heading-color: null !default;
 $initialize-heading-margins: 0 !default;
 $initialize-heading-font-family: null !default;
 $initialize-block-margins: null !default;

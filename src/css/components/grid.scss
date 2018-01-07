@@ -18,7 +18,7 @@ $main-grid-main-column: 65ch;
 .grid-right {
 	display: grid;
 	grid-row-gap: 1em;
-	margin: var(--VERTICAL_SPACING) 0;
+	padding: var(--VERTICAL_SPACING) 0;
 }
 
 .grid-left {

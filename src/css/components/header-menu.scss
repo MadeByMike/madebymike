@@ -8,7 +8,7 @@ $link-spacing: 0.5em;
 
 .header-menu a:focus,
 .header-menu a:hover {
-  --header-menu-link-color: $COLOR-LINK;
+  --header-menu-link-color: $COLOR-LINK-ALT;
 }
 
 @media screen and (min-width: $BREAKPOINT) {
@@ -18,10 +18,8 @@ $link-spacing: 0.5em;
   }
 }
 
-.header-menu {
-  
+.header-menu {  
   @include interpolate(font-size, 14.29rem, 50rem, 0.85rem, 1rem);
-  
   display: flex;
   width: 100%;
   grid-column: full-width;

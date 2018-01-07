@@ -18,7 +18,7 @@
   line-height: 1.1;
   margin-bottom: .255em;
   text-align: var(--display-title-align);
-  padding: 0 0 var(--display-title-padding-bottom) 0;
+  padding-bottom: var(--display-title-padding-bottom);
 } 
 
 .display-title--large { 

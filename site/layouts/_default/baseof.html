@@ -2,8 +2,11 @@
 <html lang="en">
 {{ partial "header.html" . }}
 <body class="{{ $.Param "body_class" }}{{ if .IsHome }}is-home{{end}}">
+  
+<div class="page-banner">
   {{ partial "banner.html" . }} 
-
+  {{ block "page-banner" . }}{{ end }}
+</div>
   {{ block "main" . }}{{ end }} 
 
   {{ partial "footer.html" . }}

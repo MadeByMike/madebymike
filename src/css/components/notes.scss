@@ -18,7 +18,7 @@ $note-color-schemes: (
   purple: (background:hsl(273, 100%, 95%), title:hsl(273, 100%, 85%), meta:hsl(273, 100%, 90%) ),
   pink: (background:hsl(335, 100%, 95%), title:hsl(335, 100%, 88%), meta:hsl(335, 100%, 90%) ),
   // Grey and white break color rules
-  grey: (background:hsl(0, 0%, 98%), title:hsl(216, 100%, 90%), meta:hsl(0, 0%, 90%) ),
+  grey: (background:hsl(0, 0%, 98%), title:hsl(270, 100%, 95%), meta:hsl(270, 100%, 95%) ),
   white: (background:hsl(0, 100%, 100%), title:hsl(0, 0%, 90%), meta:hsl(0, 0%, 90%) )
 );
 
@@ -231,7 +231,7 @@ $note-color-schemes: (
 .note-meta-logo {
   width: 25px;
   height: 25px;
-  fill: rgba(0,0,0,0.75);
+  fill: currentColor;
   background: transparent;
   position: absolute;
   left: 0;
@@ -254,15 +254,16 @@ $note-color-schemes: (
       background: rgba(map-get($colors, "meta"), 0.25);
     }
   
-    .note-link-overlay:focus {
+    .note-link-overlay:focus:not(:hover) {
       background: map-get($colors, "title");
     } 
 
     &.note-block-link:hover,
     &.note-block-link:focus {
       transform: scale(1.015);
+      background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
       fill: map-get($colors, "title");
-      background: map-get($colors, "title");
+      color: white;
       box-shadow: 0 5px 5px rgba(0,0,0,0.25); 
       .note-meta-date,
       .note-meta-tags,

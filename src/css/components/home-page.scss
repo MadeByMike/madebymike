@@ -1,5 +1,9 @@
 
 html {
-  // background: url('/img/blizzard.png');
   color: $COLOR-TEXT;
+}
+
+.page-banner {
+  background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
+  color: #fff;
 }
