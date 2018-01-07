@@ -17,18 +17,18 @@
 <main>
  
   <section class="notes-grid" id="notes">
-      <section class="not-adds">
+      <section class="not-ads">
           <div class="note note-white">
-            <h3 class="note-title">Not Adds</h3>
+            <h3 class="note-title">Not Ads</h3>
             <p>A bunch of things I didn't make that I want to share or promote for no financial benefit.</p>
-            <div class="not-adds-grid"> 
-            {{ range first 3 (where .Pages ".Type" "not-adds") }}
+            <div class="not-ads-grid"> 
+            {{ range first 3 (where .Pages ".Type" "not-ads") }}
               {{ partial "note" (dict "context" . "color" "white" "meta" false) }} 
             {{ end }} 
           </div>
         </div>
       </section>
-      {{ range first 12 (where .Pages ".Type" "!=" "not-adds") }} 
+      {{ range first 12 (where .Pages ".Type" "!=" "not-ads") }} 
         {{ partial "note" (dict "context" . "color" "grey" "meta" true) }}
       {{ end }}
   </section>
