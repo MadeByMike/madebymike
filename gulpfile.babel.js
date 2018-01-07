@@ -16,7 +16,6 @@ import cssnano from "cssnano";
 import debug from 'gulp-debug';
 
 const browserSync = BrowserSync.create();
-const hugoBin = `./bin/hugo.${process.platform === "win32" ? "exe" : process.platform}`;
 const defaultArgs = ["-d", "../dist", "-s", "site"];
 
 if (process.env.DEBUG) {
@@ -105,7 +104,7 @@ gulp.task("server", ["hugo", "css", "css-no-vars", "cms-assets", "js", "svg"], (
 function buildSite(cb, options) {
   const args = options ? defaultArgs.concat(options) : defaultArgs;
 
-  return cp.spawn(hugoBin, args, {stdio: "inherit"}).on("close", (code) => {
+  return cp.spawn(`hugo`, args, {stdio: "inherit"}).on("close", (code) => {
     if (code === 0) {
       browserSync.reload("notify:false");
       cb();
