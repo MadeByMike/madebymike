@@ -153,7 +153,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 I use a slightly modified version to generate the examples on this page.
 
-### Example
+### Example:
 
 ```scss
 .fluid-type {
