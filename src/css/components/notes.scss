@@ -119,7 +119,7 @@ $note-color-schemes: (
   margin: $UI_SPACING_UNIT;
   color: $COLOR-TEXT;
   text-decoration: none;
-  transition: all 250ms ease-in;
+  transition: background 500ms ease-in;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);
   grid-column: span var(--note-col-span, 1);
   grid-row: span var(--note-row-span, 1);
