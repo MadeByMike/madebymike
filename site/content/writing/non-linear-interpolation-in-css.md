@@ -56,7 +56,7 @@ The final optional parameter is the number of bending points. This defaults to 2
 
 Here are some examples to get you started:
 
-```css
+```scss
 .classic-linear {
   @include interpolate('font-size', 600px, 12px, 900px, 24px);
 }

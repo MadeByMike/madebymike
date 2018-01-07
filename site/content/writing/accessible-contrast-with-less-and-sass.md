@@ -79,7 +79,7 @@ You can produce a range of [mathamatically determined color schemes](http://code
 
 Drop the following functions into your Sass stylesheets.
 
-```css
+```scss
   @function luma($color){  
     // Thanks voxpelli for a very concise implementation of luminance measure in sass
     // Adapted from: https://gist.github.com/voxpelli/6304812
@@ -129,7 +129,7 @@ Drop the following functions into your Sass stylesheets.
 
 Call the `text-contrast()` function and pass it the background color:
 
-```css
+```scss
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color);
@@ -137,7 +137,7 @@ Call the `text-contrast()` function and pass it the background color:
 ```
 Optionally, pass a second parameter to control the text color:
 
-```css
+```scss
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color, DarkSalmon);

@@ -298,7 +298,7 @@ Everything inside that container will inherit the same border. Pretty soon you w
 
 Do CSS variables replace preprocessors? No. Using preprocessors still makes sense. It's a good idea to keep all your static variables in Sass (or whatever preprocessor you use).
 
-```css
+```scss
 // Static variables:
 $breakpoint-small: 600px;
 $theme-color: rebeccapurple;
