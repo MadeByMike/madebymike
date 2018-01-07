@@ -1,0 +1,106 @@
+
+
+.icon-tomato,
+.icon-left-tomato:before,
+.icon-right-tomato:after{
+	background-image:  url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/131442/tomato.svg);
+}
+
+.icon, 
+[class*="icon-right-"]:after,
+[class*="icon-left-"]:before{
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 32px;
+	height: 32px;
+}
+
+[class*="icon-left-"]{
+	position: relative;
+	padding-left: 52px !important;
+}
+
+[class*="icon-right-"]{
+	position: relative;
+	padding-right: 52px !important;
+}
+
+[class*="icon-left-"]:before,
+[class*="icon-right-"]:after{
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+[class*="icon-left-"]:before{
+	left: 10px;
+}
+
+[class*="icon-right-"]:after{
+	right: 10px;
+}
+
+
+.icon.icon-small,
+.icon-small:before,
+.icon-small:after{
+	width: 16px;
+	height: 16px;
+}
+
+.icon-small[class*="icon-left-"]{ padding-left: 27px !important; }
+.icon-small[class*="icon-left-"]:before{ left: 5px; }
+.icon-small[class*="icon-right-"]{ padding-right: 27px !important; }
+.icon-small[class*="icon-right-"]:after{ right: 5px; }
+
+.icon.icon-large,
+.icon-large:before,
+.icon-large:after{
+	width: 64px;
+	height: 64px;
+}
+
+.icon-large[class*="icon-left-"]{ padding-left: 94px !important; }
+.icon-large[class*="icon-left-"]:before{ left: 15px; }
+.icon-large[class*="icon-right-"]{ padding-right: 94px !important; }
+.icon-large[class*="icon-right-"]:after{ right: 15px; }
+
+@media screen and (min-width: 600px){
+	.robust-icon-container{
+		padding: 0 8rem;
+	}
+}
+.robust-icon-examples{
+	display: block;
+	background: #EFEAEF;
+	border: solid 5px #8E26AB;
+	padding: .5em 1em;
+	margin: 1em 0;
+	color: #000;
+	text-decoration: none;
+}
+
+.robust-icon-examples:hover h2,
+.robust-icon-examples:active h2,
+.robust-icon-examples:focus h2,
+.robust-icon-examples:hover,
+.robust-icon-examples:active,
+.robust-icon-examples:focus{
+	text-decoration: none;
+	color: tomato;
+	border-color: tomato;
+	transition: color .5s;
+	transition: border-color .5s;
+}
+
+.robust-icon-examples button{
+	border: solid 1px #8E26AB;
+	border-radius: 5px;
+	background: #FFF;
+	padding: 10px;
+}
+.robust-icon-examples button:hover,
+.robust-icon-examples button:active,
+.robust-icon-examples button:focus{ background: #f9f4fa;}
