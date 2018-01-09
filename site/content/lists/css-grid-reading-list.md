@@ -1,5 +1,5 @@
 ---
-title: CSS Grid Reading List
+title: CSS Grid reading list
 date: 2018-01-09T00:08:39.245Z
 description: >-
   * [CSS Grid Gotchas And Stumbling
