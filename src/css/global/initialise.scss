@@ -23,7 +23,7 @@
 $initialize-box-sizing: border-box !default;
 $initialize-font-family: 'Montserrat', sans-serif !default;
 
-$initialize-font-size: 1.45em !default;
+$initialize-font-size: 1.2em !default;
  
 
 //
@@ -84,9 +84,8 @@ html {
  * Remove the margin in all browsers
  */
 
-body {  
-  max-width: 2000px;
-  margin: 0 0 0 auto;
+body {
+  margin: 0 ;
 }
 
 /**

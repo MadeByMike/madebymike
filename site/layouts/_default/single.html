@@ -1,7 +1,13 @@
 {{ define "page-banner" }}
+<section class="grid-left">
+  <div class="post-meta">
+    <h1 class="display-title display-title--large">{{ .Page.Title }}</h1>
+    <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> 
+  </div>
+</section>
 {{ end }}
 {{ define "main"}}
-<main>
+<main class="grid-left">
   {{ .Content }}
 </main>
 {{end}}

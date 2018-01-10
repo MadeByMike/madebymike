@@ -1,3 +1,15 @@
+.footer-link,
+.footer-link:visited {
+  --footer-link-fill: $COLOR-TEXT-ALT;
+  --footer-link-color: transparent;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  --footer-link-color: $COLOR-LINK;
+  --footer-link-fill: $COLOR-LINK;
+}
+
 .footer-list {
   list-style: none;
   text-align: right;
@@ -7,14 +19,9 @@
 
 .footer-link:visited,
 .footer-link {
-  fill: $COLOR-TEXT-ALT;
-  color: transparent;
+  fill: var(--footer-link-fill);
+  color: var(--footer-link-color);
   text-decoration: none;
-  &:hover,
-  &:focus {
-    color: $COLOR-LINK;
-    fill: $COLOR-LINK;
-  }
 }
 
 .footer-logo { 

@@ -19,6 +19,8 @@ collections: # A list of collections the CMS should be able to edit
     - {label: 'Extra JS', name: extra_js, widget: list, required: false}
     - {label: 'Card size', name: card_size, widget: select, options: [{label: Tall, value: tall}, {label: Wide, value: wide}, {label: Large, value: large}, {label: Huge, value: huge}], required: false}
     - {label: Image, name: image, widget: image, required: false}
+    - {label: "No link", name: "no_link", widget: "boolean", default: false}
+    - {label: "External Link", name: "external_link", widget: "string"}
     - {label: Body, name: body, widget: markdown}
 
   - name: "lists" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -33,6 +35,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Card size", name: "card_size", widget: "select", options: [{label: "Tall", value: "tall"}, {label: "Wide", value: "wide"}, {label: "Large", value: "large"}, {label: "Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "No link", name: "no_link", widget: "boolean", default: true}
+      - {label: "External Link", name: "external_link", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
       
   - name: "pens" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -47,6 +51,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Card size", name: "card_size", widget: "select", options: [{label:"Tall", value:"tall"}, {label:"Wide", value: "wide"}, {label:"Large", value: "large"}, {label:"Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "No link", name: "no_link", widget: "boolean", default: false}
+      - {label: "External Link", name: "external_link", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "not-ads" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -60,6 +66,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra CSS", name: "extra_css", widget: "list", required: false}
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "No link", name: "no_link", widget: "boolean", default: false}
+      - {label: "External Link", name: "external_link", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "pages"

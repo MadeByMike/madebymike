@@ -11,7 +11,7 @@ $note-color-schemes: (
   gold: (background:hsl(48, 100%, 95%), title:hsl(48, 100%, 85%), meta:hsl(48, 100%, 90%) ),
   yellow: (background:hsl(60, 100%, 95%), title:hsl(60, 100%, 85%), meta:hsl(60, 100%, 90%) ),
   lime: (background:hsl(69, 100%, 95%), title:hsl(69, 100%, 85%), meta:hsl(69, 100%, 90%) ),
-  green: (background:hsl(92, 100%, 95%), title:hsl(92, 78%, 80%), meta:hsl(92, 78%, 90%) ),
+  green: (backgrBound:hsl(92, 100%, 95%), title:hsl(92, 78%, 80%), meta:hsl(92, 78%, 90%) ),
   cyan: (background:hsl(172, 100%, 95%), title:hsl(172, 76%, 80%), meta:hsl(172, 76%, 90%) ),
   blue: (background:hsl(201, 100%, 95%), title:hsl(201, 100%, 85%), meta:hsl(201, 100%, 90%) ),
   skyblue: (background:hsl(220, 100%, 95%), title:hsl(220, 100%, 85%), meta:hsl(220, 100%, 90%) ),
@@ -178,18 +178,22 @@ $note-color-schemes: (
 
   li a {
     position: relative;
+    display: flex;
     padding-left: 30px;
     fill: inherit;
+    margin-bottom: 0.5em;
     
     &:after {
       content: '';
       position: absolute;
       left: 10px;
-      top: 50%;
+      top: .75em;
       transform: translate(0, -35%);
       display: block;
       width: 12px;
       height: 12px;
+      padding-right: 25px - 12px;
+      padding-bottom: 25px - 12px;
       border: solid 1px #555;
       border-radius: 2px;
     }
@@ -199,7 +203,7 @@ $note-color-schemes: (
       height: 25px;
       position: absolute;
       left: 9px;
-      bottom: 3px;
+      top: .0;
     }
 
     &:visited {
@@ -264,7 +268,21 @@ $note-color-schemes: (
       background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
       fill: map-get($colors, "title");
       color: white;
-      box-shadow: 0 5px 5px rgba(0,0,0,0.25); 
+      box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+      
+      a {
+        color: lighten($COLOR-LINK, 0.5)
+      }
+      
+      a:visited {
+        color: $COLOR-TEXT-ALT; 
+      }
+
+      a:hover,
+      a:focus { 
+        color: $COLOR-LINK-ALT; 
+      }
+      
       .note-meta-date,
       .note-meta-tags,
       .note-title {

@@ -1,0 +1,37 @@
+.page-banner {
+  a {
+    --page-banner-link-color: lighten($COLOR-LINK, 15%);
+  }
+
+  a:hover,
+  a:focus { 
+    --page-banner-link-color: $COLOR-LINK-ALT; 
+  }  
+
+  a:visited {
+    --page-banner-link-color: $COLOR-TEXT-ALT; 
+  }
+
+}
+
+////////////////////////////////////////////////////
+
+html {
+  color: $COLOR-TEXT;
+}
+
+.page-banner {
+  background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
+  color: #fff; 
+}
+
+.page-banner a {
+  color: var(--page-banner-link-color);
+}
+
+.grid-right,
+.grid-left,
+main {
+  max-width: 2000px;
+  margin: 0 0 0 auto;
+}
