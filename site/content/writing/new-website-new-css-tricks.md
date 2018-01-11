@@ -56,9 +56,9 @@ The first item in the grid is now the left column. This special item is both a g
 
 By default the left column with take up a single grid cell in the grid. Just like any other item it spans a single row and other items in the gird can be placed beside and beneath this item.
 
-With the tall and large cards we created earlier, we already know how to make grid items span multiple columns and rows. We could make the left column span the full height using: \`grid-row: span 5;\`, but this grid is responsive. When the number of columns is reduced, the number of rows increases. 
+With the tall and large cards we created earlier, we already know how to make grid items span multiple columns and rows. We could make the left column span the full height using: `grid-row: span 5;`, but this grid is responsive. When the number of columns is reduced, the number of rows increases. 
 
-This is when I thought what if I make the item span 999 rows? This ment 999 rows were added to the grid. Rows without content have a height of 0, but the \`grid-gap\` meant I had 9990 pixels of whitespace beneath the grid. I like a little whitespace but not that much.
+This is when I thought what if I make the item span 999 rows? This ment 999 rows were added to the grid. Rows without content have a height of 0, but the `grid-gap` meant I had 9990 pixels of whitespace beneath the grid. I like a little whitespace but not that much.
 
 Luckily margins collapse so I swapped the `grid-gap` for margins on individual grid-items. I did the old trick of adding a negative left and right margin on the grid container, equal to the margin on the grid-items. This means everything in the grid will align with other content on the page. The final result is something like this:
 
@@ -93,7 +93,7 @@ You might have noticed that some of the list I've publised have checkboxes next 
 
 ![checklists](/img/check-list.png)
 
-This is a niffty little design feature that I am very happy with. It's just an elaborate visited \`:visited\` style, but the techniqe is far from simple. 
+This is a niffty little design feature that I am very happy with. It's just an elaborate visited `:visited` style, but the techniqe is far from simple. 
 
 My idea was to create a checkbox style with CSS, then toggle the opacity of the tick depending on the :visited state. But visited styles are extreemly restrictive. MDN does a great job of [explaining these restrictions](https://developer.mozilla.org/en-US/docs/Web/CSS/%3Avisited). In short, you can only style color values, but this includes SVG `fill` a `stroke`.
 
