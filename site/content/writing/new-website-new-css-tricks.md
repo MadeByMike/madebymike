@@ -93,7 +93,7 @@ In the end I was very happy with this result. It's definitely a bit of a hack bu
 
 You might have noticed that some of the list I've publised have checkboxes next to them. They are not interactive but if you visit one of the pages on the list you will see the item become checked.
 
-![null](/img/check-list.png)
+![checklists](/img/check-list.png)
 
 This is a niffty little design feature that I am very happy with. It's just an elaborate visited \`:visited\` style, but the techniqe is far from simple. 
 
@@ -101,26 +101,67 @@ My idea was to create a checkbox style with CSS, then toggle the opacity of the 
 
 My idea became to use an inline SVG. Did you know that you can set a `fill` property on an HTML element and that an inline SVG can inherrit this color?
 
+````css
+        a {
+          fill: rgba(0,0,0,0);
+        }
+
+        a:visited {
+          fill: rgba(0,0,0,1);
+        }
+        ``
+
+        ```html
+        <li>
+          <a href="...">
+            <svg>
+              <use xlink:href="#icon-tick"></use>
+            </svg>
+            Check Link</a>
+        </li>
+````
+
+I knew I couldn't change the display or the opacity so my plan was to change the fill on the tick mark from `rgba(0,0,0,0)` to `rgba(0,0,0,1)`. This shoudl work because I am only changing the color right? I was wrong! CSS was not going take any of my nonsesne.
+
+Another interesting restriction on styling `:visited` links is that the color and fill will retain the origional alpha value. If you are interested in the reason behind these restrictions [read the MDN explaination](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector).
+
+Ok, plan C. What if I make the fill of the tick match the background color? The only problem with this approach was that the tick would be visible over the top of the box resulting in this: ![check-mark with broken border](/img/check.png) 
+
+That's far from the end of the world but the broken borders of the box were going to anoy me and the solution was simple. Since when it's visible the tick is almost the same color as the border, I can place the over the top of the tick symbol. Even though the border will be drawn over the top, it won't be visible.
+
+My final CSS looks something like this:
+
 ```css
-a {
-  fill: rgba(0,0,0,0);
+.check-list li a {
+  position: relative;
+  display: flex;
+  padding-left: 30px;
+  fill: #fff;
 }
-
-a:visited {
-  fill: rgba(0,0,0,1);
+/* Tick */
+.check-list li a svg {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 9px;
+  top: 0;
 }
-``
-
-```html
-<li>
-  <a href="...">
-    <svg>
-      <use xlink:href="#icon-tick"></use>
-    </svg>
-    Check Link</a>
-</li>
+/* Box */
+.check-list li a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 9px;
+  top: 0.55em;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin: 0;
+  border: solid 1px #555;
+  border-radius: 2px;
+}
+.check-list li a:visited {
+  color: #666;
+  fill: #222;
+}
 ```
-
-for the tick mark and then change the color from `rgba(0,0,0,0)` to `rgba(0,0,0,1)`
-
-Another interesting restriction is that the color will retain the origional 
