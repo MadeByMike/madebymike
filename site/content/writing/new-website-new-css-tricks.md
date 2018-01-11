@@ -82,12 +82,45 @@ Luckily margins collapse so I swapped the `grid-gap` for margins on individual g
 
 I added a few media queries and adjusted the `grid-template-columns` slighlty for differnt layout on smaller screens. I added `order: 0;` to the left column because this meant I could change the DOM order and it underneath the main content for mobile. This also makes sense for screen-readers as it is secondary content.
 
-I've isolated a simple demo in a CodePen so you can experiment with or copy the technique. 
+I've isolated a simple demo in a CodePen so you can experiment with or copy this technique. 
 
 <p data-height="495" data-theme-id="light" data-slug-hash="ppwPBo" data-default-tab="html,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="A CSS grid trick" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/ppwPBo/">A CSS grid trick</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script> 
 
 In the end I was very happy with this result. It's definitely a bit of a hack but it's a nice one.
 
-## Visited links checklist
+## Visited links checklists
 
+You might have noticed that some of the list I've publised have checkboxes next to them. They are not interactive but if you visit one of the pages on the list you will see the item become checked.
+
+![null](/img/check-list.png)
+
+This is a niffty little design feature that I am very happy with. It's just an elaborate visited \`:visited\` style, but the techniqe is far from simple. 
+
+My idea was to create a checkbox style with CSS, then toggle the opacity of the tick depending on the :visited state. But visited styles are extreemly restrictive. MDN does a great job of [explaining these restrictions](https://developer.mozilla.org/en-US/docs/Web/CSS/%3Avisited). In short, you can only style color values, but this includes SVG `fill` a `stroke`.
+
+My idea became to use an inline SVG. Did you know that you can set a `fill` property on an HTML element and that an inline SVG can inherrit this color?
+
+```css
+a {
+  fill: rgba(0,0,0,0);
+}
+
+a:visited {
+  fill: rgba(0,0,0,1);
+}
+``
+
+```html
+<li>
+  <a href="...">
+    <svg>
+      <use xlink:href="#icon-tick"></use>
+    </svg>
+    Check Link</a>
+</li>
+```
+
+for the tick mark and then change the color from `rgba(0,0,0,0)` to `rgba(0,0,0,1)`
+
+Another interesting restriction is that the color will retain the origional 
