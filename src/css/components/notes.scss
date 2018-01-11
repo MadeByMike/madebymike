@@ -62,6 +62,7 @@ $note-color-schemes: (
 }
 
 @media screen and (min-width: $breakpoint-large) {
+  
   :root {
     --not-ads-grid-row-start: 1;
     --not-ads-grid-row-end: 999;
@@ -71,6 +72,7 @@ $note-color-schemes: (
     --not-ads-grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
     --not-ads-grid-margin-top: 0;
   }
+
 }
 
 @media screen and (min-width: $breakpoint-huge) {
@@ -87,42 +89,40 @@ $note-color-schemes: (
 // Container Layout
 
 .notes-grid {
-	display: grid;
-	grid-template-columns: var(--grid-template-columns);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   padding: var(--VERTICAL_SPACING) calc( var(--HORIZONTAL_SPACING) - (#{$UI_SPACING_UNIT} * 2) );
-  grid-auto-flow: dense;
 }
 
 .not-ads-grid {
-  display: grid;
-	grid-template-columns: var(--not-ads-grid-template-columns);
-  align-items: start;
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 (-$UI_SPACING_UNIT);
 }
 
 .not-ads {
-	grid-row-start: var(--not-ads-grid-row-start);
-  grid-row-end: var(--not-ads-grid-row-end);
   order: var(--not-ads-grid-order);
-  grid-column: span var(--not-ads-grid-col-span);
   margin-top: calc(var(--not-ads-grid-margin-top) * 2);
-  max-width: 100%;  
+  max-width: 100%; 
+  flex-basis: 320px; 
+  flex-grow: 0;
+  flex-shrink:0;
 }
-
-// Component Layout
 
 .note {
   position: relative;
   font-size: .75rem;
+  flex-basis: 360px; 
+  flex-grow: 1;
+  flex-shrink:0;
   padding: $UI_SPACING_UNIT ($UI_SPACING_UNIT*2);
   margin: $UI_SPACING_UNIT;
   color: $COLOR-TEXT;
   text-decoration: none;
   transition: background 500ms ease-in;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);
-  grid-column: span var(--note-col-span, 1);
-  grid-row: span var(--note-row-span, 1);
   font-weight: 400;
 }
 
@@ -236,6 +236,33 @@ $note-color-schemes: (
   left: 0;
   bottom: 0;
 }
+
+@supports (display: grid) {
+  .notes-grid {
+    display: grid;
+    grid-template-columns: var(--grid-template-columns);
+    grid-auto-flow: dense;
+  }
+  .not-ads-grid {
+    display: grid;
+    grid-template-columns: var(--not-ads-grid-template-columns);
+    align-items: start;
+    justify-content: start;
+  }
+
+  .not-ads {
+    grid-row-start: var(--not-ads-grid-row-start);
+    grid-row-end: var(--not-ads-grid-row-end);
+    grid-column: span var(--not-ads-grid-col-span);
+  }
+  
+  .note {
+    grid-column: span var(--note-col-span, 1);
+    grid-row: span var(--note-row-span, 1);
+  }
+
+}
+
 
 // Theming
 

@@ -1,5 +1,5 @@
 ---
-title: Imposible \
+title: New website & some new CSS tricks
 date: 2018-01-10T00:33:36.494Z
 description: 'New design, content and some new CSS tricks on my new website.'
 ---
@@ -87,7 +87,7 @@ I've isolated a simple demo in a CodePen so you can experiment with or copy this
 
 In the end, I was very happy with this result. It's definitely a bit of a hack but it's a nice one.
 
-## Visited links checklists
+## Visited link checklists
 
 You might have noticed that some of the lists I've published have checkboxes next to them. They are not interactive but if you visit one of the pages on the list you will see the item become checked.
 
@@ -99,7 +99,7 @@ My idea was to create a checkbox style with CSS, then toggle the opacity of the 
 
 My idea became to use an inline SVG. Did you know that you can set a `fill` property on an HTML element and that an inline SVG can inherit this color?
 
-````css
+```css
 a {
   fill: rgba(0,0,0,0);
 }
@@ -107,7 +107,7 @@ a {
 a:visited {
   fill: rgba(0,0,0,1);
 }
-``
+```
 
 ```html
 <li>

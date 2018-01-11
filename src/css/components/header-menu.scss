@@ -49,3 +49,10 @@ $link-spacing: 0.5em;
   text-transform: uppercase;
   transition: all 0.1s ease-in-out;
 }
+
+@media screen and (min-width: $BREAKPOINT), screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+  /* Hate these but jsut this once */
+  .header-menu {
+    padding-right: 2em;
+  }  
+}
