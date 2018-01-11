@@ -1,5 +1,5 @@
 ---
-title: New website & new CSS tricks
+title: Imposible \
 date: 2018-01-10T00:33:36.494Z
 description: 'New design, content and some new CSS tricks on my new website.'
 ---
@@ -100,23 +100,23 @@ My idea was to create a checkbox style with CSS, then toggle the opacity of the 
 My idea became to use an inline SVG. Did you know that you can set a `fill` property on an HTML element and that an inline SVG can inherrit this color?
 
 ````css
-        a {
-          fill: rgba(0,0,0,0);
-        }
+a {
+  fill: rgba(0,0,0,0);
+}
 
-        a:visited {
-          fill: rgba(0,0,0,1);
-        }
-        ``
+a:visited {
+  fill: rgba(0,0,0,1);
+}
+``
 
-        ```html
-        <li>
-          <a href="...">
-            <svg>
-              <use xlink:href="#icon-tick"></use>
-            </svg>
-            Check Link</a>
-        </li>
+```html
+<li>
+  <a href="...">
+    <svg>
+      <use xlink:href="#icon-tick"></use>
+    </svg>
+    Check Link</a>
+</li>
 ````
 
 I knew I couldn't change the display or the opacity so my plan was to change the fill on the tick mark from `rgba(0,0,0,0)` to `rgba(0,0,0,1)`. This shoudl work because I am only changing the color right? I was wrong! CSS was not going take any of my nonsesne.
@@ -125,41 +125,11 @@ Another interesting restriction on styling `:visited` links is that the color an
 
 Ok, plan C. What if I make the fill of the tick match the background color? The only problem with this approach was that the tick would be visible over the top of the box resulting in this: ![check-mark with broken border](/img/check.png) 
 
-That's far from the end of the world but the broken borders of the box were going to anoy me and the solution was simple. Since when it's visible the tick is almost the same color as the border, I can place the over the top of the tick symbol. Even though the border will be drawn over the top, it won't be visible.
+That's far from the end of the world, but the broken borders on the box were going to anoy me and the solution was simple. When visible the tick is almost the same color as the border, so I can place the box over the top of the tick symbol. Even though the border will be drawn on the top, it won't be visible.
 
-My final CSS looks something like this:
+The final result looks something like this:
 
-```css
-.check-list li a {
-  position: relative;
-  display: flex;
-  padding-left: 30px;
-  fill: #fff;
-}
-/* Tick */
-.check-list li a svg {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  left: 9px;
-  top: 0;
-}
-/* Box */
-.check-list li a:after {
-  content: '';
-  position: absolute;
-  display: block;
-  left: 9px;
-  top: 0.55em;
-  width: 14px;
-  height: 14px;
-  padding: 0;
-  margin: 0;
-  border: solid 1px #555;
-  border-radius: 2px;
-}
-.check-list li a:visited {
-  color: #666;
-  fill: #222;
-}
-```
+<p data-height="279" data-theme-id="light" data-slug-hash="XVEoOX" data-default-tab="html,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="CSS :visited checklist" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/XVEoOX/">CSS :visited checklist</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+It take a little effort to get nice visited stlyes but I think it can be a helpful little bit of UX.
