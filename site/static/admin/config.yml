@@ -19,9 +19,9 @@ collections: # A list of collections the CMS should be able to edit
     - {label: 'Extra JS', name: extra_js, widget: list, required: false}
     - {label: 'Card size', name: card_size, widget: select, options: [{label: Tall, value: tall}, {label: Wide, value: wide}, {label: Large, value: large}, {label: Huge, value: huge}], required: false}
     - {label: Image, name: image, widget: image, required: false}
-    - {label: "No link", name: "no_link", widget: "boolean", default: false}
-    - {label: "External Link", name: "external_link", widget: "string"}
-    - {label: Body, name: body, widget: markdown}
+    - {label: "No link", name: "no_link", widget: "boolean", default: false, required: false}
+    - {label: "External Link", name: "external_link", widget: "string", required: false}
+    - {label: Body, name: body, widget: markdown, required: false}
 
   - name: "lists" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "List" # Used in the UI, ie.: "New Post"
@@ -35,9 +35,9 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Card size", name: "card_size", widget: "select", options: [{label: "Tall", value: "tall"}, {label: "Wide", value: "wide"}, {label: "Large", value: "large"}, {label: "Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "No link", name: "no_link", widget: "boolean", default: true}
-      - {label: "External Link", name: "external_link", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "No link", name: "no_link", widget: "boolean", default: true, required: false}
+      - {label: "External Link", name: "external_link", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
       
   - name: "pens" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Pen" # Used in the UI, ie.: "New Post"
@@ -51,9 +51,9 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Card size", name: "card_size", widget: "select", options: [{label:"Tall", value:"tall"}, {label:"Wide", value: "wide"}, {label:"Large", value: "large"}, {label:"Huge", value: "huge"}], required: false }
       - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "No link", name: "no_link", widget: "boolean", default: false}
-      - {label: "External Link", name: "external_link", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "No link", name: "no_link", widget: "boolean", default: false, required: false}
+      - {label: "External Link", name: "external_link", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
 
   - name: "not-ads" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Not Ad" # Used in the UI, ie.: "New Post"
@@ -67,8 +67,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Extra JS", name: "extra_js", widget: "list", required: false}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "No link", name: "no_link", widget: "boolean", default: false}
-      - {label: "External Link", name: "external_link", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "External Link", name: "external_link", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
 
   - name: "pages"
     label: "Pages"

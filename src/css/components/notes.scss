@@ -180,20 +180,18 @@ $note-color-schemes: (
     position: relative;
     display: flex;
     padding-left: 30px;
-    fill: inherit;
     margin-bottom: 0.5em;
     
     &:after {
       content: '';
       position: absolute;
-      left: 10px;
-      top: .75em;
-      transform: translate(0, -35%);
       display: block;
-      width: 12px;
-      height: 12px;
-      padding-right: 25px - 12px;
-      padding-bottom: 25px - 12px;
+      left: 9px;
+      top: 0.55em;
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      margin: 0;
       border: solid 1px #555;
       border-radius: 2px;
     }
@@ -203,15 +201,12 @@ $note-color-schemes: (
       height: 25px;
       position: absolute;
       left: 9px;
-      top: .0;
+      top: 0;
     }
 
     &:visited {
       color: $COLOR-TEXT-ALT;
       text-decoration: none;
-    }
-
-    &:visited .link-check {
       fill: $COLOR-TEXT;
     }
 
