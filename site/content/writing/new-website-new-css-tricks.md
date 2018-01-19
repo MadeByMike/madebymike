@@ -62,7 +62,7 @@ This is when I thought what if I make the item span 999 rows? This meant 999 row
 
 Luckily margins collapse so I swapped the `grid-gap` for margins on individual grid-items. I did the old trick of adding a negative left and right margin on the grid container, equal to the margin on the grid-items. This means everything in the grid will align with other content on the page. The final result is something like this:
 
-```
+```css
 .card-grid {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
@@ -117,7 +117,7 @@ a:visited {
     </svg>
     Check Link</a>
 </li>
-````
+```
 
 I knew I couldn't change the display or the opacity so my plan was to change the fill on the tick mark from `rgba(0,0,0,0)` to `rgba(0,0,0,1)`. This should work because I am only changing the color right? I was wrong! CSS was not going take any of my nonsense.
 

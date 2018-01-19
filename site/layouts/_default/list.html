@@ -1,10 +1,10 @@
 {{ define "page-banner" }}
-  <section class="grid-left">
+  <section class="grid-right">
     {{ .Content }} 
   </section>
 {{ end }}
 {{ define "main" }}
-<main class="grid-left">
+<main class="grid-right">
   {{ $paginator := .Paginate (where .Pages ".Params.no_link" "!=" true) 5  }}
   {{ range $paginator.Pages.ByPublishDate.Reverse }}
 

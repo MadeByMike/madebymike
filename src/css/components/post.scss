@@ -12,7 +12,8 @@
 //////////////////////////////////////////
 
 .post-list,
-.post {
+.post,
+.page, {
   @include interpolate(font-size, 14.29rem, 50rem, 0.65rem, 1rem);
   p {
     line-height: 1.5;
@@ -21,7 +22,7 @@
 
 .post-title {
   margin: 0;
-  font-family: $FONT-DISPLAY;
+  // font-family: $FONT-DISPLAY;
   line-height: 1.2;
 }
 .post-title a {

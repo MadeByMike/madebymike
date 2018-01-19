@@ -2,6 +2,7 @@
 title: CSS Grid reading list
 date: 2018-01-09T00:08:39.245Z
 no_link: true
+card_size: tall
 description: >-
   * [CSS Grid Gotchas And Stumbling
   Blocks](https://www.smashingmagazine.com/2017/09/css-grid-gotchas-stumbling-blocks/)

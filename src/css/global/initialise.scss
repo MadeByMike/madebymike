@@ -21,9 +21,9 @@
 // font-family: 'Montserrat', sans-serif;
 
 $initialize-box-sizing: border-box !default;
-$initialize-font-family: 'Montserrat', sans-serif !default;
+$initialize-font-family: $FONT-BODY,  cursive !default;
 
-$initialize-font-size: 1.2em !default;
+$initialize-font-size: 1.4rem !default;
  
 
 //
@@ -606,7 +606,8 @@ h1, h2, h3, h4, h5, h6 {
   @include optional-prop('color', $initialize-heading-color);
   @include optional-prop('margin', $initialize-heading-margins);
   @include optional-prop('font-family', $initialize-heading-font-family);
-  font-weight: normal;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
 /**

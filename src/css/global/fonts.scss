@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400');
-@import url('https://fonts.googleapis.com/css?family=Shrikhand');
-
-$FONT-DISPLAY: 'Shrikhand', sans-serif;
-
-// font-family: 'Baloo Thambi', cursive;
-// font-family: 'Shrikhand', cursive;
-
 @font-face {
 	font-family: system-ui;
 	font-style: normal;
@@ -61,3 +53,7 @@ $FONT-DISPLAY: 'Shrikhand', sans-serif;
 	font-weight: 700;
 	src: local(".SFNSText-BoldItalic"), local(".HelveticaNeueDeskInterface-BoldItalic"), local(".LucidaGrandeUI"), local("Segoe UI Bold Italic"), local("Ubuntu Bold Italic"), local("Roboto-BoldItalic"), local("DroidSans-Bold"), local("Tahoma Bold");
 }
+
+$FONT-DISPLAY: 'Nunito', system-ui, sans-serif;
+$FONT-HEADING: 'Nunito', system-ui, sans-serif;
+$FONT-BODY: 'Nunito', system-ui, sans-serif;

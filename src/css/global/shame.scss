@@ -1,6 +1,10 @@
+:root {
+  --page-banner-align: center;
+}
+
 .page-banner {
   a {
-    --page-banner-link-color: lighten($COLOR-LINK, 15%);
+    --page-banner-link-color: hsl(207, 70%, 60%);
   }
 
   a:hover,
@@ -14,6 +18,13 @@
 
 }
 
+@media screen and (min-width: $BREAKPOINT) {
+  :root {
+    --page-banner-align: right;
+  }
+   
+}
+
 ////////////////////////////////////////////////////
 
 html {
@@ -22,16 +33,37 @@ html {
 
 .page-banner {
   background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
-  color: #fff; 
+  color: #ffffff; 
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  text-align: var(--page-banner-align);
+  p {
+    color: #e9e9e9;
+  }
 }
 
+
+.is-home .page-banner p {
+  font-size: .8rem;
+}
 .page-banner a {
   color: var(--page-banner-link-color);
 }
+
 
 .grid-right,
 .grid-left,
 main {
   max-width: 2000px;
   margin: 0 0 0 auto;
+}
+::-moz-selection { background: rgb(255, 217, 0); }
+::selection { background: rgb(255, 217, 0); }
+
+.page-banner {
+  ::-moz-selection { background: #A00B75; }
+  ::selection { background: #A00B75; }
+}
+
+.inverted-bg {
+  background: #EAEAEA; color: #222;
 }

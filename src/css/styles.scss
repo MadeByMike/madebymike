@@ -1,11 +1,13 @@
 @import './global/vars';
-@import './global/system-font';
+@import './global/fonts';
 @import './global/initialise';
+@import './global/modular-scale';
 @import './global/tables';
 @import './global/link';
 @import './global/list';
 
 @import './global/shame';
+@import './components/hire-me';
 @import './components/post';
 @import './components/header-menu';
 @import './components/grid';

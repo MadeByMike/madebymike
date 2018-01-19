@@ -10,15 +10,15 @@ In the past I've used a brute force approach when dealing with small and well st
 
 Imagine we have a monthly darts competition and at the end of each month record the scores in a JSON file:
 
-{{< highlight javascript >}}
+```javascript
 data_jan = { "name": "mike", "score": 47 }
 data_feb = { "name": "mike", "score": 25 }
-{{< / highlight >}}
+```
 (I have no clue what a darts score should look like)
 
 At this level getting mike's total score is trivial `data_jan.score +  data_feb.score`. But if we add more players, more months or more data getting totals quickly becomes a bit more involved.
 
-{{< highlight javascript >}}
+```javascript
 data_jan = [
   { "name": "mike", "score": 47, "team": "A" },
   { "name": "jill", "score": 51, "team": "B" }
@@ -27,7 +27,8 @@ data_feb = [
   { "name": "mike", "score": 25, "team": "A" },
   { "name": "jill", "score": 41, "team": "B" }
 ]
-{{< / highlight >}}
+```
+
 Your first instinct might be to find all the players then for each player, loop over all the months, find score and add this to the current players total.
 
 With help from something like [jQuery](http://jquery.com/) or [Underscore](http://underscorejs.org/), enough nested loops and liberal use filter and map statements you might get a result.

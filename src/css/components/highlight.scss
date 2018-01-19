@@ -5,25 +5,28 @@ code {
   color: tomato;
   padding: 0 5px;
 }
+
 .highlight {
-  font-size: .65em;
+  font-size: .85em;
   background: $COLOR-TEXT;
   overflow-y: auto;
 }
+
+
 .highlight code {
   border: none;
   color: inherit;
 }
 
-.grid-left > .highlight,
-.grid-right > .highlight {
+.highlight,
+.highlight {
   margin: var(--HORIZONTAL_SPACING) 0;
-  grid-column: full-width !important;
+  // grid-column: full-width !important;
 }
 
 .grid-left > .cp_embed_wrapper,
 .grid-right > .cp_embed_wrapper {
-  padding: 0 3px;
+  padding: 0 30px;
   grid-column: full-width !important;
 }
 

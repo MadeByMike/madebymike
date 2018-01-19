@@ -24,8 +24,8 @@ if (process.env.DEBUG) {
 
 gulp.task("hugo", (cb) => buildSite(cb));
 gulp.task("hugo-preview", (cb) => buildSite(cb, ["--buildDrafts", "--buildFuture"]));
-gulp.task("build", ["css", "css-no-vars", "js", "cms-assets", "hugo"]);
-gulp.task("build-preview", ["css", "css-no-vars", "js", "cms-assets", "hugo-preview"]);
+gulp.task("build", ["css", "css-no-vars", "critical-css", "js", "cms-assets", "hugo"]);
+gulp.task("build-preview", ["css", "css-no-vars", "critical-css", "js", "cms-assets", "hugo-preview"]);
 
 gulp.task("css", () => (
   gulp.src("./src/css/*.scss")
@@ -51,6 +51,21 @@ gulp.task("css-no-vars", () => (
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
 ));
+
+gulp.task("critical-css", () => {
+
+  var css = gulp.src("./src/css/critical.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss([
+      autoprefixer(),
+      cssvariables(),
+      cssnano(),
+    ]))
+    .pipe(rename({extname:".css"}))
+    .pipe(gulp.dest("site/layouts/partials/"));
+    
+});
+
 
 
 gulp.task("cms-assets", () => (
@@ -81,7 +96,6 @@ gulp.task("svg", () => {
   function fileContents(filePath, file) {
     return file.contents.toString();
   }
-
 
   return gulp
     .src("./site/layouts/partials/svg.html")

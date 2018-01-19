@@ -13,7 +13,16 @@
 </section>
 {{ end }}
 {{ define "main"}}
-<main class="grid-right">
-  {{ .Content }}
-</main>
+<div class="grid-hire"> 
+  <main class="hire-main">
+    {{ .Content }}
+  </main>
+  <aside class="hire-aside">
+    <figure class="nice-pic">
+      <img alt="Mike" src="/img/mug/mike.jpg">
+    </figure>
+    Get in touch: 
+    <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>
+  </aside>
+</div>
 {{end}} 

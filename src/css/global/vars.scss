@@ -1,4 +1,5 @@
 $BREAKPOINT: 800px;
+$SUPERMEGAWIDE: 2000px;
 $UI_SPACING_UNIT: 10px;
 
 $COLOR-TEXT: #0f2439;
@@ -13,7 +14,7 @@ $COLOR-LINK-ALT: hotpink;
 
 @media screen and (min-width: 500px){
 	:root {
-		--HORIZONTAL_SPACING: 2rem;
+		--HORIZONTAL_SPACING: 1rem;
 		--VERTICAL_SPACING: 2rem; 
 	}	
 }
@@ -48,4 +49,12 @@ $COLOR-LINK-ALT: hotpink;
 		$b: abs($b);
 	}
 	@return calc(#{$a*100}vw #{$sign} #{$b});
+}
+
+@mixin text-decoration-underline {
+	background: linear-gradient(currentColor,currentColor);
+	background-size: 100% 1px; 
+	background-position: center bottom 20%;
+	background-origin: padding-box;
+	background-repeat: no-repeat;
 }

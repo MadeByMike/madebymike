@@ -1,5 +1,5 @@
 {{ define "page-banner" }}
-<section class="grid-left">
+<section class="grid-right">
   <div class="post-meta">
     <h1 class="display-title display-title--large">{{ .Page.Title }}</h1>
     <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> 
@@ -10,7 +10,7 @@
 {{ define "main" }}
   <main class="post">
 
-    <article class="grid-left">
+    <article class="grid-right">
         {{ if .Params.update }}
           <span class="post-update">{{ .Params.update }}</span> 
         {{ end }} 

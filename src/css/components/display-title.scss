@@ -1,8 +1,13 @@
 
 
 :root {
-  --display-title-align: center;
   --display-title-padding-bottom: var(--VERTICAL_SPACING);
+}
+
+
+body.is-home,
+body.post-list {  
+  --display-title-padding-bottom: 0;
 }
 
 @media screen and (min-width: $BREAKPOINT) {
@@ -15,9 +20,8 @@
 .display-title { 
   @include interpolate(font-size, 14.29rem, 50rem, 1.5rem, 2rem);
   font-family: $FONT-DISPLAY;
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: .255em;
-  text-align: var(--display-title-align);
   padding-bottom: var(--display-title-padding-bottom);
 } 
 
