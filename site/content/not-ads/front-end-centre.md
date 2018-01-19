@@ -7,6 +7,6 @@ description = '''
 
 An awesome bunch of videos by the equally awesome Glen Maddern.
 
-![Front End Center](https://frontend.center/front-end-center-logo.png)
+![Front End Center](/img/front-end-center-logo.png)
 '''
 +++

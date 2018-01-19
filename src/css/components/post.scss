@@ -3,9 +3,10 @@
 :root {
   --post-title-link-text-decoration: none;
 }
-.post-title a :visited,
-.post-title a :hover,
-.post-title a :focus{
+
+.post-title a:visited,
+.post-title a:hover,
+.post-title a:focus{
   --post-title-link-text-decoration: underline;
 }
 

@@ -10,7 +10,6 @@ description = '''
 - [Migrating from Jekyll+Github Pages to Hugo+Netlify](https://www.sarasoueidan.com/blog/jekyll-ghpages-to-hugo-netlify/)
 - [Designing Tables to be Read, Not Looked At](http://alistapart.com/article/web-typography-tables)
 - [Yes, That Web Project Should Be a PWA](http://alistapart.com/article/yes-that-web-project-should-be-a-pwa)
-- [React Performance Fixes on Airbnb Listing Pages](https://medium.com/airbnb-engineering/recent-web-performance-fixes-on-airbnb-listing-pages-6cd8d93df6f4)
 - [The Critical Request](https://medium.com/@benschwarz/the-critical-request-90bb47da5769)
 - [Most Hearted Pens of 2017](https://codepen.io/2017/popular/pens/#)
 - [A Unified Styling Language](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660)
