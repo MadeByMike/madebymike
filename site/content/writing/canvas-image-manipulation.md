@@ -1,8 +1,9 @@
----
-date: 2016-07-07T00:00:00Z
-title: Canvas image manipulation techniques
++++
+date = "2016-07-07T00:00:00Z"
+title = "Canvas image manipulation techniques"
+description = "Some image manipulation techniques for working with 2d canvas."
++++
 
----
 
 Canvas is a really interesting piece of our web development toolkit, but it is often overlooked or misunderstood. It is, as the name suggests, very much a blank canvas; not providing much in the way of prebaked solutions. It is up to us as developers to ensure what we make with canvas, is accessible and performant.
 

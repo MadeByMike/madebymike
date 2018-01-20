@@ -1,8 +1,9 @@
----
-date: 2014-05-25T00:00:00Z
-title: Thoughts on how we structure projects
-
----
++++
+title = "Thoughts on how we structure projects"
+description = "Me thinking about component based architecture for CSS in 2014, before I knew what to call it."
+date = "2014-05-25T00:00:00Z"
+publish_date = "2014-05-25T00:00:00Z"
++++
 
 Typically when we begin a new web project we start by creating a number of directories for CSS, JavaScript and other resources. This task hasn't changed much and it's a typical step for most developers. In many cases, this structure is a non-optional part of the workflow enforced by scaffolding tools like [yeoman](http://yeoman.io/), an MVC framework or a [boilerplate](http://html5boilerplate.com/).
 

@@ -39,7 +39,7 @@ Luminance is the perceived brightness of a color and as expected it was the best
 
 In general I'd say  these results are reasonably good. The correct color is usually picked and the text is generally readable. But closer scrutiny shows that they often don't meet [WCAG 2.0 requirements](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) for text contrast.
 
-<p data-height="266" data-theme-id="6646" data-slug-hash="jJFqI" data-default-tab="result" class="codepen">See the Pen <a href='http://codepen.io/MadeByMike/pen/jJFqI/'>Contrast black\white - luma (Less)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="266" data-theme-id="6646" data-slug-hash="jJFqI" data-default-tab="result" class="codepen" data-preview="true">See the Pen <a href='http://codepen.io/MadeByMike/pen/jJFqI/'>Contrast black\white - luma (Less)</a> by Mike (<a href='http://codepen.io/MadeByMike'>@MadeByMike</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
 This examples uses Less, is Sass more your thing? [Got you covered](http://codepen.io/MadeByMike/pen/FoBjq)!
@@ -79,7 +79,7 @@ You can produce a range of [mathamatically determined color schemes](http://code
 
 Drop the following functions into your Sass stylesheets.
 
-```css
+```scss
   @function luma($color){  
     // Thanks voxpelli for a very concise implementation of luminance measure in sass
     // Adapted from: https://gist.github.com/voxpelli/6304812
@@ -129,7 +129,7 @@ Drop the following functions into your Sass stylesheets.
 
 Call the `text-contrast()` function and pass it the background color:
 
-```css
+```scss
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color);
@@ -137,7 +137,7 @@ Call the `text-contrast()` function and pass it the background color:
 ```
 Optionally, pass a second parameter to control the text color:
 
-```css
+```scss
   .my-element {
 	background: $backgroud-color;
     color: text-contrast($backgroud-color, DarkSalmon);

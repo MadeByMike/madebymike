@@ -1,28 +1,22 @@
-<footer>
-  <section>
-    <div class="container">
-      <ul>
-        <li>
-          <a href="http://codepen.io/MadeByMike/">
-            <svg class="logo">
-              <use xlink:href="#codepen-logo"></use>
-            </svg>Me</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/MikeRiethmuller">
-            <svg class="logo">
-              <use xlink:href="#twitter-logo"></use>
-            </svg>Me</a>
-        </li>
-        <li>
-          <a href="https://github.com/MadeByMike">
-            <svg class="logo">
-              <use xlink:href="#github-logo"></use>
-            </svg>Me</a>
-        </li>
-      </ul>
-    </div>
-  </section>
+<footer class="grid-right">
+  <ul class="footer-list">
+    <li>
+      <a class="footer-link" href="http://codepen.io/MadeByMike/">
+        <svg class="footer-logo">
+          <use xlink:href="#icon-codepen"></use>
+        </svg></a>
+    </li> 
+    <li> 
+      <a class="footer-link" href="https://twitter.com/MikeRiethmuller">
+        <svg class="footer-logo">
+          <use xlink:href="#icon-twitter"></use>
+        </svg></a>
+    </li>
+    <li>
+      <a class="footer-link" href="https://github.com/MadeByMike">
+        <svg class="footer-logo">
+          <use xlink:href="#icon-github"></use>
+        </svg></a>
+    </li>
+  </ul>
 </footer>
-
-{{ partial "svg-sprite.html" . }} {{ partial "scripts.html" . }}

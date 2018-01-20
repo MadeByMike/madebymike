@@ -1,0 +1,30 @@
+
+
+:root {
+  --display-title-padding-bottom: var(--VERTICAL_SPACING);
+}
+
+
+body.is-home,
+body.post-list {  
+  --display-title-padding-bottom: 0;
+}
+
+@media screen and (min-width: $BREAKPOINT) {
+  :root {
+    --display-title-align: inherit;
+    --display-title-padding-bottom: 0;
+  }
+}
+
+.display-title { 
+  @include interpolate(font-size, 14.29rem, 50rem, 1.5rem, 2rem);
+  font-family: $FONT-DISPLAY;
+  line-height: 1.15;
+  margin-bottom: .255em;
+  padding-bottom: var(--display-title-padding-bottom);
+} 
+
+.display-title--large { 
+  @include interpolate(font-size, 14.29rem, 50rem, 2rem, 3.5rem);
+}

@@ -1,0 +1,61 @@
+$link-spacing: 0.5em;
+
+:root {
+  --header-menu-text-align: center;
+  --header-menu-flex-position: center;
+  --header-menu-link-color: inherit;
+  --header-menu-padding-right: 0;
+}
+
+.header-menu a:visited {
+  --header-menu-link-color: inherit;
+}
+
+.header-menu a:focus,
+.header-menu a:hover {
+  --header-menu-link-color: $COLOR-LINK-ALT;
+}
+
+
+@media screen and (min-width: $BREAKPOINT) {
+  :root {
+    --header-menu-text-align: right;
+    --header-menu-flex-position: flex-end;
+    --header-menu-padding-right: var(--HORIZONTAL_SPACING);
+  }
+}
+
+/////////////////////////////////////////////////////////////
+
+.header-menu {  
+  @include interpolate(font-size, 14.29rem, 50rem, 0.85rem, 1rem);
+  display: flex;
+  width: 100%;
+  grid-column: full-width;
+  padding: var(--HORIZONTAL_SPACING) var(--header-menu-padding-right);
+  margin: 0;
+  list-style-type: none;
+  justify-content: var(--header-menu-flex-position);
+  font-family: system-ui;
+  font-weight: 500;
+  text-align: var(--header-menu-text-align);
+}
+
+.header-menu li:not(:last-of-type) {
+  margin-right: calc(2vw + #{$link-spacing});
+}
+
+.header-menu a {
+  color: var(--header-menu-link-color); 
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out;
+}
+
+@media screen and (min-width: $BREAKPOINT), screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+  /* Hate these but just this once */
+  .header-menu {
+    padding-right: 2em;
+  }  
+}

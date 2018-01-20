@@ -1,8 +1,8 @@
----
-date: 2016-02-19T00:00:00Z
-title: A love letter to jQuery
-
----
++++
+date = 2016-02-19T00:00:00Z
+title = "A love letter to jQuery"
+description = "A very tounge-in-cheek article about why jQuery is good for the web."
++++
 
 jQuery I love you. We've been together for 10 years and that's more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.
 

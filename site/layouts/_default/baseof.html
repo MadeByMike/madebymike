@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 {{ partial "header.html" . }}
-
-<body class="{{ $.Param " body_class " }}">
-  {{ partial "banner.html" . }} {{ block "main" . }}{{ end }} {{ partial "footer.html" . }}
+<body class="{{ $.Param "body_class" }}{{ if .IsHome }}is-home{{end}}">
+  
+<div class="page-banner">
+  {{ partial "banner.html" . }} 
+  {{ block "page-banner" . }}{{ end }}
+</div>
+  {{ block "main" . }}{{ end }} 
+  {{ partial "footer.html" . }}
+  {{ partial "svg.html" . }} 
+  {{ partial "scripts.html" . }}
 </body>
 
 </html>

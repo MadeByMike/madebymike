@@ -1,0 +1,57 @@
+
+
+:root {
+  --post-title-link-text-decoration: none;
+}
+
+.post-title a:visited,
+.post-title a:hover,
+.post-title a:focus{
+  --post-title-link-text-decoration: underline;
+}
+
+//////////////////////////////////////////
+
+.post-list,
+.post,
+.page, {
+  @include interpolate(font-size, 14.29rem, 50rem, 0.65rem, 1rem);
+  p {
+    line-height: 1.5;
+  }
+}
+
+.post-title {
+  margin: 0;
+  // font-family: $FONT-DISPLAY;
+  line-height: 1.2;
+}
+.post-title a {
+  text-decoration: var(--post-title-link-text-decoration);
+  color: inherit;
+}
+
+.post { 
+   h2,h3,h4,h5,h6 { margin-top: 1em; }
+}
+
+.post-date {
+  font-size: .75em;
+  color: $COLOR-TEXT-ALT;
+}
+
+.post-summary {
+  text-align: left !important;
+}
+
+.post-continue-reading {
+  font-size: 0.85em
+}
+
+.post-list-item section {
+  margin-top: var(--VERTICAL_SPACING);
+}
+
+.pagination-item.older {
+  text-align: left !important;
+}

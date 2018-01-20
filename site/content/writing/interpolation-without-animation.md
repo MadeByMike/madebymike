@@ -1,12 +1,11 @@
----
-date: 2016-12-29T00:00:00Z
-title: Interpolation in CSS without animation
-
----
++++
+date = 2016-12-29T00:00:00Z
+title = "Interpolation in CSS without animation"
+description = "Ideas for a more general purpose interpolation function in CSS."
++++
 
 Interpolation is the estimation of a new value between two known values. This simple concept is vastly useful and it's commonly seen in animation on the web. With animation you declare the target properties and the end-state, and the browser will workout out the values in-between. Animation happens over time, but this is not the only dimension where interpolation can occur. In fact we interpolate values regularly in design, albeit manually, and particularly in responsive design. You may even do it unknowingly. Because of this, I think there is a need for a more native way of interpolating CSS values outside animation.
 
-<!--more-->
 If you are a web designer the chances are you frequently have two primary screen sizes in mind, a small screen and a large screen, or the device and the desktop. I know you probably think about more than just these two sizes, but these two sizes are especially important, they represent the upper and lower bounds of your design. When you make adjustments for screen sizes between these constraints, what you are doing is like interpolation.
 
 When adjusting properties such as font-size, font-weight, image width or grid dimensions at specific screen sizes between the upper and lower bounds, these values usually fall somewhere between the choices you've made for the largest small and smallest screen size. It would be unusual for the font to get larger, then smaller, then larger again as the viewport changes. Or to give another example, if a font varied between bold, normal, italic, then bold and italic. It's not unusual for these things to change from one state to another, but typically these changes are progressive, not back and forward.
@@ -21,7 +20,7 @@ I've been told that good design is rarely arbitrary. It serves a purpose. If the
 
 Let's illustrate this with an example, imagine the following CSS:
 
-```
+```css
 body {
   font-weight: bold;
 }
@@ -117,13 +116,13 @@ Let’s imagine we could access this function directly in CSS and pass it our ow
 
 First let’s imaging a syntax. We need an `initial-value`, a `target-value`, a `percentage-completion` and a `timing-function`. The timing function could be an optional value and default to a linear interpolation. That means it might look something like this:
 
-```
+```css
 interpolate(initial-value, target-value, percentage-completion, [timing-function])
 ```
 
 And could be used like this:
 
-```
+```css
 .thing {
   width: interpolate(0px, 500px, 0.5, linear);
 }
@@ -142,12 +141,13 @@ These are all things that in one context or another we can know and use in CSS; 
 
 A more hypothetical example in a native interpolation function might look something like this:
 
-```
---max-viewport: 500px;
---min-viewport: 1000px;
---range: var(--max-viewport) - var(--min-viewport);
---percentage-completion: calc( (100vw - var(--min-viewport)) / var(--range) );
-
+```css
+:root {
+  --max-viewport: 500px;
+  --min-viewport: 1000px;
+  --range: var(--max-viewport) - var(--min-viewport);
+  --percentage-completion: calc( (100vw - var(--min-viewport)) / var(--range) );
+}
 .thing {
   width: interpolate(0px, 500px, var(--percentage-completion), ease-in);
 }
@@ -157,9 +157,10 @@ Although the above calculation is quite simple, but it's more than a bit ugly. T
 
 A far neater solution would be a function to work out a percentage. This would reduce the above to something far more digestible like this:  
 
-```
---percentage-completion: percentage(500px, 1000px, 100vw);
-
+```css
+root: {
+  --percentage-completion: percentage(500px, 1000px, 100vw);
+}
 .thing {
   width: interpolate(0px, 500px, var(--percentage-completion), ease-in);
 }
@@ -169,9 +170,10 @@ A far neater solution would be a function to work out a percentage. This would r
 
 This doesn't need to work with just length values. I mentioned that CSS has a whole bunch of [animatable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties) that it already knows how to interpolate. It makes sense that any native function should work with these definitions. This means interpolating a color is also valid:
 
-```
---percentage-completion: percentage(500px, 1000px, 100vw);
-
+```css
+root: {
+  --percentage-completion: percentage(500px, 1000px, 100vw);
+}
 .thing {
   background-color: interpolate(red, greed, var(--percentage-completion));
 }
@@ -196,9 +198,10 @@ Container query units might look something like this:
 
 With units like these, we could do something like this:
 
-```
---percentage-completion: percentage(0px, 100cqw, 100eqw);
-
+```css
+root: {
+  --percentage-completion: percentage(0px, 100cqw, 100eqw);
+}
 .thing {
   background-color: interpolate(red, greed, var(--percentage-completion));
 }

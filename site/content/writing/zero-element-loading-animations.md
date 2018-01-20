@@ -1,10 +1,10 @@
----
-date: 2015-01-05T00:00:00Z
-extra_css:
-- zero-element.css
-title: Zero element loading animations
-
----
++++
+title = "Zero element loading animations"
+description = "A technique for loading animations that can be applied to existing elements."
+date = "2015-01-05T00:00:00Z"
+publish_date = "2015-01-05T00:00:00Z"
+extra_css = ["zero-element.css"]
++++
 
 With a "zero element" loading animation, a loading state can be applied to any element with just the addition of a class name.
 
@@ -40,7 +40,7 @@ I eventually settled on a solution that works almost everywhere. There are only 
 
 This works in every situation I’ve ever needed a loading animation but if we want to apply this technique to an element that requires absolute positioning or already has pseudo-elements, it’s usually possible to add the loading class to a container or child element.
 
-##How it works
+## How it works
 
 This technique works by using `:before` and `:after` pseudo-elements to create the different parts of the animation. CSS transformations and absolute positioning are applied and these properties are animated to create different types of loading indicators.
 
@@ -160,7 +160,7 @@ I’ve created some other examples such as a radial loading animation - I'll adm
 
 Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find this useful, if you have some more examples or if you have any questions. I'll be happy to add your examples here.
 
-##Examples
+## Examples
 
  - [Horizontal zero element loaders](http://codepen.io/MadeByMike/pen/LEbYgr?editors=110)
  - [Radial loaders zero element](http://codepen.io/MadeByMike/pen/bNeyEj?editors=110)

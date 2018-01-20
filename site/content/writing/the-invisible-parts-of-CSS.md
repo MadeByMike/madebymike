@@ -1,8 +1,10 @@
----
-date: 2017-04-03T00:00:00Z
-title: The invisible parts of CSS
++++
+title = "The invisible parts of CSS"
+description = "Explains the box model, cascade, formatting contexts, positioining, stacking and a lot more about how CSS works. A right of passage, I had to write my version."
+date = "2017-04-03T00:00:00Z"
+publish_date = "2017-04-03T00:00:00Z"
++++
 
----
 
 If you use CSS in your daily work, your primary goal is probably focused around making things 'look right'. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.
 
@@ -70,9 +72,7 @@ Most websites have multiple stylesheets. Typically styles are added with a `link
 During the cascade stylesheets are interpreted in the following order:
 
 1. !important declarations
-
 2. Author stylesheets
-
 3. Browser default stylesheets
 
 **Note:** I've skipped over user stylesheets here because they are not a common thing anymore and probably wouldn’t factor in consideration for anyone reading this.
@@ -86,9 +86,7 @@ Specificity is a weighting given to selectors. It's a common mistake to think of
 To calculate specificity, count the number of:
 
 1. IDs,
-
 2. classes, attributes and pseudo-classes,
-
 3. elements and pseudo-elements
 
 For example: `#nav .selected:hover > a::before` will be 1, 2, 2.

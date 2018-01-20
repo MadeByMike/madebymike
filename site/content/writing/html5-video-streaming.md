@@ -1,8 +1,8 @@
----
-date: 2014-12-20T00:00:00Z
-title: Determine the quality of light in live video streams
-
----
++++
+date = 2014-12-20T00:00:00Z
+title = "Determine the quality of light in live video streams"
+description = "Some early experiements with webRTC."
++++
 
 I've been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
 

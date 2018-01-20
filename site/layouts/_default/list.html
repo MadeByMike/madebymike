@@ -1,15 +1,28 @@
-{{ define "main"}}
-<main>
-  {{ .Content }} {{ range (.Paginator 5).Pages.ByPublishDate }}
-  <article>
+{{ define "page-banner" }}
+  <section class="grid-right">
+    {{ .Content }} 
+  </section>
+{{ end }}
+{{ define "main" }}
+<main class="grid-right">
+  {{ $paginator := .Paginate (where .Pages ".Params.no_link" "!=" true) 5  }}
+  {{ range $paginator.Pages.ByPublishDate.Reverse }}
+
+  {{ $.Scratch.Set "link" .RelPermalink }}
+  {{if .Params.external_link }} {{ $.Scratch.Set "link" .Params.external_link }} {{ end }}
+  {{$link := $.Scratch.Get "link" }}
+
+  <article class="post-list-item">
     <section>
-      <div class="container">
-        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span> {{ .Summary }}
-        <p><a class="nav-link" href="{{ .RelPermalink }}">Continue reading</a></p>
-      </div>
+        <div class="post-meta">
+          <h2 class="post-title"><a href="{{ $link }}">{{ .Title }}</a></h2>
+          <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
+        </div>
+        <p>{{ .Summary }}</p>
+        <p><a class="post-continue-reading" href="{{ $link }}">Continue reading</a></p>
     </section>
   </article>
+  <hr>
   {{ end }}
   <div class="container pagination">
     {{ partial "pagination.html" . }}

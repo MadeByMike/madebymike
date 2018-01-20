@@ -1,9 +1,9 @@
----
-date: 2015-06-15T00:00:00Z
-extra_css:
-  - fluid-type-examples.css
-title: Fluid type examples
----
++++
+date = 2015-06-15T00:00:00Z
+extra_css =["fluid-type-examples.css"]
+title = "Fluid type examples"
+description = "Some practical examples of using calc and viewport units for fluid typography and more."
++++
 
 A few months ago I published a [fluid type technique](/writing/precise-control-responsive-typography/) that doesn't require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I'd put together a bunch of examples and address some comments.
 
@@ -153,7 +153,7 @@ This example shows how the technique can be applied to more than just font sizes
 
 I use a slightly modified version to generate the examples on this page.
 
-### Example
+### Example:
 
 ```scss
 .fluid-type {

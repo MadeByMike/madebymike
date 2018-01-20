@@ -1,0 +1,31 @@
+.footer-link,
+.footer-link:visited {
+  --footer-link-fill: $COLOR-TEXT-ALT;
+  --footer-link-color: transparent;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  --footer-link-color: $COLOR-LINK;
+  --footer-link-fill: $COLOR-LINK;
+}
+
+.footer-list {
+  list-style: none;
+  text-align: right;
+  font-size: .5rem;
+  margin: calc(var(--VERTICAL_SPACING) * 2) 20px var(--HORIZONTAL_SPACING) 0;
+}
+
+.footer-link:visited,
+.footer-link {
+  fill: var(--footer-link-fill);
+  color: var(--footer-link-color);
+  text-decoration: none;
+}
+
+.footer-logo { 
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
+}

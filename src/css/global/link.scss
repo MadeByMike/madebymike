@@ -1,0 +1,12 @@
+a {
+  color: $COLOR-LINK;
+}
+
+a:visited {
+  color: $COLOR-TEXT-ALT; 
+}
+
+a:hover,
+a:focus { 
+  color: $COLOR-LINK-ALT; 
+}

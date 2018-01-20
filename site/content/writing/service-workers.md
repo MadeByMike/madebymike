@@ -1,8 +1,9 @@
----
-date: 2016-08-22T00:00:00Z
-title: Offline content with service workers
-
----
++++
+title = "Offline content with service workers"
+description = "My experience implementing service workers to cache and serve content offline."
+date = "2016-08-22T00:00:00Z"
+publish_date = "2016-08-22T00:00:00Z"
++++
 
 Service workers can do a lot more than make web pages work offline but for most people, myself included, this will be their first experience with them. I recently implemented a simple offline page for my blog and was surprised with how easy it was. Full of confidence, I wanted to do more. I decided to start saving blog posts for offline reading and things escalated quickly. I soon learnt the rabbit hole is deep.
 
