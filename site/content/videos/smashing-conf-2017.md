@@ -5,7 +5,7 @@ description = '''
 
 A talk I gave at Smashing Confernece in Frieburg 2017 about the changing role of media queries and alternative techniques for responsive design.
 
-![Vitaly and Mike!](/img/vitaly-and-me.jpg)
+<img alt="Vitaly and Mike!" data-src="/img/vitaly-and-me.jpg">
 '''
 card_size = "large"
 external_link = "https://vimeo.com/235428198"

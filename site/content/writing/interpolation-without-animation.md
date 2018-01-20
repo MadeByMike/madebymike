@@ -45,7 +45,7 @@ As the screen size gets smaller, there is often a point where a design is pressu
 
 Designers choose these break-points carefully. They probably have in mind where constraints like this begin to pressure the design, and how quickly it impacts overall quality. But in a compromise to technology, we are forced to choose a middle point, knowing that immediately before and after the break-point the design is often still pressured by constrains that demanded change.
 
-![gradient demonstrating the location of ideal font-sizes in relation to a break-point and the design pressure experienced between these points](/img/interpolation.png)
+<img alt="gradient demonstrating the location of ideal font-sizes in relation to a break-point and the design pressure experienced between these points" data-src="/img/interpolation.png">
 
 This graphic attempts to illustrate the location of ideal font-sizes in relation to a break-point. You can move the ideal font-size closer to the break-point but this only shifts the pressure to somewhere else in the design. Alternatively you can add more break-points until this becomes problematic, but ideally these changes would be introduced gradually and continuously to reduce pressure on the design as it's required.
 

@@ -5,7 +5,7 @@ description = '''
 
 A collection of clever CSS + SVG text effects by my clever friend **Mandy Michael**.
 
-![ABC](/img/text-effects.gif)
+<img alt="Text effects" data-src="/img/text-effects.gif">
 '''
 external_link = "https://codepen.io/collection/DamKJW/"
 +++

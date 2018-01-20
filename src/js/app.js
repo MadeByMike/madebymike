@@ -1,3 +1,5 @@
+import lozad from 'lozad'
+
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", user => {
     if (!user) {
@@ -17,6 +19,12 @@ for (var i = 0; i < listItems.length; i++) {
   listItems[i].insertBefore(prepend, listItems[i].firstChild);
 }
 
+//Lozad
+const nodeList = document.querySelectorAll('img[data-src]');
+const observer = lozad(nodeList);
+observer.observe();
+
+//SW
 if ('serviceWorker' in navigator) {
   // Yay, service workers work!
   navigator.serviceWorker.register('/sw.js');

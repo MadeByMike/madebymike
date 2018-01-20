@@ -16,7 +16,7 @@ I've used a number of a number of different grids on the site, but by far the mo
 
 I wanted to auto-fill a region of the grid while having a full height item in the left-hand column that spans all the rows.
 
-![A CSS grid trick](/img/grid-trick.png)
+<img data-src="/img/grid-trick.png" alt="A CSS grid trick">
 
 My first idea was to make a narrow container for the left column and a wide container for the right columns placing different grids in each of these containers. This could have worked, except my cards have variable widths and the number of columns on the right-hand side is variable depending on the space available. This means the number of rows is also variable.
 
@@ -94,7 +94,7 @@ In the end, I was very happy with this result. It's definitely a bit of a hack b
 
 You might have noticed that some of the lists I've published have checkboxes next to them. They are not interactive but if you visit one of the pages on the list you will see the item become checked.
 
-![checklists](/img/check-list.png)
+<img data-src="/img/check-list.png">
 
 This is a nifty little design feature that I am very happy with. It's just an elaborate visited `:visited` style, but the technique is far from simple. 
 
@@ -126,7 +126,7 @@ I knew I couldn't change the display or the opacity so my plan was to change the
 
 Another interesting restriction on styling `:visited` links is that the color and fill will retain the original alpha value. If you are interested in the reason behind these restrictions [read the MDN explaination](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector).
 
-Ok, plan C. What if I make the fill of the tick, match the background color? The only problem with this approach was that the tick would be visible over the top of the box resulting in this: ![check-mark with broken border](/img/check.png) 
+Ok, plan C. What if I make the fill of the tick, match the background color? The only problem with this approach was that the tick would be visible over the top of the box resulting in this: <img alt="check-mark with broken border" data-src="/img/check.png">
 
 That's far from the end of the world, but the broken borders on the box were going to annoy me and the solution was simple. When visible the tick is almost the same color as the border, so I can place the box over the top of the tick symbol. Even though the border will be drawn on the top, it won't be visible.
 
