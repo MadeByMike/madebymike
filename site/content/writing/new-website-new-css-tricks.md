@@ -4,9 +4,11 @@ date: 2018-01-10T00:33:36.494Z
 description: 'New design, content and some new CSS tricks on my new website.'
 color: gold
 ---
-Like many people, I decided to redesign my website for 2018. In addition to updating the visual design, I changed the way I publish content. I want to share more than just long-form blog post, so expect to see more CodePen collections, short lists, videos as well as links to other content and resources created by friends in the community.
+Like many people, I decided to redesign my website for 2018. In addition to updating the visual design, I changed the way I publish content. I want to share more than just long-form blog post, so expect to see CodePen collections, short lists, videos and links to content I've published elsewhere. 
 
-I've also made some technical updates. The site is now making extensive use of CSS Grid and Custom Properties. I want to share a few tricks I've learnt during the development process:
+One of the things I am really excited about is the chance to share content and resources created by friends in the community. That's why I created the "Not Ads" section I want to post new stuff here every couple of weeks so if you have something you want me to share [email me](mailto:mike@madebymike.com.au), but remember they are "not ads". 
+
+I've also made some technical updates. The site is now making extensive use of CSS Grid and Custom Properties and I want to share a few tricks I've learnt during the development process.
 
 ## Tricks with CSS Grid
 

@@ -18,6 +18,14 @@ $note-color-schemes: (
   --grid-template-columns: 1fr;
   --note-col-span: 1; 
   --note-row-span: 1;
+  --block-link-bg: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
+  --block-link-color: white;
+  
+}
+
+.not-ads {
+  --block-link-bg: hsl(0, 0%, 98%);
+  --block-link-color: $COLOR-TEXT;
 }
 
 .note-size-large,
@@ -292,9 +300,9 @@ $note-color-schemes: (
     &.note-block-link:hover,
     &.note-block-link:focus {
       transform: scale(1.015);
-      background: linear-gradient(45deg, rgb(129, 28, 104), rgb(67, 27, 107));
+      background: var(--block-link-bg);
       fill: map-get($colors, "title");
-      color: white;
+      color:  var(--block-link-color);
       box-shadow: 0 2px 4px 1px rgba(0,0,0,0.35);
 
       a {
