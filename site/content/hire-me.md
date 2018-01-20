@@ -16,7 +16,7 @@ I am an effective team builder. I've led teams. I've worked remotely and I'm a m
 
 I'm adaptable. I've worked on some of Australia's largest websites as well as the smallest community sites. I've built websites, applications and data visualisations on numerous platforms. 
 
-I have spoken at dozens of conferences and community-level events around Australia, Europe, UK, and the US. I have written numerous technical articles some of which are here on my personal blog, as well as websites like Smashing Magazine and Codrops. 
+I have spoken at dozens of conferences and community-level events around Australia, Europe, UK, and the US. I have written numerous technical articles some of which are here on my personal blog, as well as on websites like Smashing Magazine and Codrops. 
 
 
 ## What can I help with?

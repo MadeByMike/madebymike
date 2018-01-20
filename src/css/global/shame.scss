@@ -70,3 +70,11 @@ main {
 .inverted-bg {
   background: #EAEAEA; color: #222;
 }
+
+@media screen and (min-width: 180em) {
+  body {
+    background: url('/img/space-is-cool.jpg');
+    background-repeat: repeat-y;
+    background-position: left
+  }
+}
