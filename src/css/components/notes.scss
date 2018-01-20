@@ -4,19 +4,7 @@ $breakpoint-huge: 1450px; // More than 4 cols wide
 $breakpoint-mega: $SUPERMEGAWIDE; // More than 4 cols wide
 
 $note-color-schemes: (
-  red: (background:hsl(5, 100%, 95%), title:hsl(5, 100%, 70%), meta:hsl(5, 100%, 90%) ), 
-  salmon: (background:hsl(23, 100%, 95%), title:hsl(23, 100%, 70%), meta:hsl(23, 100%, 90%) ),
-  orange: (background:hsl(39, 100%, 95%), title:hsl(39, 100%, 70%), meta:hsl(39, 100%, 90%) ),
   gold: (background:hsl(48, 100%, 95%), title:hsl(48, 100%, 70%), meta:hsl(48, 100%, 90%) ),
-  yellow: (background:hsl(60, 100%, 95%), title:hsl(60, 100%, 70%), meta:hsl(60, 100%, 90%) ),
-  lime: (background:hsl(69, 100%, 95%), title:hsl(69, 100%, 70%), meta:hsl(69, 100%, 90%) ),
-  green: (backgrBound:hsl(92, 100%, 95%), title:hsl(92, 78%, 80%), meta:hsl(92, 78%, 90%) ),
-  cyan: (background:hsl(172, 100%, 95%), title:hsl(172, 76%, 80%), meta:hsl(172, 76%, 90%) ),
-  blue: (background:hsl(201, 100%, 95%), title:hsl(201, 100%, 70%), meta:hsl(201, 100%, 90%) ),
-  skyblue: (background:hsl(220, 100%, 95%), title:hsl(220, 100%, 70%), meta:hsl(220, 100%, 90%) ),
-  purple: (background:hsl(273, 100%, 95%), title:hsl(273, 100%, 70%), meta:hsl(273, 100%, 90%) ),
-  pink: (background:hsl(335, 100%, 95%), title:hsl(335, 100%, 88%), meta:hsl(335, 100%, 90%) ),
-  // Grey and white break color rules
   grey: (background:hsl(0, 0%, 98%), title:hsl(270, 100%, 88%), meta:hsl(270, 100%, 95%) ),
   white: (background:hsl(0, 100%, 100%), title:hsl(0, 0%, 90%), meta:hsl(0, 0%, 90%) ),
 );

@@ -31,7 +31,11 @@
         </div>
       </section> 
       {{ range first 12 (where .Pages ".Type" "!=" "not-ads") }} 
-        {{ partial "note" (dict "context" . "color" "grey" "meta" true) }}
+        {{ if .Params.color }}
+          {{ partial "note" (dict "context" . "color" .Params.color "meta" true) }}
+        {{ else }}
+          {{ partial "note" (dict "context" . "color" "grey" "meta" true) }}
+        {{ end }}
       {{ end }}
   </section>
 </main> 
