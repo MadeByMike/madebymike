@@ -12,9 +12,16 @@
 	<meta name="twitter:title" content="{{ .Page.Title }} - Mike Riethmuller" />
 	<meta name="twitter:creator" content="@MikeRiethmuller" />
 	<meta name="twitter:description" content="{{ .Page.Description }}" />
-	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" /> {{ if .RSSLink }}
-	<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" /> {{ end }}
+	<meta name="twitter:image:src" content="/img/mug/mike.jpg" />
+	
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="og:description" content="{{ .Page.Description }}">
+	<meta property="og:image" content="/img/mug/mike.jpg">
+	<meta property="og:url" content="{{ .Permalink }}">
+	<meta property="og:site_name" content="{{ .Title }}">
 
+	{{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" /> {{ end }}
+	
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
