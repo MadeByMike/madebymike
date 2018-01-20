@@ -306,7 +306,8 @@ $note-color-schemes: (
       box-shadow: 0 2px 4px 1px rgba(0,0,0,0.35);
 
       a {
-        color: lighten($COLOR-LINK, 0.5)
+        color: lighten($COLOR-LINK, 0.5);
+        transition: all 0.25s ease-in-out;
       }
       
       a:visited {

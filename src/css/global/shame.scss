@@ -5,6 +5,7 @@
 .page-banner {
   a {
     --page-banner-link-color: hsl(207, 70%, 60%);
+    transition: all 0.25s ease-in-out;
   }
 
   a:hover,
