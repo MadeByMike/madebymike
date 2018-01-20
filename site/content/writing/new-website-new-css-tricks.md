@@ -98,7 +98,7 @@ You might have noticed that some of the lists I've published have checkboxes nex
 
 This is a nifty little design feature that I am very happy with. It's just an elaborate visited `:visited` style, but the technique is far from simple. 
 
-My idea was to create a checkbox style with CSS, then toggle the opacity of the tick depending on the :visited state. But visited styles are extremely restrictive. MDN does a great job of [explaining these restrictions](https://developer.mozilla.org/en-US/docs/Web/CSS/%3Avisited). In short, you can only style color values, but this includes SVG `fill` a `stroke`.
+My idea was to create a checkbox style with CSS, then toggle the opacity of the tick depending on the :visited state. But visited styles are extremely restrictive. MDN does a great job of [explaining these restrictions](https://developer.mozilla.org/en-US/docs/Web/CSS/%3Avisited). In short, you can only style color values, but this includes SVG `fill` and `stroke`.
 
 My idea became to use an inline SVG. Did you know that you can set a `fill` property on an HTML element and that an inline SVG can inherit this color?
 
