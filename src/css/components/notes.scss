@@ -14,7 +14,7 @@ $note-color-schemes: (
   --not-ads-grid-row-end: initial;
   --not-ads-grid-order: 1;
   --not-ads-grid-col-span: 1;
-  --not-ads-grid-margin-top: var(--VERTICAL_SPACING);
+  --not-ads-grid-margin: var(--VERTICAL_SPACING);
   --grid-template-columns: 1fr;
   --note-col-span: 1; 
   --note-row-span: 1;
@@ -70,7 +70,7 @@ $note-color-schemes: (
     --not-ads-grid-col-span: 1;
     --grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     --not-ads-grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
-    --not-ads-grid-margin-top: 0;
+    --not-ads-grid-margin: 0;
   }
 
 }
@@ -111,7 +111,8 @@ $note-color-schemes: (
 
 .not-ads {
   order: var(--not-ads-grid-order);
-  margin-top: calc(var(--not-ads-grid-margin-top) * 2);
+  margin-top: var(--not-ads-grid-margin);
+  margin-bottom: var(--not-ads-grid-margin);
   max-width: 100%; 
   flex-basis: 320px; 
   flex-grow: 0;
