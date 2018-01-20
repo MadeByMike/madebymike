@@ -1,9 +1,12 @@
 $grid-main-column: 65ch;
 $grid-aside-column: 300px;
 
-:root{
-    --grid-hire-margin-right: 1em;
-    --hire-grid--columns: [full-width-start] 1fr [aside-start] minmax(40px, $grid-aside-column) [aside-end main-start] minmax(0, $grid-main-column) [main-end full-width-end]; 
+
+@media screen and (min-width: 600px) {
+    :root{
+        --grid-hire-margin-right: 1em;
+        --hire-grid--columns: [full-width-start] 1fr [aside-start] minmax(40px, $grid-aside-column) [aside-end main-start] minmax(0, $grid-main-column) [main-end full-width-end]; 
+    }
 }
 
 @media screen and (min-width: $BREAKPOINT) {
@@ -33,6 +36,8 @@ $grid-aside-column: 300px;
 .hire-aside {
     order: -1;
     grid-column: aside;
+    max-width: 300px;
+    margin: 0 auto
 }
 
 .hire-main {
