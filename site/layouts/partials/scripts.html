@@ -15,8 +15,8 @@ if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prot
 
 </script>
 
-<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/app.js" defer></script>
 
 {{ range $.Param "extra_js" }}
-	<script type="text/javascript" src="/js/{{ . }}"></script>
+	<script type="text/javascript" src="/js/{{ . }}" defer></script>
 {{ end }}
