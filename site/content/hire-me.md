@@ -12,7 +12,7 @@ I'm a skilled engineer. I'm comfortable with tools such as React, Node, ES6, Web
 
 I'm a creative, innovative and dedicated developer. I have a deep understanding front-end technologies such as CSS and SVG, but also of the web as a platform. I know how browsers work. I read specifications and so many blog posts. There is a good chance I know how to solve specific problems or where to find the answer.
 
-I am an effective team builder. I've led teams. I've worked remotely and I'm a mentor in my community. I've worked for myself, in small agencies and in large corporate environments. I know the many shapes teams can take and how to be effective in each case. I value diversity that's why I help organise a program called CodeBar in Sydney to support underrepresented groups in tech. I don't just build teams I build community. I can do this for you too.
+I am an effective team builder. I've led teams. I've worked remotely and I'm a mentor in my community. I've worked for myself, in small agencies and in large corporate environments. I know the many shapes teams can take and how to be effective in each case. I value diversity that's why I help organise a program called [CodeBar in Sydney](https://codebar.io/sydney) to support underrepresented groups in tech. I don't just build teams I build community. I can do this for you too.
 
 I'm adaptable. I've worked on some of Australia's largest websites as well as the smallest community sites. I've built websites, applications and data visualisations on numerous platforms. 
 
