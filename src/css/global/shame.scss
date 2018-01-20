@@ -8,14 +8,16 @@
     transition: all 0.25s ease-in-out;
   }
 
-  a:hover,
-  a:focus { 
-    --page-banner-link-color: $COLOR-LINK-ALT; 
-  }  
-
   a:visited {
     --page-banner-link-color: $COLOR-TEXT-ALT; 
   }
+
+  a:hover,
+  a:focus, 
+  a:visited:hover,
+  a:visited:focus { 
+    --page-banner-link-color: $COLOR-LINK-ALT; 
+  }  
 
 }
 

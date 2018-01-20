@@ -6,8 +6,10 @@
     </h1>
     {{ if .Params.page_description }}
       <p>{{ .Params.page_description }}</p>
-    {{ else }} 
-     <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
+    {{ else }}
+      {{ if eq .Type "writing" }} 
+        <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
+      {{ end }} 
     {{ end }} 
   </div>
 </section>

@@ -8,6 +8,7 @@
     "webpack": "gulp webpack",
     "build": "gulp build",
     "build-preview": "gulp build-preview",
+    "critical": "gulp critical",
     "start": "gulp server",
     "lint": "eslint src"
   },
@@ -25,6 +26,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "browser-sync": "^2.13.0",
+    "critical": "^1.1.0",
     "css-loader": "^0.23.1",
     "cssnano": "^3.9.1",
     "date-fns": "^1.27.2",
@@ -35,6 +37,7 @@
     "gotrue-js": "^0.9.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.4.0",
     "gulp-debug": "^3.2.0",
     "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.2",
