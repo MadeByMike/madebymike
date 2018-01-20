@@ -18,7 +18,7 @@
           <h2 class="post-title"><a href="{{ $link }}">{{ .Title }}</a></h2>
           <span class="post-date"><time>{{ .Date.Format "January 2, 2006" }}</time></span>
         </div>
-        <p>{{ .Summary }}</p>
+        <p>{{if .Summary }}{{ .Summary }} {{ else }} {{ .Params.description }} {{ end }}</p>
         <p><a class="post-continue-reading" href="{{ $link }}">Continue reading</a></p>
     </section>
   </article>
