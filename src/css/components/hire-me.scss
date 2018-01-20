@@ -17,12 +17,10 @@ $grid-aside-column: 300px;
     display: grid;
     grid-gap: 1em;
     grid-template-columns: var(--hire-grid--columns);
+    padding: var(--VERTICAL_SPACING) 0;
 }
 
-.grid-banner > *,
-.grid-home > *,
-.grid-left > *,
-.grid-right > * {
+.grid-hire > * {
 	margin: 0;
 	padding-left: var(--HORIZONTAL_SPACING);
 	padding-right: var(--HORIZONTAL_SPACING);
