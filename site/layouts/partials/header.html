@@ -1,59 +1,22 @@
 <head>
-
-	<title>{{ .Title }}</title>
-
-	{{ if ($.Param "no_link") | ($.Param "external_link") }} 
-	<meta name="robots" content="noindex">
-	{{ end }}
-
 	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-	<link rel="icon" href="/img/favicon.ico">
-	<link rel="manifest" href="/img/manifest.json">
-	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#FF6E4A">
-	<meta name="theme-color" content="#FF6E4A">
-
-	<!-- Social -->	
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@MikeRiethmuller" />
-	<meta name="twitter:title" content="{{ .Page.Title }} - Mike Riethmuller" />
-	<meta name="twitter:creator" content="@MikeRiethmuller" />
-	<meta name="twitter:description" content="{{ .Page.Description }}" />
-	<meta name="twitter:image:src" content="/stuff/mug.jpg" /> 
-	
-	<meta property="og:type" content="business.business">
-	<meta property="og:title" content="{{ .Page.Title }} - Mike Riethmuller" />
-	<meta property="og:image" content="/stuff/mug.jpg">
-	<meta property="og:description" content="{{ .Page.Description }}" />
-
-	
-	{{ if .RSSLink }}
-	<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" /> 
-	{{ end }}
+	<meta name="viewport" content="width=device-width">
 
 	<title>
-		{{ if .Page.IsHome }} {{ .Site.Title }} {{ else }} {{ .Page.Title }} - Mike Riethmuller {{ end }}
+		{{ if .Page.IsHome }} {{ .Site.Title }} {{ else }} {{ .Page.Title }} — Mike Riethmuller {{ end }}
 	</title>
+	
 
 	<noscript>
-		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.min.css">
 	</noscript>
 
-<<<<<<< Updated upstream
-	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,800" rel="stylesheet" rel="preload" crossorigin> 
-=======
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@MikeRiethmuller" />
 	<meta name="twitter:title" content="{{ .Page.Title }} - Mike Riethmuller" />
 	<meta name="twitter:creator" content="@MikeRiethmuller" />
 	<meta name="twitter:description" content="{{ .Page.Description }}" />
-	<meta name="twitter:image:src" content="https://madebymike.com.au/img/mug/mike.jpg" /> {{ if .RSSLink }}
+	<meta name="twitter:image:src" content="https://madebymike.com.au/stuff/mug.jpg" /> {{ if .RSSLink }}
 	<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" /> {{ end }}
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
@@ -63,19 +26,21 @@
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6E4A">
 	<meta name="theme-color" content="#FF6E4A">
->>>>>>> Stashed changes
 
 	<style>
-		{{ partial "inline.css" | safeCSS }} 
+		{{ partial "inline.css" | safeCSS }}
 	</style>
 
+	<link href='//fonts.googleapis.com/css?family=Handlee|Libre+Baskerville' rel='stylesheet' type='text/css'>
+
 	<script>
+		// prettier ignore
 		{{ partial "inline.js" | safeJS }}
 	</script>
 
 	{{ range $.Param "extra_css" }}
-		<link rel="stylesheet" href="/css/{{ . }}"> 
+	<link rel="stylesheet" href="/css/{{ . }}"> 
 	{{ end }}
 
 </head>
-
+<!-- Hello, view-source monkey! -->
