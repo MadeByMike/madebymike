@@ -61,7 +61,7 @@ By default the left column with take up a single grid cell in the grid. Just lik
 
 With the tall and large cards we created earlier, we already know how to make grid items span multiple columns and rows. We could make the left column span the full height using: `grid-row: span 5;`, but this grid is responsive. When the number of columns is reduced, the number of rows increases. 
 
-This is when I thought what if I make the item span 999 rows? This meant 999 rows were added to the grid. Rows without content have a height of 0, but the `grid-gap` meant I had 9990 pixels of whitespace beneath the grid. I like a little whitespace but not that much.
+This is when I thought what if I make the item span 999 rows? This meant 999 rows were added to the grid. Rows without content have a height of 0, but the `grid-gap` meant I had 9,990 pixels of whitespace beneath the grid. I like a little whitespace but not that much.
 
 Luckily margins collapse so I swapped the `grid-gap` for margins on individual grid-items. I did the old trick of adding a negative left and right margin on the grid container, equal to the margin on the grid-items. This means everything in the grid will align with other content on the page. The final result is something like this:
 
@@ -81,7 +81,7 @@ Luckily margins collapse so I swapped the `grid-gap` for margins on individual g
 }
 ```
 
-I added a few media queries and adjusted the `grid-template-columns` slightly for different layout on smaller screens. I added `order: 0;` to the left column because this meant I could change the DOM order and it underneath the main content for mobile. This also makes sense for screen-readers as it is secondary content.
+I added a few media queries and adjusted the `grid-template-columns` slightly for different layout on smaller screens. I added `order: 0;` to the left column because this meant I could change the DOM order and move it underneath the main content on mobile. This also makes sense for screen-readers as it's secondary content.
 
 I've isolated a simple demo in a CodePen so you can experiment with or copy this technique. 
 

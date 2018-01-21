@@ -30,7 +30,7 @@ export default {
   entry: {
     app: ["./js/app"],
     cms: ["./js/cms"],
-    "intersection-observer": ["./js/intersection-observer"],
+    polyfill: ["./js/polyfill"],
   },
   output: {
     path: path.join(__dirname, "dist"),
