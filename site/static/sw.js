@@ -3,7 +3,7 @@ var urlsToCache = [
   "/",
   "/offline/",
   "/css/styles.css",
-  "/css/app.js",
+  "/js/app.js",
   "/fonts/nunito-v9-latin-regular.woff2",
   "/fonts/nunito-v9-latin-regular.woff",
   "/fonts/nunito-v9-latin-600.woff2",
@@ -31,7 +31,6 @@ self.addEventListener("activate", function(event) {
             return cacheName !== CACHE_NAME;
           })
           .map(function(cacheName) {
-            console.log("Deleting " + cacheName);
             return caches.delete(cacheName);
           })
       );
@@ -56,7 +55,6 @@ self.addEventListener("fetch", function(event) {
             // Check if the network request is successful
             // don't update the cache with error pages!!
             // Also check the request domain matches service worker domain
-            console.log(networkResponse)
             if (networkResponse.ok && requestURL.origin == location.origin) {
               // Keep cache up-to-date by
               cache.put(event.request, networkResponse.clone());
