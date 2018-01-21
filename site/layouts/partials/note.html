@@ -10,21 +10,21 @@
  
     <div class="note-inner">      
       <div class="note-header">
-        {{ if .context.Params.external_link }}
-          <svg class="note-header-logo">
-            <use xlink:href="#icon-link"></use>
-          </svg>
-        {{ else if eq .context.Type "pens" }}
+        {{ if eq .context.Type "pens" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-codepen"></use>
           </svg> 
-        {{ else if eq .context.Type "writing" }}
-          <svg class="note-header-logo">
-            <use xlink:href="#icon-book"></use>
-          </svg>
         {{ else if eq .context.Type "videos" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-video"></use>
+          </svg>
+        {{ else if .context.Params.external_link }}
+          <svg class="note-header-logo">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+        {{ else if eq .context.Type "writing" }}
+          <svg class="note-header-logo">
+            <use xlink:href="#icon-book"></use>
           </svg>
         {{ else if eq .context.Type "lists" }}
           <svg class="note-header-logo">
