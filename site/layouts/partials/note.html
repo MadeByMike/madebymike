@@ -10,25 +10,23 @@
  
     <div class="note-inner">      
       <div class="note-header">
-        {{ if eq .context.Type "pens" }}
+        {{ if .context.Params.external_link }}
+          <svg class="note-header-logo">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+        {{ else if eq .context.Type "pens" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-codepen"></use>
           </svg> 
-        {{ end }}
-        
-        {{ if eq .context.Type "writing" }}
+        {{ else if eq .context.Type "writing" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-book"></use>
           </svg>
-        {{ end }}
-
-        {{ if eq .context.Type "videos" }}
+        {{ else if eq .context.Type "videos" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-video"></use>
           </svg>
-        {{ end }}
-
-        {{ if eq .context.Type "lists" }}
+        {{ else if eq .context.Type "lists" }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-list"></use>
           </svg>
