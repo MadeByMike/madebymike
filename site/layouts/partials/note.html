@@ -18,7 +18,7 @@
           <svg class="note-header-logo">
             <use xlink:href="#icon-video"></use>
           </svg>
-        {{ else if .context.Params.external_link }}
+        {{ else if and .context.Params.external_link (ne .context.Type "not-ads") }}
           <svg class="note-header-logo">
             <use xlink:href="#icon-link"></use>
           </svg>
