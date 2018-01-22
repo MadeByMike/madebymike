@@ -220,10 +220,9 @@ $note-color-schemes: (
       top: -2px;
     }
 
-    // &:visited {
-    //   color: $COLOR-TEXT-ALT;
-    //   fill: $COLOR-TEXT;
-    // }
+    &:visited {
+      fill: $COLOR-TEXT;
+    }
 
     // &:focus,
     // &:hover,
