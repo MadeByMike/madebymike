@@ -1,9 +1,9 @@
 ---
-title: Smashing Conf 2017
+title: Smashing Conf 2018
 ---
 <article>
   <section class="container">
-    <h1 class="display-title">Smashing Conf 2017</h1>
+    <h1 class="display-title">Smashing Conf 2018</h1>
 
     <p class="ptl lead">Hello friends. Here is a list of resources, blog posts and demos you might be interested in if you saw my talk Beyond Media Queries at Smashing Conf.</p>
 
