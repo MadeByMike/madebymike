@@ -3,7 +3,7 @@
 {{if .context.Params.no_link }} {{ $.context.Scratch.Set "link" false }} {{ end }}
 {{$link := $.context.Scratch.Get "link" }}
 
-<div class="note note-{{.color}}{{ if $link }} note-block-link{{end}}{{ if .context.Params.card_size }} note-size-{{.context.Params.card_size}}{{end}}">
+<div class="note note-{{.color}} {{ if $link }} note-block-link{{end}}{{ if .context.Params.card_size }} note-size-{{.context.Params.card_size}}{{end}}">
     {{ if $link }}
     <a class="note-link-overlay" href="{{ $link }}"></a>
     {{ end }}

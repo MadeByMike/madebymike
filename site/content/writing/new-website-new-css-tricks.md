@@ -2,7 +2,6 @@
 title: New website & some new CSS tricks
 date: 2018-01-10T00:33:36.494Z
 description: 'New design, content and some new CSS tricks on my new website.'
-color: gold
 ---
 Like many people, I decided to redesign my website for 2018. In addition to updating the visual design, I changed the way I publish content. I want to share more than just long-form blog post, so expect to see CodePen collections, short lists, videos and links to content I've published elsewhere. 
 

@@ -1,9 +1,10 @@
 import gulp from "gulp";
 import cp from "child_process";
 import gutil from "gulp-util";
-const sass = require("gulp-sass");
+import sass from "gulp-sass";
 import postcss from "gulp-postcss";
-const autoprefixer = require("autoprefixer");
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 import rename from "gulp-rename";
 import cssvariables from "postcss-css-variables";
 import BrowserSync from "browser-sync";
@@ -12,7 +13,6 @@ import webpackConfig from "./webpack.conf";
 import svgstore from "gulp-svgstore";
 import svgmin from "gulp-svgmin";
 import inject from "gulp-inject";
-import cssnano from "cssnano";
 import debug from "gulp-debug";
 import clean from 'gulp-clean';
 var critical = require('critical').stream;
@@ -77,12 +77,12 @@ gulp.task("critical-css", () => {
     .pipe(gulp.dest("site/layouts/partials/"));
 });
 
-gulp.task("clean", function(cb) {
-  return gulp.src('dist/*', {read: false})
-  .pipe(clean());
+gulp.task("clean", function (cb) {
+  return gulp.src('dist/*', { read: false })
+    .pipe(clean());
 })
 
-gulp.task("critical", ["build"], function(cb) {
+gulp.task("critical", ["build"], function (cb) {
   critical.generate({
     base: "dist/",
     src: "index.html",
@@ -105,9 +105,9 @@ gulp.task("critical", ["build"], function(cb) {
 
 gulp.task('critical', function () {
   return gulp.src('dist/*.html')
-      .pipe(critical({base: 'dist/', inline: true, css: ['dist/css/styles.css']}))
-      .on('error', function(err) { gutil.log(gutil.colors.red(err.message)); })
-      .pipe(gulp.dest('dist'));
+    .pipe(critical({ base: 'dist/', inline: true, css: ['dist/css/styles.css'] }))
+    .on('error', function (err) { gutil.log(gutil.colors.red(err.message)); })
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task("cms-assets", () =>

@@ -7,5 +7,6 @@ description: >-
   more conventions for theming abd better description of techniques.
 no_link: false
 external_link: 'https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/'
+color: gold
 ---
 
