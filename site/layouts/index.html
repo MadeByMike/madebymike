@@ -24,7 +24,7 @@
               <p>A bunch of things I didn't make that I want to promote or share for no financial benefit.</p>
             </div>
             <div class="not-ads-grid"> 
-            {{ range first 3 (where .Pages ".Type" "not-ads") }}
+            {{ range first 2 (where .Pages ".Type" "not-ads") }}
               {{ partial "note" (dict "context" . "color" "white" "meta" false) }} 
             {{ end }} 
           </div>
