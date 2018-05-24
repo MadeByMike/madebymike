@@ -7,5 +7,6 @@ description: >-
 card_size: wide
 image: /img/concat.png
 no_link: false
+external_link: 'https://www.youtube.com/watch?v=Zg8f0fNekp4'
 ---
 
