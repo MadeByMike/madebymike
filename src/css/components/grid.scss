@@ -3,8 +3,8 @@ $grid-small-column: 52ch;
 
 :root {
 	--grid-home-text-align: center;
-	--grid-right-columns: [full-width-start] 1fr [main-start] minmax(0, $grid-main-column) [main-end] 1fr [full-width-end];
-	--grid-left-columns: [full-width-start main-start] minmax(0, $grid-main-column) [main-end] 1fr [full-width-end];
+	--grid-right-columns: [full-width-start] 1fr [main-start] minmax(0, #{$grid-main-column}) [main-end] 1fr [full-width-end];
+	--grid-left-columns: [full-width-start main-start] minmax(0, #{$grid-main-column}) [main-end] 1fr [full-width-end];
 	--grid-home-columns: [full-width-start] 1fr [main-start] minmax(0, $grid-small-column) [main-end] 1fr [full-width-end];
 }
 
@@ -12,9 +12,9 @@ $grid-small-column: 52ch;
 
 	:root {
 		--grid-home-text-align: right;
-		--grid-right-columns: [full-width-start] 1fr [main-start] minmax(0, $grid-main-column) [main-end] minmax(0, 100px) [full-width-end];
-		--grid-left-columns: [full-width-start main-start] minmax(0, $grid-main-column) [main-end] 1fr [full-width-end];
-		--grid-home-columns: [full-width-start] 1fr [main-start] minmax(0, $grid-small-column) [main-end] minmax(0, 100px) [full-width-end];
+		--grid-right-columns: [full-width-start] 1fr [main-start] minmax(0, #{$grid-main-column}) [main-end] minmax(0, 100px) [full-width-end];
+		--grid-left-columns: [full-width-start main-start] minmax(0, #{$grid-main-column}) [main-end] 1fr [full-width-end];
+		--grid-home-columns: [full-width-start] 1fr [main-start] minmax(0, #{$grid-small-column}) [main-end] minmax(0, 100px) [full-width-end];
 	}
 	
 }

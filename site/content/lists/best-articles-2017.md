@@ -3,6 +3,7 @@ date = 2017-06-15T00:00:00Z
 title = "My best of 2017 reading list"
 no_link = true
 card_size = "tall"
+headless = true
 description = '''
 - [An Abridged Cartoon Introduction To WebAssembly](https://www.smashingmagazine.com/2017/05/abridged-cartoon-introduction-webassembly/)
 - [World Wide Web, Not Wealthy Western Web](https://www.smashingmagazine.com/2017/03/world-wide-web-not-wealthy-western-web-part-1/)

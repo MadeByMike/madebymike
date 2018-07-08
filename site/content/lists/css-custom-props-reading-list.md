@@ -2,6 +2,7 @@
 title: CSS custom properties reading list
 date: 2018-01-09T00:08:39.245Z
 no_link: true
+headless: true
 card_size: tall
 description: >-
   * [Using CSS variables correctly](https://madebymike.com.au/writing/using-css-variables/)

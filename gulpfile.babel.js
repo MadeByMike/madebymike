@@ -13,9 +13,8 @@ import webpackConfig from "./webpack.conf";
 import svgstore from "gulp-svgstore";
 import svgmin from "gulp-svgmin";
 import inject from "gulp-inject";
-import debug from "gulp-debug";
-import clean from 'gulp-clean';
-var critical = require('critical').stream;
+import clean from "gulp-clean";
+var critical = require("critical").stream;
 
 const browserSync = BrowserSync.create();
 const defaultArgs = ["-d", "../dist", "-s", "site"];
@@ -69,7 +68,7 @@ gulp.task("css-no-vars", () =>
 );
 
 gulp.task("critical-css", () => {
-  var css = gulp
+  gulp
     .src("./src/css/critical.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
@@ -77,16 +76,15 @@ gulp.task("critical-css", () => {
     .pipe(gulp.dest("site/layouts/partials/"));
 });
 
-gulp.task("clean", function (cb) {
-  return gulp.src('dist/*', { read: false })
-    .pipe(clean());
-})
+gulp.task("clean", function(cb) {
+  return gulp.src("dist/*", { read: false }).pipe(clean());
+});
 
-gulp.task("critical", ["build"], function (cb) {
+gulp.task("critical", ["build"], function(cb) {
   critical.generate({
     base: "dist/",
     src: "index.html",
-    css: ['dist/css/styles.css'],
+    css: ["dist/css/styles.css"],
     dest: "critical.css",
     minify: true,
     dimensions: [
@@ -103,11 +101,16 @@ gulp.task("critical", ["build"], function (cb) {
   });
 });
 
-gulp.task('critical', function () {
-  return gulp.src('dist/*.html')
-    .pipe(critical({ base: 'dist/', inline: true, css: ['dist/css/styles.css'] }))
-    .on('error', function (err) { gutil.log(gutil.colors.red(err.message)); })
-    .pipe(gulp.dest('dist'));
+gulp.task("critical", function() {
+  return gulp
+    .src("dist/*.html")
+    .pipe(
+      critical({ base: "dist/", inline: true, css: ["dist/css/styles.css"] })
+    )
+    .on("error", function(err) {
+      gutil.log(gutil.colors.red(err.message));
+    })
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task("cms-assets", () =>

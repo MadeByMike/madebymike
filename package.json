@@ -1,7 +1,7 @@
 {
-  "name": "victor-hugo",
+  "name": "made-by-mike",
   "version": "1.0.0",
-  "description": "Victor Hugo is a Hugo boilerplate for creating truly epic websites!",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "hugo": "gulp hugo",

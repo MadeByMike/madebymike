@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MadeByMike</title>
+    <link>/lists/</link>
+    <description>MadeByMike - A range of unique and possibly interesting web development ideas of varying quality. Basically "I think stuff and sometimes I write it down".</description>
+    
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jan 2018 00:08:39 +0000</lastBuildDate>
+    <atom:link href="/lists/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CSS Grid reading list</title>
+      <link>/lists/css-grid-reading-list/</link>
+      <pubDate>Tue, 09 Jan 2018 00:08:39 +0000</pubDate>
+      
+      <guid>/lists/css-grid-reading-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS custom properties reading list</title>
+      <link>/lists/css-custom-props-reading-list/</link>
+      <pubDate>Tue, 09 Jan 2018 00:08:39 +0000</pubDate>
+      
+      <guid>/lists/css-custom-props-reading-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>My best of 2017 reading list</title>
+      <link>/lists/best-articles-2017/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/lists/best-articles-2017/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

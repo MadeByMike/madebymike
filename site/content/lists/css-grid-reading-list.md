@@ -2,6 +2,7 @@
 title: CSS Grid reading list
 date: 2018-01-09T00:08:39.245Z
 no_link: true
+headless: true
 card_size: tall
 description: >-
   * [CSS Grid Gotchas And Stumbling

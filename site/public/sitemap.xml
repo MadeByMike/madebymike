@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/videos/smashing-sf/</loc>
+    <lastmod>2018-05-24T05:11:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/a-strategy-guide-to-css-custom-properties/</loc>
+    <lastmod>2018-05-24T04:00:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/pens/custom-properties-collection/</loc>
+    <lastmod>2018-05-20T04:27:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/not-ads/kevin-charm/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/videos/concat-2018/</loc>
+    <lastmod>2018-04-10T05:11:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/introducing-the-new-small-multiples-website/</loc>
+    <lastmod>2018-01-20T03:10:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/new-website-new-css-tricks/</loc>
+    <lastmod>2018-01-10T00:33:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/lists/css-grid-reading-list/</loc>
+    <lastmod>2018-01-09T00:08:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/lists/css-custom-props-reading-list/</loc>
+    <lastmod>2018-01-09T00:08:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/using-css-variables/</loc>
+    <lastmod>2017-06-18T18:38:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/not-ads/front-end-centre/</loc>
+    <lastmod>2017-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/videos/smashing-conf-2017/</loc>
+    <lastmod>2017-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/not-ads/text-effects/</loc>
+    <lastmod>2017-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/pens/fluid-typography-collection/</loc>
+    <lastmod>2017-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/lists/best-articles-2017/</loc>
+    <lastmod>2017-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/non-linear-interpolation-in-css/</loc>
+    <lastmod>2017-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/the-invisible-parts-of-css/</loc>
+    <lastmod>2017-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/interpolation-without-animation/</loc>
+    <lastmod>2016-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/maths-and-code/</loc>
+    <lastmod>2016-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/svg-has-more-potential/</loc>
+    <lastmod>2016-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/service-workers/</loc>
+    <lastmod>2016-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/canvas-image-manipulation/</loc>
+    <lastmod>2016-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/style-guides-50-shades-of-corporate-blue/</loc>
+    <lastmod>2016-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/love-letter-to-jquery/</loc>
+    <lastmod>2016-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/pattern-robust-icons/</loc>
+    <lastmod>2015-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/fluid-type-calc-examples/</loc>
+    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/how-do-i-css/</loc>
+    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/html5-periodic-table-dmca-takedown/</loc>
+    <lastmod>2015-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/precise-control-responsive-typography/</loc>
+    <lastmod>2015-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/zero-element-loading-animations/</loc>
+    <lastmod>2015-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/html5-video-streaming/</loc>
+    <lastmod>2014-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/resizing-images-with-canvas/</loc>
+    <lastmod>2014-10-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/understanding-flexbox/</loc>
+    <lastmod>2014-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/merging-json-data-sets/</loc>
+    <lastmod>2014-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/accessible-contrast-with-less-and-sass/</loc>
+    <lastmod>2014-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/detecting-transition-start/</loc>
+    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writing/thoughts-on-design-patterns-in-css/</loc>
+    <lastmod>2014-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/hire-me/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2018-05-24T05:11:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/lists/</loc>
+    <lastmod>2018-01-09T00:08:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/not-ads/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/offline/</loc>
+  </url>
+  
+  <url>
+    <loc>/pens/</loc>
+    <lastmod>2018-05-20T04:27:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/smashing-conf-2017/</loc>
+  </url>
+  
+  <url>
+    <loc>/smashing-conf-2018/</loc>
+  </url>
+  
+  <url>
+    <loc>/writing/</loc>
+    <lastmod>2018-05-24T04:00:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/videos/</loc>
+    <lastmod>2018-05-24T05:11:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -24,12 +24,25 @@
               <p>A bunch of things I didn't make that I want to promote or share for no financial benefit.</p>
             </div>
             <div class="not-ads-grid"> 
-            {{ range first 2 (where .Pages ".Type" "not-ads") }}
+             {{$notAds := .Site.GetPage "page" "not-ads" }}
+
+             {{ range first 2 ($notAds.Resources) }}
               {{ partial "note" (dict "context" . "color" "white" "meta" false) }} 
-            {{ end }} 
+            {{ end }}
           </div>
         </div>
       </section> 
+      
+      {{ $everything := sort (.Resources.ByType "page") .Date }}
+
+      {{ range first 220 $everything }} 
+        {{ if .Params.color }}
+          {{ partial "note" (dict "context" . "color" .Params.color "meta" true) }}
+        {{ else }}
+          {{ partial "note" (dict "context" . "color" "grey" "meta" true) }}
+        {{ end }}
+      {{ end }} 
+
       {{ range first 12 (where .Pages ".Type" "!=" "not-ads") }} 
         {{ if .Params.color }}
           {{ partial "note" (dict "context" . "color" .Params.color "meta" true) }}
