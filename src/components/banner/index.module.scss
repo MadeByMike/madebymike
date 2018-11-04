@@ -1,0 +1,35 @@
+@import '../../vars.scss';
+
+.banner {
+  background: $COLOR-MAIN;
+  background: linear-gradient(
+      45deg,
+      rgba($COLOR-MAIN, 0.8),
+      rgba($COLOR-SECONDARY, 0.8)
+    ),
+    url('../../../static/img/diagonal-squares.png');
+  color: $COLOR-TEXT-ALT;
+}
+
+.bannerHeader {
+  padding-top: 0 !important;
+}
+
+.banner p {
+  color: $COLOR-TEXT-ALT-SECONDARY;
+}
+
+.banner a {
+  color: $COLOR-LINK-BANNER;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  transition: none;
+
+  &:visited {
+    color: $COLOR-LINK-BANNER-VISITED;
+  }
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: $COLOR-LINK-BANNER-FOCUS;
+  }
+}

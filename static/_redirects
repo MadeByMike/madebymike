@@ -1,0 +1,5 @@
+/html5-periodic-table/  /demos/html5-periodic-table/ 301 
+/should-websites-work-without-javascript/  /demos/should-websites-work-without-javascript/ 301 
+/compare-lists/  /demos/compare-lists/ 301 
+
+/demos/*  http://madebymike.github.io/:splat  200 

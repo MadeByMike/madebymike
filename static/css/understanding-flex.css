@@ -1,0 +1,44 @@
+.flex-container{
+	width: 600px;
+	margin: 0 auto 2rem auto;		
+}
+.pre {
+  white-space: pre;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+}
+#example-static-flex-1,
+#example-static-flex-2{
+	display: flex;
+	margin: 0 auto;
+	position: relative;
+	border: solid 1px;
+}
+.flex-item span{
+	display: block;
+	font-size: .8em;
+	background: skyblue;
+	border: solid 10px steelblue;
+	text-align: center;
+}
+#example-static-flex-1 .flex-item-1{
+	flex-grow: 3;
+	flex-basis: 200px;
+}
+#example-static-flex-1 .flex-item-2{
+	flex-grow: 1;
+	flex-basis: 200px;
+}
+
+#example-static-flex-2 .flex-item-1{
+	flex-shrink: 1; 
+	flex-basis: 100px;
+}
+#example-static-flex-2 .flex-item-2{
+	flex-shrink: 1; 
+	flex-basis: 400px;
+}
+#example-static-flex-2 .flex-item-3{
+	flex-shrink: 1; 
+	flex-basis: 400px;
+}

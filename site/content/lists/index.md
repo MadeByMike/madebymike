@@ -1,4 +1,0 @@
----
-title: Lists
-headless: true
----

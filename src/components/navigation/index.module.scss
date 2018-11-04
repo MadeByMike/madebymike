@@ -1,0 +1,72 @@
+@import '../../vars.scss';
+
+.navigation {
+  --navigation-font-size: 1em;
+  --navigation-margin: 20px 30px 0 30px;
+  --navigation-font-size: 1em;
+  --navigation-justify-content: space-between;
+}
+.navigationItem {
+  --navigation-item-padding: 0 10px;
+}
+
+@media screen and (min-width: 450px) {
+  .navigation {
+    --navigation-justify-content: center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navigation {
+    --navigation-margin: 20px 60px 0 60px;
+    --navigation-font-size: 1.25em;
+    --navigation-justify-content: flex-end;
+  }
+  .navigationItem {
+    --navigation-item-padding: 30px 15px 30px 15px;
+  }
+}
+
+.navigationContainer {
+  overflow: hidden;
+}
+
+.navigation {
+  display: flex;
+  justify-content: var(--navigation-justify-content);
+  text-align: right;
+  text-transform: uppercase;
+  list-style: none;
+  margin: var(--navigation-margin);
+  padding: 0;
+  font-family: system-ui;
+  font-size: var(--navigation-font-size);
+}
+
+.navigationItem {
+  padding: var(--navigation-item-padding);
+  font-size: inherit;
+}
+
+.navigationItem:first-child {
+  padding-left: 0;
+}
+.navigationItem:last-child {
+  padding-right: 0;
+}
+
+/* Apologies for this specificity hack! */
+a.navigationLink.navigationLink {
+  text-decoration: none;
+}
+
+a.navigationLink:focus.navigationLink:focus,
+a.navigationLink:hover.navigationLink:hover {
+  text-decoration: underline;
+  color: $COLOR-LINK-BANNER-FOCUS;
+}
+
+a.navigationLink.navigationLink:visited,
+a.navigationLink.navigationLink {
+  color: white;
+}

@@ -1,0 +1,56 @@
+$COLOR-MAIN: #000000;
+$COLOR-SECONDARY: #444;
+
+$COLOR-TEXT-ALT: #fff;
+$COLOR-TEXT-ALT-SECONDARY: #efefef;
+
+$COLOR-TEXT: #0f2439;
+
+$COLOR-LINK: #52a0e0;
+$COLOR-LINK-FOCUS: hotpink;
+$COLOR-LINK-VISITED: #444;
+
+$COLOR-LINK-BANNER: #52a0e0;
+$COLOR-LINK-BANNER-VISITED: white;
+$COLOR-LINK-BANNER-FOCUS: hotpink;
+
+@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-screen) {
+      @each $property in $properties {
+        #{$property}: calc-interpolation(
+          $min-screen,
+          $min-value,
+          $max-screen,
+          $max-value
+        );
+      }
+    }
+    @media screen and (min-width: $max-screen) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+  $sign: '+';
+  @if ($b < 0) {
+    $sign: '-';
+    $b: abs($b);
+  }
+  @return calc(#{$a*100}vw #{$sign} #{$b});
+}
+@mixin text-decoration-underline {
+  background: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: center bottom 20%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+}

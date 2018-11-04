@@ -1,0 +1,97 @@
+.notesContainer {
+  --notes-grid-columns: 1fr;
+  padding: 0 16px;
+  overflow: visible;
+}
+
+@media screen and (min-width: 1300px) {
+  /* .notesContainer {
+    --notes-grid-columns: 100px [notes-grid-start] 100fr [notes-grid-end] 50px
+      [not-ads-grid-start] 350px [not-ads-grid-end] minmax(100px, 1fr);
+  } */
+}
+
+.notesContainer {
+  display: grid;
+  grid-template-columns: var(--notes-grid-columns);
+}
+
+.notesGrid {
+  --notes-grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 650px) {
+  .notesGrid {
+    --notes-grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .notesGrid {
+    --notes-grid-template-columns: repeat(3, minmax(280px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .notesGrid {
+    --notes-grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
+}
+
+.notesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  grid-column: notes-grid;
+  grid-auto-flow: dense;
+}
+
+@supports (display: grid) {
+  .notesGrid {
+    display: grid;
+    grid-template-columns: var(--notes-grid-template-columns);
+    align-items: stretch;
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .notAdsGrid {
+    --not-ads-grid-template-columns: repeat(2, minmax(210px, 1fr));
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .notAdsGrid {
+    --not-ads-grid-template-columns: repeat(2, minmax(210px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .notAdsGrid {
+    --not-ads-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+.notAdsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@supports (display: grid) {
+  .notAdsGrid {
+    display: grid;
+    grid-template-columns: var(--not-ads-grid-template-columns);
+    align-items: start;
+    justify-content: start;
+    grid-column: not-ads-grid;
+  }
+}
+
+.introCard {
+  min-height: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 0 20px 0 !important;
+}

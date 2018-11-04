@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="100">
+  <style>
+
+    <!-- Using very simple show & hide techniques because text wrapping in SVG -->
+    <!-- is currently very limited. I'm looking forward to SVG 2 solving these problems for me.  -->
+    <!-- But for now, this is a huge hack and I'm sorry! I'm just truing to push the limitations -->
+    <!-- of these techniques. I don't necessarly advocate this example, it's not accessiable -->
+    <!-- and the lack of control over height is a problem that we will have to wait for container -->
+    <!-- queries to solve. But for now, where you have simpler examples that do not involve text, -->
+    <!-- and the height of the image doesn't change, we can have container query like behaviour today. -->
+
+    .wide {
+      visibility: hidden;
+    }
+
+    @media screen and (min-width:500px){
+      .wide { visibility: visible; }
+      .compact { visibility: hidden; }
+    }
+  </style>
+  <rect x="0" y="0" width="100%" height="100%"  fill="rgba(0,0,0,0.8)"/>
+  <text x="10" y="24" class="wide">
+    <tspan fill="grey" font-size="20">BRITISH STANDARD </tspan>
+    <tspan fill="white" font-size="20">WHITWORTH TAP &amp; DIE SET</tspan>
+    <tspan x="10" dy="24" fill="grey" font-size="16">Triumph/Norton/BSA</tspan>
+  </text>
+  <text x="10" y="24" class="compact">
+    <tspan fill="grey" font-size="20">BRITISH STANDARD </tspan>
+    <tspan x="10" dy="28" fill="white" font-size="20">WHITWORTH TAP &amp; DIE SET</tspan>
+    <tspan x="10" dy="24" fill="grey" font-size="16">Triumph/Norton/BSA</tspan>
+  </text>
+</svg>
