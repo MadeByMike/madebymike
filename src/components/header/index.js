@@ -18,7 +18,7 @@ const Header = () => {
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:creator" content="@MikeRiethmuller" />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image:src" content="/img/mug/mike.jpg" />
+      <meta name="twitter:image" content="/img/mug/mike.jpg" />
 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
