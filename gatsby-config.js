@@ -1,3 +1,4 @@
+const get = require('lodash/get')
 let contentfulConfig
 
 try {
@@ -18,11 +19,79 @@ try {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: `MadeByMike`,
+    description: `A web development blog where basically I think stuff and sometimes I write about it.`,
+    siteUrl: `https://madebymike.com.au/`,
+  },
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        generator: `Mike Riethmuller`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulWriting } }) => {
+              return allContentfulWriting.edges.map(edge => {
+                return {
+                  title: edge.node.title,
+                  description: (get(edge, 'node.description.childMarkdownRemark.html') || '') + (get(edge,'node.body.childMarkdownRemark.html') || ''),
+                  date: edge.node.publishDate,
+                  guid: edge.node.id,
+                  url: site.siteMetadata.siteUrl + edge.node.slug
+                }
+              })
+            },
+            query: `
+            {
+              allContentfulWriting(
+                limit: 1000,
+                sort: { order: DESC, fields: [publishDate] }
+              ) {
+                edges {
+                  node {
+                    id
+                    title
+                    slug
+                    publishDate
+                    tags
+                    description {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                    body {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: '/rss.xml',
+            title: 'MadeByMike',
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

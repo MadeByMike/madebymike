@@ -5,7 +5,7 @@ const Header = () => {
   const pageTitle = `MadeByMike - Mike Riethmuller`
   const description = 'A pretty good web developer.'
   const criticalCSS = ''
-  const rssLink = ''
+  const rssLink = 'https://madebymike.com.au/rss.xml'
   return (
     <Helmet>
       <meta charset="utf-8" />
@@ -23,7 +23,7 @@ const Header = () => {
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="/img/mug/mike.jpg" />
-      <meta property="og:url" content="{{ .Permalink }}" />
+      <meta property="og:url" content="https://madebymike.com.au" />
       <meta property="og:site_name" content={pageTitle} />
 
       <link

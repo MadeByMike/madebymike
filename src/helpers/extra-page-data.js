@@ -2,11 +2,11 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import React from 'react'
 
-export const getExtraCSS = extraCSS => {
-  if (extraCSS && extraCSS.length) {
+export const getExtraCSS = extraCss => {
+  if (extraCss && extraCss.length) {
     return (
       <Helmet>
-        {extraCSS.map(css => {
+        {extraCss.map(css => {
           return (
             <link
               key={get(css, 'file.url')}
