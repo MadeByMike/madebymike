@@ -10,6 +10,10 @@ import styles from './index.module.scss'
 
 export default ({ data }) => {
   const post = get(data, 'contentfulWriting')
+  const title = `${post.title} | Mike Riethmuller`
+  const description = post.description
+
+
   const bannerContent = (
     <Fragment>
       <h1 className={styles.headline}>{post.title}</h1>
@@ -25,7 +29,15 @@ export default ({ data }) => {
   return (
     <Layout bannerContent={bannerContent}>
       <Helmet>
-        <title>{`${post.title} | Mike Riethmuller`}</title>
+        <title>{title}</title>
+
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="{{ .Permalink }}" />
+
       </Helmet>
       {getExtraCSS(post.extraCss)}
       {getExtraJS(post.extraJs)}
