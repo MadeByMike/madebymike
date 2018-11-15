@@ -11,7 +11,7 @@ import styles from './index.module.scss'
 export default ({ data }) => {
   const post = get(data, 'contentfulPage') || {}
   const title = `${post.title} | Mike Riethmuller`
-  const description = post.description
+  const description = get(post, 'description.childMarkdownRemark.excerpt')
 
   const bannerContent = (
     <Fragment>
@@ -58,6 +58,7 @@ export const pageQuery = graphql`
       description {
         childMarkdownRemark {
           html
+          excerpt
         }
       }
       sidebar {
