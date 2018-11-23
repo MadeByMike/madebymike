@@ -1,7 +1,6 @@
 <style>
-  body { max-widrth: 800px;}
+  body { max-width: 800px;}
 </style>
-
 <p>One of the biggest advantages of React is that we need to worry less about managing updates to the UI. The presentation is defined once within the <code>render()</code> method of a component and it will update automatically when data changes.</p>
 <p>The <code>render()</code> method returns elements via <code>JSX</code> that instruct React to update the DOM. This is the strength of React because it can manage updates to the DOM more efficiently than I would, and <code>JSX</code> provides a declarative means of describing a component structure, much like HTML.</p>
 <p>There is however one key assumption in all of this and that is that updating data should result in updates to the DOM. This assumption is central to the React component lifecycle, and in-fact the render method is the only required method of a React component. That&#39;s a pretty core assumption, and as a result accessing the DOM node of a React rendered element, is not always straight-forward.</p>
@@ -36,7 +35,7 @@
 
 <p>All the button does is change the render method and wrap the <code>&lt;canvas&gt;</code> in an extra <code>&lt;div&gt;</code>. This is something that can happen frequently with a larger application and it&#39;s not always easy to avoid. Wrapping an element is one of many things that can cause parts of the DOM to be re-drawn.</p>
 <p>It&#39;s worth noting that the current position of the walker is not reset when the wrap\unwrap button is used. That&#39;s because the component itself is not unmounted when the output of the render methods changes. However, it&#39;s not always easy to avoid unmounting components either. Logically we try to split components into smaller chunks and once again in these situations the sorrounding layout may change. Take a look at this example of a canvas clock: </p>
-<p><p data-height="260" data-theme-id="light" data-slug-hash="5c3293dade22de7d823741c8241950b3" data-default-tab="result" data-user="MadeByMike" data-pen-title="Clock" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/">Clock</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<p><p data-height="260" data-theme-id="light" data-slug-hash="5c3293dade22de7d823741c8241950b3" data-default-tab="result" data-user="MadeByMike" data-pen-title="Clock"  data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/">Clock</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p>Here I&#39;ve split the logic for the clock and the layout between two different components. When the layout surrounding the clock changes the component is re-mounted. In addition to a new canvas, the data in state is lost and the counter is reset to 0. You will also see a noticeable flash as the canvas is re-initialised. For elements like canvas, this can be much more expensive than a typical DOM node.</p>
@@ -144,7 +143,7 @@ export { <span class="hljs-type">PlayButton</span> };
 </code></pre><p>In a real application, functions like <code>invertVideo</code> might not be tied closely to a single UI element. For example, a function that clears a map might be triggered by multiple user actions. In this case, it makes more sense to keep this function with the component and DOM element or to place each function in its own file depending on how you want to organise your code.</p>
 <p>Either way, the ability to split this code and organise it in different ways is a huge win compared with a massive React component and some of the techniques used to pass imperative actions like that of a play button between independent components.</p>
 <p>Check out the full demo here:</p>
-<iframe src="https://codesandbox.io/embed/n9zp6yry7p?hidenavigation=1&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe src="https://codesandbox.io/embed/n9zp6yry7p?hidenavigation=1&view=preview" style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <h2 id="multiple-instances">Multiple instances</h2>
 <p>This is all good, but wait! All these examples deal with a single entity. What if we want a 2nd video? We&#39;d have to create a 2nd component along with a 2nd play button and 2nd load button etc...</p>
