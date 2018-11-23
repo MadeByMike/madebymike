@@ -1,3 +1,7 @@
+<style>
+  body { max-widrth: 800px;}
+</style>
+
 <p>One of the biggest advantages of React is that we need to worry less about managing updates to the UI. The presentation is defined once within the <code>render()</code> method of a component and it will update automatically when data changes.</p>
 <p>The <code>render()</code> method returns elements via <code>JSX</code> that instruct React to update the DOM. This is the strength of React because it can manage updates to the DOM more efficiently than I would, and <code>JSX</code> provides a declarative means of describing a component structure, much like HTML.</p>
 <p>There is however one key assumption in all of this and that is that updating data should result in updates to the DOM. This assumption is central to the React component lifecycle, and in-fact the render method is the only required method of a React component. That&#39;s a pretty core assumption, and as a result accessing the DOM node of a React rendered element, is not always straight-forward.</p>
