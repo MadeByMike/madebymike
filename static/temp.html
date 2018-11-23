@@ -1,0 +1,272 @@
+<p>One of the biggest advantages of React is that we need to worry less about managing updates to the UI. The presentation is defined once within the <code>render()</code> method of a component and it will update automatically when data changes.</p>
+<p>The <code>render()</code> method returns elements via <code>JSX</code> that instruct React to update the DOM. This is the strength of React because it can manage updates to the DOM more efficiently than I would, and <code>JSX</code> provides a declarative means of describing a component structure, much like HTML.</p>
+<p>There is however one key assumption in all of this and that is that updating data should result in updates to the DOM. This assumption is central to the React component lifecycle, and in-fact the render method is the only required method of a React component. That&#39;s a pretty core assumption, and as a result accessing the DOM node of a React rendered element, is not always straight-forward.</p>
+<p>Typically DOM manipulation outside the render method is discouraged, but there are some elements in HTML that are not quite as declarative when it comes to updates. Examples include elements like <code>&lt;video&gt;</code> and <code>&lt;canvas&gt;</code>. Updates to these might result in calling a native method to clear the canvas, or to pause video playback. To interact with these native methods we need to get a reference to the element within the DOM and for this React has refs. </p>
+<h2 id="using-refs">Using Refs</h2>
+<p>Refs, as the name implies, provide a reference to a DOM element. We can access this only after the element has been rendered. Methods for creating and retrieving refs have changed between React versions, but with backward compatibility, so you might see other techniques used in the wild. Here I am using the <code>createRef()</code> method introduced in React 16.3. </p>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CanvasComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.myCanvas = <span class="hljs-type">React</span>.createRef();
+  }
+
+    componentDidMount() {
+        const ctx = <span class="hljs-keyword">this</span>.myCanvas.current.getContext(<span class="hljs-symbol">'2</span>d');
+        ctx.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+    }
+
+  render() {
+    <span class="hljs-keyword">return</span> &lt;canvas ref={<span class="hljs-keyword">this</span>.myCanvas} width={<span class="hljs-number">100</span>} height={<span class="hljs-number">100</span>} /&gt;
+  }
+}
+</code></pre><p>I create a ref <code>myCanvas</code> in the <code>constructor()</code>, attact it to the component in the <code>render()</code> method, and then access it in <code>componentDidMount()</code>, where I can finally draw to the HTML canvas.</p>
+<p>This technique works well enough if I only need draw once, but for more complex examples, we&#39;re going to run into problems. React is calling the render method constantly, but because it is clever, it&#39;s recycling the DOM elements rather than re-building each time. This is great because we want the canvas to be persistent. However changes to the surrounding HTML, and particularly higher up the document tree, can result in re-building parts of the DOM. If you&#39;d like to know more how and why React re-builds parts of the DOM, I&#39;d suggest reading the React documentation on <a href="https://reactjs.org/docs/reconciliation.html">reconciliation</a>.</p>
+<p>Knowing this, take a look at this example of a random Rainbow Walker: </p>
+<p><p data-height="235" data-theme-id="12180" data-slug-hash="c795e7e7eb0a542a64739d7a1cb485a0" data-default-tab="result" data-user="MadeByMike" data-pen-title="Rainbow walker" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/c795e7e7eb0a542a64739d7a1cb485a0/">Rainbow walker</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>It looks great, but &quot;information&quot; is stored directly on the canvas. Each <code>tick</code> of the animation draws a new part of the line and the previous position and color information is lost. The cumulative result of this drawing procedure is stored on the canvas for as long as the canvas exists, but if React creates a new canvas element, this information is lost forever. This is one of the challenges of working with persistent and stateful media objects in React.</p>
+<p>Now take a look at this updated example of the Rainbow Walker and click the wrap\unwrap button to see what happens: </p>
+<p><p data-height="250" data-theme-id="12180" data-slug-hash="e8ec1be6a6c4cd28212473074e6b4607" data-default-tab="result" data-user="MadeByMike" data-pen-title="Rainbow walker wrap\unwrap" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/e8ec1be6a6c4cd28212473074e6b4607/">Rainbow walker wrap\unwrap</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>All the button does is change the render method and wrap the <code>&lt;canvas&gt;</code> in an extra <code>&lt;div&gt;</code>. This is something that can happen frequently with a larger application and it&#39;s not always easy to avoid. Wrapping an element is one of many things that can cause parts of the DOM to be re-drawn.</p>
+<p>It&#39;s worth noting that the current position of the walker is not reset when the wrap\unwrap button is used. That&#39;s because the component itself is not unmounted when the output of the render methods changes. However, it&#39;s not always easy to avoid unmounting components either. Logically we try to split components into smaller chunks and once again in these situations the sorrounding layout may change. Take a look at this example of a canvas clock: </p>
+<p><p data-height="250" data-theme-id="12180" data-slug-hash="5c3293dade22de7d823741c8241950b3" data-default-tab="result" data-user="MadeByMike" data-pen-title="Clock" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/">Clock</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>Here I&#39;ve split the logic for the clock and the layout between two different components. When the layout surrounding the clock changes the component is re-mounted. In addition to a new canvas, the data in state is lost and the counter is reset to 0. You will also see a noticeable flash as the canvas is re-initialised. For elements like canvas, this can be much more expensive than a typical DOM node.</p>
+<p>And it&#39;s not just canvas, these issues exist for video and other media, as well as 3rd-party libraries for things like data visualisation, mapping and charts. The problem is that libraries like D3.JS, threeJS, Mapbox and whatever the hottest chart library is right now, have imperative APIs. This typically means that there is a single object that represents an entity on the page and we invoke actions directly on it. For example with Mapbox after creating a new map, we call methods like <code>flyTo()</code> to trigger actions.</p>
+<pre><code><span class="hljs-built_in">var</span> <span class="hljs-built_in">map</span> = <span class="hljs-literal">new</span> mapboxgl.<span class="hljs-built_in">Map</span>(mapboxOptions);
+<span class="hljs-built_in">map</span>.flyTo({center: <span class="hljs-meta">[</span><span class="hljs-number">0</span>, <span class="hljs-number">0</span><span class="hljs-meta">]</span>, zoom: 9});
+</code></pre><p>This approach is very different from describing a new map with different properties and having Mapbox resolve these changes into a set of actions. As well as this, actions like <code>flyTo</code> can be challenging to describe with a declarative API.</p>
+<p>Despite this, I see numerous attempts to &quot;solve&quot; the challenges of working with stateful media objects in React, by creating libraries that wrap another layer of abstraction around popular 3rd-party tools and native APIs. The <a href="https://github.com/uber/react-map-gl">react-map-gl</a> library has more than 4000 stars. This recreation of the HTML5 canvas API <a href="https://github.com/konvajs/react-konva">react-konva</a> has more than 2000. The <a href="https://github.com/codesuki/react-d3-components">react-d3-components</a> library has over 1400 and there are many others like it. </p>
+<p>To me these are the jQuery plugins of this era. They all provide limited on-rails solutions that serve mainly as comfort for developers with a React mindset. Perhaps the only advantage is that the better-designed examples of these type of libraries allow developers to continue splitting logic into smaller components. </p>
+<p>Often a canvas, video, or chart container will be the lowest level item in the DOM that React is aware of. Therefore the React component that mounts these elements will become bloated with all the custom methods, events and other logic that controls the embedded elements.</p>
+<p>I don&#39;t think the solution is to try and envelope everything into React. Although declarative APIs can be amazingly succinct and performant, they are not the solution to everything. I also think that trying to map an existing imperative API to a set of React components going to result in something less than the original.   </p>
+<h2 id="getting-the-heck-out-of-react">Getting the heck out of React</h2>
+<p>My solution is to get the heck out of React when I need to and find a way to make these things work together.</p>
+<p>Let&#39;s take a look at an example of an HTML video element and a solution that avoids the following problems:</p>
+<ul>
+<li>clearing stateful data (such as the video source and play state) when React re-renders</li>
+<li>methods locked within a single React component</li>
+</ul>
+<p>For this example, I&#39;m using es6 imports to demonstrate how the DOM element, functions and React components can be shared between files. </p>
+<p>In one file I create a component with a ref similar to the first example. Instead of attaching it to a canvas or video element it&#39;s attached to an empty <code>&lt;div&gt;</code> container. I&#39;ve also created a detached video DOM node outside the component and I append this to the container inside <code>componentDidMount()</code>.  </p>
+<pre><code><span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-string">"react"</span>;
+
+const videoElement = document.createElement(<span class="hljs-string">"video"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Video</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.myVideoContainer = <span class="hljs-type">React</span>.createRef();
+  }
+
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>.myVideoContainer.current.appendChild(videoElement);
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> &lt;div ref={<span class="hljs-keyword">this</span>.myVideoContainer} /&gt;;
+  }
+}
+
+export { videoElement, <span class="hljs-type">Video</span> };
+</code></pre><p>Because the video element exists outside the React component, even if React re-renders the container or unmounts the component, the video will be re-mounted without losing its source, play state, or any other data.</p>
+<p>We&#39;re also exporting the <code>videoElement</code> along with the React component so that we can access it in different components. Now I can create a button that loads a video source:</p>
+<pre><code><span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { videoElement } from <span class="hljs-string">"./video"</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoadButton</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;button
+        onClick={function() {
+          <span class="hljs-comment">//  Thank you MDN for the video source! </span>
+          videoElement.src =
+            <span class="hljs-string">"https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4"</span>;
+        }}
+      &gt;
+        <span class="hljs-type">Load</span>
+      &lt;/button&gt;
+    );
+  }
+}
+
+export { <span class="hljs-type">LoadButton</span> };
+</code></pre><p>Another that starts playing the video: </p>
+<pre><code><span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { videoElement } from <span class="hljs-string">"./video"</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PlayButton</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;button
+        onClick={function() {
+          videoElement.play();
+        }}
+      &gt;
+        <span class="hljs-type">Play</span>
+      &lt;/button&gt;
+    );
+  }
+}
+
+export { <span class="hljs-type">PlayButton</span> };
+</code></pre><p>I can even create custom methods that extend the functionality of the native element. Here I&#39;ve added a method inverts colours by toggling a CSS class:</p>
+<pre><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { videoElement } <span class="hljs-keyword">from</span> <span class="hljs-string">"./video"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">invertVideo</span>(<span class="hljs-params"></span>) </span>{
+  videoElement.classList.toggle(<span class="hljs-string">"invert"</span>);
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InvertButton</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+        <span class="hljs-attr">onClick</span>=<span class="hljs-string">{function()</span> {
+          <span class="hljs-attr">invertVideo</span>();
+        }}
+      &gt;</span>
+        Invert
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+    );
+  }
+}
+
+<span class="hljs-keyword">export</span> { InvertButton };
+</code></pre><p>In a real application, functions like <code>invertVideo</code> might not be tied closely to a single UI element. For example, a function that clears a map might be triggered by multiple user actions. In this case, it makes more sense to keep this function with the component and DOM element or to place each function in its own file depending on how you want to organise your code.</p>
+<p>Either way, the ability to split this code and organise it in different ways is a huge win compared with a massive React component and some of the techniques used to pass imperative actions like that of a play button between independent components.</p>
+<p>Check out the full demo here: <a href="https://codesandbox.io/s/n9zp6yry7p">https://codesandbox.io/s/n9zp6yry7p</a></p>
+<h2 id="multiple-instances">Multiple instances</h2>
+<p>This is all good, but wait! All these examples deal with a single entity. What if we want a 2nd video? We&#39;d have to create a 2nd component along with a 2nd play button and 2nd load button etc...</p>
+<p>Yes, if you can get away with it, I think a single entity is a lot neater, but smaller components like videos or the clock example from earlier could conceivably have more than one instance within an application. One technique to avoid duplicating each component is to keep them pure, the <code>&lt;InvertButton /&gt;</code> component and the <code>invertVideo()</code> function could accept the <code>videoElement</code> as a parameter.</p>
+<p>At this point, it might help to start organising some of the functions that act on the DOM node into a class object. This way the methods are linked to a specific DOM element and we don&#39;t need to explicitly pass a reference between all the functions that interact with it. There are several different patterns you could use. This is just one I&#39;ve used for the clock example: </p>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.element = document.createElement(<span class="hljs-string">"canvas"</span>);
+    <span class="hljs-keyword">this</span>.ctx = <span class="hljs-keyword">this</span>.element.getContext(<span class="hljs-string">"2d"</span>);
+
+    <span class="hljs-keyword">this</span>.element.width = <span class="hljs-number">100</span>;
+    <span class="hljs-keyword">this</span>.element.height = <span class="hljs-number">100</span>;
+    <span class="hljs-keyword">this</span>.timer = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">this</span>.counter = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">this</span>.ctx.font = <span class="hljs-string">"40px Georgia, serif"</span>;
+    <span class="hljs-keyword">this</span>.ctx.textAlign = <span class="hljs-string">"center"</span>;
+    <span class="hljs-keyword">this</span>.ctx.textBaseline = <span class="hljs-string">"middle"</span>;
+    <span class="hljs-keyword">this</span>.step = <span class="hljs-keyword">this</span>.step.bind(<span class="hljs-keyword">this</span>);
+  }
+
+  start() {
+    <span class="hljs-keyword">this</span>.timer = setInterval(<span class="hljs-keyword">this</span>.step, <span class="hljs-number">100</span>);
+  }
+
+  stop() {
+    clearInterval(<span class="hljs-keyword">this</span>.timer);
+  }
+
+  step() {
+    <span class="hljs-keyword">this</span>.counter = <span class="hljs-keyword">this</span>.counter &lt; <span class="hljs-number">99</span> ? <span class="hljs-keyword">this</span>.counter + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.ctx.fillStyle = <span class="hljs-string">"black"</span>;
+    <span class="hljs-keyword">this</span>.ctx.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+    <span class="hljs-keyword">this</span>.ctx.fillStyle = <span class="hljs-string">"white"</span>;
+    <span class="hljs-keyword">this</span>.ctx.fillText(<span class="hljs-keyword">this</span>.counter, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  }
+}
+
+export { Counter };
+</code></pre><p>With this generic class I create an istance of <code>Counter</code> for each clock:</p>
+<pre><code>const <span class="hljs-keyword">clockA </span>= new Counter()<span class="hljs-comment">;</span>
+const <span class="hljs-keyword">clockB </span>= new Counter()<span class="hljs-comment">;</span>
+
+export { <span class="hljs-keyword">clockA, </span><span class="hljs-keyword">clockB </span>}
+</code></pre><p>I then pass the instance as a parameter to the Clock and stopButton components.</p>
+<pre><code><span class="xml">import </span><span class="hljs-template-variable">{ Clock, clockA, clockB }</span><span class="xml"> from "./clock";
+import </span><span class="hljs-template-variable">{ StopButton }</span><span class="xml"> from "./stop-button";
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Clock</span> <span class="hljs-attr">use</span>=</span></span><span class="hljs-template-variable">{clockA}</span><span class="xml"><span class="hljs-tag"> /&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">StopButton</span> <span class="hljs-attr">use</span>=</span></span><span class="hljs-template-variable">{clockA}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Clock</span> <span class="hljs-attr">use</span>=</span></span><span class="hljs-template-variable">{clockA}</span><span class="xml"><span class="hljs-tag"> /&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">StopButton</span> <span class="hljs-attr">use</span>=</span></span><span class="hljs-template-variable">{clockA}</span><span class="xml"><span class="hljs-tag"> /&gt;</span></span>
+</code></pre><p>These components can retrieve the DOM element and call methods on the provided instance:</p>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Clock</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.myClockContainer = <span class="hljs-type">React</span>.createRef();
+  }
+
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>.myClockContainer.current.appendChild(<span class="hljs-keyword">this</span>.props.use.element);
+    <span class="hljs-keyword">this</span>.props.use.start();
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> &lt;div ref={<span class="hljs-keyword">this</span>.myClockContainer} /&gt;;
+  }
+}
+</code></pre><p>There are other clever ways you could compose these, such as with higher order components, so that instances of <code>&lt;Clock /&gt;</code> and <code>&lt;StopButton /&gt;</code> are bound an instance of the counter we created without using props. You can use different patterns or you can use the ones I&#39;ve demonstrated. </p>
+<p>Once again you can see a full example here: <a href="https://codesandbox.io/s/y06pjpo0lx">https://codesandbox.io/s/y06pjpo0lx</a></p>
+<h2 id="sharing-data">Sharing data</h2>
+<p>The final challenge we have is sharing data between React and the media elements. Many of these have internal state and retrieving this is often as easy as calling a method. For example to get the current play time of a video I import the element and query the <code>currentTime</code> property: </p>
+<pre><code class="lang-`"><span class="hljs-keyword">import</span> { videoElement } <span class="hljs-keyword">from</span> <span class="hljs-string">'./video'</span> 
+const time = videoElement.currentTime`.
+</code></pre>
+<p>This is adquate in many cases but React is not going to re-render when the <code>currentTime</code> changes. We need to communicate relevant internal state changes to React and the video element has an event <code>timeupdate</code> that allows us to do this. We can import the element into a component, listen for <code>timeupdate</code> and set state to re-render.</p>
+<pre><code><span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { videoElement } from <span class="hljs-string">"./video"</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VideoTimer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props)
+    <span class="hljs-keyword">this</span>.state = { time: <span class="hljs-number">0</span> }
+    <span class="hljs-keyword">this</span>.setTime = <span class="hljs-keyword">this</span>.setTime.bind(<span class="hljs-keyword">this</span>)
+  }
+
+  setTime() {
+    <span class="hljs-keyword">this</span>.setState({ time: videoElement.currentTime })
+  }
+
+  componentDidMount() {
+    videoElement.addEventListener(<span class="hljs-string">"timeupdate"</span>, <span class="hljs-keyword">this</span>.setTime);
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;p&gt;
+        {<span class="hljs-keyword">this</span>.state.time}
+      &lt;/p&gt;
+    );
+  }
+}
+</code></pre><p>There are situations where we want to keep a large amount of data in-sync. We can call imperitive actions on media elements and listen for events within React components, this is adquate for things like a video play button, a timer, or a simple <code>flyTo()</code> on a map, but examples can easily become more complex than this. </p>
+<p>Consider a search and filtering interface that updates the application UI, then triggers the map to zoomTo and fit the bounds of selected items.   </p>
+<p>Here there are numerous state changes and a derived actions to trigger on the map. It&#39;s not clear which component should be responsible for triggering updates to the map. Probably all of them, and that approach above doesn&#39;t scale. We&#39;re likely to miss something and end up with a situation where the interal state of the media element doesn&#39;t match the application UI. </p>
+<p>In these situations it helps to use some kind of store for state management. With this we can share state between React and the media element. You can use <a href="https://redux.js.org/introduction">Redux</a> if you are familiar with it, or if you want a recommendation I&#39;ve been enjoying <a href="https://github.com/developit/unistore">Unistore</a> recently. It doesn&#39;t matter what you use as long as you can subscribe to state changes and imperatively get the state.</p>
+<p>There are two different approaches we can use. With canvas animations, games, and libraries like Three.js or d3.js you might want to implement a render loop. A render loop will run periodically (usually several times a second) and we can fetch state from the store and call an update method.</p>
+<p>A very simple example of a render loop looks something like this:</p>
+<pre><code><span class="hljs-keyword">import</span> { store } <span class="hljs-keyword">from</span> <span class="hljs-string">'./store'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loop</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> state = store.getState();
+
+  <span class="hljs-comment">// Do updates</span>
+
+  requestAnimationFrame(loop)
+}
+
+requestAnimationFrame(loop)
+</code></pre><p>The other approach is to subscribe to the store and call update when it changes.</p>
+<pre><code><span class="hljs-keyword">import</span> { store } <span class="hljs-keyword">from</span> <span class="hljs-string">'./store'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params"></span>) </span>{ 
+  <span class="hljs-keyword">const</span> state = store.getState();
+}
+
+store.subscribe(update)
+</code></pre><p>In both examples you can always have events and methods that call actions to update the store as well as subscribe so that your media elements can push back to the React application.</p>
+<p>Once again, here&#39;s an example of a map application that shares state between the map, the UI and  has imperative actions: TODO</p>
+<p>Conclusion: ToDo</p>
