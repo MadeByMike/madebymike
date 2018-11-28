@@ -49,8 +49,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .container > pre,
-  .container > :global(.full-width) {
+  .container > pre {
     padding-left: 100px;
   }
 }
