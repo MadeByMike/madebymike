@@ -122,6 +122,10 @@ const feedOptions = {
   ]
 };
 
+const offlineOptions = {
+  navigateFallback: false
+}
+
 module.exports = {
   siteMetadata: {
     title: `MadeByMike`,
@@ -144,6 +148,10 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig
     },
-    "gatsby-plugin-offline"
+    {
+      resolve: "gatsby-plugin-offline",
+      options: offlineOptions
+    },
+    
   ]
 };
