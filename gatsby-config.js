@@ -123,7 +123,7 @@ const feedOptions = {
 };
 
 const offlineOptions = {
-  navigateFallback: false
+  navigateFallbackWhitelist: []
 }
 
 module.exports = {
