@@ -1,5 +1,6 @@
 ---
 title: Hello, I’m Mike Riethmuller
+description: A website by Mike Reithmuller
 layout: layouts/home.njk
 ---
 

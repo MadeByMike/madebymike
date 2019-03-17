@@ -1,8 +1,8 @@
 {
-  "name": "EleventyOne",
+  "name": "MadeByMike",
   "version": "2.0.0",
-  "description": "A project bootstrap for Eleventy sites. With pipelines for Sass, Js, and Lambdas",
-  "author": "Phil Hawksworth",
+  "description": "A website by Mike Riethmuller",
+  "author": "Mike Riethmuller",
   "license": "MIT",
   "scripts": {
     "start": "yarn run dev",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/philhawksworth/eleventyone"
+    "url": "https://github.com/MadeByMike/madebymike.github.io"
   },
   "dependencies": {
     "@11ty/eleventy": "MadeByMike/eleventy",
