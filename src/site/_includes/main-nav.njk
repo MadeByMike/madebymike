@@ -1,0 +1,24 @@
+<nav class="header-nav-container">
+  <ul class="header-nav">
+    <li class="header-nav-item">
+      <a class="header-nav-link {% if page.url == '/' %}active{% endif %}" href="/">
+        MadeByMike</a>
+    </li>
+    <li class="header-nav-item">
+      <a class="header-nav-link {% if page.url == '/hire-me/' %}active{% endif %}" href="/hire-me">Hire Me</a>
+    </li>
+    <li class="header-nav-item">
+      <a class="header-nav-link {% if '/writing/' in page.url %}active{% endif %}" href="/writing">Writing</a>
+    </li>
+    {% if title === 'Oops!' %}
+      <li class="header-nav-item">
+        <a class="header-nav-link active" href="/">???</a>
+      </li>
+    {% endif %}
+    {% if title === 'It looks like you are offline' %}
+      <li class="header-nav-item">
+        <a class="header-nav-link active" href="/">Offline ???</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

@@ -1,0 +1,21 @@
+{% if pagination.previousPageLink %}
+  <a class="pagination-link pagination-link-newer" href="{{ pagination.previousPageLink }}">
+    <span class="pagination-btn pagination-btn-previous">
+      {% include "arrow-left.njk" %}
+    </span>
+    <span>Newer posts</span>
+  </a>
+{%- else -%}
+  <span></span>
+{%- endif -%}
+
+{% if pagination.nextPageLink %}
+  <a class="pagination-link pagination-link-older" href="{{ pagination.nextPageLink }}">
+    <span>Older posts</span>
+    <span class="pagination-btn pagination-btn-next">
+      {% include "arrow-right.njk" %}
+    </span>
+  </a>
+{%- else -%}
+  <span></span>
+{%- endif -%}

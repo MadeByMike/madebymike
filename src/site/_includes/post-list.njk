@@ -1,0 +1,13 @@
+<ul class="post-listing">
+  {%- for page in writing -%}
+    <li class="post-listing-item">
+      <a class="post-listing-link card" href="{{ page.url }}">
+        <span class="post-listing-title">{{ page.data.title }}</span>
+        <time class="post-listing-date" datetime="{{ page.date }}">{{ page.date | dateDisplay("LLL d, y") }}</time>
+        {%- if page.data.description -%}
+          <p  class="post-listing-description">{{ page.data.description }}</p>
+        {%- endif -%}
+      </a>
+    </li>
+  {%- endfor -%}
+</ul>

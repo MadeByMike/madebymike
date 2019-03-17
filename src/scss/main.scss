@@ -1,0 +1,628 @@
+@import "_variables";
+@import "_mixins";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background-color: $text-color;
+  color: $page-color;
+}
+::selection {
+  background-color: $text-color;
+  color: $page-color;
+}
+
+body {
+  background-color: $page-color;
+  color: mix($text-color, $page-color, 70%);
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+  @include bp(mid) {
+    font-size: 1.3rem;
+  }
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 95%;
+  @include bp(mid) {
+    width: 80%;
+  }
+  @include bp(wide) {
+    width: 80%;
+    max-width: 48rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: $heading-color;
+  font-family: $heading-font;
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 0.4em;
+  @include interpolate(font-size, $unit-narrow, $unit-wide, 2.85em, 4.5em);
+}
+
+ul,
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+  margin-bottom: 3em;
+}
+
+hr {
+  margin: 1rem 0 3rem 0;
+  border: none;
+  border-bottom: solid 1px $accent-color;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+a:link,
+a:visited {
+  color: $text-color;
+  text-decoration: underline;
+  text-decoration-color: $text-color;
+}
+a:hover,
+a:focus {
+  color: $text-color;
+  text-decoration: underline;
+  text-decoration-color: mix($accent-color, $page-color, 50%);
+}
+
+a:focus {
+  outline-color: mix($accent-color, $page-color, 50%);
+}
+
+.header-nav-container {
+  margin: 1em 0 3em 0;
+  z-index: 99;
+
+  @include bp(megawide) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1em;
+    width: auto;
+  }
+}
+
+.header-nav {
+  padding: 0;
+  list-style: none;
+  display: block;
+}
+
+.header-nav-link:link,
+.header-nav-link:visited {
+  background: #fff;
+  padding: 0.25em 3em 0.25em 1em;
+  display: inline-block;
+  margin: 2px 0;
+  border-right: solid 3px transparent;
+  color: mix($text-color, $page-color, 80%);
+  text-decoration: none;
+}
+
+.header-nav-item {
+  transform-origin: center left;
+  margin: 4px 0;
+}
+.header-nav-item:nth-child(odd) {
+  transform: rotate(0.5deg);
+}
+.header-nav-item:nth-child(even) {
+  transform: rotate(-0.5deg);
+}
+
+.header-nav-link.active,
+.header-nav-link:hover,
+.header-nav-link:focus {
+  color: $text-color;
+  border-right: solid 3px $accent-color;
+}
+
+code {
+  font-size: 0.8em;
+  background-color: mix($accent-color, $page-color, 20%);
+  color: $text-color;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  white-space: pre-wrap;
+}
+
+.date {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.page img {
+  max-width: 100%;
+  margin-bottom: 1em;
+}
+
+.img-center {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.page {
+  > pre,
+  > .full-width,
+  > .full-width-extended,
+  > .cp_embed_wrapper {
+    @include bp(wide) {
+      margin: 3em -120px;
+      max-width: calc(100% + 240px);
+    }
+  }
+  > .full-width-extended {
+    @include bp(megawide) {
+      margin: 3em -150px;
+      max-width: calc(100% + 300px);
+    }
+  }
+}
+
+main {
+  margin-top: 2em;
+}
+
+footer {
+  margin-top: 6em;
+  padding-top: 4em;
+  padding-bottom: 6em;
+  border-top: solid 1px mix($text-color, $page-color, 10%);
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7em;
+  color: mix($text-color, $page-color, 40%);
+}
+
+.footer-link {
+  margin-left: 1rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  fill: mix($text-color, $page-color, 70%);
+  color: mix($text-color, $page-color, 70%);
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  fill: $accent-color;
+  color: $accent-color;
+}
+
+.post-listing {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-listing-item {
+  margin-bottom: 1em;
+}
+
+.post-listing-description {
+  margin: 0;
+}
+
+.post-listing-link {
+  transition: box-shadow 0.3s ease-in-out;
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    .post-listing-title {
+      text-decoration: underline;
+      text-decoration-color: mix($accent-color, $page-color, 50%);
+    }
+  }
+}
+
+.post-listing-title {
+  font-weight: bold;
+}
+
+.post-listing-date {
+  display: block;
+  font-size: small;
+}
+
+.hire-me-anchor {
+  position: relative;
+  @include bp(wide) {
+    float: right;
+    margin: 10px;
+    width: 125px;
+    height: 185px;
+  }
+
+  @include bp(megawide) {
+    width: 150px;
+    height: 230px;
+  }
+}
+
+.hire-me-aside {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include bp(wide) {
+    position: absolute;
+    width: 250px;
+    padding: 15px 25px;
+    bottom: 0;
+    left: 0;
+    background: white;
+    border: solid 1px #eaeaea;
+    font-size: 0.75em;
+  }
+
+  @include bp(megawide) {
+    width: 310px;
+    background: white;
+    padding: 30px 40px;
+    font-size: 0.8em;
+  }
+}
+
+.nice-pic img {
+  max-width: 150px;
+  @include bp(megawide) {
+    max-width: 200px;
+  }
+  border-radius: 50%;
+  padding: 0;
+  position: relative;
+  margin: 0 auto 0.5em auto;
+  -webkit-filter: contrast(1.25) brightness(0.95);
+  filter: contrast(1.25) brightness(0.95);
+}
+
+.update {
+  display: block;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  @include bp(wide) {
+    padding: 30px 40px;
+  }
+
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  line-height: 1.2;
+  color: $heading-color;
+  overflow: auto;
+  &::before {
+    content: "Note: ";
+    display: inline;
+    font-weight: bold;
+  }
+}
+
+.description {
+  font-size: 1.25em;
+  line-height: 1.4;
+  margin-top: 0;
+  margin: 1em 0 2em 0;
+  color: $heading-color;
+  font-weight: bold;
+  font-family: $heading-font;
+}
+
+.first-sentence {
+  color: $accent-color;
+}
+
+.card-small,
+.card {
+  display: block;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  @include bp(wide) {
+    padding: 30px 40px;
+  }
+}
+
+.card-small {
+  padding: 10px 10px;
+  @include bp(wide) {
+    padding: 10px 10px;
+  }
+}
+
+.shadow {
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+  padding: 20px 20px;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  @include bp(wide) {
+    padding: 40px 80px;
+  }
+}
+
+/*
+ Solarized Color Schemes originally by Ethan Schoonover
+ http://ethanschoonover.com/solarized
+
+ Ported for PrismJS by Hector Matos
+ Website: https://krakendev.io
+ Twitter Handle: https://twitter.com/allonsykraken)
+*/
+
+/*
+SOLARIZED HEX
+--------- -------
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
+
+pre {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  line-height: 1.2;
+  white-space: pre;
+  background-color: mix($accent-color, #fff, 7%);
+  border: solid 1px mix($accent-color, #fff, 30%);
+  overflow-x: auto;
+  code {
+    background-color: transparent;
+    border-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &:hover {
+    border-color: $accent-color;
+  }
+}
+
+code,
+pre {
+  color: #657b83; /* base00 */
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  @include bp(wide) {
+    font-size: 1em;
+  }
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+  overflow-x: auto;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1; /* base1 */
+}
+
+.token.punctuation {
+  color: #586e75; /* base01 */
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #268bd2; /* blue */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+  color: #2aa198; /* cyan */
+}
+
+.token.entity {
+  color: #657b83; /* base00 */
+  background: #eee8d5; /* base2 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #859900; /* green */
+}
+
+.token.function,
+.token.class-name {
+  color: #b58900; /* yellow */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #cb4b16; /* orange */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.pagination-container {
+  justify-content: space-between;
+  display: inline-block;
+  margin: 1em 0 1em 0;
+  @include bp(wide) {
+    margin: 3em 0 1em 0;
+    display: flex;
+  }
+}
+
+.pagination-link {
+  display: flex;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  padding: 15px 15px;
+  @include bp(wide) {
+    margin: 0;
+    padding: 15px 40px;
+  }
+}
+
+.pagination-link-older {
+  justify-self: end;
+  padding-right: 5px;
+  @include bp(wide) {
+    padding-right: 20px;
+  }
+}
+
+.pagination-link-newer {
+  justify-self: start;
+  padding-left: 5px;
+  @include bp(wide) {
+    padding-left: 20px;
+  }
+}
+
+.pagination-btn {
+  display: block;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    fill: currentColor;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.pagination-btn-next {
+  margin-left: 10px;
+}
+.pagination-btn-previous {
+  margin-right: 10px;
+}
+
+table {
+  min-width: 50%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+tr {
+  border-bottom: 1px solid #ccc;
+}
+th,
+td {
+  line-height: 1.3;
+  text-align: left;
+  padding: 4px 10px;
+}
+
+.page-top {
+  margin-bottom: 3em;
+}

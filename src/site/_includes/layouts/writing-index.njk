@@ -1,0 +1,19 @@
+{% extends "layouts/base.njk" %}
+
+{% block pre %}
+  <div class="container page-top">
+    <p>Basically I think stuff, and sometimes I write it down.</p>
+  </div>
+{% endblock %}
+
+{% block header %}
+  <header class="container">
+    <h1>Stuff I Wrote</h1>
+  </header>
+{% endblock %}
+
+{% block main %}
+  <main class="container">
+    {{ content | safe }}
+  </main>
+{% endblock %}

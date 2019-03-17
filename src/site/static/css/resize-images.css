@@ -1,0 +1,34 @@
+
+.js-resizable {
+  position: relative;
+  width: 95%;
+  width: calc(100% - 30px);
+  padding-right: 10px;
+}
+
+.js-resizable-image {
+  width: 100%;
+  background: #FFF;
+}
+
+.js-resizable-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  border-right: dashed 2px black;
+  cursor: col-resize;
+}
+
+.js-resizable-handle::after {
+  content: 'resize';
+  right: 5px;
+  top: 50%;
+  display: block;
+  position: absolute;
+  color: #888;
+  -webkit-transform: translate(100%, -50%) rotate(90deg);
+      -ms-transform: translate(100%, -50%) rotate(90deg);
+          transform: translate(100%, -50%) rotate(90deg);
+}

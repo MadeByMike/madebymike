@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+
+    {% set css %}{% include "css/main.css" %}{% endset %}
+    <style>
+      {{css | safe}}
+    </style>
+
+    <title>
+      {{ title }}
+    </title>
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@MikeRiethmuller"/>
+    <meta name="twitter:title" content="{{title}}"/>
+    <meta name="twitter:creator" content="@MikeRiethmuller"/>
+    <meta name="twitter:description" content="{{description}}"/>
+    <meta name="twitter:image" content="https://madebymike.com.au/img/mug/mike.jpg"/>
+
+    <meta property="og:title" content="{{title}}"/>
+    <meta property="og:description" content="{{description}}"/>
+    <meta property="og:image" content="/images/mug/mike.jpg"/>
+    <meta property="og:url" content="https://madebymike.com.au"/>
+    <meta property="og:site_name" content="MadeByMike"/>
+
+    <link
+        href={rssLink}
+        rel="alternate feed"
+        type="application/rss+xml"
+        title="{{title}}"
+/>
+
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+/>
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+/>
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+/>
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="theme-color" content="#FF6E4A"/>
+
+    {%- for css in extra_css -%}
+      <link rel="stylesheet" type="text/css" href="{{css}}">
+    {%- endfor -%}
+
+  </head>
+
+  <body class="{{ bodyClass }}">
+    {% include "main-nav.njk" %}
+
+    {% block header %}
+      <header class="container">
+        <h1>{{ title }}</h1>
+        {%- if subtitle %}
+          <p class="subtitle">{{ subtitle }}</p>
+        {% endif %}
+      </header>
+    {% endblock %}
+
+    {% block pre %}
+
+      {% if update %}
+        <div class="container">
+          <div class="update">
+            {{ update }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endblock %}
+
+    {% block main %}
+      <main class="container">
+        <div class="page">
+          {{ content | safe }}
+        </div>
+      </main>
+    {% endblock %}
+
+    {% block post %}{% endblock %}
+
+    {% include "footer.njk" %}
+    <script>
+      {% include "js/core.js" %}
+      if ("serviceWorker" in navigator && (typeof Cache !== "undefined" && Cache.prototype.addAll)) {
+        // Yay, this is a problem we didn't need to have!
+        navigator
+          .serviceWorker
+          .register("/sw.js");
+      }
+    </script>
+    {%- for js in extra_js -%}
+      <script type="text/javascript" src="{{js}}"></script>
+    {%- endfor -%}
+  </body>
+</html>

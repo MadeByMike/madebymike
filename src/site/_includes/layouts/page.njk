@@ -1,0 +1,13 @@
+---
+layout: default
+pageClass: page
+templateEngineOverride: njk, md
+---
+
+{% if description %}
+  <div class="description">
+    {{ description | safe }}
+  </div>
+{% endif %}
+
+{{ content | safe }}

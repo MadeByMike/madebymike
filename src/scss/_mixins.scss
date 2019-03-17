@@ -1,0 +1,64 @@
+@mixin bp($point) {
+  @if $point == narrow {
+    @media #{$bp-narrow} {
+      @content;
+    }
+  } @else if $point == mid {
+    @media #{$bp-mid} {
+      @content;
+    }
+  } @else if $point == wide {
+    @media #{$bp-wide} {
+      @content;
+    }
+  } @else if $point == megawide {
+    @media #{$bp-megawide} {
+      @content;
+    }
+  }
+}
+
+@mixin interpolate(
+  $properties,
+  $min-screen,
+  $max-screen,
+  $min-value,
+  $max-value
+) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-screen) {
+      @each $property in $properties {
+        #{$property}: calc-interpolation(
+          $min-screen,
+          $min-value,
+          $max-screen,
+          $max-value
+        );
+      }
+    }
+
+    @media screen and (min-width: $max-screen) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  @return calc(#{$a * 100}vw #{$sign} #{$b});
+}

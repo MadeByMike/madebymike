@@ -1,0 +1,17 @@
+---
+layout: default
+pageClass: writing
+templateEngineOverride: njk, md
+---
+
+<p class="date">
+  First published, <time datetime="{{ date }}">{{ date | dateDisplay }}</time>
+</p>
+
+{% if description %}
+  <div class="description">
+    {{ description | safe }}
+  </div>
+{% endif %}
+
+{{ content | safe }}
