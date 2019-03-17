@@ -15,7 +15,7 @@
     "url": "https://github.com/MadeByMike/madebymike.github.io"
   },
   "dependencies": {
-    "@11ty/eleventy": "MadeByMike/eleventy",
+    "@11ty/eleventy": "madebymike/eleventy",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
     "axios": "^0.18.0",
     "concurrent-transform": "^1.0.0",
