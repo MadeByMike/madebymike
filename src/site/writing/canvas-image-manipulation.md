@@ -112,7 +112,7 @@ ctx.putImageData(imgData, image.width, image.height);
 We did it! We applied a simple image effect with canvas. If you’d like to see this technique in action here is the code and a working example of [basic pixel manipulation with canvas](/demos/image-effects/basic.html). It’s not as simple as a CSS filter, but it’s not overly complicated either. You can use this technique in moderation for small images, where performance is not critical.
 
 <div class="full-width shadow">
-  <iframe src="/demos/image-effects/basic.html" style="height:670px; width:100%; border: none;"></iframe>
+  <iframe src="/demos/image-effects/basic.html" style="height:620px; width:100%; border: none;"></iframe>
 </div>
 
 ## 32bit pixel manipulation
@@ -160,7 +160,7 @@ ctx.putImageData(imgData, 0, 0);
 This technique is significantly faster than the basic example and should be applied whenever using basic pixel manipulation techniques. Here is the code and a working example of [applying image effects using canvas and 32bit pixel manipulation](/demos/image-effects/32bit.html).
 
 <div class="full-width shadow">
-  <iframe src="/demos/image-effects/32bit.html" style="height:670px; width:100%; border: none;"></iframe>
+  <iframe src="/demos/image-effects/32bit.html" style="height:620px; width:100%; border: none;"></iframe>
 </div>
 
 ## Image effects &amp; WebGL
@@ -385,7 +385,7 @@ ctx.drawArrays(ctx.TRIANGLES, 0, 6);
 And that’s it! Checkout the [WebGL image effects demo page](/demos/image-effects/webgl.html).
 
 <div class="full-width shadow">
-  <iframe src="/demos/image-effects/webgl.html" style="height:670px; width:100%; border: none;"></iframe>
+  <iframe src="/demos/image-effects/webgl.html" style="height:620px; width:100%; border: none;"></iframe>
 </div>
 
 This example is fast! And I mean really fast! The results are directly comparable with CSS and SVG filters. That’s because with WebGL, the image effects are processed directly on your graphics card’s GPU, which is highly optimised for this type of work.

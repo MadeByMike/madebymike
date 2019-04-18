@@ -1,0 +1,32 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.container {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+}
+.clock {
+  margin: 20px;
+}
+
+button {
+  margin: 2px auto;
+  display: block;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: bold;
+  border: 2px solid #333;
+  background-color: #fff;
+  padding: 8px 11px;
+  min-width: 70px;
+  text-decoration: none;
+}
+button:hover,
+button:focus {
+  border-color: #888;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=main.ad669c2f.chunk.css.map */

@@ -46,27 +46,27 @@ This technique works well enough if I only need draw once, but for more complex 
 
 Take a look at this example of a random "Rainbow Walker":
 
-<div class="full-width">
-<p data-height="350" data-theme-id="light" data-slug-hash="c795e7e7eb0a542a64739d7a1cb485a0" data-default-tab="result" data-user="MadeByMike" data-pen-title="Rainbow walker" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/c795e7e7eb0a542a64739d7a1cb485a0/">Rainbow walker</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/rainbow-walker-1.html" style="height:300px; width:100%; border: none;"></iframe>
+  <a href="https://codepen.io/MadeByMike/pen/c795e7e7eb0a542a64739d7a1cb485a0/" class="open-in-codepen">Open in CodePen</a>
 </div>
 
 It looks great, but "information" is stored directly on the canvas. Each `tick` of the animation draws a new part of the line and the previous position and color information is lost. The cumulative result of this drawing procedure is stored on the canvas for as long as the canvas exists, but if React creates a new element, this information is lost forever. This is one of the challenges of working with persistent and stateful media objects in React.
 
 Take a look at this updated example and click the wrap\unwrap button to see what happens:
 
-<div class="full-width">
-<p data-height="400" data-theme-id="light" data-slug-hash="e8ec1be6a6c4cd28212473074e6b4607" data-default-tab="result" data-user="MadeByMike" data-pen-title="Rainbow walker wrap\unwrap" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/e8ec1be6a6c4cd28212473074e6b4607/">Rainbow walker wrap\unwrap</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/rainbow-walker-2.html" style="height:400px; width:100%; border: none;"></iframe>
+  <a href="https://codepen.io/MadeByMike/pen/e8ec1be6a6c4cd28212473074e6b4607/" class="open-in-codepen">Open in CodePen</a>
 </div>
 
 All the button does is change the `render()` method to wrap the `<canvas>` in an extra `<div>`. This is something that can happen frequently with larger applications and it's not always easy to avoid. Wrapping an element is one of many things that can cause parts of the DOM to be re-drawn.
 
 It's worth noting that the current position of the walker is not reset when clicking the wrap\unwrap button. That's because the component itself is not unmounted when its output changes. However, it's not always easy to avoid unmounting components either. Logically we try to split components into smaller chunks and once again the sorrounding layout can change. Take a look at this example of a canvas clock:
 
-<div class="full-width">
-<p data-height="250" data-theme-id="light" data-slug-hash="5c3293dade22de7d823741c8241950b3" data-default-tab="js,result" data-user="MadeByMike" data-pen-title="Clock" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/">Clock</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/timer-1.html" style="height:160px; width:100%; border: none;"></iframe>
+  <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/" class="open-in-codepen">Open in CodePen</a>
 </div>
 
 Here I've split the logic for the clock and the layout between two different components. When the layout surrounding the clock changes the component is re-mounted. In addition to a new `canvas`, data in state is lost and the counter is reset to 0. You will also see a noticeable flash as the canvas is re-initialised. For elements like `canvas` this is much more expensive than re-drawing a typical DOM node. This is especially true if we need to re-initialise a 3rd-party library as well.
@@ -75,7 +75,7 @@ Here I've split the logic for the clock and the layout between two different com
 
 It's not just `canvas`, these issues exist for `video` and other media, as well as 3rd-party libraries for things like data visualisation, mapping and charts. The problem is that libraries like D3.js, three.js, mapbox and whatever the hottest chart library is right now, have imperative APIs. This typically means that there is a single object that represents an entity on the page and we invoke actions directly on it. For example with Mapbox after creating a new map, we call methods like `flyTo()` to trigger actions. E.g.
 
-```
+```javascript
 var map = new mapboxgl.Map(mapboxOptions);
 map.flyTo({center: [0, 0], zoom: 9});
 ```
@@ -209,11 +209,16 @@ export { InvertButton };
 
 In a real application, functions like `invertVideo()` might not be tied to a single UI element such as in this example. A function that clears data on a map, for example, might be triggered by multiple UI actions. In cases like this, it makes more sense to import functions rather than co-locating them with the UI components.
 
-Either way, the ability to split this code and organise it in different ways is a huge win compared with a massive React component and some of the techniques used to pass imperative actions like that of a play button between independent components.
+Either way, the ability to split this code and organise it in different ways is a huge win compared with a massive React component and some of the techniques used to pass imperative actions —like that of a play button— between independent components.
 
 You can check out a full demo here:
 
-[![Edit react-html-video](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/n9zp6yry7p)
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/video/" style="height:345px; width:100%; border: none;"></iframe>
+  <a class="open-code-sandbox" href="https://codesandbox.io/s/n9zp6yry7p">
+  <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-html-video">
+  </a>
+</div>
 
 **Note**: By importing the `videoElement` we're creating an implicit link between components.
 
@@ -304,7 +309,12 @@ class Clock extends React.Component {
 
 Once again you can see a full example here:
 
-[![Edit react-many-clocks](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/y06pjpo0lx)
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/too-many-clocks/" style="height:190px; width:100%; border: none;"></iframe>
+  <a class="open-code-sandbox" href="https://codesandbox.io/s/y06pjpo0lx">
+  <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-html-video">
+  </a>
+</div>
 
 ## Sharing data
 
@@ -390,7 +400,13 @@ With both these examples, it is possible to call `store.setState()` or dispatch 
 
 Here's an example of a map application that shares data between media elements, UI components within React:
 
-[![Edit react-map-unistore](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/2x6xwz6k2n)
+<div class="full-width shadow live-demo">
+  <iframe src="/demos/getting-out-of-react/map/" style="height:500px; width:100%; border: none;"></iframe>
+  <a class="open-code-sandbox" href="https://codesandbox.io/s/2x6xwz6k2n">
+  <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-html-video">
+  </a>
+</div>
+
 
 I really like this approach because we can have two highly separate applications that work largely independently yet share the same data source. In theory, it's not necessary to mount the map into a React application. It could just as easily be mounted by a different framework or plain onld JavaScript. This makes things much more portable and easy to test.
 

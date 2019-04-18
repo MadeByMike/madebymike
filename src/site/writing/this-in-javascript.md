@@ -15,18 +15,18 @@ The default value of `this` is the `window` object in browsers or `undefined` wh
 We can explicitly set what `this` points by executing functions with methods like `call`, `bind` and `apply`.
 
 ```javascript
-function myFunc() {
+function myFunction() {
   return this;
 }
 
-myFunc(); // window
-var myBinding = myFunc.bind("hello"); // .bind() returns a new function with a different binding
+myFunction(); // window
+var myBinding = myFunction.bind("hello"); // .bind() returns a new function
 myBinding(); // 'hello'
-myFunc.call("hello"); // 'hello'
-myFunc.apply("hello"); // 'hello'
+myFunction.call("hello"); // 'hello'
+myFunction.apply("hello"); // 'hello'
 ```
 
-What confuses me sometimes is JavaScript will implicity bind `this` if the function is called within an context owning object. This means when a function is a property of a context owning object, the value of `this` will be the object itself. In the example below the owning object, and therfore value of `this` is `myObject`:
+What confuses me sometimes is JavaScript will implicity bind `this` if the function is called within a context owning object. This means when a function is a property of a context owning object, the value of `this` will be the object itself. In the example below the owning object, and therfore value of `this` is `myObject`:
 
 ```javascript
 function myFunc() {
