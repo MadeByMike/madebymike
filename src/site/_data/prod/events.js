@@ -2,49 +2,64 @@ const axios = require("axios");
 const seed = require("../../../utils/save-seed.js");
 
 /*
-  Get presentation details from Notist
+Get presentation details from Notist
 */
+async function getData(url) {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-module.exports = () => {
-  return new Promise((resolve, reject) => {
-    axios
-      .get("https://noti.st/madebymike.json")
-      .then(function(response) {
-        var events = response.data.data[0].relationships.data;
-        var eventURLs = [];
-        events.forEach(element => {
-          eventURLs.push(element.links.event);
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
+
+module.exports = () =>
+  new Promise(async resolve => {
+    const events = await getData("https://noti.st/madebymike.json").then(
+      response => response.data[0].relationships.data
+    );
+
+    var talks = {
+      future: [],
+      past: []
+    };
+
+    await asyncForEach(events, async item => {
+      const event = await getData(item.links.event);
+      const presentation = await getData(item.links.related);
+
+      const now = new Date();
+      const thisEvent = event.data[0].attributes;
+      const thisPresentation = presentation.data[0].attributes;
+      const when = new Date(thisEvent.ends_on);
+      const future = now - when < 0 ? true : false;
+
+      const image = item.attributes.image;
+      const link = item.links.self;
+
+      if (future) {
+        talks.future.push({
+          image,
+          link,
+          event: thisEvent,
+          presentation: thisPresentation
         });
+      } else {
+        talks.past.push({
+          image,
+          link,
+          event: thisEvent,
+          presentation: thisPresentation
+        });
+      }
+    });
 
-        // Fetch all of the presentation data
-        axios.all(eventURLs.map(l => axios.get(l))).then(
-          axios.spread(function(...res) {
-            // gather the data about for each presentation and
-            // collect them in future and past arrays
-            var talks = {
-              future: [],
-              past: []
-            };
-            var now = new Date();
-            for (var talk in res) {
-              var thisTalk = res[talk].data.data[0].attributes;
-              var when = new Date(thisTalk.ends_on);
-              var future = now - when < 0 ? true : false;
-              if (future) {
-                talks.future.push(thisTalk);
-              } else {
-                talks.past.push(thisTalk);
-              }
-            }
-
-            seed(JSON.stringify(talks), `${__dirname}/../dev/events.json`);
-            resolve();
-          })
-        );
-      })
-      .catch(function(error) {
-        reject();
-        console.log(error);
-      });
+    seed(JSON.stringify(talks), `${__dirname}/../dev/events.json`);
+    resolve(talks);
   });
-};

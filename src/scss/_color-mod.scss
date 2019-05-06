@@ -1,0 +1,67 @@
+:root {
+  --HUE: 25;
+  --SATURATION: 50;
+  --LIGHTNESS: 50;
+}
+
+*,
+::before,
+::after,
+::selection {
+  --saturation: calc(
+    var(--SATURATION) * calc(1 + (var(--saturate, 0) - var(--desaturate, 0)))
+  );
+  --hue: calc(var(--HUE) + var(--hue-rotate, 0));
+  --lightness: calc(
+    var(--LIGHTNESS) * calc(1 + (var(--lighten, 0) - var(--darken, 0)))
+  );
+
+  --saturation-alt: calc(
+    var(--saturation) *
+      calc(1 + (var(--saturate-alt, 0) - var(--desaturate-alt, 0)))
+  );
+  --hue-alt: calc(var(--hue) + var(--hue-rotate-alt, 0));
+  --lightness-alt: calc(
+    var(--lightness) * calc(1 + (var(--lighten-alt, 0) - var(--darken-alt, 0)))
+  );
+
+  --COLOR: hsl(
+    var(--hue),
+    calc(var(--saturation) * 1%),
+    calc(var(--lightness) * 1%)
+  );
+
+  --COLOR-ALT: hsl(
+    var(--hue-alt),
+    calc(var(--saturation-alt) * 1%),
+    calc(var(--lightness-alt) * 1%)
+  );
+
+  --COLOR-INVERSE: hsl(
+    calc(var(--hue) + 180),
+    calc(100 - var(--saturation) * 1%),
+    calc(100 - var(--lightness) * 1%)
+  );
+
+  --COLOR-ANALOG-1: hsl(
+    calc(var(--hue) + 30),
+    calc(var(--saturation) * 1%),
+    calc(var(--lightness) * 1%)
+  );
+  --COLOR-ANALOG-2: hsl(
+    calc(var(--hue) - 30),
+    calc(var(--saturation) * 1%),
+    calc(var(--lightness) * 1%)
+  );
+
+  --COLOR-COMPLEMENT-1: hsl(
+    calc(var(--hue) + 120),
+    calc(var(--saturation) * 1%),
+    calc(var(--lightness) * 1%)
+  );
+  --COLOR-COMPLEMENT-2: hsl(
+    calc(var(--hue) - 120),
+    calc(var(--saturation) * 1%),
+    calc(var(--lightness) * 1%)
+  );
+}

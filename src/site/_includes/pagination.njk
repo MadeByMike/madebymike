@@ -3,7 +3,7 @@
     <span class="pagination-btn pagination-btn-previous">
       {% include "arrow-left.njk" %}
     </span>
-    <span>Newer posts</span>
+    <span>Newer</span>
   </a>
 {%- else -%}
   <span></span>
@@ -11,7 +11,7 @@
 
 {% if pagination.nextPageLink %}
   <a class="pagination-link pagination-link-older" href="{{ pagination.nextPageLink }}">
-    <span>Older posts</span>
+    <span>Older</span>
     <span class="pagination-btn pagination-btn-next">
       {% include "arrow-right.njk" %}
     </span>

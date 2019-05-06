@@ -1,5 +1,6 @@
 ---
 title: Detecting transition start
+description: Experiements detecting transition start "events" in CSS.
 slug: detecting-transition-start
 date: 2014-06-06
 tags: [css, old]

@@ -6,12 +6,14 @@ templateEngineOverride: njk, md
 
 <p class="date">
   First published, <time datetime="{{ date }}">{{ date | dateDisplay }}</time>
+</br>
+{{ content | wordCount }}
 </p>
 
 {% if description %}
-  <div class="description">
-    {{ description | safe }}
-  </div>
+<div class="description">
+  {{ description | safe }}
+</div>
 {% endif %}
 
 {{ content | safe }}

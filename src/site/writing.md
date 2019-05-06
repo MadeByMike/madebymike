@@ -2,7 +2,7 @@
 title: Writing
 layout: layouts/writing-index.njk
 pagination:
-  data: collections.writing
+  data: collections.allWriting
   size: 5
   alias: writing
   reverse: true

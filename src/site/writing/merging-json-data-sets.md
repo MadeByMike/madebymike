@@ -1,6 +1,7 @@
 ---
 title: Merging JSON data sets
 slug: merging-json-data-sets
+description: Learning about merging deep JSON objects. (Really old)
 tags: [old]
 date: 2014-08-08
 ---
@@ -60,7 +61,7 @@ Bonus: If you are using Underscore, Lodash is almost a one for one replacement s
 
 If you're using jQuery and do not want to add another library to the mix I wrote a jQuery extension to merge objects:
 
-https://gist.github.com/MadeByMike/e57dd16797acf5d105b5
+<a href="https://gist.github.com/MadeByMike/e57dd16797acf5d105b5">https://gist.github.com/MadeByMike/e57dd16797acf5d105b5</a>
 
 It works much like `jQuery.extend()` however the first parameter is an array containing the objects to merge. The 2nd parameter is a callback that allows you to modify the data while merging.
 

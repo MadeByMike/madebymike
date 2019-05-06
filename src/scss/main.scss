@@ -1,5 +1,6 @@
 @import "_variables";
 @import "_mixins";
+@import "_color-mod";
 
 *,
 *:before,
@@ -9,18 +10,12 @@
   box-sizing: border-box;
 }
 
-::-moz-selection {
-  background-color: $text-color;
-  color: $page-color;
-}
-::selection {
-  background-color: $text-color;
-  color: $page-color;
-}
-
 body {
-  background-color: $page-color;
-  color: mix($text-color, $page-color, 70%);
+  --lightness: 90;
+  --saturation: 0;
+  --lightness-alt: 50;
+  background-color: var(--COLOR);
+  color: var(--COLOR-ALT);
   font-family: sans-serif;
   font-size: 1.2rem;
   font-weight: 300;
@@ -29,6 +24,13 @@ body {
   @include bp(mid) {
     font-size: 1.3rem;
   }
+}
+
+::selection {
+  --lightness: 60;
+  --lighten-alt: 0.9;
+  background-color: var(--COLOR-ANALOG-1);
+  color: var(--COLOR-ALT);
 }
 
 .container {
@@ -44,9 +46,7 @@ body {
   }
 }
 
-h1,
-h2,
-h3 {
+h1 {
   color: $heading-color;
   font-family: $heading-font;
   font-weight: 600;
@@ -59,6 +59,28 @@ h1 {
   font-size: 3em;
   margin-top: 0.4em;
   @include interpolate(font-size, $unit-narrow, $unit-wide, 2.85em, 4.5em);
+}
+
+h2 {
+  color: $heading-color;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.25em;
 }
 
 ol,
@@ -75,9 +97,11 @@ p {
 }
 
 hr {
+  --lightness: 50;
+  --saturation: 50;
   margin: 1rem 0 3rem 0;
   border: none;
-  border-bottom: solid 1px $accent-color;
+  border-bottom: solid 1px var(--COLOR);
 }
 
 ul,
@@ -93,13 +117,15 @@ a:visited {
 }
 a:hover,
 a:focus {
+  --saturation: 50;
+  --lightness: 50;
   color: $text-color;
   text-decoration: underline;
-  text-decoration-color: mix($accent-color, $page-color, 50%);
+  text-decoration-color: var(--COLOR);
 }
 
 a:focus {
-  outline-color: mix($accent-color, $page-color, 50%);
+  outline-color: var(--COLOR);
 }
 
 .header-nav-container {
@@ -128,7 +154,7 @@ a:focus {
   display: inline-block;
   margin: 2px 0;
   border-right: solid 3px transparent;
-  color: mix($text-color, $page-color, 80%);
+  color: mix($text-color, white, 80%);
   text-decoration: none;
 }
 
@@ -143,22 +169,33 @@ a:focus {
   transform: rotate(-0.5deg);
 }
 
-.header-nav-link.active,
+.header-nav-link.active {
+  --desaturate: 1;
+  --lightness: 50;
+  border-right: solid 3px var(--COLOR);
+}
+
 .header-nav-link:hover,
 .header-nav-link:focus {
+  --lightness: 50;
+  --saturation: 50;
   color: $text-color;
-  border-right: solid 3px $accent-color;
+  border-right: solid 3px var(--COLOR);
 }
 
 code {
+  --lightness: 90;
   font-size: 0.8em;
-  background-color: mix($accent-color, $page-color, 20%);
+  background-color: var(--COLOR);
   color: $text-color;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
   padding-right: 6px;
   white-space: pre-wrap;
+  &:hover {
+    outline: solid 1px var(--COLOR);
+  }
 }
 
 .date {
@@ -181,8 +218,8 @@ code {
 figure {
   margin-bottom: 1em;
 }
-.page figure img { 
-  margin-bottom: 0
+.page figure img {
+  margin-bottom: 0;
 }
 
 figcaption {
@@ -192,13 +229,17 @@ figcaption {
   font-size: small;
 }
 
-
-
 .page {
   > pre,
   > .full-width,
   > .full-width-extended,
   > .cp_embed_wrapper {
+    position: relative;
+
+    & pre {
+      margin: 0;
+    }
+
     @include bp(wide) {
       margin: 3em -120px;
       max-width: calc(100% + 240px);
@@ -212,6 +253,13 @@ figcaption {
   }
 }
 
+.inline-images {
+  display: flex;
+  img {
+    flex-basis: 100%;
+  }
+}
+
 main {
   margin-top: 2em;
 }
@@ -220,11 +268,11 @@ footer {
   margin-top: 6em;
   padding-top: 4em;
   padding-bottom: 6em;
-  border-top: solid 1px mix($text-color, $page-color, 10%);
+  border-top: solid 1px mix($text-color, white, 10%);
   display: flex;
   justify-content: flex-end;
   font-size: 0.7em;
-  color: mix($text-color, $page-color, 40%);
+  color: mix($text-color, white, 40%);
 }
 
 .footer-link {
@@ -233,16 +281,18 @@ footer {
 
 .footer-link:link,
 .footer-link:visited {
-  fill: mix($text-color, $page-color, 70%);
-  color: mix($text-color, $page-color, 70%);
+  fill: mix($text-color, white, 70%);
+  color: mix($text-color, white, 70%);
   text-decoration: none;
   margin-left: 1rem;
 }
 
 .footer-link:hover,
 .footer-link:focus {
-  fill: $accent-color;
-  color: $accent-color;
+  --lightness: 50;
+  --saturation: 50;
+  fill: var(--COLOR);
+  color: var(--COLOR);
 }
 
 .post-listing {
@@ -270,10 +320,11 @@ footer {
 
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
     .post-listing-title {
+      --saturation: 50;
+      --lightness: 50;
       text-decoration: underline;
-      text-decoration-color: mix($accent-color, $page-color, 50%);
+      text-decoration-color: var(--COLOR);
     }
   }
 }
@@ -380,7 +431,7 @@ footer {
 }
 
 .first-sentence {
-  color: $accent-color;
+  color: var(--COLOR);
 }
 
 .card-small,
@@ -391,7 +442,6 @@ footer {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   @include bp(wide) {
     padding: 30px 40px;
-    
   }
 }
 
@@ -415,8 +465,6 @@ footer {
     padding: 40px 80px;
   }
 }
-
-
 
 /*
  Solarized Color Schemes originally by Ethan Schoonover
@@ -447,6 +495,7 @@ blue      #268bd2
 cyan      #2aa198
 green     #859900
 */
+
 pre {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -468,9 +517,15 @@ pre {
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
+    outline: none;
+    &:hover {
+      outline: none;
+    }
   }
   &:hover {
-    border-color: $accent-color;
+    --lightness: 50;
+    --saturation: 50;
+    border-color: var(--COLOR);
   }
 }
 
@@ -632,18 +687,26 @@ pre[class*="language-"] {
   margin-right: 10px;
 }
 
+.table--center {
+  text-align: center;
+}
+.table--full {
+  width: 100%;
+}
 table {
   min-width: 50%;
   border-collapse: collapse;
   margin-bottom: 1em;
+  text-align: left;
 }
+
 tr {
   border-bottom: 1px solid #ccc;
 }
 th,
 td {
   line-height: 1.3;
-  text-align: left;
+  text-align: inherit;
   padding: 4px 10px;
 }
 
@@ -651,26 +714,58 @@ td {
   margin-bottom: 3em;
 }
 
-
-a.open-in-codepen { 
+.code-label {
+  --hue-rotate: 40;
+  --lightness: 60;
   display: inline-block;
-  color: $accent-color-2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--COLOR);
+  line-height: 1;
+  font-weight: bold;
+  border: 2px solid var(--COLOR);
+  background-color: #fff;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0;
+}
+.code-label-container pre {
+  position: relative;
+  padding-top: calc(1rem + 5px);
+}
+
+.code-label-container:hover .code-label,
+.code-label-container:focus .code-label {
+  --lightness: 60;
+  --hue-rotate: 40;
+  border-color: var(--COLOR);
+}
+
+a.open-in-codepen {
+  --hue-rotate: 40;
+  --lightness: 60;
+  display: inline-block;
+  color: var(--COLOR);
   cursor: pointer;
   line-height: 1;
   font-weight: bold;
-  border: 2px solid $accent-color-2;
+  border: 2px solid var(--COLOR);
   background-color: #fff;
   padding: 5px 11px;
   text-decoration: none;
   margin-bottom: 1em;
+  margin: 5px 0;
 
   @include bp(wide) {
-    margin: 5px 0;
     float: right;
   }
 
-  &:hover, &:focus { 
-    border-color:  mix(#fff,$accent-color-2, 40%);
+  &:hover,
+  &:focus {
+    --lightness: 40;
+    border-color: var(--COLOR);
     text-decoration: underline;
   }
 }
@@ -684,7 +779,7 @@ a.open-in-codepen {
   }
 }
 
-.live-demo { 
+.live-demo {
   box-shadow: none;
   @include bp(wide) {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);

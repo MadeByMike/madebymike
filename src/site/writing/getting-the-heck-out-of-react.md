@@ -65,7 +65,7 @@ All the button does is change the `render()` method to wrap the `<canvas>` in an
 It's worth noting that the current position of the walker is not reset when clicking the wrap\unwrap button. That's because the component itself is not unmounted when its output changes. However, it's not always easy to avoid unmounting components either. Logically we try to split components into smaller chunks and once again the sorrounding layout can change. Take a look at this example of a canvas clock:
 
 <div class="full-width shadow live-demo">
-  <iframe src="/demos/getting-out-of-react/timer-1.html" style="height:160px; width:100%; border: none;"></iframe>
+  <iframe src="/demos/getting-out-of-react/timer-1.html" style="height:170px; width:100%; border: none;"></iframe>
   <a href="https://codepen.io/MadeByMike/pen/5c3293dade22de7d823741c8241950b3/" class="open-in-codepen">Open in CodePen</a>
 </div>
 
@@ -77,7 +77,7 @@ It's not just `canvas`, these issues exist for `video` and other media, as well 
 
 ```javascript
 var map = new mapboxgl.Map(mapboxOptions);
-map.flyTo({center: [0, 0], zoom: 9});
+map.flyTo({ center: [0, 0], zoom: 9 });
 ```
 
 This approach is very different from HTML or JSX that have a more declarative API. With a declarative API it's more descriptive. We update the description of the map with new properties and the library resolves these changes into a set of actions required to update the map.
@@ -406,7 +406,6 @@ Here's an example of a map application that shares data between media elements, 
   <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-html-video">
   </a>
 </div>
-
 
 I really like this approach because we can have two highly separate applications that work largely independently yet share the same data source. In theory, it's not necessary to mount the map into a React application. It could just as easily be mounted by a different framework or plain onld JavaScript. This makes things much more portable and easy to test.
 

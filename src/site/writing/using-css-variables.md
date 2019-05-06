@@ -29,37 +29,37 @@ I'm going to use modular scales as an example. A modular scale is a mathematical
 
 I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I don't like maths so I got these values from [modularscale.com](http://www.modularscale.com/) and these are my heading sizes:
 
-<table>
+<table class="table--full table--center">
 <thead>
 <tr>
-<th style="text-align:center">1.2</th>
-<th style="text-align:center">1.33</th>
+<th>1.2</th>
+<th>1.33</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">2.488rem</td>
-<td style="text-align:center">4.209rem</td>
+<td>2.488rem</td>
+<td>4.209rem</td>
 </tr>
 <tr>
-<td style="text-align:center">2.074rem</td>
-<td style="text-align:center">3.157rem</td>
+<td>2.074rem</td>
+<td>3.157rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.728rem</td>
-<td style="text-align:center">2.369rem</td>
+<td>1.728rem</td>
+<td>2.369rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.44rem</td>
-<td style="text-align:center">1.777rem</td>
+<td>1.44rem</td>
+<td>1.777rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.2rem</td>
-<td style="text-align:center">1.333rem</td>
+<td>1.2rem</td>
+<td>1.333rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1rem</td>
-<td style="text-align:center">1rem</td>
+<td>1rem</td>
+<td>1rem</td>
 </tr>
 </tbody>
 </table>
@@ -279,7 +279,7 @@ A quick warning about combining selectors with overly generic variables. You mig
 * {
   display: var(--display);
   width: var(--width);
-  height: var(--height);
+  height: var(--Height);
   border: var(--border);
   background: var(--background);
   ...;

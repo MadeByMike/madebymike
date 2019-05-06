@@ -1,13 +1,13 @@
 {
-  "name": "MadeByMike",
+  "name": "madebymike",
   "version": "2.0.0",
   "description": "A website by Mike Riethmuller",
   "author": "Mike Riethmuller",
   "license": "MIT",
   "scripts": {
     "start": "yarn run dev",
-    "dev": "gulp dev & ELEVENTY_ENV=dev eleventy --serve",
-    "build": "gulp build & ELEVENTY_ENV=dev eleventy",
+    "dev": "ELEVENTY_ENV=dev gulp dev & ELEVENTY_ENV=dev eleventy --serve",
+    "build": "gulp build & eleventy",
     "seed": "gulp build & ELEVENTY_ENV=seed eleventy"
   },
   "repository": {
@@ -17,29 +17,34 @@
   "dependencies": {
     "@11ty/eleventy": "madebymike/eleventy",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.5",
+    "cheerio": "^1.0.0-rc.3",
     "concurrent-transform": "^1.0.0",
+    "countable": "^3.0.1",
     "dotenv": "^6.2.0",
     "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-image-resize": "^0.13.0",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "html-minifier": "^3.5.21",
     "lozad": "^1.9.0",
     "luxon": "^1.11.1",
-    "netlify-lambda": "^1.3.1",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
     "require-dir": "^1.0.0",
+    "twitter": "^1.7.1",
     "vinyl-named": "^1.1.0",
+    "webpack": "^4.30.0",
+    "webpack-stream": "^5.2.1",
     "xml2js": "^0.4.19"
   },
   "resolutions": {
     "terser": "3.14.*"
   },
-  "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "gulp-babel": "^8.0.0",
-    "webpack-stream": "^5.2.1"
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
   }
 }

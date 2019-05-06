@@ -1,0 +1,18 @@
+<ul class="post-listing">
+  {%- for item in events -%}
+    <li class="post-listing-item">
+      {%- if item.event.url -%}
+        <a class="post-listing-link" href="{{ item.event.url }}">
+        {%- endif -%}
+        <span class="post-listing-event-title">
+          {{ item.event.starts_on | dateDisplay("LLL, y") }} - {{ item.event.title | stripYear }}
+        </span>
+        <br>
+        <span class="post-listing-presentation-title">{{ item.presentation.title }}</span>
+
+        {%- if item.event.url -%}
+        </a>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>

@@ -1,0 +1,17 @@
+:root {
+  --HUE: 0;
+  --SATURATION: 100;
+  --LIGHTNESS: 90;
+}
+* {
+  --S: calc(var(--SATURATION) * calc(1 - var(--desaturate, 0)));
+  --H: calc(var(--HUE) + var(--hue-rotate, 0));
+  --L: calc(var(--LIGHTNESS) * calc(1 - var(--darken, 0)));
+  --COLOR: hsl(var(--H), calc(var(--S) * 1%), calc(var(--L) * 1%));
+}
+body {
+  --darken: -0.25;
+  --desaturate: 0.2;
+  --hue-rotate: 100;
+  background: var(--COLOR);
+}

@@ -1,4 +1,3 @@
-const axios = require("axios");
 const seed = require("../../../utils/save-seed.js");
 var Twitter = require("twitter");
 

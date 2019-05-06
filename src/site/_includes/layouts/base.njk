@@ -19,7 +19,7 @@
     <meta name="twitter:title" content="{{title}}"/>
     <meta name="twitter:creator" content="@MikeRiethmuller"/>
     <meta name="twitter:description" content="{{description}}"/>
-    <meta name="twitter:image" content="https://madebymike.com.au/img/mug/mike.jpg"/>
+    <meta name="twitter:image" content="https://madebymike.com.au/img/mug/mike-is-grey.jpg"/>
 
     <meta property="og:title" content="{{title}}"/>
     <meta property="og:description" content="{{description}}"/>
@@ -95,8 +95,16 @@
     {% block post %}{% endblock %}
 
     {% include "footer.njk" %}
+
+    {% if site.environment == "dev" %}
+      <script type="text/javascript" src="/js/core.js"></script>
+    {% else %}
+      <script>
+        {% include "js/core.js" %}
+      </script>
+    {% endif %}
+
     <script>
-      {% include "js/core.js" %}
       if ("serviceWorker" in navigator && (typeof Cache !== "undefined" && Cache.prototype.addAll)) {
         // Yay, this is a problem we didn't need to have!
         navigator
