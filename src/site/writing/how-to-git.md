@@ -7,7 +7,7 @@ date: 2019-03-27
 
 Git is a version control system. It's one of many, but it's the most widely used by web developers. Version control is great for individual projects but becomes practically essential when working in teams.
 
-Getting comfortable with Git took me a long time, perhaps because some of the terminology feels a little strange for beginners. But also, I believe there is an assumption that everyone around you just gets it. That is probably not the case. I thought I'd take time to explain some of the [key terminology](#terminology), how you can [get started](#getting-started) and some of my favourite [tips and tricks](#tips-and-tricks) that make working with Git easier.
+Getting comfortable with Git took me a long time, perhaps because some of the terminology feels a little strange for beginners. But also, because I think there is an assumption that everyone around you just gets it. That is probably not the case. I thought I'd take time to explain some of the [key terminology](#terminology), how you can [get started](#getting-started) and some of my favourite [tips and tricks](#tips-and-tricks) that make working with Git easier.
 
 ## Terminology
 
@@ -340,6 +340,16 @@ git co master ./path-to-file
 ```
 
 You can also replace the branch with a commit hash to checkout a particular revision.
+
+### Create and checkout a branch in one step
+
+Usually after creating a branch the first thing I do is a checkout to start working on it. I can do that in one step with the `-b` parameter.
+
+```
+git checkout -b name-of-branch
+```
+
+I never remember this so I aliased this to "new":`git config --global alias.new checkout -b`
 
 ### List all aliases
 

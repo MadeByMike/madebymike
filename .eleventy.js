@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const externalArticles = require("./src/site/_data/external_articles");
 const events = require("./src/site/_data/dev/events");
+const get = require("lodash.get");
 
 let markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
@@ -34,7 +35,7 @@ module.exports = function(config) {
   // OMG this is so bad! I'm making a fake collection by combining data and posts so I can avoid munging it in templates
   const externalArticlesFakeCollectionItems = externalArticles.map(item => ({
     template: null,
-    inputPath: "./src/site/index.md",
+    inputPath: `./src/site/index.md`,
     fileSlug: null,
     data: { description: item.description, title: item.title },
     date: item.date,
@@ -42,6 +43,7 @@ module.exports = function(config) {
     url: item.url,
     templateContent: null
   }));
+
   config.addCollection("allWriting", collection =>
     collection
       .getAll()
@@ -56,16 +58,18 @@ module.exports = function(config) {
   );
 
   // OMG I'm doing it again. Someone stop me!
-  const eventsFakeCollectionItems = events.past.map(item => ({
-    template: null,
-    inputPath: "./src/site/index.md",
-    fileSlug: null,
-    data: item.data,
-    date: item.date,
-    outputPath: null,
-    url: item.url,
-    templateContent: null
-  }));
+  const eventsFakeCollectionItems = events.past.map(item => {
+    return {
+      template: null,
+      inputPath: `./src/site/index.md`,
+      fileSlug: null,
+      data: { event: item.event, presentation: item.presentation },
+      date: new Date(item.event.starts_on),
+      outputPath: null,
+      url: item.link,
+      templateContent: null
+    };
+  });
 
   config.addCollection("allContent", collection =>
     collection
@@ -86,19 +90,21 @@ module.exports = function(config) {
   config.addFilter("wordCount", require("./src/filters/word-count.js"));
 
   config.addFilter("dateDisplay", (dateObj, format = "LLL d, y") => {
-    const date = new Date(dateObj);
-    return DateTime.fromJSDate(date, {
+    const date = DateTime.fromJSDate(new Date(dateObj), {
       zone: "utc"
-    }).toFormat(format);
+    });
+    return date.isValid ? date.toFormat(format) : "";
   });
 
   config.addFilter("stripYear", string => {
     return string.replace(/(19|20)[0-9][0-9]/, "");
   });
 
-  config.addFilter("get", function(key) {
-    console.log(Object.keys(this.ctx));
-    return this.ctx[key] || "";
+  config.addFilter("get", function(ref, key) {
+    if (!ref) ref = this.ctx;
+    const result = key ? get(ref, key, "undefined") : ref;
+    console.log(result, Object.keys(result));
+    return result;
   });
 
   // pass some assets right through

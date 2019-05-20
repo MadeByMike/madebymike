@@ -1,1 +1,360 @@
-{"future":[],"past":[{"image":null,"link":"https://noti.st/madebymike/si64ST/everything-you-didnt-want-to-know-about-layout","event":{"title":"SydCSS","slug":"sydcss","starts_on":"2018-08-09 08:00:00","ends_on":"2018-08-09 18:00:00","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Everything you didn’t want to know about layout","slug":"everything-you-didnt-want-to-know-about-layout","blurb":{"html":"<p>When we load an HTML document, there is a lot that happens behind the scenes before the browser can render this content correctly. Have you ever wanted an overview of this process? Probably not! Come and find out everything you didn’t want to know about layout. Get serious answers to all the browsers mysteries including:</p>\n<ul>\n<li>How the DOM is like a map of Disneyland,</li>\n<li>What the box-model has to hide,</li>\n<li>How stacking contexts, stack up.</li>\n</ul>\n<p>A 20min over the top view of everything that happens in ~200ms. You may leave more confused than when you arrived!</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-193e533af5d2a724.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/AnlFC3/strategy-guide-for-css-custom-properties","event":{"title":"CSSConf.EU 2018","slug":"cssconf-eu-2018","starts_on":"2018-06-01 08:00:00","ends_on":"2018-06-01 22:00:00","timezone":"Europe/Berlin","address":"Berlin, Germany","latitude":"52.520007","longitude":"13.404954","country_code":"DE","blurb":{"html":null},"hashtag":"cssconfeu","url":"https://2018.cssconf.eu"},"presentation":{"title":"Strategy Guide for CSS Custom Properties","slug":"strategy-guide-for-css-custom-properties","blurb":{"html":"<p>Static variables are not always global, but global variables are almost always static, therefore dynamic variables should almost always be local. Did you follow that? If not, you might need to see my talk. I will cover HOW to use CSS variables correctly for things like: theming, responsive design, prototyping, animation and much more. A practical guide that tells you more than how the syntax works.</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-cf6698608b04a63a.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/hWs1gR/beyond-media-queries","event":{"title":"Smashing Conference","slug":"smashing-conference","starts_on":"2018-04-17 00:00:00","ends_on":"2018-04-19 16:59:59","timezone":"America/Los_Angeles","address":"San Francisco, CA, USA","latitude":"37.774930","longitude":"-122.419416","country_code":"US","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Beyond Media Queries","slug":"beyond-media-queries","blurb":{"html":"<p>Media queries have always been a cornerstone of responsive design but the role of media queries is changing. It’s now possible to make websites with responsive properties that are not tied to specific breakpoints.</p>\n<p>Learn how to use fluid typography, responsive SVG, adaptive flexbox components, CSS grid and custom properties to create unique responsive solutions that go beyond media queries.</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-f3b81602408f367c.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/PRCqwr/strategy-guide-to-css-custom-properties","event":{"title":".Concat()","slug":"concat","starts_on":"2018-03-03 08:00:00","ends_on":"2018-03-03 18:00:00","timezone":"Europe/Vienna","address":"Salzburg, Austria","latitude":"47.809490","longitude":"13.055010","country_code":"AT","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Strategy Guide to CSS Custom Properties","slug":"strategy-guide-to-css-custom-properties","blurb":{"html":"<p>Static variables are not always global, but global variables are almost always static, therefore dynamic variables should always be local. Did that make sense to you? If not you need to see my talk.</p>\n<p>CSS custom properties are very different from variables in preprocessors like Sass. They could fundamentally change how we write CSS. When used incorrectly they can make CSS more complex. Learn how to avoid this and get the most out of CSS custom properties.</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/e4eShf/its-svg-but-not-as-you-know-it","event":{"title":"SydCSS","slug":"sydcss","starts_on":"2017-10-05 08:00:00","ends_on":"2017-10-05 18:00:00","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"It’s SVG but not as you know it","slug":"its-svg-but-not-as-you-know-it","blurb":{"html":"<p>SVG has a lot of untapped potential for responsive design. Mike often sees SVG used as an alternative image format or as a simple solution for icons, but SVG has responsive properties that go well beyond vector scaling. It has a unique positioning and co-ordinates system that is entirely different from the box model and it can have its own document context. This gives us the possibility to make ‘intelligent’ images.</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-43c1ba400c48c2e5.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/5D9Do2/beyond-media-queries","event":{"title":"SmashingConf Freiburg 2017","slug":"smashingconf-freiburg","starts_on":"2017-09-11 02:00:00","ends_on":"2017-09-12 01:59:59","timezone":"Europe/Berlin","address":"Freiburg, Germany","latitude":"47.999008","longitude":"7.842104","country_code":"DE","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Beyond Media Queries","slug":"beyond-media-queries","blurb":{"html":"<p>Media queries have always been a cornerstone of responsive design but the role of media queries is changing. It’s now possible to make websites with responsive properties that are not tied to specific breakpoints.</p>\n<p>Learn how to use fluid typography, responsive SVG, adaptive flexbox components, CSS grid and custom properties to create unique responsive solutions that go beyond media queries.</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/JqapYq/responsive-fluid-typography","event":{"title":"Respond 2017","slug":"respond-2017","starts_on":"2017-05-04 00:00:00","ends_on":"2017-05-05 09:59:59","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Responsive, Fluid Typography","slug":"responsive-fluid-typography","blurb":{"html":"<p>Type that responds to the user’s screen size, orientation and resolution is a holy grail of responsive design.</p>\n<p>In this presentation, Mike Riethmuller will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units and calc() expressions work. Armed with this understanding, we’re going to learn how to create a function with CSS that uses viewport units as a variable. Milke will then demonstrate some practical uses for this technique including:</p>\n<p>min and max font sizes,\nfluid typography,\nfluid modular scale headings, and more\nFinally, let’s discuss the future of fluid design and through variable typography our relationship with media queries.</p>\n<p>And we’ll see how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/wAJdRF/responsive-fluid-typography","event":{"title":"Respond 2017","slug":"respond-2017","starts_on":"2017-05-04 00:00:00","ends_on":"2017-05-05 09:59:59","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Responsive, Fluid Typography","slug":"responsive-fluid-typography","blurb":{"html":"<p>Type that responds to the user’s screen size, orientation and resolution is a holy grail of responsive design.</p>\n<p>In this presentation, Mike Riethmuller will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units and calc() expressions work. Armed with this understanding, we’re going to learn how to create a function with CSS that uses viewport units as a variable. Milke will then demonstrate some practical uses for this technique including:</p>\n<p>min and max font sizes,\nfluid typography,\nfluid modular scale headings, and more\nFinally, let’s discuss the future of fluid design and through variable typography our relationship with media queries.</p>\n<p>And we’ll see how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-bca2bfe40ab4ce94.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/7LXgDH/a-css-eulogy","event":{"title":"Mixin Conf","slug":"mixin-conf","starts_on":"2016-10-26 08:00:00","ends_on":"2016-10-28 18:00:00","timezone":"Australia/Perth","address":"Perth WA, Australia","latitude":"-31.950527","longitude":"115.860457","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"A CSS Eulogy","slug":"a-css-eulogy","blurb":{"html":"<p>Be prepared to say goodbye to some much loved design patterns and CSS techniques as we look at the remarkable things we’ve done with them, remember fondly where they came from, why we used them and ask ourselves why (oh why!) are they no longer needed. In our grief we also will look at some new techniques and patterns that you can use now to help you move on.</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/n7U34S/advanced-fluid-typography","event":{"title":"CSS Dev Conf","slug":"css-dev-conf","starts_on":"2016-10-17 00:00:00","ends_on":"2016-10-19 18:59:00","timezone":"America/Chicago","address":"San Antonio, TX, USA","latitude":"29.424122","longitude":"-98.493628","country_code":"US","blurb":{"html":null},"hashtag":"","url":"https://2016.cssdevconf.com"},"presentation":{"title":"Advanced Fluid Typography","slug":"advanced-fluid-typography","blurb":{"html":"<p>In my talk I will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units, calc() expressions work. Armed with this understanding, we’re going to learn how to create a “pure function” with CSS that uses viewport units as a variable. I am then going to demonstrate some practical uses for this including:</p>\n<p>min and max font sizes,\nadvanced fluid typography,\nfluid modular scale headings</p>\n<p>I will show you how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/YU2RJe/stop-thinking-in-pixels","event":{"title":"Web Directions 2015","slug":"wd15","starts_on":"2015-10-29 11:00:00","ends_on":"2015-10-30 10:59:59","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"Stop thinking in pixels!","slug":"stop-thinking-in-pixels","blurb":{"html":"<p>There was a time when pixels were pixels and even relative units such as em and rem were just comfortable abstractions of a base font size, that was usually 16 pixels. We became so familiar with this paradigm, we may have overlooked the potential of viewport units and calc expressions to provide a holy grail of responsive design techniques.</p>\n<p>Mike will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units, calc expressions and other computed values work. Armed with an understanding of how computed units are resolved in the browsers, you’re going to learn how to create a “pure function” in CSS that uses vw as a variable. Then we are going to learn how to apply this technique to a number of practical use cases including: min and max font sizes, advanced fluid typography, elastic widths and fluid modular scale headings and more. Each of these techniques can be used today and can be applied with progressive enhancement.</p>\n"}}},{"image":{"src":"https://on.notist.cloud/slides/ext/thumb-bca2bfe40ab4ce94.jpg","width":"640","height":"360","mime":"image/jpeg"},"link":"https://noti.st/madebymike/V1osKs/a-css-eulogy","event":{"title":"CSSConf Australia 2015","slug":"cssconf-australia-2015","starts_on":"2015-03-26 08:00:00","ends_on":"2015-03-26 18:00:00","timezone":"Australia/Melbourne","address":"Melbourne VIC, Australia","latitude":"-37.813628","longitude":"144.963058","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"A CSS Eulogy","slug":"a-css-eulogy","blurb":{"html":"<p>Be prepared to say goodbye to some much loved design patterns and CSS techniques as we look at the remarkable things we’ve done with them, remember fondly where they came from, why we used them and ask ourselves why (oh why!) are they no longer needed. In our grief we also will look at some new techniques and patterns that you can use now to help you move on.</p>\n"}}},{"image":null,"link":"https://noti.st/madebymike/1kvepG/how-web-development-workflows-change","event":{"title":"SydCSS","slug":"sydcss","starts_on":"2014-06-05 08:00:00","ends_on":"2014-06-05 18:00:00","timezone":"Australia/Sydney","address":"Sydney NSW, Australia","latitude":"-33.868820","longitude":"151.209296","country_code":"AU","blurb":{"html":null},"hashtag":null,"url":null},"presentation":{"title":"How web development workflows change","slug":"how-web-development-workflows-change","blurb":{"html":"<p>There’s been a lot of change in the web development landscape over the last few years. Mike is going to share a story on how he and his team deals with this and how their workflow has changed.</p>\n"}}}]}
+{
+  "future": [],
+  "past": [
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/si64ST/everything-you-didnt-want-to-know-about-layout",
+      "event": {
+        "title": "SydCSS",
+        "slug": "sydcss",
+        "starts_on": "2018-08-09 08:00:00",
+        "ends_on": "2018-08-09 18:00:00",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Everything you didn’t want to know about layout",
+        "slug": "everything-you-didnt-want-to-know-about-layout",
+        "blurb": {
+          "html": "<p>When we load an HTML document, there is a lot that happens behind the scenes before the browser can render this content correctly. Have you ever wanted an overview of this process? Probably not! Come and find out everything you didn’t want to know about layout. Get serious answers to all the browsers mysteries including:</p>\n<ul>\n<li>How the DOM is like a map of Disneyland,</li>\n<li>What the box-model has to hide,</li>\n<li>How stacking contexts, stack up.</li>\n</ul>\n<p>A 20min over the top view of everything that happens in ~200ms. You may leave more confused than when you arrived!</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-193e533af5d2a724.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/AnlFC3/strategy-guide-for-css-custom-properties",
+      "event": {
+        "title": "CSSConf.EU 2018",
+        "slug": "cssconf-eu-2018",
+        "starts_on": "2018-06-01 08:00:00",
+        "ends_on": "2018-06-01 22:00:00",
+        "timezone": "Europe/Berlin",
+        "address": "Berlin, Germany",
+        "latitude": "52.520007",
+        "longitude": "13.404954",
+        "country_code": "DE",
+        "blurb": { "html": null },
+        "hashtag": "cssconfeu",
+        "url": "https://2018.cssconf.eu"
+      },
+      "presentation": {
+        "title": "Strategy Guide for CSS Custom Properties",
+        "slug": "strategy-guide-for-css-custom-properties",
+        "blurb": {
+          "html": "<p>Static variables are not always global, but global variables are almost always static, therefore dynamic variables should almost always be local. Did you follow that? If not, you might need to see my talk. I will cover HOW to use CSS variables correctly for things like: theming, responsive design, prototyping, animation and much more. A practical guide that tells you more than how the syntax works.</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-cf6698608b04a63a.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/hWs1gR/beyond-media-queries",
+      "event": {
+        "title": "Smashing Conference",
+        "slug": "smashing-conference",
+        "starts_on": "2018-04-17 00:00:00",
+        "ends_on": "2018-04-19 16:59:59",
+        "timezone": "America/Los_Angeles",
+        "address": "San Francisco, CA, USA",
+        "latitude": "37.774930",
+        "longitude": "-122.419416",
+        "country_code": "US",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Beyond Media Queries",
+        "slug": "beyond-media-queries",
+        "blurb": {
+          "html": "<p>Media queries have always been a cornerstone of responsive design but the role of media queries is changing. It’s now possible to make websites with responsive properties that are not tied to specific breakpoints.</p>\n<p>Learn how to use fluid typography, responsive SVG, adaptive flexbox components, CSS grid and custom properties to create unique responsive solutions that go beyond media queries.</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-f3b81602408f367c.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/PRCqwr/strategy-guide-to-css-custom-properties",
+      "event": {
+        "title": ".Concat()",
+        "slug": "concat",
+        "starts_on": "2018-03-03 08:00:00",
+        "ends_on": "2018-03-03 18:00:00",
+        "timezone": "Europe/Vienna",
+        "address": "Salzburg, Austria",
+        "latitude": "47.809490",
+        "longitude": "13.055010",
+        "country_code": "AT",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Strategy Guide to CSS Custom Properties",
+        "slug": "strategy-guide-to-css-custom-properties",
+        "blurb": {
+          "html": "<p>Static variables are not always global, but global variables are almost always static, therefore dynamic variables should always be local. Did that make sense to you? If not you need to see my talk.</p>\n<p>CSS custom properties are very different from variables in preprocessors like Sass. They could fundamentally change how we write CSS. When used incorrectly they can make CSS more complex. Learn how to avoid this and get the most out of CSS custom properties.</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/e4eShf/its-svg-but-not-as-you-know-it",
+      "event": {
+        "title": "SydCSS",
+        "slug": "sydcss",
+        "starts_on": "2017-10-05 08:00:00",
+        "ends_on": "2017-10-05 18:00:00",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "It’s SVG but not as you know it",
+        "slug": "its-svg-but-not-as-you-know-it",
+        "blurb": {
+          "html": "<p>SVG has a lot of untapped potential for responsive design. Mike often sees SVG used as an alternative image format or as a simple solution for icons, but SVG has responsive properties that go well beyond vector scaling. It has a unique positioning and co-ordinates system that is entirely different from the box model and it can have its own document context. This gives us the possibility to make ‘intelligent’ images.</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-43c1ba400c48c2e5.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/5D9Do2/beyond-media-queries",
+      "event": {
+        "title": "SmashingConf Freiburg 2017",
+        "slug": "smashingconf-freiburg",
+        "starts_on": "2017-09-11 02:00:00",
+        "ends_on": "2017-09-12 01:59:59",
+        "timezone": "Europe/Berlin",
+        "address": "Freiburg, Germany",
+        "latitude": "47.999008",
+        "longitude": "7.842104",
+        "country_code": "DE",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Beyond Media Queries",
+        "slug": "beyond-media-queries",
+        "blurb": {
+          "html": "<p>Media queries have always been a cornerstone of responsive design but the role of media queries is changing. It’s now possible to make websites with responsive properties that are not tied to specific breakpoints.</p>\n<p>Learn how to use fluid typography, responsive SVG, adaptive flexbox components, CSS grid and custom properties to create unique responsive solutions that go beyond media queries.</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/JqapYq/responsive-fluid-typography",
+      "event": {
+        "title": "Respond 2017",
+        "slug": "respond-2017",
+        "starts_on": "2017-05-04 00:00:00",
+        "ends_on": "2017-05-05 09:59:59",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Responsive, Fluid Typography",
+        "slug": "responsive-fluid-typography",
+        "blurb": {
+          "html": "<p>Type that responds to the user’s screen size, orientation and resolution is a holy grail of responsive design.</p>\n<p>In this presentation, Mike Riethmuller will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units and calc() expressions work. Armed with this understanding, we’re going to learn how to create a function with CSS that uses viewport units as a variable. Milke will then demonstrate some practical uses for this technique including:</p>\n<p>min and max font sizes,\nfluid typography,\nfluid modular scale headings, and more\nFinally, let’s discuss the future of fluid design and through variable typography our relationship with media queries.</p>\n<p>And we’ll see how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/wAJdRF/responsive-fluid-typography",
+      "event": {
+        "title": "Respond 2017",
+        "slug": "respond-2017",
+        "starts_on": "2017-05-04 00:00:00",
+        "ends_on": "2017-05-05 09:59:59",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Responsive, Fluid Typography",
+        "slug": "responsive-fluid-typography",
+        "blurb": {
+          "html": "<p>Type that responds to the user’s screen size, orientation and resolution is a holy grail of responsive design.</p>\n<p>In this presentation, Mike Riethmuller will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units and calc() expressions work. Armed with this understanding, we’re going to learn how to create a function with CSS that uses viewport units as a variable. Milke will then demonstrate some practical uses for this technique including:</p>\n<p>min and max font sizes,\nfluid typography,\nfluid modular scale headings, and more\nFinally, let’s discuss the future of fluid design and through variable typography our relationship with media queries.</p>\n<p>And we’ll see how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-bca2bfe40ab4ce94.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/7LXgDH/a-css-eulogy",
+      "event": {
+        "title": "Mixin Conf",
+        "slug": "mixin-conf",
+        "starts_on": "2016-10-26 08:00:00",
+        "ends_on": "2016-10-28 18:00:00",
+        "timezone": "Australia/Perth",
+        "address": "Perth WA, Australia",
+        "latitude": "-31.950527",
+        "longitude": "115.860457",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "A CSS Eulogy",
+        "slug": "a-css-eulogy",
+        "blurb": {
+          "html": "<p>Be prepared to say goodbye to some much loved design patterns and CSS techniques as we look at the remarkable things we’ve done with them, remember fondly where they came from, why we used them and ask ourselves why (oh why!) are they no longer needed. In our grief we also will look at some new techniques and patterns that you can use now to help you move on.</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/n7U34S/advanced-fluid-typography",
+      "event": {
+        "title": "CSS Dev Conf",
+        "slug": "css-dev-conf",
+        "starts_on": "2016-10-17 00:00:00",
+        "ends_on": "2016-10-19 18:59:00",
+        "timezone": "America/Chicago",
+        "address": "San Antonio, TX, USA",
+        "latitude": "29.424122",
+        "longitude": "-98.493628",
+        "country_code": "US",
+        "blurb": { "html": null },
+        "hashtag": "",
+        "url": "https://2016.cssdevconf.com"
+      },
+      "presentation": {
+        "title": "Advanced Fluid Typography",
+        "slug": "advanced-fluid-typography",
+        "blurb": {
+          "html": "<p>In my talk I will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units, calc() expressions work. Armed with this understanding, we’re going to learn how to create a “pure function” with CSS that uses viewport units as a variable. I am then going to demonstrate some practical uses for this including:</p>\n<p>min and max font sizes,\nadvanced fluid typography,\nfluid modular scale headings</p>\n<p>I will show you how each of the typography techniques can be used today and applied with progressive enhancement!</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/YU2RJe/stop-thinking-in-pixels",
+      "event": {
+        "title": "Web Directions 2015",
+        "slug": "wd15",
+        "starts_on": "2015-10-29 11:00:00",
+        "ends_on": "2015-10-30 10:59:59",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "Stop thinking in pixels!",
+        "slug": "stop-thinking-in-pixels",
+        "blurb": {
+          "html": "<p>There was a time when pixels were pixels and even relative units such as em and rem were just comfortable abstractions of a base font size, that was usually 16 pixels. We became so familiar with this paradigm, we may have overlooked the potential of viewport units and calc expressions to provide a holy grail of responsive design techniques.</p>\n<p>Mike will provide a general overview of unit types and values in CSS, with a specific focus on how viewport units, calc expressions and other computed values work. Armed with an understanding of how computed units are resolved in the browsers, you’re going to learn how to create a “pure function” in CSS that uses vw as a variable. Then we are going to learn how to apply this technique to a number of practical use cases including: min and max font sizes, advanced fluid typography, elastic widths and fluid modular scale headings and more. Each of these techniques can be used today and can be applied with progressive enhancement.</p>\n"
+        }
+      }
+    },
+    {
+      "image": {
+        "src": "https://on.notist.cloud/slides/ext/thumb-bca2bfe40ab4ce94.jpg",
+        "width": "640",
+        "height": "360",
+        "mime": "image/jpeg"
+      },
+      "link": "https://noti.st/madebymike/V1osKs/a-css-eulogy",
+      "event": {
+        "title": "CSSConf Australia 2015",
+        "slug": "cssconf-australia-2015",
+        "starts_on": "2015-03-26 08:00:00",
+        "ends_on": "2015-03-26 18:00:00",
+        "timezone": "Australia/Melbourne",
+        "address": "Melbourne VIC, Australia",
+        "latitude": "-37.813628",
+        "longitude": "144.963058",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "A CSS Eulogy",
+        "slug": "a-css-eulogy",
+        "blurb": {
+          "html": "<p>Be prepared to say goodbye to some much loved design patterns and CSS techniques as we look at the remarkable things we’ve done with them, remember fondly where they came from, why we used them and ask ourselves why (oh why!) are they no longer needed. In our grief we also will look at some new techniques and patterns that you can use now to help you move on.</p>\n"
+        }
+      }
+    },
+    {
+      "image": null,
+      "link": "https://noti.st/madebymike/1kvepG/how-web-development-workflows-change",
+      "event": {
+        "title": "SydCSS",
+        "slug": "sydcss",
+        "starts_on": "2014-06-05 08:00:00",
+        "ends_on": "2014-06-05 18:00:00",
+        "timezone": "Australia/Sydney",
+        "address": "Sydney NSW, Australia",
+        "latitude": "-33.868820",
+        "longitude": "151.209296",
+        "country_code": "AU",
+        "blurb": { "html": null },
+        "hashtag": null,
+        "url": null
+      },
+      "presentation": {
+        "title": "How web development workflows change",
+        "slug": "how-web-development-workflows-change",
+        "blurb": {
+          "html": "<p>There’s been a lot of change in the web development landscape over the last few years. Mike is going to share a story on how he and his team deals with this and how their workflow has changed.</p>\n"
+        }
+      }
+    }
+  ]
+}

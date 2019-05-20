@@ -6,7 +6,7 @@ import named from "vinyl-named";
 /*
   generate the css with sass
 */
-const css = () =>
+const css = () => 
   src("./src/scss/*.scss")
     .pipe(
       sass({

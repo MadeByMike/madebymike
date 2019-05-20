@@ -33,6 +33,11 @@ body {
   color: var(--COLOR-ALT);
 }
 
+.container--home {
+  position: relative;
+  width: 100%;
+}
+
 .container {
   position: relative;
   margin: 0 auto;
@@ -255,8 +260,16 @@ figcaption {
 
 .inline-images {
   display: flex;
+  align-items: flex-start;
+
   img {
     flex-basis: 100%;
+    flex-basis: 100%;
+    flex-shrink: 1;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
   }
 }
 
