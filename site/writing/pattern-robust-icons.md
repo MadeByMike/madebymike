@@ -4,7 +4,7 @@ slug: pattern-robust-icons
 description: A little pattern I wanted to share for creating bulletproof icons.
 date: 2015-08-22
 tags: [css, patterns]
-extra_css: ["/css/patern-icons.css"]
+extra_css: ["/css/pattern-icons.css"]
 ---
 
 I want to share a design pattern I've been using for icons. It's a robust technique that works in almost any situation. With this technique you can use icons inline or append &amp; prepend them to existing content. It works with paragraphs, headings, navigation items, buttons &hellip;almost any element.
