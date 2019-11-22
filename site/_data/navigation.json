@@ -1,0 +1,56 @@
+{
+  "header": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Writing",
+      "url": "/writing",
+      "external": false
+    },
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com/MikeRiethmuller",
+      "external": true
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/madebymike/supermaya",
+      "external": true
+    },
+    {
+      "text": "Hire Me", 
+      "url": "/hire-me"
+    }
+  ],
+  "footer": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Writing",
+      "url": "/writing",
+      "external": false
+    },
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com/MikeRiethmuller",
+      "external": true
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/madebymike/supermaya",
+      "external": true
+    },
+    {
+      "text": "Feed",
+      "url": "/feed.xml",
+      "external": true
+    }
+
+  ]
+}

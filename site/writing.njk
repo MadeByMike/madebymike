@@ -1,0 +1,30 @@
+--- 
+title: Writing 
+description: A range of unique and possibly interesting ideas about web development. Basically "I think stuff and sometimes I write it down". 
+pagination: 
+  data: collections.writing
+  size: 5
+  alias: writing 
+---
+
+{% extends 'layouts/base.njk' %}
+
+{# Intro content #}
+{% set introHeading %}Writing{% endset %}
+{% set introSummary = description %}
+
+{# Post list content #}
+{% set postListItems = writing %}
+
+{% if postListItems.length < collections.writing.length %}
+  {% set paginationNextUrl = pagination.nextPageHref %}
+  {% set paginationPrevUrl = pagination.previousPageHref %}
+{% endif %}
+
+{% block content %}
+  <div class="l-stack l-stack--large l-stack--large">
+    {% include "partials/intro.njk" %}
+    {% include "partials/post-list.njk" %}
+    {% include "partials/pagination.njk" %}
+  </div>
+{% endblock %}
