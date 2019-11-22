@@ -1,0 +1,148 @@
+<style>
+html,body {margin:0; padding: 0; overflow: hidden;}
+body {
+	text-align: center;
+	padding-top: 10px;
+	padding: 0;
+}
+.wrapper-div	{
+	border: solid tomato 10px;
+}
+.wrapper-div canvas {
+	margin: 0 auto;
+}
+
+canvas {
+	margin: 12.5px auto;
+	display: block;
+}
+
+button { 
+  margin: 5px auto;
+  display: block;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: bold;
+  border: 2px solid #333;
+  background-color: #fff;
+  padding: 8px 11px;
+  min-width: 180px;
+  text-decoration: none;
+}
+button:hover, button:focus { 
+  border-color:  #888;
+  text-decoration: underline;
+}
+
+</style>
+<div id="app"></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js'></script>
+<script>
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Clock = function (_React$Component) {
+  _inherits(Clock, _React$Component);
+
+  function Clock(props) {
+    _classCallCheck(this, Clock);
+
+    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+
+    _this.myCanvas = React.createRef();
+    _this.step = _this.step.bind(_this);
+    _this.state = {
+      step: 4,
+      hue: 0,
+      pos: { x: 50, y: 50 } };
+
+    return _this;
+  }
+
+  _createClass(Clock, [{
+    key: "step",
+    value: function step() {
+      this.setState(function (state) {
+        return { counter: state.counter < 99 ? state.counter + 1 : 0 };
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      setInterval(this.step, 100);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var ctx = this.myCanvas.current.getContext('2d');
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, 100, 100);
+      ctx.font = "40px Georgia, serif";
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = "white";
+      ctx.fillText(this.state.counter, 50, 50);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement("canvas", { ref: this.myCanvas, width: 100, height: 100 });
+    }
+  }]);
+
+  return Clock;
+}(React.Component);
+
+var App = function (_React$Component2) {
+  _inherits(App, _React$Component2);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this2.wrapCanvas = _this2.wrapCanvas.bind(_this2);
+    _this2.renderClock = _this2.renderClock.bind(_this2);
+    _this2.state = {
+      wrap: false };
+
+    return _this2;
+  }
+
+  _createClass(App, [{
+    key: "wrapCanvas",
+    value: function wrapCanvas() {
+      this.setState(function (state) {
+        return { wrap: !state.wrap };
+      });
+    }
+  }, {
+    key: "renderClock",
+    value: function renderClock() {
+      if (this.state.wrap) {
+        return React.createElement("div", { className: "wrapper-div" }, React.createElement(Clock, null));
+      } else {
+        return React.createElement(Clock, null);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, this.renderClock(), React.createElement("button", { onClick: this.wrapCanvas }, (this.state.wrap ? 'Unwrap canvas' : 'Wrap canvas in div'), " "));
+    }
+  }]);
+
+  return App;
+}(React.Component);
+
+ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+</script>

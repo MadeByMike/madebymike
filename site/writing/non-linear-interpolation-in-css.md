@@ -1,16 +1,15 @@
 ---
-title: "Non-linear interpolation in CSS"
-description: "A solution for transitioning lengths values in CSS through more than one 'bending point'."
-date: "2017-05-18"
-tags: 
-  - css
+title: Non-linear Interpolation in CSS
+description: A solution for transitioning lengths values in CSS through more than one 'bending point'.
+date: 2017-05-18
+tags: [css, typography]
 ---
 
 A few years ago I wrote about fluid typography techniques that show how you can use calc() and viewport units to create transitions between different font-sizes as the viewport size changes. If you'd like to know more about how this technique works you should read my article [Precise control over responsive typography](https://madebymike.com.au/writing/precise-control-responsive-typography/).
 
 Recently these ideas have circulated and gained more traction. I've seen more large sites using fluid typography and other people writing about it and expanding on my initial ideas and techniques. One recent example of this was an article by Jake Wilson [CSS Poly Fluid Sizing using calc(), vw, breakpoints and linear equations](https://medium.com/@jakobud/css-polyfluidsizing-using-calc-vw-breakpoints-and-linear-equations-8e15505d21ab).
 
-One of the most interesting things in Jake's article is the idea of having multiple points of transition. He refers to these as "*Breakpoints + Multiple Linear Equations*" but I like to think of these as "bending points". I like the term bending points rather than breakpoints for these because to me, a breakpoint implies there should be a jump and that's not what this is. These are intermediary points where the rate of scale changes.
+One of the most interesting things in Jake's article is the idea of having multiple points of transition. He refers to these as "_Breakpoints + Multiple Linear Equations_" but I like to think of these as "bending points". I like the term bending points rather than breakpoints for these because to me, a breakpoint implies there should be a jump and that's not what this is. These are intermediary points where the rate of scale changes.
 
 This idea of non-linear transitions is something I’ve been thinking about for a while. Unfortunately at the moment we can't do this with CSS alone. So when I’m asked about this, I usually reply with the same suggestion Jake has, that is to use multiple linear transitions. But I remain a little hesitant about how people might use this technique.
 
@@ -35,11 +34,11 @@ That's why I think polynomial regression and statistics might not the best menta
 
 The missing piece is direct access to the internal interpolation function that powers animation in CSS and the ability to replace the time dimension with the viewport or another custom completion value. A custom completion value could provide further compatibility with future CSS features such as container queries. I wrote about these ideas in more detail in an article [interpolation outside of animation](https://madebymike.com.au/writing/interpolation-without-animation/).
 
-It might sound a little complex but it's the same mathematics we use when creating animation on the web.  CSS does a good job of abstracting away the mathematical complexities you probably don’t think about it but you understand the result of applying keywords like `ease-in` to an animation. The average doesn't need to understand what type of function this is or how it works. It's not a big leap to take these ideas and use them for creating the effects in typography and other areas of the web.
+It might sound a little complex but it's the same mathematics we use when creating animation on the web. CSS does a good job of abstracting away the mathematical complexities you probably don’t think about it but you understand the result of applying keywords like `ease-in` to an animation. The average doesn't need to understand what type of function this is or how it works. It's not a big leap to take these ideas and use them for creating the effects in typography and other areas of the web.
 
 Fluid typography doesn’t need to be hard, so I've taken these ideas and feedback from the community to create a mixin that generates one or more bending points with a syntax that closely aligns with animation-functions:
 
-<p data-height="550" data-theme-id="dark" data-slug-hash="oWqvNa" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Bending points" class="codepen" data-preview="true">See the Pen <a href="http://codepen.io/MadeByMike/pen/oWqvNa/">Bending points </a> by Mike (<a href="http://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="550" data-theme-id="light" data-slug-hash="oWqvNa" data-default-tab="result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Bending points" class="codepen">See the Pen <a href="http://codepen.io/MadeByMike/pen/oWqvNa/">Bending points </a> by Mike (<a href="http://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 To properly see this in action you might want to <a href="http://codepen.io/MadeByMike/pen/oWqvNa/?editors=0100" target="_blank">open it in a new window</a> so you can resize it.
@@ -58,18 +57,34 @@ Here are some examples to get you started:
 
 ```scss
 .classic-linear {
-  @include interpolate('font-size', 600px, 12px, 900px, 24px);
+  @include interpolate("font-size", 600px, 12px, 900px, 24px);
 }
 .easy-peasy {
-  @include interpolate('font-size', 600px, 12px, 900px, 24px, 'ease-in');
+  @include interpolate("font-size", 600px, 12px, 900px, 24px, "ease-in");
 }
 .cubic-bezier {
-  @include interpolate('font-size', 600px, 12px, 900px, 24px, 'cubic-bezier(0.755, 0.05, 0.855, 0.06)');
+  @include interpolate(
+    "font-size",
+    600px,
+    12px,
+    900px,
+    24px,
+    "cubic-bezier(0.755, 0.05, 0.855, 0.06)"
+  );
 }
 .bloat-my-css {
-  @include interpolate('font-size', 600px, 12px, 900px, 24px, 'ease-in-ease-out', 10);
+  @include interpolate(
+    "font-size",
+    600px,
+    12px,
+    900px,
+    24px,
+    "ease-in-ease-out",
+    10
+  );
 }
 ```
+
 This aims to show how I think native interpolation should work in browsers, but it still only works where calc does. I think there is a lot more discussion to be had and problems that we need to solve before we can have a real native interpolation in CSS. I welcome contributions to this discussion and ideas from maths, statistics, animation or any areas. One thing that I think is increasingly apparent is that the web is fluid medium and breakpoints will not continue to be the only answer, or the key feature in the future of responsive design.
 
 If you want to [use this in a project grab the mixin here](https://www.sassmeister.com/gist/beac01f68da4f9ef3007c0d17f72d8c6).
@@ -77,4 +92,3 @@ If you want to [use this in a project grab the mixin here](https://www.sassmeist
 If you want to don't want multiple bending points you can still use the example above, but if you want a simple linear interpolation mixin [you can find my previous example here](https://www.sassmeister.com/gist/d8714d9b987e376ad52db5ede5401ff3).
 
 Finally if you want to look at some more examples [I have a fluid typography collection on CodePen](http://codepen.io/collection/nLbRMZ/).
-

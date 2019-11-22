@@ -7,6 +7,7 @@ module.exports = {
   authorName: "Mike",
   postsPerPage: 4,
   theme: {
+    image: "/img/christmas.png",
     background: "black",
     text: "white"
   },

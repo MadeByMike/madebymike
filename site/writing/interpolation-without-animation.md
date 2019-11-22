@@ -1,11 +1,10 @@
 ---
-title: "Interpolation in CSS without animation"
-description: "Ideas for a more general purpose interpolation function in CSS."
-date: "2016-12-29"
-tags: 
-  - css
+title: Interpolation in CSS without animation
+slug: interpolation-without-animation
+description: Ideas for a more general purpose interpolation function in CSS.
+date: 2016-12-29
+tags: [css]
 ---
-
 
 Interpolation is the estimation of a new value between two known values. This simple concept is vastly useful and it's commonly seen in animation on the web. With animation you declare the target properties and the end-state, and the browser will workout out the values in-between. Animation happens over time, but this is not the only dimension where interpolation can occur. In fact we interpolate values regularly in design, albeit manually, and particularly in responsive design. You may even do it unknowingly. Because of this, I think there is a need for a more native way of interpolating CSS values outside animation.
 
@@ -28,7 +27,7 @@ body {
   font-weight: bold;
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
   body {
     font-size: 1.2rem;
     font-weight: normal;
@@ -48,7 +47,9 @@ As the screen size gets smaller, there is often a point where a design is pressu
 
 Designers choose these break-points carefully. They probably have in mind where constraints like this begin to pressure the design, and how quickly it impacts overall quality. But in a compromise to technology, we are forced to choose a middle point, knowing that immediately before and after the break-point the design is often still pressured by constrains that demanded change.
 
-<img alt="gradient demonstrating the location of ideal font-sizes in relation to a break-point and the design pressure experienced between these points" data-src="/img/interpolation.png">
+<div class="live-demo">
+<img alt="gradient demonstrating the location of ideal font-sizes in relation to a break-point and the design pressure experienced between these points" src="/img/interpolation.png">
+</div>
 
 This graphic attempts to illustrate the location of ideal font-sizes in relation to a break-point. You can move the ideal font-size closer to the break-point but this only shifts the pressure to somewhere else in the design. Alternatively you can add more break-points until this becomes problematic, but ideally these changes would be introduced gradually and continuously to reduce pressure on the design as it's required.
 
@@ -64,7 +65,9 @@ Previously I've written about techniques you can use to achieve some forms of in
 
 My favourite example of this demonstrates how you can interpolate between different modular scales with heading levels.
 
-<video src="/img/modular-scale.mp4" style="max-width:600px" autoplay loop></video>
+<div class="live-demo">
+  <video src="/img/modular-scale.mp4" style="max-width:100%" autoplay loop></video>
+</div>
 
 Not only do the individual font-sizes change in a controlled way relative to the viewport, but the ratio between the heading levels also fluidly changes. This means there is a changing but consistent relationship between each of the headings. If you haven't seen this yet, you should read my article [precise control over responsive typography](https://madebymike.com.au/writing/precise-control-responsive-typography/).
 
@@ -131,14 +134,14 @@ And could be used like this:
 }
 ```
 
-**Note**: This is a not real CSS, it is a hypothetical solution to a real problem for the purpose of discussion.  
+**Note**: This is a not real CSS, it is a hypothetical solution to a real problem for the purpose of discussion.
 
 Obviously in the example above it would be far easier to set the width to 250px. So, interpolation functions are not that useful without variables. We do have some variable values in CSS. Things like:
 
-  - the viewport width and height,
-  - the width and height of an element or its container,
-  - the number of siblings an element has, or
-  - the order of an element amongst its siblings.
+- the viewport width and height,
+- the width and height of an element or its container,
+- the number of siblings an element has, or
+- the order of an element amongst its siblings.
 
 These are all things that in one context or another we can know and use in CSS; unfortunately in many cases these variables are not easily queried to create conditional statements. There are some useful tricks to take advantage of them. Things like [advanced fluid typography](https://madebymike.com.au/writing/precise-control-responsive-typography/) and [quantity queries](http://alistapart.com/article/quantity-queries-for-css) are great real world examples.
 
@@ -149,7 +152,7 @@ A more hypothetical example in a native interpolation function might look someth
   --max-viewport: 500px;
   --min-viewport: 1000px;
   --range: var(--max-viewport) - var(--min-viewport);
-  --percentage-completion: calc( (100vw - var(--min-viewport)) / var(--range) );
+  --percentage-completion: calc((100vw - var(--min-viewport)) / var(--range));
 }
 .thing {
   width: interpolate(0px, 500px, var(--percentage-completion), ease-in);
@@ -158,7 +161,7 @@ A more hypothetical example in a native interpolation function might look someth
 
 Although the above calculation is quite simple, but it's more than a bit ugly. This is because it uses CSS variables and unit algebra concepts I mentioned earlier to work out a percentage completion.
 
-A far neater solution would be a function to work out a percentage. This would reduce the above to something far more digestible like this:  
+A far neater solution would be a function to work out a percentage. This would reduce the above to something far more digestible like this:
 
 ```css
 root: {
@@ -186,16 +189,16 @@ The above example of changing the background color doesn't make much sense in re
 
 Container query units might look something like this:
 
-| Unit      | Description                                                           |
-|-----------|-----------------------------------------------------------------------|
-| cqw       | Relative to 1% of the container width                                 |
-| cqh       | Relative to 1% of the container height                                |
-| cqmin     | Relative to 1% of the container width or height, whichever is smaller |
-| cqmax     | Relative to 1% of the container width or height, whichever is larger  |
-| eqw       | Relative to 1% of the element width                                   |
-| eqh       | Relative to 1% of the element height                                  |
-| eqmin     | Relative to 1% of the element width or height, whichever is smaller   |
-| eqmax     | Relative to 1% of the element width or height, whichever is larger    |
+| Unit  | Description                                                           |
+| ----- | --------------------------------------------------------------------- |
+| cqw   | Relative to 1% of the container width                                 |
+| cqh   | Relative to 1% of the container height                                |
+| cqmin | Relative to 1% of the container width or height, whichever is smaller |
+| cqmax | Relative to 1% of the container width or height, whichever is larger  |
+| eqw   | Relative to 1% of the element width                                   |
+| eqh   | Relative to 1% of the element height                                  |
+| eqmin | Relative to 1% of the element width or height, whichever is smaller   |
+| eqmax | Relative to 1% of the element width or height, whichever is larger    |
 
 **Note**: I used the `cq` prefix is because `ch` is already a valid unit type and `eq` for consistency.
 
@@ -209,6 +212,7 @@ root: {
   background-color: interpolate(red, greed, var(--percentage-completion));
 }
 ```
+
 In this example the percentage-completion is the percentage width of a child element, in relation to it's parent element. Allowing CSS property values to be relative to context like this opens up a whole range of possibilities for things like, dynamic progress bars, creative navigation components and data-visualisation.
 
 But maybe this isn't the right solution. If we have a unit type for viewport width, container width and element width, where does this stop? DOM order, line length, color? Is it better introduce another function to get a value? E.g. `value-of(width)` if we do this, what about container width and non CSS properties like DOM order or line length? Magic keywords? `value-of(dom-order)`. I don't know!
@@ -216,4 +220,3 @@ But maybe this isn't the right solution. If we have a unit type for viewport wid
 Perhaps you don't agree with any of this. Perhaps you think we shouldn't introduce more functional features to CSS. That's ok. I hope you will agree that there is a need for discussion, that break-points don't necessarily match the intentions of designers and that interpolation will become a more significant feature of web design with the introduction of variable fonts, and an increasing adoption of viewport units and dynamic layout features.
 
 I'd like to start a discussion and if you have ideas please [let me know](https://twitter.com/MikeRiethmuller) or consider [contributing to the issue](https://github.com/w3c/csswg-drafts/issues/581) on the CSS Working Group's, GitHub page.
-

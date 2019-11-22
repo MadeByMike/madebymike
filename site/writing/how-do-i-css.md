@@ -1,9 +1,10 @@
 ---
-title: "How do I CSS?"
-description: "Details of my CSS workflow and frontend development processes in 2015."
-date: "2015-06-15"
-tags: 
-  - css
+title: How do I CSS?
+slug: how-do-i-css
+description: Details of my CSS workflow and frontend development processes in 2015.
+date: 2015-06-15
+tags: [css]
+update: This article is a little dated now. Whilst some of my processes may have changed, I think the overall message of not attempting to write and maintain a unique set of guidelines and methodologies, but articulating how you apply existing guidelines is still a good idea for front-end teams.
 ---
 
 When starting a new project with new developers one of the first things I want to do is get on the same page in terms of how we structure and manage CSS.
@@ -117,4 +118,3 @@ Finally I should say that at best I do this only about 60-70% of the time. Somet
   - [Chris Coyier's tour of CodePen's CSS](http://codepen.io/chriscoyier/blog/codepens-css)
   - [Ian Feather's tour of Lonely Planet's CSS](http://ianfeather.co.uk/css-at-lonely-planet/)
   - [Mark Otto's tour of GitHub's CSS](http://markdotto.com/2014/07/23/githubs-css/).
-

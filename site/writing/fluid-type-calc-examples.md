@@ -1,12 +1,10 @@
 ---
-title: "Fluid typography examples"
-description: "Some practical examples of using calc and viewport units for fluid typography and more."
-date: "2015-07-15"
-tags: 
-  - css
-  - typography
-extra_css: 
-  - "/assets/fluid-type-examples.css"
+title: Fluid typography examples
+slug: fluid-type-calc-examples
+description: Some practical examples of using calc and viewport units for fluid typography and more.
+date: 2015-07-15
+tags: [css, typography]
+extra_css: ["/css/fluid-type-examples.css"]
 ---
 
 A few months ago I published a [fluid type technique](/writing/precise-control-responsive-typography/) that doesn't require any JavaScript. Even though I consider it experimental the technique works well enough as a progressive enhancement and it generated a lot of interest, comments and suggestions. So I thought I'd put together a bunch of examples and address some comments.
@@ -37,7 +35,6 @@ This is a simplified version of my original example. The minimum font size is 14
 
 <p class="example-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
-
 ## Fluid type with Rem units
 
 This example should have the same result as the one above when the base font size is 16px (default).
@@ -45,7 +42,6 @@ This example should have the same result as the one above when the base font siz
 It shows that the technique works with any length unit, as long as you can use it in a media query. It also addresses comments regarding how my initial example will override user preferences for the default font size.
 
 The only catch is that all unit types must be the same for the calc() equation to work. That's a shame because we often use different unit types for breakpoints in media queries than we do for `font-size`.
-
 
 ```css
 .fluid-type {
@@ -95,7 +91,6 @@ In this example the text gets smaller as the viewport gets larger. This might ha
 
 <p class="example-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
 
-
 ## Fluid line-height (Molten leading)
 
 In this example the line-height is fluid. This is a pure CSS implementation of Wilto's [Molten leading technique](https://github.com/Wilto/Molten-Leading).
@@ -121,7 +116,6 @@ In this example the line-height is fluid. This is a pure CSS implementation of W
 ### Example
 
 <p class="example-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
-
 
 ## Fluid box
 
@@ -173,6 +167,4 @@ If Less is how you roll I've got you covered with a [Less mixin](http://codepen.
 
 [Rucksack is a postCSS module](https://www.npmjs.com/package/rucksack-css) that makes use of this technique for fluid typography.
 
-
 I have a collection of [other examples on CodePen](http://codepen.io/MadeByMike/pens/tags/2/?selected_tag=responsive+typography). [Let me know](https://twitter.com/MikeRiethmuller) if you have one you'd like me to share.
-

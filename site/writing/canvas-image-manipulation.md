@@ -1,10 +1,9 @@
 ---
-title: "Image manipulation techniques with 2D canvas"
-description: "A short tutorial on different techniques for manipulating pixel data with the canvas element."
-date: "2016-07-07"
-tags: 
-  - canvas
-  - webgl
+title: Image manipulation techniques with 2d canvas
+slug: canvas-image-manipulation
+description: A short tutorial on different techniques for manipulating pixel data with the canvas element.
+date: 2016-07-07
+tags: [canvas, webgl]
 ---
 
 Canvas is a really interesting piece of our web development toolkit, but it is often overlooked or misunderstood. It is, as the name suggests, very much a blank canvas; not providing much in the way of prebaked solutions. It is up to us as developers to ensure what we make with canvas, is accessible and performant.
@@ -42,19 +41,21 @@ Despite these drawbacks the most basic technique is still useful to learn and we
 The HTML might look like this:
 
 ```html
-<img id="image" src="image.jpg">
+<img id="image" src="image.jpg" />
 ```
 
 We need to make sure the image has fully loaded before we access the image data and because, web browsers, there are some inconsistencies in how the load event is triggered; especially when the image is loading from the cache. I’ve found the following method works well in browsers I tested.
 
 ```javascript
-var image = document.getElementById('image');
+var image = document.getElementById("image");
 
-if(image.complete){ // From cache
+if (image.complete) {
+  // From cache
   desaturateImage(image);
-} else { // On load
-  image.addEventListener('load', function() {
-      desaturateImage(image);
+} else {
+  // On load
+  image.addEventListener("load", function() {
+    desaturateImage(image);
   });
 }
 ```
@@ -71,6 +72,7 @@ function desaturateImage(image){
   ...
 }
 ```
+
 Next we get a 2D rendering context, draw the image onto the canvas and get the pixel data using the <code>getImageData</code> method.
 
 ```javascript
@@ -88,13 +90,13 @@ for (var i = 0; i < data.length; i += 4) {
 }
 ```
 
-To desaturate the image I’m using the following technique <code>grey = (red * 0.2126 + green * 0.7152 + blue * 0.0722)</code>. There are numerous [greyscale conversion algorithms](http://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/) with subtly different results, which I found an interesting and distracting side topic. One thing I like about Canvas is you have fine-grained control over any technique you apply.
+To desaturate the image I’m using the following technique <code>grey = (red _ 0.2126 + green _ 0.7152 + blue \* 0.0722)</code>. There are numerous [greyscale conversion algorithms](http://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/) with subtly different results, which I found an interesting and distracting side topic. One thing I like about Canvas is you have fine-grained control over any technique you apply.
 
 Next, inside the loop, assign the grey to the next four values in the <code>imgData</code> array, leaving the alpha value unchanged.
 
 ```javascript
 for (var i = 0; i < data.length; i += 4) {
-  var grey = (0.2126 * data[i]) + (0.7152 * data[i + 1]) + (0.0722 * data[i + 2]);
+  var grey = 0.2126 * data[i] + 0.7152 * data[i + 1] + 0.0722 * data[i + 2];
   data[i] = grey;
   data[i + 1] = grey;
   data[i + 2] = grey;
@@ -108,6 +110,10 @@ ctx.putImageData(imgData, image.width, image.height);
 ```
 
 We did it! We applied a simple image effect with canvas. If you’d like to see this technique in action here is the code and a working example of [basic pixel manipulation with canvas](/demos/image-effects/basic.html). It’s not as simple as a CSS filter, but it’s not overly complicated either. You can use this technique in moderation for small images, where performance is not critical.
+
+<div class="live-demo">
+  <iframe src="/demos/image-effects/basic.html" style="height:620px; width:100%; border: none;"></iframe>
+</div>
 
 ## 32bit pixel manipulation
 
@@ -127,14 +133,17 @@ var data = new Uint32Array(buf);
 We can then replace our loop with the following:
 
 ```javascript
-var j=0;
+var j = 0;
 for (var i = 0; i < data.length; i += 4) {
-  var grey = (0.2126 * imgData.data[i]) + (0.7152 * imgData.data[i + 1]) + (0.0722 * imgData.data[i + 2]);
+  var grey =
+    0.2126 * imgData.data[i] +
+    0.7152 * imgData.data[i + 1] +
+    0.0722 * imgData.data[i + 2];
   data[j] =
-      (255  << 24) |    // alpha
-      (grey << 16) |    // blue
-      (grey <<  8) |    // green
-       grey;            // red
+    (255 << 24) | // alpha
+    (grey << 16) | // blue
+    (grey << 8) | // green
+    grey; // red
   j++; // Advance current the increment
 }
 ```
@@ -144,17 +153,21 @@ There are a few things going on in the example above that you might not be famil
 Finally, this is how we write the pixel data back to the canvas:
 
 ```javascript
-imgData.data.set(buf8);  // Extra step
+imgData.data.set(buf8); // Extra step
 ctx.putImageData(imgData, 0, 0);
 ```
 
 This technique is significantly faster than the basic example and should be applied whenever using basic pixel manipulation techniques. Here is the code and a working example of [applying image effects using canvas and 32bit pixel manipulation](/demos/image-effects/32bit.html).
 
+<div class="live-demo">
+  <iframe src="/demos/image-effects/32bit.html" style="height:620px; width:100%; border: none;"></iframe>
+</div>
+
 ## Image effects &amp; WebGL
 
 Finally, if we want blazingly fast results that compare with CSS we are going to have to leverage WebGL. WebGL gives you access to hardware acceleration that is usually orders of magnitude faster than basic pixel manipulation. But it’s also the most complicated of the examples demonstrated. It includes some fairly low-level stuff that might not be intuitive if, like me, you don’t have prior experience with 3D graphics programming.
 
-[WebGL has good support](http://caniuse.com/#feat=webgl) including on many mobile devices, however support for WebGL may depend on more than just the browser. For example on mobile devices and laptops the GPU may not be available in low power modes. In these cases you can fallback on 2D methods depending on your application.  
+[WebGL has good support](http://caniuse.com/#feat=webgl) including on many mobile devices, however support for WebGL may depend on more than just the browser. For example on mobile devices and laptops the GPU may not be available in low power modes. In these cases you can fallback on 2D methods depending on your application.
 
 **Note:** Do not expect a full WebGL tutorial, that’s more than I could provide in this article, but I’ll aim to give a general overview of the steps involved in setting up a scene for rendering 2D image effects.
 
@@ -168,7 +181,6 @@ I’m going to create a helper function to compile a WebGL program.
 
 ```javascript
 function createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource) {
-
   this.ctx = ctx;
 
   this.compileShader = function(shaderSource, shaderType) {
@@ -179,14 +191,21 @@ function createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource) {
   };
 
   var program = this.ctx.createProgram();
-  this.ctx.attachShader(program, this.compileShader(vertexShaderSource, this.ctx.VERTEX_SHADER));
-  this.ctx.attachShader(program, this.compileShader(fragmentShaderSource, this.ctx.FRAGMENT_SHADER));
+  this.ctx.attachShader(
+    program,
+    this.compileShader(vertexShaderSource, this.ctx.VERTEX_SHADER)
+  );
+  this.ctx.attachShader(
+    program,
+    this.compileShader(fragmentShaderSource, this.ctx.FRAGMENT_SHADER)
+  );
   this.ctx.linkProgram(program);
   this.ctx.useProgram(program);
 
   return program;
 }
 ```
+
 This function takes the source code for our fragment and vertex shaders, creates a program, compiles our shaders, and finally links it all together.
 
 The next part of our code should look more familiar. We wait for the image to load then call the `desaturateImage` function, prepare our canvas, and replace the image element; the only difference is this time we request a `webgl` context rather than a 2D rendering context.
@@ -232,8 +251,8 @@ Where image effects are concerned, shaders are the most important part of the pr
 
 There are two types of shaders:
 
-  - Vertex shaders
-  - Fragment shaders
+- Vertex shaders
+- Fragment shaders
 
 Generally speaking vertex shaders are responsible for determining the final position of each point (vertex) that forms part of a 3D shape. It does this by setting a variable named `gl_Position`. In our example, the 3D shape we are representing is a simple 2D rectangle or plane, upon which we will draw a texture.
 
@@ -241,16 +260,16 @@ Our Vertex shader takes the vertices that represent the rectangle, these points 
 
 ```html
 <script id="vertex-shader" type="x-shader/x-vertex">
-attribute vec2 a_position;
-attribute vec2 a_texCoord;
-uniform vec2 u_resolution;
-varying vec2 v_texCoord;
+  attribute vec2 a_position;
+  attribute vec2 a_texCoord;
+  uniform vec2 u_resolution;
+  varying vec2 v_texCoord;
 
-void main() {
-   vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0;
-   gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
-   v_texCoord = a_texCoord;
-}
+  void main() {
+     vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0;
+     gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+     v_texCoord = a_texCoord;
+  }
 </script>
 ```
 
@@ -260,16 +279,16 @@ Next we need a fragment shader. While the vertext shader sets final position of 
 
 ```html
 <script id="fragment-shader" type="x-shader/x-fragment">
-precision mediump float;
-uniform sampler2D u_image;
-varying vec2 v_texCoord;
+  precision mediump float;
+  uniform sampler2D u_image;
+  varying vec2 v_texCoord;
 
-void main() {
-  vec4 color = texture2D(u_image, v_texCoord);
-  float grey = (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
-  color.rgb = (grey - color.rgb);
-  gl_FragColor = color;
-}
+  void main() {
+    vec4 color = texture2D(u_image, v_texCoord);
+    float grey = (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
+    color.rgb = (grey - color.rgb);
+    gl_FragColor = color;
+  }
 </script>
 ```
 
@@ -292,13 +311,24 @@ Next we provide the data for the rectangle (2 triangles) on which we will draw t
 var positionLocation = ctx.getAttribLocation(program, "a_position");
 var buffer = ctx.createBuffer();
 ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
-ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
-  0, 0,
-  image.width, 0,
-  0, image.height,
-  0, image.height,
-  image.width, 0,
-  image.width, image.height]), ctx.STATIC_DRAW);
+ctx.bufferData(
+  ctx.ARRAY_BUFFER,
+  new Float32Array([
+    0,
+    0,
+    image.width,
+    0,
+    0,
+    image.height,
+    0,
+    image.height,
+    image.width,
+    0,
+    image.width,
+    image.height
+  ]),
+  ctx.STATIC_DRAW
+);
 ctx.enableVertexAttribArray(positionLocation);
 ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, 0, 0);
 ```
@@ -309,16 +339,28 @@ We also need to provide data for shape of our texture. This tells the shaders ho
 var texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
 var texCoordBuffer = ctx.createBuffer();
 ctx.bindBuffer(ctx.ARRAY_BUFFER, texCoordBuffer);
-ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
-  0.0, 0.0,
-  1.0, 0.0,
-  0.0, 1.0,
-  0.0, 1.0,
-  1.0, 0.0,
-  1.0, 1.0]), ctx.STATIC_DRAW);
+ctx.bufferData(
+  ctx.ARRAY_BUFFER,
+  new Float32Array([
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    1.0,
+    1.0
+  ]),
+  ctx.STATIC_DRAW
+);
 ctx.enableVertexAttribArray(texCoordLocation);
 ctx.vertexAttribPointer(texCoordLocation, 2, ctx.FLOAT, false, 0, 0);
 ```
+
 You can experiment with changing some of the numbers in either of the `bufferData` arrays to understand their purpose.
 
 Finally we need to provide the image data itself, and we do this by creating a texture.
@@ -340,13 +382,21 @@ Now that we have setup a program, shaders and provided the data the final step i
 ctx.drawArrays(ctx.TRIANGLES, 0, 6);
 ```
 
-And that’s it! Checkout the [WebGL image effects demo page](/demos/image-effects/webgl.html).  
+And that’s it! Checkout the [WebGL image effects demo page](/demos/image-effects/webgl.html).
+
+<div class="live-demo">
+  <iframe src="/demos/image-effects/webgl.html" style="height:620px; width:100%; border: none;"></iframe>
+</div>
 
 This example is fast! And I mean really fast! The results are directly comparable with CSS and SVG filters. That’s because with WebGL, the image effects are processed directly on your graphics card’s GPU, which is highly optimised for this type of work.
 
 The code is definitely more complicated than using CSS or SVG filters but unlike these methods you can access the result, and apply many more types of effects. This technique is a good choice for an application where performance is critical and you need to save the image.
 
 Once you understand a little about how shaders works it’s not that difficult to modify example above. You can create your own abstractions and make applying different image effects as familiar and easy as using CSS or SVG filters. To demonstrate this I wrote an examples that takes an SVG `feColorMatrix` value and applies a [color matrix transformation using WebGL](/demos/image-effects/webgl-matrix.html). This can produce an almost infinite number of image effects by simply changing the input variables.
+
+<div class="live-demo">
+  <iframe src="/demos/image-effects/webgl-matrix.html" style="height:800px; width:100%; border: none;"></iframe>
+</div>
 
 As is often the case with modern web development, there are many features you can use to achieve the same results. For image effects CSS, SVG and canvas each have different strengths. Even after choosing the right technology, differences in implementation can make a huge difference in performance.
 
@@ -371,4 +421,3 @@ Whilst it is tempting to pick the simplest implementation from a development per
 <section class=" pal mtl background-dark">
 If your interested in implementing any of these techniques in a real project, why not <a href="/hire">get in touch with me</a>? Let's make something interesting!
 </section>
-

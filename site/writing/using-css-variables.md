@@ -1,10 +1,9 @@
 ---
-title: "Using CSS variables correctly"
-description: "Custom Properties have the potential to change how we write and think about CSS."
-date: "2017-06-18"
-tags: 
-  - css
-  - custom-properties
+title: "Using CSS Variables Correctly"
+slug: using-css-variables
+description: Custom Properties have the potential to change how we write and think about CSS.
+date: 2017-06-18
+tags: [css, custom properties]
 ---
 
 CSS Variables (also known as Custom Properties) are now supported in all modern browsers and people are starting to use them in production. This is great but they're different from variables in preprocessors and I've already seen some examples of people using them without considering the advantage they offer.
@@ -29,37 +28,37 @@ I'm going to use modular scales as an example. A modular scale is a mathematical
 
 I'm going to use a scale 1.2 for smalls screens and 1.33 for large screens. I don't like maths so I got these values from [modularscale.com](http://www.modularscale.com/) and these are my heading sizes:
 
-<table>
+<table class="table--full table--center">
 <thead>
 <tr>
-<th style="text-align:center">1.2</th>
-<th style="text-align:center">1.33</th>
+<th>1.2</th>
+<th>1.33</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">2.488rem</td>
-<td style="text-align:center">4.209rem</td>
+<td>2.488rem</td>
+<td>4.209rem</td>
 </tr>
 <tr>
-<td style="text-align:center">2.074rem</td>
-<td style="text-align:center">3.157rem</td>
+<td>2.074rem</td>
+<td>3.157rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.728rem</td>
-<td style="text-align:center">2.369rem</td>
+<td>1.728rem</td>
+<td>2.369rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.44rem</td>
-<td style="text-align:center">1.777rem</td>
+<td>1.44rem</td>
+<td>1.777rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1.2rem</td>
-<td style="text-align:center">1.333rem</td>
+<td>1.2rem</td>
+<td>1.333rem</td>
 </tr>
 <tr>
-<td style="text-align:center">1rem</td>
-<td style="text-align:center">1rem</td>
+<td>1rem</td>
+<td>1rem</td>
 </tr>
 </tbody>
 </table>
@@ -263,9 +262,9 @@ aside {
 }
 ```
 
-Try it out: 
+Try it out:
 
-<p data-height="360" data-theme-id="light" data-slug-hash="YQNVox" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" data-editable="true" class="codepen" data-preview="true">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="400" data-theme-id="light" data-slug-hash="YQNVox" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Organising code with CSS Variables" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/YQNVox/">Organising code with CSS Variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Despite having a completely different appearance these two elements have exactly the same property declarations.
@@ -279,10 +278,10 @@ A quick warning about combining selectors with overly generic variables. You mig
 * {
   display: var(--display);
   width: var(--width);
-  height: var(--height);
+  height: var(--Height);
   border: var(--border);
   background: var(--background);
-  ...
+  ...;
 }
 ```
 
@@ -323,10 +322,9 @@ I think CSS variables offer a completely new approach to responsive design and w
 
 I made a <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">detailed example</a> of a simple responsive site that demonstrates some of the techniques and suggestions outlined in this article.
 
-<p data-height="510" data-theme-id="light" data-slug-hash="dRNqNw" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" data-editable="true" class="codepen" data-preview="true">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
 <a target="_blank" href="https://codepen.io/MadeByMike/pen/dRNqNw/">Open this demo in CodePen</a> to see how it responds to different viewport sizes.
 
-If you have any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).
+<p data-height="520" data-theme-id="light" data-slug-hash="dRNqNw" data-default-tab="css,result" data-user="MadeByMike" data-embed-version="2" data-pen-title="Responsive design with CSS variables" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/MadeByMike/pen/dRNqNw/">Responsive design with CSS variables</a> by Mike (<a href="https://codepen.io/MadeByMike">@MadeByMike</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+If you have any thoughts about how CSS variables might change how we think about, manage and structure CSS please [let me know on Twitter](https://twitter.com/MikeRiethmuller).

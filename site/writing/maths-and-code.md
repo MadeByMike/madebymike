@@ -1,9 +1,9 @@
 ---
-title: "On maths and coding"
-description: "A more personal article on being a developer and having an average mathematical ability."
-date: "2016-10-16"
-tags: 
-  - personal
+title: On maths and coding
+slug: maths-and-code
+description: A more personal article on being a developer and having an average mathematical ability.
+date: 2016-10-16
+tags: [personal]
 ---
 
 When I was at school I had a strong interest in learning to code, but I was terrible at maths. My teachers and parents told me I would need strong mathematical abilities to be a good developer and although they didn't mean it to be, I found this discouraging. I really wasn't good with numbers and I couldn't see this changing.
@@ -37,4 +37,3 @@ Maths now inspires me as much as it scares and I'm willing to engage with more a
 My brain still crashes sometimes when attempting to do mental arithmetic, but that's ok. Although you can probably do it 10 times faster than me, it doesn't count if you're not solving the right problem. When working on problems I don't fully understand I no longer feel the pressure to solve them in the same 90 minutes as everyone else. I feel my slower pace sometimes allows me to focus better.
 
 Although I haven't become great at maths, with more willingness to engage, my ability has gradually improved. Maybe one day I'll fix whatever bug there is in my brain code, that causes me crash when attempting mental arithmetic.
-

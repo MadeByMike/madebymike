@@ -1,38 +1,39 @@
 ---
-title: "Detecting transition start"
-date: "2014-06-06"
-tags: 
-  - css
+title: Detecting transition start
+description: Experiements detecting transition start "events" in CSS.
+slug: detecting-transition-start
+date: 2014-06-06
+tags: [css, old]
 ---
 
 If you've worked with the css transition events in JavaScript you will know that it's a little involved due to the need for multiple browser prefixes. Luckily it's easy, if slightly verbose, to detect which transition event to use:
 
 ```javascript
-  // Dave Walsh says this is from Modernizr, but I can't find it
-  // http://davidwalsh.name/css-animation-callback
-  var whichTransitionEvent = function(){
-    var t;
-    var el = document.createElement('fakeelement');
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'oTransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    };
-    for(t in transitions){
-      if( el.style[t] !== undefined ){
-        return transitions[t];
-      }
-    }
+// Dave Walsh says this is from Modernizr, but I can't find it
+// http://davidwalsh.name/css-animation-callback
+var whichTransitionEvent = function() {
+  var t;
+  var el = document.createElement("fakeelement");
+  var transitions = {
+    transition: "transitionend",
+    OTransition: "oTransitionEnd",
+    MozTransition: "transitionend",
+    WebkitTransition: "webkitTransitionEnd"
   };
-  var transitionEvent = whichTransitionEvent();
-
-  // With that sorted...
-  if(transitionEvent){
-    document.body.addEventListener(transitionEvent, function() {
-	  // do stuff here
-	});
+  for (t in transitions) {
+    if (el.style[t] !== undefined) {
+      return transitions[t];
+    }
   }
+};
+var transitionEvent = whichTransitionEvent();
+
+// With that sorted...
+if (transitionEvent) {
+  document.body.addEventListener(transitionEvent, function() {
+    // do stuff here
+  });
+}
 ```
 
 We need to check if `transitionEvent` exists before adding an event listener and whilst this isn't too hard, we could take this a step further and wrap it with a custom event `'transition-end'`. See: [example gist](https://gist.github.com/MadeByMike/0563ca51e08a790e553b).

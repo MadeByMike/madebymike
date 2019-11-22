@@ -1,0 +1,133 @@
+<style>
+html,body {margin:0; padding: 0; overflow: hidden;}
+</style>
+<div id="app"></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js'></script>
+<script>"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RainbowWalker = function (_React$Component) {
+  _inherits(RainbowWalker, _React$Component);
+
+  function RainbowWalker(props) {
+    _classCallCheck(this, RainbowWalker);
+
+    var _this = _possibleConstructorReturn(this, (RainbowWalker.__proto__ || Object.getPrototypeOf(RainbowWalker)).call(this, props));
+
+    _this.myCanvas = React.createRef();
+    _this.step = _this.step.bind(_this);
+    _this.draw = _this.draw.bind(_this);
+    _this.fade = _this.fade.bind(_this);
+    _this.wrapCanvas = _this.wrapCanvas.bind(_this);
+    _this.renderCanvas = _this.renderCanvas.bind(_this);
+    _this.resizeCanvas = _this.resizeCanvas.bind(_this);
+    _this.randomDirection = _this.randomDirection.bind(_this);
+    _this.state = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      step: 4,
+      hue: 0,
+      wrap: false,
+      pos: { x: window.innerWidth / 2, y: window.innerHeight / 2 } };
+
+    return _this;
+  }
+
+  _createClass(RainbowWalker, [{
+    key: "wrapCanvas",
+    value: function wrapCanvas() {
+      this.setState(function (state) {
+        return { wrap: !state.wrap };
+      });
+    }
+  }, {
+    key: "resizeCanvas",
+    value: function resizeCanvas() {
+      this.setState({ width: window.innerWidth, height: window.innerHeight });
+    }
+  }, {
+    key: "renderCanvas",
+    value: function renderCanvas() {
+      if (this.state.wrap) {
+        return React.createElement("div", { className: "wrapper-div" }, React.createElement("canvas", { ref: this.myCanvas, width: this.state.width, height: this.state.height }));
+      } else {
+        return React.createElement("canvas", { ref: this.myCanvas, width: this.state.width, height: this.state.height });
+      }
+    }
+  }, {
+    key: "step",
+    value: function step() {
+      this.setState(function (state) {
+        var x = this.limitMovement(state.pos.x + this.randomDirection(), 2, this.state.width);
+        var y = this.limitMovement(state.pos.y + this.randomDirection(), 2, this.state.height);
+        return { pos: { x: x, y: y }, hue: state.hue > 244 ? 0 : state.hue + 1 };
+      });
+    }
+  }, {
+    key: "randomDirection",
+    value: function randomDirection() {
+      var directions = [this.state.step, -this.state.step, 0];
+      return directions[Math.floor(Math.random() * directions.length)];
+    }
+  }, {
+    key: "limitMovement",
+    value: function limitMovement(num, min, max) {
+      return num <= min ? min : num >= max ? max : num;
+    }
+  }, {
+    key: "draw",
+    value: function draw() {
+      var ctx = this.myCanvas.current.getContext('2d');
+      ctx.lineTo(this.state.pos.x, this.state.pos.y);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "hsl(" + this.state.hue + ", 100%, 40%)";
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(this.state.pos.x, this.state.pos.y);
+    }
+  }, {
+    key: "fade",
+    value: function fade() {
+      var ctx = this.myCanvas.current.getContext('2d');
+      ctx.fillStyle = 'rgba(255,255,255,0.1)';
+      ctx.fillRect(0, 0, this.state.width, this.state.height);
+    }
+  }, {
+    key: "componentWillUnMount",
+    value: function componentWillUnMount() {
+      window.removeEventListener('resize', this.resizeCanvas, false);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var ctx = this.myCanvas.current.getContext('2d');
+      ctx.moveTo(this.state.pos.x, this.state.pos.y);
+      window.setInterval(this.step, 1000 / 60);
+      window.setInterval(this.fade, 1000 * 5);
+      window.addEventListener('resize', this.resizeCanvas, false);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.draw();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, this.renderCanvas());
+    }
+  }]);
+
+  return RainbowWalker;
+}(React.Component);
+
+ReactDOM.render(React.createElement(RainbowWalker, null), document.getElementById('app'));
+</script>

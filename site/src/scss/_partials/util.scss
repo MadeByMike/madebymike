@@ -30,6 +30,7 @@
 }
 
 .theme {
-  background: var(--THEME_COLOR, black);
+  background: var(--THEME_IMAGE, var(--THEME_COLOR, black));
+  background-size: 250px;
   color: var(--THEME_TEXT, white);
 }

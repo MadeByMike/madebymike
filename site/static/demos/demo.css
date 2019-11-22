@@ -1,13 +1,30 @@
-html{
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
   font-size: 1.5rem;
 }
 
-body{
-  width: 80%;
+body {
+  width: 100%;
+  padding: 0 30px;
   margin: 0 auto;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
-h1,h2,h3,h4,h5,h6{
-  font-family: 'Handlee', Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Handlee", Big Caslon, Book Antiqua, Palatino Linotype, Georgia,
+    serif;
+}
+
+canvas,
+img {
+  max-width: 100%;
 }

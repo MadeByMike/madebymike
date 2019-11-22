@@ -4,10 +4,10 @@
 		transform-origin: 50% 70%;
 		transform: scale(3) 
 	}
-	@media screen and (min-width: 500px){
+	@media screen and (min-width: 450px){
 		.ad-image { transform: scale(2) }
 	}
-	@media screen and (min-width: 800px){
+	@media screen and (min-width: 700px){
 		.ad-image { transform: scale(1) }
 	}
 	</style>

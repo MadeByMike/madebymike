@@ -1,10 +1,9 @@
 ---
-title: "Offline content with service workers"
-description: "My experience implementing service workers to cache and serve content offline."
-date: "2016-08-22"
-tags: 
-  - service-workers
-  - offline
+title: Offline content with service workers
+slug: service-workers
+description: My experience implementing service workers to cache and serve content offline.
+date: 2016-08-22
+tags: [javascript]
 ---
 
 Service workers can do a lot more than make web pages work offline but for most people, myself included, this will be their first experience with them. I recently implemented a simple offline page for my blog and was surprised with how easy it was. Full of confidence, I wanted to do more. I decided to start saving blog posts for offline reading and things escalated quickly. I soon learnt the rabbit hole is deep.
@@ -18,13 +17,13 @@ Having said that, there are a few things I wish I had known before getting start
 Service workers are an easy candidate for progressive enhancement and on the surface, it's easy to check for support before registering a service worker. You do that like this:
 
 ```javascript
-if ('serviceWorker' in navigator) {
+if ("serviceWorker" in navigator) {
   // Yay, service workers work!
-  navigator.serviceWorker.register('/sw.js');
+  navigator.serviceWorker.register("/sw.js");
 }
 ```
 
-It seems simple enough but there is one gotcha. If you look at the [MDN page for the service worker cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache), you will see that different versions of Chrome support different caching methods. This means that, despite diligently checking for feature support, versions of Chrome between 40 and 45 will get an error when using the `addAll` method. This is less of a problem now than it was when these versions were more widely used. I checked [Can I Use](http://caniuse.com/usage-table) and at the time of writing this, it looks like it might impact around 1.15% of users.  
+It seems simple enough but there is one gotcha. If you look at the [MDN page for the service worker cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache), you will see that different versions of Chrome support different caching methods. This means that, despite diligently checking for feature support, versions of Chrome between 40 and 45 will get an error when using the `addAll` method. This is less of a problem now than it was when these versions were more widely used. I checked [Can I Use](http://caniuse.com/usage-table) and at the time of writing this, it looks like it might impact around 1.15% of users.
 
 I read several blogs and tutorials on getting started with service workers, some advocate using only `put` rather than `addAll`, others recommend using a [cache pollyfill](https://github.com/dominiccooney/cache-polyfill), while others still make no mention of it. Obviously these were all written at different times and it took me a lot of research to work out what the right approach was.
 
@@ -33,9 +32,12 @@ In the end, with such a small number of users, that is only getting smaller, I o
 So, my feature detection now becomes:
 
 ```javascript
-if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+if (
+  "serviceWorker" in navigator &&
+  (typeof Cache !== "undefined" && Cache.prototype.addAll)
+) {
   // Yay, this is a problem we didn't need to have!
-  navigator.serviceWorker.register('/sw.js');
+  navigator.serviceWorker.register("/sw.js");
 }
 ```
 
@@ -53,22 +55,18 @@ Yes, we are now ready to service worker! When getting started I recommend readin
 
 You'll soon learn that, where offline content is concerned, there are 3 main events we listen for in a service worker:
 
-  - install,
-  - activate, and
-  - fetch.
+- install,
+- activate, and
+- fetch.
 
 The **install** event is fired only once when the service worker is first registered. Here we setup the cache prime it with essential resources. My install event is pretty simple, nothing special here. I cache the homepage, CSS and an offline page:
 
 ```javascript
-var CACHE_NAME = 'v1::madebymike';
-var urlsToCache = [
-  '/',
-  '/offline.html',
-  '/css/styles.min.css'
-];
+var CACHE_NAME = "v1::madebymike";
+var urlsToCache = ["/", "/offline.html", "/css/styles.min.css"];
 
 // Install
-self.addEventListener('install', function(event) {
+self.addEventListener("install", function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(urlsToCache);
@@ -77,21 +75,23 @@ self.addEventListener('install', function(event) {
 });
 ```
 
-The **activate** event is fired after install and every time you navigate to the domain managed by the service worker. It's not fired for subsequent navigation between pages on the same domain.  
+The **activate** event is fired after install and every time you navigate to the domain managed by the service worker. It's not fired for subsequent navigation between pages on the same domain.
 
-My activate event is also pretty standard. I'm only using one cache for my service worker. This pattern checks the names of any caches to ensure they match the variable `CACHE_NAME`, if they don't, it will delete them. This gives me a manual means of invalidating my service worker cache.     
+My activate event is also pretty standard. I'm only using one cache for my service worker. This pattern checks the names of any caches to ensure they match the variable `CACHE_NAME`, if they don't, it will delete them. This gives me a manual means of invalidating my service worker cache.
 
 ```javascript
-self.addEventListener('activate', function(event) {
+self.addEventListener("activate", function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName !== CACHE_NAME;
-        }).map(function(cacheName) {
-          console.log('Deleting '+ cacheName);
-          return caches.delete(cacheName);
-        })
+        cacheNames
+          .filter(function(cacheName) {
+            return cacheName !== CACHE_NAME;
+          })
+          .map(function(cacheName) {
+            console.log("Deleting " + cacheName);
+            return caches.delete(cacheName);
+          })
       );
     })
   );
@@ -103,12 +103,12 @@ Finally, the **fetch** event is fired every time a page is requested. The fetch 
 Here is my first example of a fetch event. It's really little more than custom error page, but it's a start.
 
 ```javascript
-self.addEventListener('fetch', function(event) {
+self.addEventListener("fetch", function(event) {
   e.respondWith(
     // If network fetch fails serve offline page form cache
     fetch(event.request).catch(function(error) {
       return caches.open(CACHE_NAME).then(function(cache) {
-        return cache.match('/offline.html');
+        return cache.match("/offline.html");
       });
     })
   );
@@ -166,14 +166,14 @@ The generic offline page, from my first fetch example, is still served when the 
 
 There is a method for communicating with service workers and web workers called the [channel messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API).
 
-**IMPORTANT UPDATE** 
+**IMPORTANT UPDATE:**
 
 I don't need to use the channel messaging API to get a URL from the cache in this example (Thanks to [Nicolas Hoizey](https://twitter.com/nhoizey) for brining that to my attention). The channel messaging API is useful when you want to respond to an event that only the service worker is aware of. In this case, since I am only grabbing a list of pages fron the cache I can access the `window.caches` object in the offline page. The only thing the service worker is aware of that my ofline page is not, is the `CACHE_NAME` variable. It contains the cache version and I didn't want to update it in multiple places each time it changed, but since it follows a predictable pattern I can do something like the following:
 
 ```javascript
 // Get a list of cache keys
 window.caches.keys().then(function(cacheNames){
-  
+
   // Find the key that matches my cacheName
   cacheName = cacheNames.filter(function(cacheName) {
     return cacheName.indexOf("::madebymike") !== -1;
@@ -191,32 +191,33 @@ window.caches.keys().then(function(cacheNames){
 
 ## Channel messaging API
 
-This is the old method I used to fetch cached pages from the service worker. Although it turned out I didn't need to message the service worker to do this, it's still a valuable technique for other purposes. 
+This is the old method I used to fetch cached pages from the service worker. Although it turned out I didn't need to message the service worker to do this, it's still a valuable technique for other purposes.
 
 In the service worker, I listen for a `message` event. Once received, I get a list of pages from the cache that match the URL pattern for blog posts on my site and post a response back to the offline page.
 
 ```javascript
-self.addEventListener('message', function(event) {
+self.addEventListener("message", function(event) {
   caches.open(CACHE_NAME).then(function(cache) {
-
-    return cache.keys().then(function(requests) {
-
-      var urls = requests.filter(function(request){
-        return request.url.indexOf("/writing/") !== -1;
-      }).map(function(request) {
-        return request.url;
+    return cache
+      .keys()
+      .then(function(requests) {
+        var urls = requests
+          .filter(function(request) {
+            return request.url.indexOf("/writing/") !== -1;
+          })
+          .map(function(request) {
+            return request.url;
+          });
+        return urls.sort();
+      })
+      .then(function(urls) {
+        event.ports[0].postMessage(urls);
       });
-      return urls.sort();
-
-    }).then(function(urls) {
-      event.ports[0].postMessage(urls);
-    });
-
   });
 });
 ```
 
-In my offline page I send a message to the service worker and listen for a response. It's not very clever. At the moment it doesn't matter what message I post, I will always get the same response. But this is sufficient for now and I didn't want to complicate it more than necessary.  
+In my offline page I send a message to the service worker and listen for a response. It's not very clever. At the moment it doesn't matter what message I post, I will always get the same response. But this is sufficient for now and I didn't want to complicate it more than necessary.
 
 ```javascript
 var messageChannel = new MessageChannel();
@@ -224,8 +225,11 @@ messageChannel.port1.onmessage = function(event) {
   // Add list of offline pages to body with JavaScript
   // `event.data` contains an array of cached URLs
 };
-navigator.serviceWorker.controller.postMessage("get-pages", [messageChannel.port2]);  
+navigator.serviceWorker.controller.postMessage("get-pages", [
+  messageChannel.port2
+]);
 ```
+
 My worst case offline experience now looks something like this:
 
 <img src="/img/offline.png" style="border: solid 1px #999">

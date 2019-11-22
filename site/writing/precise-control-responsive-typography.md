@@ -1,12 +1,10 @@
 ---
-title: "Precise control over responsive typography"
-description: "Creating fluid responsive typography with calc and viewport units."
-date: "2015-03-17"
-tags: 
-  - css
-  - typography
-extra_css: 
-  - "/assets/responsive-type.css"
+title: Precise control over responsive typography
+slug: precise-control-responsive-typography
+description: Creating fluid responsive typography with calc and viewport units.
+date: 2015-03-17
+tags: [css, typography]
+extra_css: ["/css/responsive-type.css"]
 ---
 
 It is possible to have precise control over responsive typography. Using calc() and viewport units you can create fluid type that scales perfectly between specific pixel values, within a specific viewport range.
@@ -23,10 +21,10 @@ Viewport units have been around since 2012 and are [fairly well supported](http:
 
 They are also really easy to understand. One viewport unit is simply 1% of the viewport and there are 4 types of viewport units:
 
-  * vw - viewport width,
-  * vh - viewport height,
-  * vmin - height or width, whichever is smaller,
-  * vmax - height or width, whichever is larger
+- vw - viewport width,
+- vh - viewport height,
+- vmin - height or width, whichever is smaller,
+- vmax - height or width, whichever is larger
 
 So the reason viewport units are not used more extensively is probably not due to a lack of browser support or developers' understanding. My guess is it’s probably more likely to do with the lack of precise control designers have over the font-size.
 
@@ -47,7 +45,7 @@ But there are a few rough edges you will need to sand back. Firstly when you get
 If you would like set an exact minimum font-size in pixels you can use calc().
 
 ```css
-:root{
+:root {
   font-size: calc(16px + 3vw);
 }
 ```
@@ -61,8 +59,10 @@ This example says set the default size to 16px + 3vw.
 You can prevent the text from scaling below a specific threshold simply by using a media query and only applying viewport units above a certain device resolution.
 
 ```css
-:root { font-size: 18px;  /* default below 600px */ }
-@media (min-width: 600px){
+:root {
+  font-size: 18px; /* default below 600px */
+}
+@media (min-width: 600px) {
   :root {
     font-size: 3vw;
   }
@@ -79,10 +79,9 @@ Eg. 24 / ( 3 / 100 ) = 800px
 With that result just set another media query to change the root font-size back to a fixed unit.
 
 ```css
-...
-@media (min-width: 800px){
+... @media (min-width: 800px) {
   :root {
-    font-size: 24px;  /*above 800px */
+    font-size: 24px; /*above 800px */
   }
 }
 ```
@@ -143,8 +142,9 @@ Try the demo: [Precise control over responsive typography](http://codepen.io/Mad
 The demo uses SASS so you can easily change the upper and lower limits of the font-size and media queries. But the important part looks something like this:
 
 ```css
-  font-size: calc( 12px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
+font-size: calc(12px + (24 - 12) * ((100vw - 400px) / (800 - 400)));
 ```
+
 **Note**: In the example above, 12px is the minimum font-size and 24px is the maximum. 400px is the start of the viewport range and 800px is where it should stop scaling. The inclusion or absence of the units after each value is important.
 
 Put simply, it is a function that takes a value within a range and works out what the new value would be if applied to a different range. I can take the current viewport width (100vw) as input into this ‘function’. For example if I had viewport range of 500px to 1000px, and let’s imagine the current viewport is 750px, I then apply this to a font-size range. If my font-size range was 20px to 30px, because the input of 750px is right in the middle of 500px and 1000px my new font-size will also be right in the middle, 25px. Simple right?
@@ -155,10 +155,9 @@ This seems like it could be a pretty useful way to control the scaling of viewpo
 
 ## More info
 
-  - [Fluid Type](http://trentwalton.com/2012/06/19/fluid-type/), Trent Walton
-  - [Viewport units](https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/), Tim Severien
-  - [CSS Viewport Units](https://dev.opera.com/articles/css-viewport-units/), Chris Mills
-  - [FitText](http://fittextjs.com/), Dave Rupert
-  - [Viewport sized typography](https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html), a similar concept by Eduardo Bouças
-  - [Molten leading](http://nicewebtype.com/notes/2012/02/03/molten-leading-or-fluid-line-height/)
-
+- [Fluid Type](http://trentwalton.com/2012/06/19/fluid-type/), Trent Walton
+- [Viewport units](https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/), Tim Severien
+- [CSS Viewport Units](https://dev.opera.com/articles/css-viewport-units/), Chris Mills
+- [FitText](http://fittextjs.com/), Dave Rupert
+- [Viewport sized typography](https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html), a similar concept by Eduardo Bouças
+- [Molten leading](http://nicewebtype.com/notes/2012/02/03/molten-leading-or-fluid-line-height/)

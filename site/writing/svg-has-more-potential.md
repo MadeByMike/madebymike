@@ -1,14 +1,11 @@
 ---
-title: "SVG has more potential"
-description: "A bunch of interesting techniques for using SVG to make unique responsive components."
-date: "2016-09-19"
-tags: 
-  - svg
-  - css
-extra_css: 
-  - "/assets/resize-images.css"
-extra_js: 
-  - "/assets/resize-images.js"
+title: SVG has more potential
+slug: svg-has-more-potential
+description: A bunch of interesting techniques for using SVG to make unique responsive components.
+date: 2016-09-19
+tags: [svg, css]
+extra_css: ["/css/resize-images.css"]
+extra_js: ["/js/resize-image.js"]
 ---
 
 I think many of us are not using SVG to its full potential. I often see SVG used as an alternative image format or as a simple solution for icons, and whilst it's great for these things, it's also a lot more than that. SVG can solve problems that HTML and CSS alone can't. It has responsive properties that go beyond vector scaling, such as control over aspect ratio, embedded CSS and a unique co-ordinate system. I rarely see all the features of SVG used together to create unique responsive solutions.
@@ -27,11 +24,11 @@ If you think of SVG like any other image format, to be responsive, it should str
 
 Take a look at this example of an ornate border and try to imaging how you might do this with only CSS and HTML.
 
-
-<div class="js-resizable">
-  <img class="js-resizable-image" src="/demos/svg/simple-border.svg">
+<div class="live-demo-extended card">
+  <div class="js-resizable">
+    <img class="js-resizable-image" src="/demos/svg/simple-border.svg">
+  </div>
 </div>
-
 
 Dig into the SVG source and you will see we're taking advantage of symbols, masks, transformations and other goodness that HTML and CSS have only ever dreamt of. It works great, but it is by no means the extent of the responsive capabilities of SVG.
 
@@ -39,8 +36,10 @@ One interesting and little known fact about SVG is that the `viewBox` is an opti
 
 With that in mind, imaging for a minute that this is not an image on the web. How might a traditional artist adapt this design for a different sized page? They would probably not just uniformly scale the design. More likely, the corner flourishes and diamond would remain roughly same size and the length of the line connecting them would be reduced.
 
-<div class="js-resizable">
-  <img class="js-resizable-image" src="/demos/svg/complex-border.svg">
+<div class="live-demo-extended card">
+  <div class="js-resizable">
+    <img class="js-resizable-image" src="/demos/svg/complex-border.svg">
+  </div>
 </div>
 
 We can do this with SVG! Compare this to the prior example, the difference is particularly notable on smaller screens.
@@ -51,8 +50,10 @@ This type of responsive design is particularly suited to SVG and with a little u
 
 Although the [picture element](http://caniuse.com/#feat=picture) and [srcset](http://caniuse.com/#feat=srcset) are now widely supported (with the exception of Internet Explorer), did you know you can create responsive art-directed images using SVG?
 
-<div class="js-resizable">
-  <img class="js-resizable-image" src="/demos/svg/ad-main.svg" >
+<div class="live-demo-extended card">
+  <div class="js-resizable">
+    <img class="js-resizable-image" src="/demos/svg/ad-main.svg" >
+  </div>
 </div>
 
 Resize your window to see how it works.
@@ -87,8 +88,10 @@ I've seen very few examples that take advantage of this, the icon library [iconi
 
 How about something that's not an icon? Let's update my ornate border example to resize and even remove the corner flourishes, in response to the available width.
 
-<div class="js-resizable">
-  <img class="js-resizable-image" src="/demos/svg/adaptive-border.svg" >
+<div class="live-demo-extended card">
+  <div class="js-resizable">
+    <img class="js-resizable-image" src="/demos/svg/adaptive-border.svg" >
+  </div>
 </div>
 
 There is no way that I know of to achieve this with just CSS and HTML. Why aren't we doing much more of this on the web?!
@@ -99,8 +102,10 @@ How far can we push this? Pretty far is the answer! But as always, with some cav
 
 Let's try and reproduce another influential example. Remember Mat Marquis' article [Container Queries: Once More Unto the Breach](https://alistapart.com/article/container-queries-once-more-unto-the-breach)? Do you think we can do that with SVG?
 
-<div class="js-resizable" style="min-width: 450px !important;">
-  <img class="js-resizable-image" src="/demos/svg/cq-main.svg">
+<div class="live-demo-extended card">
+  <div class="js-resizable">
+    <img class="js-resizable-image" style="min-width: 250px !important;" src="/demos/svg/cq-main.svg">
+  </div>
 </div>
 
 **Note**: Sorry this demo is a little buggy in Firefox &amp; IE.
@@ -111,7 +116,7 @@ Now that you are hopefully excited, I'm sorry to say this example is intended to
 
 #### Setting X & Y attributes with CSS
 
-For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is an exception to this rule in Chrome with regard  to `<image>` elements. It is sometimes possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well.
+For the most part setting and changing X and Y attributes of SVG elements with CSS will not work. Although this will be fully possible in SVG 2.0, for now there is an exception to this rule in Chrome with regard to `<image>` elements. It is sometimes possible to use CSS transforms to manipulate positioning, but you will find this has limitations as well.
 
 #### External sources in embedded SVG
 
@@ -132,4 +137,3 @@ Every new technology has limitations, and the web has many. Because of this, I t
 When we do this it's easy to miss opportunities to explore new and creative techniques. The examples I've demonstrated, probably only scratch the surface of unique possibilities with SVG. I hope I've got you thinking and I would love to see more examples.
 
 One final though, it's important to be wary of perceived limitations, not just with SVG. This is especially true at the moment with a wealth of new layout features landing in browsers soon. It will require new perspectives to take advantage of new opportunities. Practice this now, there's never been a better time in the history of the web for creativity and discovery.
-

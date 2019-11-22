@@ -1,12 +1,10 @@
 ---
-title: "Understanding flexbox"
-description: "A detailed exploration of how the space and size of items are determined when using flexbox."
-date: "2014-09-09"
-tags: 
-  - css
-  - flexbox
-extra_css: 
-  - "/assets/understanding-flex.css"
+title: Understanding flexbox
+slug: understanding-flexbox
+description: A detailed exploration of how the space and size of items are determined when using flexbox.
+date: 2014-09-09
+tags: [css, flexbox]
+extra_css: ["/css/understanding-flex.css"]
 ---
 
 Instead of covering all properties of Flexbox this article focuses on understanding how Flexbox calculates the width of items. The examples in this article are all in the context of a horizontal layout, but the same logic applies if you use a vertical layout.
@@ -37,13 +35,22 @@ When the combined size of all the flex items is less than their container, the r
 </div>
 
 ```css
-.flex-container{ width: 600px; }
-.flex-item-1{ flex-basis: 200px; flex-grow: 3; }
-.flex-item-2{ flex-basis: 200px; flex-grow: 1; }
+.flex-container {
+  width: 600px;
+}
+.flex-item-1 {
+  flex-basis: 200px;
+  flex-grow: 3;
+}
+.flex-item-2 {
+  flex-basis: 200px;
+  flex-grow: 1;
+}
 ```
+
 ```
 Total basis: 400px
-Space remaining:  200px
+Space remaining: 200px
 
 Item 1 grow factor: 3/4 × 200px = 150px
 Item 2 grow factor: 1/4 × 200px = 50px
@@ -67,49 +74,72 @@ Rather than working out the ratio of an items flex-shrink value against the tota
 	<div class="flex-item flex-item-1"><span>Item 1</span></div>
 	<div class="flex-item flex-item-2"><span>Item 2</span></div>
 	<div class="flex-item flex-item-3"><span>Item 2</span></div>
-</div>  
+</div>
 
 ```css
-.flex-container{ width: 600px; }
-.flex-item-1{ flex-basis: 100px; flex-shrink: 1; }
-.flex-item-2{ flex-basis: 400px; flex-shrink: 1; }
-.flex-item-3{ flex-basis: 400px; flex-shrink: 1; }
+.flex-container {
+  width: 600px;
+}
+.flex-item-1 {
+  flex-basis: 100px;
+  flex-shrink: 1;
+}
+.flex-item-2 {
+  flex-basis: 400px;
+  flex-shrink: 1;
+}
+.flex-item-3 {
+  flex-basis: 400px;
+  flex-shrink: 1;
+}
 ```
 
 ```
 Total basis: 900px
 Space remaining: -300px
 
-Item 1 shrink factor: (1×100) / (100px + 400px + 400px) = .111 × -300px = -33.333px
-Item 2 shrink factor: (1×400) / (100px + 400px + 400px) = .444 × -300px = -133.333px
-Item 3 shrink factor: (1×400) / (100px + 400px + 400px) = .444 × -300px = -133.333px
+Item 1 shrink factor: (1 × 100) / (100px + 400px + 400px) = .111 × -300px = -33.333px
+Item 2 shrink factor: (1 × 400) / (100px + 400px + 400px) = .444 × -300px = -133.333px
+Item 3 shrink factor: (1 × 400) / (100px + 400px + 400px) = .444 × -300px = -133.333px
 ```
 
-The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, multiply its flex-shrink value by its flex-basis value (1×100px or 1×400px), then divide this by the combined sum of the flex-shrink multiply the flex-basis for all items (1×100px) + (1×400px) + (1×400px).
+The space remaining is -300px, this is equal to the width of the flex container (600px) minus the total basis (900px). To find the shrink factor for each, multiply its flex-shrink value by its flex-basis value (1&times;100px or 1&times;400px), then divide this by the combined sum of the flex-shrink multiply the flex-basis for all items (1&times;100px) + (1&times;400px) + (1&times;400px).
 
 Finally multiply this number by the space remaining (-300px) to get the amount to reduce each item by (33.33px and 66.66px).
 
 In the above example if the flex shrink of the first item was to change to 2 the result would differ as follows:
 
 ```css
-.flex-container{ width: 600px; }
-.flex-item-1{ flex-basis: 100px; flex-shrink: 2; }
-.flex-item-2{ flex-basis: 400px; flex-shrink: 1; }
-.flex-item-3{ flex-basis: 400px; flex-shrink: 1; }
+.flex-container {
+  width: 600px;
+}
+.flex-item-1 {
+  flex-basis: 100px;
+  flex-shrink: 2;
+}
+.flex-item-2 {
+  flex-basis: 400px;
+  flex-shrink: 1;
+}
+.flex-item-3 {
+  flex-basis: 400px;
+  flex-shrink: 1;
+}
 ```
+
 ```
 Total basis: 900px
 Space remaining: -300px
 
-Item 1 shrink factor: (2×100) / (200px + 400px + 400px) = .2 × -300px = -60px
-Item 2 shrink factor: (1×400) / (200px + 400px + 400px) = .4 × -300px = -120px
-Item 3 shrink factor: (1×400) / (200px + 400px + 400px) = .4 × -300px = -120px
+Item 1 shrink factor: (2 × 100) / (200px + 400px + 400px) = .2 × -300px = -60px
+Item 2 shrink factor: (1 × 400) / (200px + 400px + 400px) = .4 × -300px = -120px
+Item 3 shrink factor: (1 × 400) / (200px + 400px + 400px) = .4 × -300px = -120px
 ```
 
 ## More info
 
-  - I built a little [tool for testing flexbox calculations](/demos/flexbox-tester/),
-  - Chris Wright covers his [adventures with flexbox](http://chriswrightdesign.com/experiments/flexbox-adventures/),
-  - Chris Coyier [a Complete Guide to Flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/),
-  - Chris Mills, wrote a great [introduction to flexbox](https://dev.opera.com/articles/flexbox-basics/),
-  - If you really must, every detail is available [in the spec](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm)
+- I built a little [tool for testing flexbox calculations](/demos/flexbox-tester/),
+- Chris Wright covers his [adventures with flexbox](http://chriswrightdesign.com/experiments/flexbox-adventures/),
+- Chris Coyier [a Complete Guide to Flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/),
+- Chris Mills, wrote a great [introduction to flexbox](https://dev.opera.com/articles/flexbox-basics/),
+- If you really must, every detail is available [in the spec](http://dev.w3.org/csswg/css-flexbox/#layout-algorithm)

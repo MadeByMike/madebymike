@@ -1,23 +1,22 @@
 ---
-title: "Zero element loading animations"
-description: "A technique for loading animations that can be applied to existing elements."
-date: "2015-01-05"
-tags: 
-  - css
-extra_css: 
-  - "/assets/zero-element.css"
+title: Zero element loading animations
+slug: zero-element-loading-animations
+description: A technique for loading animations that can be applied to existing elements.
+date: 2015-01-05
+tags: [css]
+extra_css: ["/css/zero-element.css"]
 ---
 
 With a "zero element" loading animation, a loading state can be applied to any element with just the addition of a class name.
 
-<div class="l-50-50">
-  <div>
+<div class="row">
+  <div class="col col-6">
     <a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">
       <div class="loading horizontal-example"></div>
     </a>
     <p class="caption"><a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">view examples on codepen</a></p>
   </div>
-  <div>
+  <div class="col col-6">
     <a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">
       <div class="loading radial-example"></div>
     </a>
@@ -37,8 +36,8 @@ After all loading is a "describing word", it indicates the state of something an
 
 I eventually settled on a solution that works almost everywhere. There are only 2 conditions. The element we're adding the loading animation to:
 
- - cannot have `:before` or `:after` pseudo-elements applied
- - must be possible to change the `position` property to `relative`
+- cannot have `:before` or `:after` pseudo-elements applied
+- must be possible to change the `position` property to `relative`
 
 This works in every situation I’ve ever needed a loading animation but if we want to apply this technique to an element that requires absolute positioning or already has pseudo-elements, it’s usually possible to add the loading class to a container or child element.
 
@@ -53,13 +52,13 @@ For a typical horizontal loading animation we can work this out without too much
 If you want to understand how it works let’s look at making a simple horizontal example.
 
 ```css
-.loading{
+.loading {
   position: relative;
-  background: rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
-.loading:before{
-  content:'';
+.loading:before {
+  content: "";
   box-sizing: border-box;
 
   /* centre everything */
@@ -75,8 +74,8 @@ If you want to understand how it works let’s look at making a simple horizonta
   border-radius: 30px;
 }
 
-.loading:after{
-  content:'';
+.loading:after {
+  content: "";
   box-sizing: border-box;
 
   /* centre everything */
@@ -99,7 +98,10 @@ With the above css we can add a class name `loading` to any element on the page 
 If you want to apply this to the whole page, by applying the class name to the body element, you will also need to add the following css:
 
 ```css
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 ```
 
 To complete the loading animation we need to move the circle back and forward along the bar.
@@ -107,11 +109,8 @@ To complete the loading animation we need to move the circle back and forward al
 To our circle add the following css:
 
 ```css
-.loading:after{
-
-  ...
-
-  -webkit-animation: loading 3s ease-in-out infinite alternate;
+.loading:after {
+  ... -webkit-animation: loading 3s ease-in-out infinite alternate;
   animation: loading 3s ease-in-out infinite alternate;
 }
 ```
@@ -120,13 +119,21 @@ Important animation properties in this example are the `animation-timing-functio
 
 ```css
 @keyframes loading {
-  0% { transform: translate(-99px, -50%); }
-  100% { transform: translate(71px, -50%); }
+  0% {
+    transform: translate(-99px, -50%);
+  }
+  100% {
+    transform: translate(71px, -50%);
+  }
 }
 
 @-webkit-keyframes loading {
-  0% { transform: translate(-99px, -50%); }
-  100% { transform: translate(71px, -50%); }
+  0% {
+    transform: translate(-99px, -50%);
+  }
+  100% {
+    transform: translate(71px, -50%);
+  }
 }
 ```
 
@@ -164,6 +171,5 @@ Please let me know on [twitter](https://twitter.com/MikeRiethmuller) if you find
 
 ## Examples
 
- - [Horizontal zero element loaders](http://codepen.io/MadeByMike/pen/LEbYgr?editors=110)
- - [Radial loaders zero element](http://codepen.io/MadeByMike/pen/bNeyEj?editors=110)
-
+- [Horizontal zero element loaders](http://codepen.io/MadeByMike/pen/LEbYgr?editors=110)
+- [Radial loaders zero element](http://codepen.io/MadeByMike/pen/bNeyEj?editors=110)

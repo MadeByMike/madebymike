@@ -1,9 +1,9 @@
 ---
-title: "Resizing and Cropping Images with Canvas"
-description: "A tutorial for Codrops on using HTML5 canvas to crop and resize images on the client side."
-date: "2014-10-30"
-tags: 
-  - canvas
+title: Resizing and Cropping Images with Canvas
+slug: resizing-and-cropping-images-with-canvas
+description: A tutorial for Codrops on using HTML5 canvas to crop and resize images on the client side.
+date: 2014-10-30
+tags: [javascript, canvas]
 ---
 
 Learn how to resize and crop images using JavaScript and the HTML5 Canvas element using controls, commonly seen in photo editing applications.

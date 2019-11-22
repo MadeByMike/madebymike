@@ -1,9 +1,9 @@
 ---
-title: "Determine the quality of light in live video streams"
-description: "Some early experiments with WebRTC."
-date: "2014-12-12"
-tags:  
-  - canvas
+title: Determine the quality of light in live video streams
+slug: html5-video-streaming
+description: Some early experiments with WebRTC.
+date: 2014-12-12
+tags: [canvas, javascript]
 ---
 
 I've been messing around with live video capture in the browser and have developed a nifty demo showing different methods for estimating the quality of light in realtime.
@@ -22,8 +22,8 @@ The next thing to know is that `getUserMedia()` is still not fully supported in 
 
 Not to fear because web development superhero Addy Osmani and others have come to the rescue with pollyfills such as:
 
-  - [getUserMedia.js](https://github.com/addyosmani/getUserMedia.js/)
-  - [webcamjs](https://github.com/jhuckaby/webcamjs)
+- [getUserMedia.js](https://github.com/addyosmani/getUserMedia.js/)
+- [webcamjs](https://github.com/jhuckaby/webcamjs)
 
 To keep it as simple as possible I haven't included any pollyfills in my demo, but I've tested them and they work, so there's no reason not to start using this now.
 
@@ -43,7 +43,7 @@ Used together we can determine a lot about the composition and lighting of the f
 
 If I apply more than one threshold I can set a maximum and minimum brightness and measure which parts of the image are potentially under or over exposed.
 
-Finally and it's not in my demo but you could potentially automatically adjust the threshold based on the average color brightness.  
+Finally and it's not in my demo but you could potentially automatically adjust the threshold based on the average color brightness.
 
 So there we have a ton of information we can use to make inferences about the quality of lighting in a video stream. Now it's up to you work out how to put them to practical application.
 
@@ -60,4 +60,3 @@ Interesting articles I found along the way include:
 - [getUserMedia: Accessing the Camera and Privacy UI](https://dev.opera.com/articles/getusermedia-access-camera-privacy-ui/) - Bruce Lawson
 - [Capturing Audio & Video in HTML5](http://www.html5rocks.com/en/tutorials/getusermedia/intro/) - Eric Bidelman
 - [introduction to the getUserMedia API](http://www.sitepoint.com/introduction-getusermedia-api/) - Aurelio De Rosa
-

@@ -1,11 +1,10 @@
 ---
-title: "The invisible parts of CSS"
-description: "Explains the box model, cascade, formatting contexts, positioning, stacking and a lot more about how CSS works. A right of passage, I had to write my version."
-date: "2017-04-04"
-tags: 
-  - css
+title: The invisible parts of CSS
+slug: the-invisible-parts-of-css
+description: Explains the box model, cascade, formatting contexts, positioning, stacking and a lot more about how CSS works. A right of passage, I had to write my version.
+date: 2017-04-04
+tags: ["writing", "css"]
 ---
-
 
 If you use CSS in your daily work, your primary goal is probably focused on making things 'look right'. How this is achieved is often far less important than the end result. This means we care less about how CSS works than the correct syntax and visual results.
 
@@ -13,7 +12,7 @@ You may not have realised it, but the visual results of CSS are often an indirec
 
 I doubt many developers could describe in simple terms what setting `display: block` actually does. At best you probably have an intuitive understanding of how properties like this work. That's ok, you can have a pretty good wrangle of CSS without understanding the underlying principles. Although, this might be knowing the solution without necessarily understanding the problem.
 
-If this describes you, that's ok. I learnt how to work with CSS, long before I understood *how* it worked. I guess that doesn’t make it ok, ...but at least you’re not alone!
+If this describes you, that's ok. I learnt how to work with CSS, long before I understood _how_ it worked. I guess that doesn’t make it ok, ...but at least you’re not alone!
 
 The underlying features of CSS are complicated and intentionally abstracted, yet we can't be completely unaware of them. Concepts such as the Box Model, Cascade and Specificity will be familiar to many of us. Although they are often misunderstood, knowing a little of how these work can help us write better CSS.
 
@@ -26,18 +25,18 @@ This is a long article so if you want to skip ahead to one of these sections, I'
 - [Overview of the rendering process](#overview-of-the-rendering-process)
 - [Cascade](#cascade)
 - [The Box Model](#the-box-model)
-	- [Fill Area](#fill-area)
-	- [Width Auto](#width-auto)
-	- [Box-sizing](#box-sizing)
-	- [Collapsing margins](#collapsing-margins)
+  - [Fill Area](#fill-area)
+  - [Width Auto](#width-auto)
+  - [Box-sizing](#box-sizing)
+  - [Collapsing margins](#collapsing-margins)
 - [The Visual Formatting Model](#the-visual-formatting-model)
 - [Display types](#display-types)
 - [Formatting contexts](#formatting-contexts)
 - [Positioning schemes](#positioning-schemes)
-	- [Normal flow](#normal-flow)
-	- [Floats](#floats)
-	- [Absolute positioning](#absolute-positioning)
-	- [Stacking context](#stacking-contexts)
+  - [Normal flow](#normal-flow)
+  - [Floats](#floats)
+  - [Absolute positioning](#absolute-positioning)
+  - [Stacking context](#stacking-contexts)
 
 ## Overview of the rendering process
 
@@ -94,7 +93,6 @@ For example: `#nav .selected:hover > a::before` will be 1, 2, 2.
 No number of classes will ever have a higher specificity than an ID. When comparing selectors you compare the specificity of IDs first. Only if these match do you compare the value of classes, attributes and pseudo-classes and finally, if still equal, elements and pseudo-elements.
 
 If specificity is equal in every category, the last declaration in the source takes precedence.
-
 
 Yes! I know I said 4 categories. Inlines styles have a higher specificity than IDs. Although they are technically the first category in specificity calculations you don't typically end up with competing inline styles, so it’s easier just remember that inline styles will always win specificity.
 
@@ -243,5 +241,3 @@ In this situation, it's not always a case of the highest z-index wins.
 Almost 3000 words and I've only briefly touched some of the important hidden parts of CSS. If you’ve read this in full congratulations and please be sure to let me know, because you deserve some kind of reward!
 
 If you've just read some parts that’s ok too. I hope I’ve managed to clarify something or give a general insight into the processes involved. It’s been a real challenge to explain this stuff in simple terms without sacrificing accuracy. I hope got it right.
-
-

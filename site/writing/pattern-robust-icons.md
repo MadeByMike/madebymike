@@ -1,22 +1,23 @@
 ---
 title: "Pattern: Robust icons"
-description: "A little pattern I wanted to share for creating bulletproof icons."
-date: "2015-08-22"
-tags: 
-  - css
-  - icons
-extra_css: 
-  - "/assets/pattern-icons.css"
+slug: pattern-robust-icons
+description: A little pattern I wanted to share for creating bulletproof icons.
+date: 2015-08-22
+tags: [css, patterns]
+extra_css: ["/css/patern-icons.css"]
 ---
 
 I want to share a design pattern I've been using for icons. It's a robust technique that works in almost any situation. With this technique you can use icons inline or append &amp; prepend them to existing content. It works with paragraphs, headings, navigation items, buttons &hellip;almost any element.
 
 <div class="robust-icon-container">
 	<a class="robust-icon-examples icon-right-tomato icon-large" href="http://codepen.io/MadeByMike/pen/xGoMMw?editors=010">
-		<h2 class="icon-left-tomato mtl">Examples</h2>
-		<p>View more examples <span class="icon icon-tomato icon-small"></span> on CodePen.</p>
-		<span class="faux-btn icon-right-tomato mtl mbl">View Examples</span>
-	</a>
+
+    	<h2 class="icon-left-tomato mtl">Examples</h2>
+    	<p>View more examples <span class="icon icon-tomato icon-small"></span> on CodePen.</p>
+    	<button class="icon-right-tomato mtl mbl">View Examples</button>
+
+    </a>
+
 </div>
 
 It's also easy to extend so I can usually drop it into almost any project.
@@ -70,4 +71,3 @@ Check out some <a href="http://codepen.io/MadeByMike/pen/xGoMMw?editors=010">dem
 ```
 
 This is the first of hopefully more short articles, where I share some of my favourite design patterns.
-

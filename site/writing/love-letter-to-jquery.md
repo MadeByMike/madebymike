@@ -1,7 +1,9 @@
 ---
-title: "A love letter to jQuery"
-description: "A very tongue-in-cheek article about why jQuery is good for the web."
-date: "2016-02-19"
+title: A love letter to jQuery
+slug: love-letter-to-jquery
+description: A very tongue-in-cheek article about why jQuery is good for the web.
+tags: [old]
+date: 2016-02-19
 ---
 
 jQuery I love you. We've been together for 10 years and that's more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.
@@ -13,13 +15,14 @@ $(document).ready(function(){
   alert(‘page loaded’);
 });
 ```
+
 Ha! I hope you will forgive me for that alert. That’s how we did things then and I wanted to be sure you worked; of course you worked, I would never doubt it now. We don’t do `$(document).ready()` very much these days, but I still remember the good times we had. I also remember the pain I had trying to do this without you!
 
 You were always there for me when things were tough. You made things consistent, how they should be, often without me even realising you were doing it. The web was a scary place and you brought order to it. You gave me confidence.
 
 You were there for me too when I had no clue what I was doing. You helped me achieve things I would have never achieved on my own. In some ways, you made it too easy for me and I did some things I should have never done; I'm sorry, that was my fault not yours.
 
-Shallow though it might be, I like the way you look. I can recognise your form anywhere. I love your neat and tidy closures and your chainable methods that keep me wanting more. I look upon you with comfort and familiarity. You always make me smile.  
+Shallow though it might be, I like the way you look. I can recognise your form anywhere. I love your neat and tidy closures and your chainable methods that keep me wanting more. I look upon you with comfort and familiarity. You always make me smile.
 
 You are selfless. So selfless in fact, that you made me less reliant on you. You taught me how to think. And not just me, but the world around us has been shaped by your influence. Everytime I hear someone say “Native JavaScript” I smile and I think of you. You are so brilliant they needed a term to describe your absence. You have been my fearless leader and guiding light. That’s why I love you jQuery.
 

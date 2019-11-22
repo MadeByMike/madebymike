@@ -21,3 +21,49 @@
 @import "./_partials/page";
 @import "./_partials/post-tags";
 @import "./_partials/site-title";
+
+.cp_embed_wrapper,
+.live-demo {
+  padding: 0.5em 0.85em;
+  border: solid 1px #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.live-demo > * + * {
+  margin-top: 1rem;
+}
+
+.live-demo > a {
+  display: inline-block;
+}
+
+.live-demo > img {
+  margin: 0 auto;
+  display: block;
+}
+
+.live-demo iframe {
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .live-demo iframe {
+    display: block;
+  }
+}
+
+@media (min-width: 48em) {
+  .cp_embed_wrapper,
+  .live-demo {
+    margin: 3em -50px;
+    max-width: calc(100% + 240px);
+  }
+}
+@media (min-width: 88em) {
+  .cp_embed_wrapper,
+  .live-demo-extended {
+    margin: 3em -100px;
+    max-width: calc(100% + 300px);
+  }
+}
