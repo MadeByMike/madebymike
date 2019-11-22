@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
-    "build": "cross-env NODE_ENV=production npx eleventy"
+    "build": "npx eleventy"
   },
   "keywords": [],
   "author": "",

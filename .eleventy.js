@@ -24,10 +24,9 @@ module.exports = function(config) {
   config.addTransform("parse", parseTransform);
   if (site.criticalCSS) {
     config.addTransform("critical-css", criticalCSSTransform);
-  } else {
-    // Critical will also minify
-    config.addTransform("htmlmin", htmlMinTransform);
   }
+  // Critical will also minify
+  config.addTransform("htmlmin", htmlMinTransform);
 
   // Custom collections
   const now = new Date();

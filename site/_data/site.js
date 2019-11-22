@@ -17,5 +17,5 @@ module.exports = {
     claps: true,
     login: false
   },
-  criticalCSS: false //process.env.NODE_ENV === 'production',
+  criticalCSS: process.env.NODE_ENV === 'production',
 };
