@@ -148,7 +148,7 @@ There are a number of other ways you can authenticate with a remote repository i
 
 ### Aliases
 
-One of the first things I do on any new machine is set up a bunch of aliases for the commands I'll be using ever day: `status`, `checkout`, `branch` and `commit`. Aliases allow give a command an alternative name. **I could not work without these**.
+One of the first things I do on any new machine is set up a bunch of aliases for the commands I'll be using ever day: `status`, `checkout`, `branch` and `commit`. Aliases allow me to give a command an alternative name. **I could not work without these**.
 
 ```bash
 git config --global alias.s status
