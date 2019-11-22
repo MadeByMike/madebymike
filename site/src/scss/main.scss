@@ -47,13 +47,13 @@
   display: none;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 600px) {
   .live-demo iframe {
     display: block;
   }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 600px) {
   .cp_embed_wrapper,
   .live-demo {
     margin: 3em -50px;
