@@ -11,13 +11,10 @@ I want to share a design pattern I've been using for icons. It's a robust techni
 
 <div class="robust-icon-container">
 	<a class="robust-icon-examples icon-right-tomato icon-large" href="http://codepen.io/MadeByMike/pen/xGoMMw?editors=010">
-
     	<h2 class="icon-left-tomato mtl">Examples</h2>
     	<p>View more examples <span class="icon icon-tomato icon-small"></span> on CodePen.</p>
-    	<button class="icon-right-tomato mtl mbl">View Examples</button>
-
+    	<span class="faux-btn icon-right-tomato mtl mbl">View Examples</span>
     </a>
-
 </div>
 
 It's also easy to extend so I can usually drop it into almost any project.

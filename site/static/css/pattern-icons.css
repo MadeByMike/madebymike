@@ -104,3 +104,10 @@
 .robust-icon-examples button:hover,
 .robust-icon-examples button:active,
 .robust-icon-examples button:focus{ background: #f9f4fa;}
+
+.faux-btn {
+	display: inline-block;
+	border: solid 4px #ccc;
+	padding: 20px 10px;
+	border-radius: 20px;
+}
