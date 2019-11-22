@@ -2,17 +2,32 @@
 title: Git from Beginner to Advanced
 slug: how-to-git
 description: Getting comfortable with Git took me a long time. I thought I'd write a quick guide that assumes no prior knowledge, along with some of my favourite tips and tricks.
-date: 2019-03-27
+date: 2019-11-22
 tags: ['git']
 ---
 
-Git is a version control system. It's one of many, but it's the most widely used by web developers. Version control is great for individual projects but becomes practically essential when working in teams.
-
-Getting comfortable with Git took me a long time, perhaps because some of the terminology feels a little strange for beginners. But also, because I think there is an assumption that everyone around you just gets it. That is probably not the case. I thought I'd take time to explain some of the [key terminology](#heading-terminology), how you can [get started](#heading-getting-started) and some of my favourite [tips and tricks](#heading-tips-and-tricks) that make working with Git easier.
-
 ## Terminology
 
-If you're familiar with basic Git terminology you might want to [skip ahead](#heading-getting-started).
+If you're familiar with basic Git terminology you might want to [skip ahead](#heading-configuring-git).
+
+It took me a long time to get comfortable with Git. Perhaps because some of the terminology is a little strange but also, I think there is an assumption that everyone around you just gets it. They probably don't. The best developers I know still struggle with Git sometimes.
+
+I thought I'd take the time to cover: 
+
+  - [key terminology](#heading-key-terminology), 
+  - [installation and set-up](#heading-install-and-set-up-git), 
+  - [get started](#heading-getting-started) and
+  - [tips and tricks](#heading-tips-and-tricks) that make working with Git easier.
+
+### What is Git?
+
+Git is a version control system. It's one of many, but it's the most widely used by web developers. Version control helps manage changes to code. It's great for individual projects but becomes practically essential when working in teams.
+
+There are a few terms you will need to learn before you use Git:
+
+  - [Repositories](#heading-repositories)
+  - [Branches](#heading-branches)
+  - [Commits](#heading-commits)
 
 ### Repositories
 
@@ -49,15 +64,13 @@ _Truthful Disclaimer: On my personal blog, they usually do **not** look like thi
 
 That covers the main terminology, and if you can understand `repositories`, `branches`, `commits` as well as follow some of the other terms I've introduced here, then you are on your way to mastering Git.
 
-## Set-up
-
-### Installing Git
+## Install and set-up Git
 
 If you're new to Git one of the first things you need to decide is whether you'd prefer to use a graphical application or type commands in the terminal. There's no right answer here. I know plenty of skilled developers who prefer graphical applications as well as plenty of weekend hackers who get by just fine learning a few commands. Whatever you decide to use is fine.
 
 Personally, I use a combination of the command line and graphical tools within VSCode.
 
-### Command Line
+### Command line
 
 To install Git in the terminal first check, because you may already have it. Type `git --version`. Instructions here will assume you're running version 2 or later. If you don't have Git installed:
 
@@ -77,7 +90,7 @@ _In my experience the Windows version of Git is significantly slower. If you wan
 
 If you absolutely must, you can download [Git for Windows](https://git-scm.com/download/win).
 
-### Graphical Applications
+### Graphical applications
 
 #### VSCode
 
@@ -93,7 +106,7 @@ _**Note**: At the time of writing VSCode source control pane will not work with 
 
 On top of the built-in tools, the only plugin I recommend is [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens). It adds a lot of features, but the one I enjoy most is, it un-obtrusively adds information to the text editor that shows when each line of code was changed and what the commit message was. This contextual information is brilliant when working on larger projects.
 
-#### Other Git Applications
+#### Other Git applications
 
 There are a bunch of free and commercial Git clients. Free includes [GitHub Desktop](https://desktop.github.com/) as well as [Sourcetree](https://www.sourcetreeapp.com/). On the commercial side I have friends that use [Git Tower](https://www.git-tower.com) and [GitKraken](https://www.gitkraken.com/) they both look good, but haven't used either of them.
 
@@ -130,7 +143,7 @@ git config credential.helper cache
 
 Hopefully I don't need to say it, but you should consider security before storing credentials.
 
-There are a number of other ways you can authenticate with a remote repository including SSH keys and third-party credential managers. 
+There are a number of other ways you can authenticate with a remote repository including SSH keys and third-party credential managers. I'm not going to cover them here.
 
 
 ### Aliases
@@ -380,12 +393,6 @@ git config --get-regexp alias
 
 This section has some even more advanced tips.
 
-### List all aliases
-
-```bash
-git config --get-regexp alias
-```
-
 ### See which branches you've been working on recently
 
 ```bash
@@ -420,6 +427,13 @@ xargs -n 1 git branch -d
 It's a little long because it tries to be safe. It will always exclude master and allow you to edit the list of branches in `nano` first. Delete any you don't want removed.
 
 
-## Advanced tips
+## Git actions are reversible
 
 I've always wielded Git with a healthy dose of fear and trepidation. It can be quite intimidating, but I've come to realise, it's actually hard to break anything with Git. Almost every change is reversible, but figuring out how is often the hard part.
+
+Remember you can always `reset`. Good luck :).
+
+
+### Resources
+
+ - [My Git Aliases](https://gist.github.com/MadeByMike/5993a985c7efcfe34858369a79e3d283)
