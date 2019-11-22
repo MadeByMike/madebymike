@@ -1,4 +1,4 @@
-const CACHE_KEY = `sypermaya-${process.env.BUILD_NUMBER}`;
+const CACHE_KEY = `sypermaya-${process.env.BUILD_ID}`;
 
 // URLS that we don’t want to end up in the cache
 const EXCLUDED_URLS = [];
