@@ -8,7 +8,7 @@ description: I build innovative applications, data visualisations and websites. 
 
 <div style="float:right; margin-left: 1em; margin-bottom: 1em; text-align: center;">
     <figure>
-        <img style="border-radius:50%;" src="/img/mike.jpg"/>
+        <img style="border-radius:50%;" src="/img/mug/mike.jpg"/>
     </figure>
     Get in touch:
     <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>
