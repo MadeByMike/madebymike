@@ -1,6 +1,6 @@
 ---
 title: CSS Architecture for Modern JavaScript Applications
-description: "My attempt to modernise some of the learning from CSS architecture and how to apply them in the context to modern JavaScript applications."
+description: "My attempt to modernise some learnings from CSS architecture and how to apply them in the context to modern JavaScript applications."
 date: "2019-11-23"
 ---
 
