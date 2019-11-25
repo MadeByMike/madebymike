@@ -4,9 +4,9 @@ description: "My attempt to modernise some learnings from CSS architecture and h
 date: "2019-11-23"
 ---
 
-I went to a JavaScript meet-up in Sydney the other night and asked the question "How many people know what CSS Architecture is?". The room was full of different people with varying backgrounds and experience. I thought at minimum around a quarter might know what I was talking about. I was hoping more would. To my surprise only a handful of people raised their hand.
+I went to a JavaScript meet-up in Sydney the other night and asked the question "How many people know what CSS Architecture is?". The room was full of different people with varying backgrounds and experience. I thought at minimum around a quarter might know what I was talking about. I was hoping more would. To my surprise, only a handful of people raised their hand.
 
-I then asked "How many people feel the difficulties they have writing CSS at scale have been largely solved by CSS-in-JS?". They weren't stupid, they knew this question was a set-up, but nonetheless, many of them obliged me and put their hand up.
+I then asked, "How many people feel the difficulties they have writing CSS at scale have been largely solved by CSS-in-JS?". They weren't stupid, they knew this question was a set-up, nonetheless, many of them obliged me and put their hand up.
 
 From the looks in the room, I think many more people felt this way than were willing to admit. At the very least, I think a lot of people believe CSS architecture is no longer relevant in the context of modern JavaScript applications.
 
@@ -18,7 +18,7 @@ This is not to criticise that perspective it's completely valid! Alex is saying 
 
 I understand this perspective but find it interesting when people see classnames and components as completely different concerns. Classnames and Components are just different ways of composing user interfaces. There are still many challenges involved in making good re-useable and scalable front-end systems, no matter how you put them together.
 
-These challenges are not new. In fact, there are some well established solutions in CSS architecture that can be easily transferred to component based style systems. So why are so few people talking about this? And why are many more people completely unaware of the topic?
+These challenges are not new. In fact, there are some well established solutions in CSS architecture that can be easily transferred to component-based style systems. So why are so few people talking about this? And why are many more people completely unaware of the topic?
 
 I believe there is a lot that has contributed to this and it's worth reflecting on how we got here...
 
@@ -32,7 +32,7 @@ Before the rise of JavaScript components. The strong and obvious naming conventi
 
 When JavaScript tooling provided a better solution than humans following naming conventions, it opened up UI development to a wider spectrum of developers who previously had less interest in, or reason to focus on style architecture.
 
-Business jumped on the situation. They reasoned it would be cheaper to employ developers who could "do everything" and got what they considered to be adequate results by under-investing in UI specialists. Some developers who'd spent half a career perfecting skills skills in this area felt threatened. Perhaps some were defensive.
+Business jumped on the situation. They reasoned it would be cheaper to employ developers who could "do everything" and got what they considered to be adequate results by under-investing in UI specialists. Some developers who'd spent half a career perfecting skills in this area felt threatened. Perhaps some were defensive.
 
 Developers working in spaces of growth and opportunity could sometimes be dismissive of skills that were not flavour of the month. There was pride, and hype, and reluctance to admit that new tooling and approaches were not always producing better, more re-useable, front-end architecture.
 
@@ -45,9 +45,9 @@ Some people might challenge this, but I've seen enough examples to consider it a
 - visual changes are often difficult, slow and expensive,
 - it's harder **than ever** to read and understand styles.
 
-Somewhere in the turbulence we lost the more nuanced reasons behind the naming conventions.
+Somewhere in the turbulence, we lost the more nuanced reasons behind the naming conventions.
 
-The aim of this opening was to give context, not blame (it's a little bit of everybody's fault). So let's draw a line, and look at how to apply some lessons from CSS architecture to modern JavaScript applications.
+The aim of this was to give context, not blame (it's a little bit of everybody's fault). So let's draw a line, and look at how to apply some lessons from CSS architecture to modern JavaScript applications.
 
 <br>
 
@@ -221,7 +221,7 @@ I'm paraphrasing because SMACSS was not thinking about components, but let's rev
 
 ### Modifier states
 
-Modifier states are top level variations in design. They are not necessarily dependent on application state and may be applied as a stylistic choices.
+Modifier states are top-level variations in design. They are not necessarily dependent on application state and may be applied as a stylistic choices.
 
 Examples include size variations, primary and secondary buttons, or the position of an image within a layout component.
 
@@ -318,7 +318,7 @@ A container component:
 
 As the responsibilities of front-end developers have become more broad some might consider the conventions outlined here to be not worth following. I've seen teams spend weeks planning right combination of framework, build tools, workflows and patterns only to give zero consideration to the way they architect UI components. It's often considered the last step in the process and not worthy of the same level of consideration.
 
-It's important I've also seen well planned project fail or go well over budget because the UI architecture was poorly planned and became un-maintainable as the project grew.
+It's important! I've seen well-planned project fail or go well over budget because the UI architecture was poorly planned and became un-maintainable as the project grew.
 
 This disappoints me because the problems are hard and my colleagues and friends who helped establish best practices in CSS are serious engineers, with broad skills, who applied knowledge across disciplines. Many of the ideas in CSS architecture predates CSS itself and have strong foundations in computer science and software architecture. I know developers who can understand complex architectural problems but fail to see the similarities, or worse yet, choose not to apply this knowledge to declarative front-end code. I know you can do it.
 
