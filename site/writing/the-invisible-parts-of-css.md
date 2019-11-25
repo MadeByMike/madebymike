@@ -22,21 +22,21 @@ Because of this I want to attempt to shed some light on the invisible parts of C
 
 This is a long article so if you want to skip ahead to one of these sections, I'm totally fine with that:
 
-- [Overview of the rendering process](#overview-of-the-rendering-process)
-- [Cascade](#cascade)
-- [The Box Model](#the-box-model)
-  - [Fill Area](#fill-area)
-  - [Width Auto](#width-auto)
-  - [Box-sizing](#box-sizing)
-  - [Collapsing margins](#collapsing-margins)
-- [The Visual Formatting Model](#the-visual-formatting-model)
-- [Display types](#display-types)
-- [Formatting contexts](#formatting-contexts)
-- [Positioning schemes](#positioning-schemes)
-  - [Normal flow](#normal-flow)
-  - [Floats](#floats)
-  - [Absolute positioning](#absolute-positioning)
-  - [Stacking context](#stacking-contexts)
+- [Overview of the rendering process](#heading-overview-of-the-rendering-process)
+- [Cascade](#heading-cascade)
+- [The Box Model](#heading-the-box-model)
+  - [Fill Area](#heading-fill-area)
+  - [Width Auto](#heading-width-auto)
+  - [Box-sizing](#heading-box-sizing)
+  - [Collapsing margins](#heading-collapsing-margins)
+- [The Visual Formatting Model](#heading-the-visual-formatting-model)
+- [Display types](#heading-display-types)
+- [Formatting contexts](#heading-formatting-contexts)
+- [Positioning schemes](#heading-positioning-schemes)
+  - [Normal flow](#heading-normal-flow)
+  - [Floats](#heading-floats)
+  - [Absolute positioning](#heading-absolute-positioning)
+  - [Stacking context](#heading-stacking-contexts)
 
 ## Overview of the rendering process
 
@@ -46,17 +46,17 @@ The first step is to parse the HTML document. From this the browser builds a 'do
 
 You might have heard the term DOM. This stands for Document Object Model. It is an extension of the document tree structure, and is used to store and manipulate information about the content of a web document.
 
-As HTML is being parsed, stylesheets and other resources are fetched. Style declarations are interpreted and resolved through a process known as the [Cascade](#cascade).
+As HTML is being parsed, stylesheets and other resources are fetched. Style declarations are interpreted and resolved through a process known as the [Cascade](#heading-cascade).
 
 During this process the final values of CSS properties are resolved. After calculation these values may be different to what is written in our stylesheets. For example keywords like `auto` and relative units are assigned real values, and inherited values are applied. These computed values are stored in a tree, similar to elements in the DOM, in what is unsurprisingly called the CSS Object Model or CSSOM.
 
-It is now possible to begin the process of rendering the page. The first step in this process is the calculation of [the Box Model](#the-box-model). This is an important step for working out the size and spacing of elements, although not their final position.
+It is now possible to begin the process of rendering the page. The first step in this process is the calculation of [the Box Model](#heading-the-box-model). This is an important step for working out the size and spacing of elements, although not their final position.
 
-Less well known than the [Box Model](#the-box-model) is a process called the [Visual Formatting Model](#the-visual-formatting-model). This process determines the layout and positioning of elements on the page. It encompases some concepts you might already be familiar with such as [positioning schemes](#positioning-schemes), [formatting contexts](#formatting-contexts), [display modes](#display-types), and [stacking contexts](#stacking-contexts).
+Less well known than the [Box Model](#heading-the-box-model) is a process called the [Visual Formatting Model](#heading-the-visual-formatting-model). This process determines the layout and positioning of elements on the page. It encompases some concepts you might already be familiar with such as [positioning schemes](#heading-positioning-schemes), [formatting contexts](#heading-formatting-contexts), [display modes](#heading-display-types), and [stacking contexts](#heading-stacking-contexts).
 
 Finally the page is rendered.
 
-There might be a few terms in the paragraphs above that you are not yet familiar with. If so, what's most important is to understand that the [Cascade](#cascade), the [Box Model](#the-box-model), and the [Visual Formatting Model](#the-visual-formatting-model) are the key steps involved in interpreting, processing and rendering HTML and CSS. I’ve skipped over a lot of detail when describing each of these so we’re now going to look at these 3 steps more closely.
+There might be a few terms in the paragraphs above that you are not yet familiar with. If so, what's most important is to understand that the [Cascade](#heading-cascade), the [Box Model](#heading-the-box-model), and the [Visual Formatting Model](#heading-the-visual-formatting-model) are the key steps involved in interpreting, processing and rendering HTML and CSS. I’ve skipped over a lot of detail when describing each of these so we’re now going to look at these 3 steps more closely.
 
 ## Cascade
 
@@ -156,7 +156,7 @@ A lot of people prefer this, and if you're building a grid system, or any other 
 
 It can be really confusing when margins collapse unexpectedly and you don't know what is going on. Margins will sometimes collapse when two or more adjacent vertical margins touch and they are not separated with padding or border. A collapsing margin can also occur if the margin of a child element extends into that of its parent and is not separated by padding.
 
-Margins will not collapse if elements are absolutely positioned, floated, or have a different [formatting context](#formatting-contexts), as well as in a few other less likely situations.
+Margins will not collapse if elements are absolutely positioned, floated, or have a different [formatting context](#heading-formatting-contexts), as well as in a few other less likely situations.
 
 If you're confused that’s ok. The rules for when margins will and will not collapse are complicated. The main thing you need to know is when elements don’t have padding or borders, vertical margins can collapse.
 
@@ -164,13 +164,13 @@ If you need more detail CSS Tricks has a wonderful [explanation of collapsing ma
 
 ## The Visual Formatting Model
 
-While the box model calculates an element's dimensions, it’s the Visual Formatting Model that is responsible for determining the layout of these boxes. The Visual Formatting Model takes into account the box type, [positioning scheme](#positioning-schemes), relationships between elements and constraints imposed by content to determine the final position and presentation of each element on the page.
+While the box model calculates an element's dimensions, it’s the Visual Formatting Model that is responsible for determining the layout of these boxes. The Visual Formatting Model takes into account the box type, [positioning scheme](#heading-positioning-schemes), relationships between elements and constraints imposed by content to determine the final position and presentation of each element on the page.
 
 **What you need to know:**
 
 The visual formatting model traverses the document tree and generates one or more boxes required to render elements according to the CSS box model. The CSS `display` property plays a key role in determining how an element participates in the current formatting context and positioning scheme. Together these pieces determine the final layout and positioning of elements.
 
-This is a complex step and was by far the most difficult to try and summarise. If you don't follow everything that’s ok. Understanding how we manipulate [positioning schemes](#positioning-schemes) and [formatting contexts](#formatting-contexts) through the CSS properties is a good start. If you can follow the interplay between different pieces of this model you are doing better than most. At very least you should know that they exist.
+This is a complex step and was by far the most difficult to try and summarise. If you don't follow everything that’s ok. Understanding how we manipulate [positioning schemes](#heading-positioning-schemes) and [formatting contexts](#heading-formatting-contexts) through the CSS properties is a good start. If you can follow the interplay between different pieces of this model you are doing better than most. At very least you should know that they exist.
 
 ## Display types
 
@@ -178,9 +178,9 @@ We know that setting the `display` property in CSS determines the how an element
 
 This is because the display property determines the element's 'box type’. This hidden property consists of an inner display type, and an outer display type which together help determine how the element is rendered.
 
-The outer display type usually resolves to either 'block' or ‘inline’ and is pretty much consistent what you expect of theses `display` properties in CSS. Technically speaking the outer display type dictates how an element participates in its parent [formatting context](#formatting-contexts).
+The outer display type usually resolves to either 'block' or ‘inline’ and is pretty much consistent what you expect of theses `display` properties in CSS. Technically speaking the outer display type dictates how an element participates in its parent [formatting context](#heading-formatting-contexts).
 
-The inner display type determines what [formatting context](#formatting-contexts) that element will generate. This will impact how its child elements are laid out.
+The inner display type determines what [formatting context](#heading-formatting-contexts) that element will generate. This will impact how its child elements are laid out.
 
 Think of how a Flexbox container works. Its outer type is `block` and its inner type is `flex`. Its children can also have an outer type of block, but their layout is influenced by the formatting context of the Flexbox container.
 
@@ -196,11 +196,11 @@ Some formatting contexts can be established directly on containers such as throu
 
 ## Positioning schemes
 
-A box can be laid out according to one of three positioning schemes. These are [Normal flow](#normal-flow), [Floats ](#floats)and [Absolute positioning](#absolute-positioning). You are probably familiar with floats and absolute positioning because we interact with these more directly when writing CSS. Normal flow is just a name for the default positioning scheme when an element is not floated or positioned.
+A box can be laid out according to one of three positioning schemes. These are [Normal flow](#heading-normal-flow), [Floats ](#heading-floats)and [Absolute positioning](#heading-absolute-positioning). You are probably familiar with floats and absolute positioning because we interact with these more directly when writing CSS. Normal flow is just a name for the default positioning scheme when an element is not floated or positioned.
 
 ### Normal flow
 
-Normal Flow describes the default positioning scheme and 'in-flow' describes elements that conform to this. You could consider in flow to be the natural position of elements laid out according to their source order and [formatting context](#formatting-contexts).
+Normal Flow describes the default positioning scheme and 'in-flow' describes elements that conform to this. You could consider in flow to be the natural position of elements laid out according to their source order and [formatting context](#heading-formatting-contexts).
 
 ### Floats
 
