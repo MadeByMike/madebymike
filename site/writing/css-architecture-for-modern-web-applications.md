@@ -272,11 +272,11 @@ Obviously not every combination matters. The disabled state might look the same 
 
 CSS forced us to flatten the state tree and have a single selector for each possible combination of state. Although sometimes tedious, this made us acutely aware of how many variations there were.
 
-JavaScript doesn't force us to flatten the state tree in any way. The concept of different types of UI state often lost and at worst the value of individual CSS properties depends on the resolution of business logic and data within the “style sheet".
+JavaScript doesn't force us to flatten the state tree in any way. The concept of different types of UI state often lost and at worst the value of individual CSS properties depends on the resolution of business logic and data within the “style sheet”.
 
 It doesn’t matter whether you’re composing styles with classnames, template strings or objects in JavaScript. It remains important to have a single representation for each of the possible UI states.
 
-My current favoured approach is to resolve application logic outside the style function, then and pass a keys for modifier and behavioural state. Where a behavioural state changes depending on the modifier, I use CSS custom properties to set variations that are later applied in the behaviour.
+My current favoured approach is to resolve application logic outside the style function, then and pass keys for modifier and behavioural state. Where a behavioural state changes depending on the modifier, I use CSS custom properties to set variations that are later applied in the behaviour.
 
 ```javascript
 const modifiers = {
@@ -303,7 +303,7 @@ This allows me to have additive states with a fairly flat and readable represent
 
 ## Container components
 
-The final type of component we need to distinguish is a container component. Many people might already have an understandings of what this means, but from a UI perspective, I'm not referring to any particular design pattern.
+The final type of component we need to distinguish is a container component. Many people might already have an understanding of what this means, but from a UI perspective, I'm not referring to any particular design pattern.
 
 From a UI perspective a container component is simply where the application logic is resolved down to a set of modifiers and behavioural keys that are passed to presentational and layout components.
 
@@ -317,13 +317,13 @@ A container component:
 
 ## But it's only UI!
 
-As the responsibilities of front-end developers have become more broad some might consider the conventions outlined here to be not worth following. I've seen teams spend weeks planning right combination of framework, build tools, workflows and patterns only to give zero consideration to the way they architect UI components. It's often considered the last step in the process and not worthy of the same level of consideration.
+As the responsibilities of front-end developers have become more broad some might consider the conventions outlined here to be not worth following. I've seen teams spend weeks planning the right combination of framework, build tools, workflows and patterns only to give zero consideration to the way they architect UI components. It's often considered the last step in the process and not worthy of the same level of consideration.
 
 It's important! I've seen well-planned project fail or go well over budget because the UI architecture was poorly planned and became un-maintainable as the project grew.
 
-This disappoints me because the problems are hard and my colleagues and friends who helped establish best practices in CSS are serious engineers, with broad skills, who applied knowledge across disciplines. Many of the ideas in CSS architecture predates CSS itself and have strong foundations in computer science and software architecture. I know developers who can understand complex architectural problems but fail to see the similarities, or worse yet, choose not to apply this knowledge to declarative front-end code. I know you can do it.
+This disappoints me because the problems are hard and my colleagues and friends who helped establish best practices in CSS are serious engineers, with broad skills, who applied knowledge across disciplines. Many of the ideas in CSS architecture predate CSS itself and have strong foundations in computer science and software architecture. I know developers who can understand complex architectural problems but fail to see the similarities, or worse yet, choose not to apply this knowledge to declarative front-end code.
 
-To help, I've got some questions to ask when planning UI components
+I know you can do it. To help, I've got some questions to ask when planning UI components.
 
 ## Questions to ask when planning UI components
 
