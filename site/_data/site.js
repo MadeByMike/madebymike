@@ -6,6 +6,7 @@ module.exports = {
   authorHandle: "@MikeRiethmuller",
   authorName: "Mike",
   postsPerPage: 4,
+  socialImage: "/img/mug/mike.jpg",
   theme: {
     image: "/img/christmas.png",
     background: "black",
@@ -17,5 +18,5 @@ module.exports = {
     claps: true,
     login: false
   },
-  criticalCSS: process.env.NODE_ENV === 'production',
+  criticalCSS: process.env.NODE_ENV === "production"
 };

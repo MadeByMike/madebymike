@@ -4,6 +4,9 @@
   {% set pageTitle = metaTitle %}
 {% endif %}
 
+{% set socialImage = social_image if social_image else 
+  site.social_image %}
+
 <title>{{ pageTitle }}</title>
 
 <meta property="og:site_name" content="{{ site.name }}"/>
