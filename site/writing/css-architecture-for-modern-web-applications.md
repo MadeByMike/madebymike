@@ -222,7 +222,7 @@ I'm paraphrasing because SMACSS was not thinking about components, but let's rev
 
 ### Modifier states
 
-Modifier states are top-level variations in design. They are not necessarily dependent on application state and may be applied as a stylistic choices.
+Modifier states are top-level variations in design. They are not necessarily dependent on application state and may be applied as a stylistic choice.
 
 Examples include size variations, primary and secondary buttons, or the position of an image within a layout component.
 
@@ -238,9 +238,9 @@ Pseudo states are more temporary. They usually map directly to persistent state 
 
 ### UI states are finite
 
-The solution to verifying UI states is to resolve styles down to a set of finite states that can be easily identified.
+The solution to verifying UI states is to resolve styles down to a set of finite states that can be easily understood.
 
-To ensure this I start by mapping out UI states into a table like this.
+To ensure this, I start by mapping out UI states into a table:
 
 | Modifier state | Behavioural state | Pseudo state |
 | -------------- | ----------------- | ------------ |
@@ -248,13 +248,13 @@ To ensure this I start by mapping out UI states into a table like this.
 | **Medium**     | Success           | **Focus**    |
 | Small          | Error             | Disabled     |
 
-Next we consider how these states combine. Typically you can only have one modifier and one behavioural state active at any one time.
+Next consider how these states combine. Typically you only have one modifier and one behavioural state active at any one time.
 
 You can visualise this as a tree:
 
 ![A tree representation of the state table above](/img/state-tree.png)
 
-If you find it's possible to have two behavioural states active at the same time - split them into different categories.
+If you find it's possible to have two behavioural states active at the same time, split them into different categories.
 
 | Modifier state | Network state | Todo state | Pseudo state |
 | -------------- | ------------- | ---------- | ------------ |
