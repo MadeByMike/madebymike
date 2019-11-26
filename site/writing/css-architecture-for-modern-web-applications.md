@@ -25,7 +25,7 @@ I believe there is a lot that has contributed to this and it's worth reflecting 
 
 ## How we got here
 
-I believe the initial response to CSS-in-JS, from many leaders in the CSS community hasn't helped with understanding and knowledge sharing. I've often heard comments like "People (i.e. younger JavaScript developers) just need to learn CSS better." People who have knowledge about CSS architecture have needed to do a better job of articulating this experience in a way that is accessible and relevant to new developers. If I'm honest about it, I think the CSS community have failed at this.
+I believe the initial response to CSS-in-JS, from many leaders in the CSS community hasn't helped with understanding and knowledge sharing. I've often heard comments like "People (i.e. younger JavaScript developers) just need to learn CSS better." People who have knowledge about CSS architecture need to do a better job of articulating this experience in a way that is accessible and relevant to new developers. If I'm honest about it, the CSS community has failed at this.
 
 But it's not that simple. There are some non-human factors and context we need to consider as well.
 
