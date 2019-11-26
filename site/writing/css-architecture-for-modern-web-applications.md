@@ -2,6 +2,7 @@
 title: CSS Architecture for Modern JavaScript Applications
 description: "My attempt to modernise some learnings from CSS architecture and how to apply them in the context to modern JavaScript applications."
 date: "2019-11-23"
+tags: [css]
 ---
 
 I went to a JavaScript meet-up in Sydney the other night and asked the question "How many people know what CSS Architecture is?". The room was full of different people with varying backgrounds and experience. I thought at minimum around a quarter might know what I was talking about. I was hoping more would. To my surprise, only a handful of people raised their hand.
