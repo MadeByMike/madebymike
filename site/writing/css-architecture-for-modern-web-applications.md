@@ -187,7 +187,7 @@ From a UI development perspective, the state of a component refers to different 
 
 As a UI developer knowing the number variations and what styles are applied in each case is not only critical, it's the job description. So why has this has become so hard to know in modern JavaScript applications?
 
-When props are passed to a function that resolves styles, the number of variations can hard or impossible to verify. This is an example from a real-word application I worked on:
+When props are passed to a function that resolves styles, the number of variations can be hard or impossible to verify. This is an example from a real-word application I worked on:
 
 ```javascript
 import { theme } from "theme.js";
