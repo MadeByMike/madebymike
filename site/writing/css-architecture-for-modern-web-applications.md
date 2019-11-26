@@ -264,9 +264,9 @@ If you find it's possible to have two behavioural states active at the same time
 
 **Warning**: If you find you do need this, consider carefully, as it’s often a sign that you have two components pretending to be one.
 
-Because state can be additive, (i.e. behavioural states can change depending on the modifier state), to work out the total number of variations a UI component has, we multiply the possibilities. With 3 types of state and 3 possibilities for each, there are (`3 x 3 x 3`), 27 possible variations.
+Because state can be additive, (i.e. behavioural states can change depending on the modifier state), to work out the total number of variations, we multiply the possibilities. With 3 types of state and 3 possibilities for each, there are (`3 x 3 x 3`), 27 possible variations.
 
-Obviously not every combination matters. The disabled state might look the same for every type of modifier and maybe the pseudo states are all the same for all variations. We can eliminate duplicate states:
+Obviously not every combination matters. The disabled state might look the same for every type of modifier and maybe the pseudo states are the same for all modifiers. We can eliminate duplicate states:
 
 ![A culled tree representation of the state table above](/img/state-tree-culled.png)
 
