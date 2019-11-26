@@ -262,7 +262,7 @@ If you find it's possible to have two behavioural states active at the same time
 | **Medium**     | Success       | **Doing**  | **Focus**    |
 | Small          | Error         | Done       | Disabled     |
 
-**Warning**: If you find you do need this, consider carefully, as it’s often a sign you that you have two components pretending to be one.
+**Warning**: If you find you do need this, consider carefully, as it’s often a sign that you have two components pretending to be one.
 
 Because state can be additive, (i.e. behavioural states can change depending on the modifier state), to work out the total number of variations a UI component has, we multiply the possibilities. With 3 types of state and 3 possibilities for each, there are (`3 x 3 x 3`), 27 possible variations.
 
