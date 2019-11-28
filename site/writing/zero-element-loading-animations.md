@@ -9,14 +9,14 @@ extra_css: ["/css/zero-element.css"]
 
 With a "zero element" loading animation, a loading state can be applied to any element with just the addition of a class name.
 
-<div class="row">
-  <div class="col col-6">
+<div class="l-50-50">
+  <div>
     <a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">
       <div class="loading horizontal-example"></div>
     </a>
     <p class="caption"><a href="http://codepen.io/MadeByMike/pen/LEbYgr?editors=110">view examples on codepen</a></p>
   </div>
-  <div class="col col-6">
+  <div>
     <a href="http://codepen.io/MadeByMike/pen/bNeyEj?editors=110">
       <div class="loading radial-example"></div>
     </a>
@@ -93,7 +93,7 @@ If you want to understand how it works let’s look at making a simple horizonta
 
 With the above css we can add a class name `loading` to any element on the page and we should get something like the following, positioned in the centre:
 
-<img style="margin: 0 auto; display:block;" src="/img/zero-element-example.png">
+<img style="margin-left: auto; margin-right: auto; display:block;" src="/img/zero-element-example.png">
 
 If you want to apply this to the whole page, by applying the class name to the body element, you will also need to add the following css:
 

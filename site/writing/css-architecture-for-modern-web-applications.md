@@ -15,9 +15,9 @@ That perspective was very kindly put to me by Alex Louden on Twitter:
 
 > "Styled Components etc has removed the need for class names completely for me. Now since styles are included in my presentation components (to me at least) it doesn’t feel like a style architecture issue any more?"
 
-This is not to criticise that perspective it's completely valid! Alex is saying tooling helped make some of the challenges he had dealing with CSS (in particular specificity) easier. The challenge now is dealing with components in an application.
+This is not to criticise that perspective; it's completely valid! Alex is saying tooling helped make some of the challenges he had dealing with CSS (in particular specificity) easier. The challenge now is dealing with components in an application.
 
-I understand this perspective but find it interesting when people see classnames and components as completely different concerns. Classnames and Components are just different ways of composing user interfaces. There are still many challenges involved in making good re-useable and scalable front-end systems, no matter how you put them together.
+I understand this perspective, but find it interesting when people see classnames and components as completely different concerns. Classnames and components are just different ways of composing user interfaces. There are still many challenges involved in making good re-useable and scalable front-end systems, no matter how you put them together.
 
 These challenges are not new. In fact, there are some well established solutions in CSS architecture that can be easily transferred to component-based style systems. So why are so few people talking about this? And why are many more people completely unaware of the topic?
 
@@ -35,9 +35,9 @@ When JavaScript tooling provided a better solution than humans following naming 
 
 Business jumped on the situation. They reasoned it would be cheaper to employ developers who could "do everything" and got what they considered to be adequate results by under-investing in UI specialists. Some developers who'd spent half a career perfecting skills in this area felt threatened. Perhaps some were defensive.
 
-Developers working in spaces of growth and opportunity could sometimes be dismissive of skills that were not flavour of the month. There was pride, and hype, and reluctance to admit that new tooling and approaches were not always producing better, more re-useable, front-end architecture.
+At the same time, developers working in spaces of growth and opportunity could sometimes be dismissive of skills that were not flavour of the month. There was pride, and hype, and reluctance to admit that new tooling and approaches were not always producing better, more re-useable, front-end architecture.
 
-I've been consulting in this space for the last 5 years and I've seen many different systems for building UIs with component based architecture. The reality is, whilst some aspects of building large scale JavaScript applications is easier, the promise of better, more re-usable UI components hasn't been delivered. Front-end architecture is more varied in approach and the results less re-useable than it was before the rise of JavaScript tooling.
+I've been consulting in this space for the last 5 years and I've seen many different systems for building UIs with component-based architecture. The reality is, whilst some aspects of building large scale JavaScript applications is easier, the promise of better, more re-usable UI components hasn't been delivered. Front-end architecture is more varied in approach and the results less re-useable than it was before the rise of JavaScript tooling.
 
 Some people might challenge this, but I've seen enough examples to consider it an objective truth. What I have seen is:
 
@@ -173,9 +173,9 @@ In practical terms this means most UI components have no `display`, `width`, `he
 
 This is sometimes hard to achieve. Working on presentational components is going to reveal problems or oversights in the layout (or even missing layout components). It feels easier to quickly add a margin to 'fix' the presentational component, but by keeping the responsibility for layout with the parent item, presentational components can be re-used in any part of the application.
 
-By adding CSS to presentational components to 'fix' layout issues we are adding hidden dependencies between components. For long term maintainability, it's far better to fix these problems at the layout level.
+By adding CSS to presentational components to 'fix' layout issues, we are adding hidden dependencies between components. For long term maintainability, it's far better to fix these problems at the layout level.
 
-I know this is not always simple, so I'm going to give you an escape hatch. However, consider this the `!important` of CSS-in-JS. Use it when you absolutely must, and use it right. For certian types of components (usually `inline-block` elements where content is dependent on dynamic data and there is no obvious parent layout component) it sometimes makes sense to add a utility class, or a prop to set a single CSS property. If possible these should still remain separate from the presentational component and be imported from a utility file. I suggest naming this `liabilities.js` or `debt.js`.
+I know this is not always simple, so I'm going to give you an escape hatch. However, consider this the `!important` of CSS-in-JS. Use it when you absolutely must, and use it right. For certian types of components (usually `inline-block` elements where content is dependent on dynamic data and there is no obvious parent layout component) it sometimes makes sense to add a utility class, or a prop to set a single CSS property. If possible, these should still remain separate from the presentational component and be imported from a utility file. I suggest naming this `liabilities.js` or `debt.js`.
 
 Always try to avoid hard coding `width` and `height` in presentational components.
 
@@ -218,7 +218,7 @@ Once again CSS architecture taught us some things about how to manage UI state. 
 - Behavioural states
 - Pseudo states
 
-I'm paraphrasing because SMACSS was not thinking about components, but let's revise some of these ideas for modern front-end architecture.
+I'm paraphrasing, because SMACSS was not thinking about components, so let's revise some of these ideas for modern front-end architecture.
 
 ### Modifier states
 
@@ -234,7 +234,7 @@ Behavioural states are dependent on application logic. They communicate somethin
 
 ### Pseudo states
 
-Pseudo states are more temporary. They usually map directly to persistent state in the browser rather than application logic. Typical examples include `hover`, `focus` and `active` but this might also include `disabled` or `selected`.
+Pseudo states are more temporary. They usually map directly to persistent states in the browser, rather than application logic. Typical examples include `hover`, `focus` and `active` but this might also include `disabled` or `selected`.
 
 ### UI states are finite
 
@@ -317,13 +317,15 @@ A container component:
 
 ## But it's only UI!
 
-As the responsibilities of front-end developers have become more broad some might consider the conventions outlined here to be not worth following. I've seen teams spend weeks planning the right combination of framework, build tools, workflows and patterns only to give zero consideration to the way they architect UI components. It's often considered the last step in the process and not worthy of the same level of consideration.
+As the responsibilities of front-end developers have become more broad, some might consider the conventions outlined here to be not worth following. I've seen teams spend weeks planning the right combination of framework, build tools, workflows and patterns only to give zero consideration to the way they architect UI components. It's often considered the last step in the process and not worthy of the same level of consideration.
 
 It's important! I've seen well-planned project fail or go well over budget because the UI architecture was poorly planned and became un-maintainable as the project grew.
 
-This disappoints me because the problems are hard and my colleagues and friends who helped establish best practices in CSS are serious engineers, with broad skills, who applied knowledge across disciplines. Many of the ideas in CSS architecture predate CSS itself and have strong foundations in computer science and software architecture. I know developers who can understand complex architectural problems but fail to see the similarities, or worse yet, choose not to apply this knowledge to declarative front-end code.
+This disappoints me because the problems are hard and my colleagues and friends who helped establish best practices in CSS are serious engineers, with broad skills, who applied knowledge across disciplines.
 
-I know you can do it. To help, I've got some questions to ask when planning UI components.
+Many of the ideas in CSS architecture predate CSS itself and have strong foundations in computer science and software architecture. I know developers who can understand complex architectural problems but fail to see the similarities, or worse yet, choose not to apply this knowledge to declarative front-end code.
+
+I know you can do it. To help, I've got some questions to ask yourself when planning UI components.
 
 ## Questions to ask when planning UI components
 

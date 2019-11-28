@@ -3,11 +3,12 @@ title: HTML5 periodic table DMCA takedown request
 slug: html5-periodic-table-dmca-takedown-request
 date: 2015-04-16
 tags: [personal]
+description: A personal story about dealing with a copy-right troll over a trivial GitHub project.
 ---
 
 Today I received a [DMCA takedown request](http://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) against my personal website over a [trivial GitHub project that involves a periodic table layout](http://madebymike.com.au/html5-periodic-table/) and information about HTML5 elements.
 
-**Update:** The legal threats and the DMCA takedown request were withdrawn. In addition to that the person involved has apologised and as such I've removed the name from this post -I think that's fair.
+**Update:** The legal threats and the DMCA takedown request were withdrawn. In addition to that the person involved has apologised and as such I've removed their name from this post.
 
 Normally I like to write about my projects and experiments but it seems this an unfortunate part of what we do so I will detail it here in case anyone else has this experience.
 
