@@ -2,15 +2,16 @@
 title: A Strategy Guide To CSS Custom Properties
 description: "Dynamic properties provide opportunities for new creative ideas, but also the potential to add complexity to CSS. To get the most out of them, we might need a strategy for how to write and structure CSS with custom properties."
 date: "2018-05-14"
+tags: ["CSS"]
 ---
 
-__This article was first published on: [Smashing Magazine](https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/).__
+**This article was first published on: [Smashing Magazine](https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/).**
 
 CSS Custom Properties (sometimes known as ‘CSS variables’) are now supported in all modern browsers, and people are starting to use them in production. This is great, but they’re different from variables in preprocessors, and I’ve already seen many examples of people using them without considering what advantages they offer.
 
 Custom properties have a huge potential to change how we write and structure CSS and to a lesser extent, how we use JavaScript to interact with UI components. I’m not going to focus on the syntax and how they work (for that I recommend you read “[It’s Time To Start Using Custom Properties](https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/)”). Instead, I want to take a deeper look at strategies for getting the most out of CSS Custom Properties.
 
-### How Are They Similar To Variables In Preprocessors? 
+### How Are They Similar To Variables In Preprocessors?
 
 Custom Properties are a little bit like variables in preprocessors but have some important differences. The first and most obvious difference is the syntax.
 
@@ -29,13 +30,15 @@ In Less we use an `@` symbol:
 Custom properties follow a similar conventions and use a `--` prefix:
 
 ```scss
-:root { --smashing-red: #d33a2c; }
-.smashing-text { 
+:root {
+  --smashing-red: #d33a2c;
+}
+.smashing-text {
   color: var(--smashing-red);
 }
 ```
 
-One important difference between custom properties and variables in preprocessors is that custom properties have a different syntax for assigning a value and retrieving that value. When retrieving the value of a custom property we use the `var()` function. 
+One important difference between custom properties and variables in preprocessors is that custom properties have a different syntax for assigning a value and retrieving that value. When retrieving the value of a custom property we use the `var()` function.
 
 The next most obvious difference is in the name. They are called ‘custom properties’ because they really are CSS properties. In preprocessors, you can declare and use variables almost anywhere, including outside declaration blocks, in media rules, or even as part of a selector.
 
@@ -51,37 +54,41 @@ $smashing-things: ".smashing-text, .cats";
 }
 ```
 
-Most of the examples above would be invalid using custom properties. 
+Most of the examples above would be invalid using custom properties.
 
 Custom properties have the same rules about where they can be used as normal CSS properties. It’s far better to think of them as dynamic properties than variables. That means they can only be used inside a declaration block, or in other words, custom properties are tied to a selector. This can be the `:root` selector, or any other valid selector.
 
 ```scss
-:root { --smashing-red: #d33a2c; }
+:root {
+  --smashing-red: #d33a2c;
+}
 
 @media screen and (min-width: 800px) {
-  .smashing-text, .cats {
-    --margin-left:  1em;
+  .smashing-text,
+  .cats {
+    --margin-left: 1em;
   }
 }
 ```
 
-You can retrieve the value of a custom property anywhere you would otherwise use a value in a property declaration. This means they can be used as a single value, as part of a shorthand statement or even inside `calc()` equations. 
+You can retrieve the value of a custom property anywhere you would otherwise use a value in a property declaration. This means they can be used as a single value, as part of a shorthand statement or even inside `calc()` equations.
 
 ```scss
-.smashing-text, .cats {
+.smashing-text,
+.cats {
   color: var(--smashing-red);
   margin: 0 var(--margin-horizontal);
-  padding: calc(var(--margin-horizontal) / 2)
+  padding: calc(var(--margin-horizontal) / 2);
 }
 ```
 
-However, they cannot be used in media queries, or selectors including `:nth-child()`. 
+However, they cannot be used in media queries, or selectors including `:nth-child()`.
 
 There is probably a lot more you want to know about the syntax and how custom properties work, such as how to use fallback values and can you assign variables to other variables (yes), but this basic introduction should be enough to understand the rest of the concepts in this article. For more information on the specifics of how custom properties work, you can read “[It’s Time To Start Using Custom Properties](https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/)” written by Serg Hospodarets.
 
-### Dynamic vs. Static 
+### Dynamic vs. Static
 
-Cosmetic differences aside, the most significant difference between variables in preprocessors and custom properties is how they are scoped. We can refer to variables as either statically or dynamically scoped. Variables in preprocessors are static, whereas custom properties are dynamic. 
+Cosmetic differences aside, the most significant difference between variables in preprocessors and custom properties is how they are scoped. We can refer to variables as either statically or dynamically scoped. Variables in preprocessors are static, whereas custom properties are dynamic.
 
 Where CSS is concerned, static means that you can update the value of a variable at different points in the compilation process, but this cannot change the value of the code that came before it.
 
@@ -109,7 +116,7 @@ results in:
 
 Once this is rendered to CSS, the variables are gone. This means that we could potentially read an `.scss` file and determine its output without knowing anything about the HTML, browser or other inputs. This is not the case with custom properties.
 
-Preprocessors do have a kind of “block scope” where variables can be temporarily changed inside a selector, function or mixin. This changes the value of a variable inside the block, but it’s still static. This is tied to the block, not the selector.  In the example below, the variable `$background` is changed inside the `.example` block. It changes back to the initial value outside the block, even if we use the same selector.
+Preprocessors do have a kind of “block scope” where variables can be temporarily changed inside a selector, function or mixin. This changes the value of a variable inside the block, but it’s still static. This is tied to the block, not the selector. In the example below, the variable `$background` is changed inside the `.example` block. It changes back to the initial value outside the block, even if we use the same selector.
 
 ```scss
 $background: red;
@@ -136,7 +143,7 @@ This will result in:
 
 Custom properties work differently. Where custom properties are concerned, dynamically scoped means they are subject to inheritance and the cascade. The property is tied to a selector and if the value changes, this affects all matching DOM elements just like any other CSS property.
 
-This is great because you can change the value of a custom property inside a media query, with a pseudo selector such as hover, or even with JavaScript. 
+This is great because you can change the value of a custom property inside a media query, with a pseudo selector such as hover, or even with JavaScript.
 
 ```scss
 a {
@@ -157,7 +164,7 @@ a {
 }
 ```
 
-We don’t have to change where the custom property is used &mdash; we change the value of the custom property with CSS. This means using the same custom property, we can have different values in different places or context on the same page. 
+We don’t have to change where the custom property is used &mdash; we change the value of the custom property with CSS. This means using the same custom property, we can have different values in different places or context on the same page.
 
 ### Global vs. Local
 
@@ -165,7 +172,7 @@ In addition to being static or dynamic, variables can also be either global or l
 
 CSS is similar. We have some things that are applied globally and some things that are more local. Brand colors, vertical spacing, and typography are all examples of things you might want to be applied globally and consistently across your website or application. We also have local things. For example, a button component might have a small and large variant. You wouldn’t want the sizes from these buttons to be applied to all input elements or even every element on the page.
 
-This is something we are familiar with in CSS. We’ve developed design systems, naming conventions and JavaScript libraries, all to help with isolating local components and global design elements. Custom properties provide new options for dealing with this old problem. 
+This is something we are familiar with in CSS. We’ve developed design systems, naming conventions and JavaScript libraries, all to help with isolating local components and global design elements. Custom properties provide new options for dealing with this old problem.
 
 CSS Custom Properties are by default locally scoped to the specific selectors we apply them to. So they are kinda like local variables. However, custom properties are also inherited, so in many situations they behave like global variables &mdash; especially when applied to the `:root` selector. This means that we need to be thoughtful about how to use them.
 
@@ -173,7 +180,7 @@ So many examples show custom properties being applied to the `:root` element and
 
 #### Global Variables Tend To Be Static
 
-There are a few small exceptions, but generally speaking, most global things in CSS are also static. 
+There are a few small exceptions, but generally speaking, most global things in CSS are also static.
 
 Global variables like brand colors, typography and spacing don't tend to change much from one component to the next. When they do change, this tends to be a global rebranding or some other significant change that rarely happens on a mature product. It still makes sense for these things to be variables, they are used in many places, and variables help with consistency. But it doesn’t make sense for them to be dynamic. The value of these variables does not change in any dynamic way.
 
@@ -181,14 +188,13 @@ For this reason, **I strongly recommend using preprocessors for global (static) 
 
 #### Local Static Variables Are OK (Sometimes)
 
-You might think given the strong stance on global variables being static, that by reflection, all local variables might need to be dynamic. While it’s true that local variables do tend to be dynamic, this is nowhere near as strong as the tendency for a global variable to be static. 
+You might think given the strong stance on global variables being static, that by reflection, all local variables might need to be dynamic. While it’s true that local variables do tend to be dynamic, this is nowhere near as strong as the tendency for a global variable to be static.
 
-Locally static variables are perfectly  OK in many situations. I use preprocessors variables in component files mostly as a developer convenience.
+Locally static variables are perfectly OK in many situations. I use preprocessors variables in component files mostly as a developer convenience.
 
 Consider the classic example of a button component with multiple size variations.
 
 ![buttons of different sizes](/img/buttons-small-medium-large.png)
-
 
 My `scss` might look something like this:
 
@@ -214,7 +220,7 @@ $button-lrg: 2em;
 }
 ```
 
-Obviously, this example would make more sense if I was using the variables multiple times or deriving margin and padding values from the size variables. However, the ability to quickly prototype different sizes might be a sufficient reason. 
+Obviously, this example would make more sense if I was using the variables multiple times or deriving margin and padding values from the size variables. However, the ability to quickly prototype different sizes might be a sufficient reason.
 
 Because most static variables are global, I like to differentiate static variables that are used only inside a component. To do this, you can prefix these variables with the component name, or you could use another prefix such as `c-variable-name` for component or `l-variable-name` for local. You can use whatever prefix you want, or you can prefix global variables. Whatever you choose, it’s helpful to differentiate especially if converting an existing codebase to use custom properties.
 
@@ -226,7 +232,7 @@ I suspect we will always use some form of static variables, although we might ne
 
 It's helpful to know that we can assign static variables to custom properties. Whether they are global or local, it makes sense in many situations to convert static variables, to locally dynamic custom properties.
 
-**Note**: *Did you know that `$var` is valid value for a custom property? Recent versions of Sass recognize this, and therefore we need to interpolate variables assigned to custom properties, like this: `#{$var}`. This tells Sass you want to output the value of the variable, rather than just `$var` in the stylesheet. This is only needed for situations like custom properties, where variable names can also be a valid CSS.*
+**Note**: _Did you know that `$var` is valid value for a custom property? Recent versions of Sass recognize this, and therefore we need to interpolate variables assigned to custom properties, like this: `#{$var}`. This tells Sass you want to output the value of the variable, rather than just `$var` in the stylesheet. This is only needed for situations like custom properties, where variable names can also be a valid CSS._
 
 If we take the button example above and decide all buttons should use the small variation on mobile devices, regardless of the class applied in the HTML, this is now a more dynamic situation. For this, we should use custom properties.
 
@@ -265,7 +271,7 @@ Custom properties will not (and should not) be immune from this type of experime
 
 I read an excellent article on this topic on the Free Code Camp Medium recently. It was written by Bill Sourour and is called “[Don't Do It At Runtime. Do It At Design Time](https://medium.freecodecamp.org/dont-do-it-at-runtime-do-it-at-design-time-c4f59d1775e4).” Rather than paraphrasing his arguments, I'll let you read it.
 
-One key difference between preprocessor variables and custom properties is that custom properties work at runtime. This means things that might have been borderline acceptable, in terms of complexity, with preprocessors might not be a good idea with custom properties. 
+One key difference between preprocessor variables and custom properties is that custom properties work at runtime. This means things that might have been borderline acceptable, in terms of complexity, with preprocessors might not be a good idea with custom properties.
 
 One example that illustrated this for me recently was this:
 
@@ -273,9 +279,9 @@ One example that illustrated this for me recently was this:
 :root {
   --font-scale: 1.2;
   --font-size-1: calc(var(--font-scale) * var(--font-size-2));
-  --font-size-2: calc(var(--font-scale) * var(--font-size-3)); 
-  --font-size-3: calc(var(--font-scale) * var(--font-size-4));   
-  --font-size-4: 1rem;     
+  --font-size-2: calc(var(--font-scale) * var(--font-size-3));
+  --font-size-3: calc(var(--font-scale) * var(--font-size-4));
+  --font-size-4: 1rem;
 }
 ```
 
@@ -293,7 +299,7 @@ This means the ratios are calculated at run-time and you can change them by upda
 }
 ```
 
-This is clever, concise and much quicker than calculating all the values again should you want to change the scale. It’s also something I would *not* do in production code.
+This is clever, concise and much quicker than calculating all the values again should you want to change the scale. It’s also something I would _not_ do in production code.
 
 Although the above example is useful for prototyping, in production, I'd much prefer to see something like this:
 
@@ -307,10 +313,10 @@ Although the above example is useful for prototyping, in production, I'd much pr
 
 @media screen and (min-width: 800px) {
   :root {
-    --font-size-1: 2.369rem; 
-    --font-size-2: 1.777rem;     
-    --font-size-3: 1.333rem; 
-    --font-size-4: 1rem;     
+    --font-size-1: 2.369rem;
+    --font-size-2: 1.777rem;
+    --font-size-3: 1.333rem;
+    --font-size-4: 1rem;
   }
 }
 ```
@@ -323,17 +329,17 @@ It is also important to avoid situations where we go from using one custom prope
 
 ### Change The Value Not The Variable
 
-Change the value not the variable is one of the most important strategies for using custom properties effectively. 
+Change the value not the variable is one of the most important strategies for using custom properties effectively.
 
 As a general rule, you should never change which custom property is used for any single purpose.
-It's easy to do because this is exactly how we do things with preprocessors, but it makes little sense with custom properties. 
+It's easy to do because this is exactly how we do things with preprocessors, but it makes little sense with custom properties.
 
 In this example, we have two custom properties that are used on an example component. I switch from using the value of `--font-size-small` to `--font-size-large` depending on the screen size.
 
 ```scss
 :root {
   --font-size-small: 1.2em;
-  --font-size-large: 2em;            
+  --font-size-large: 2em;
 }
 .example {
   font-size: var(--font-size-small);
@@ -351,9 +357,9 @@ A better way to do this would be to define a single custom property scoped to th
 .example {
   --example-font-size: 1.2em;
 }
-@media screen and (min-width: 800px) {                             
+@media screen and (min-width: 800px) {
   .example {
-    --example-font-size: 2em;            
+    --example-font-size: 2em;
   }
 }
 ```
@@ -378,15 +384,15 @@ It can be very difficult to know what CSS properties are going to change. Still,
 
 #### If It Changes, It's A Variable
 
-Properties that change using media queries are inherently dynamic and custom properties provide the means to express dynamic values in CSS. This means that if you are using a media query to change any CSS property, you should place this value in a custom property. 
+Properties that change using media queries are inherently dynamic and custom properties provide the means to express dynamic values in CSS. This means that if you are using a media query to change any CSS property, you should place this value in a custom property.
 
-You can then move this, along with all the media rules, hover states or any dynamic selectors that define how the value changes, to the top of the document. 
+You can then move this, along with all the media rules, hover states or any dynamic selectors that define how the value changes, to the top of the document.
 
 #### Separate Logic From Design
 
 When done correctly, separation of logic and design means that **media queries are only used to change the value of custom properties**. It means all the logic related to responsive design should be at the top of the document, and wherever we see a `var()` statement in our CSS, we immediately know that this property that changes. With traditional methods of writing CSS, there was no way of knowing this at a glance.
 
-Many of us got very good at reading and interpreting CSS at a glance while tracking in our head which properties changed in different situations. I’m tired of this, and I don't want to do this anymore! Custom properties now provide a link between logic and its implementation, so we don’t need to track this, and that is incredibly useful! 
+Many of us got very good at reading and interpreting CSS at a glance while tracking in our head which properties changed in different situations. I’m tired of this, and I don't want to do this anymore! Custom properties now provide a link between logic and its implementation, so we don’t need to track this, and that is incredibly useful!
 
 {{% ad-panel-leaderboard %}}
 
@@ -395,7 +401,7 @@ Many of us got very good at reading and interpreting CSS at a glance while track
 The idea of declaring variables at the top of a document or function is not a new idea. It's something we do in most languages, and it's now something we can do in CSS as well. Writing CSS in this way creates a clear visual distinction between CSS at the top of the document and below. I need a way to differentiate these sections when I talk about them and the idea of a "logic fold" is a metaphor I’ve started using.  
 Above the fold contains all preprocessor variables and custom properties. This includes all the different values a custom property can have. It should be easy to trace how a custom property changes.
 
-CSS below the fold is straightforward and highly declarative and easy to read. It feels like CSS before media queries and other necessary complexities of modern CSS. 
+CSS below the fold is straightforward and highly declarative and easy to read. It feels like CSS before media queries and other necessary complexities of modern CSS.
 
 Take a look at a really simple example of a six column flexbox grid system:
 
@@ -420,26 +426,42 @@ Below the fold might look like this:
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.col-1, .col-2, .col-3,
-.col-4, .col-5, .col-6 {
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6 {
   flex-grow: 0;
   flex-shrink: 0;
 }
-.col-1 { flex-basis: 16.66%; }
-.col-2 { flex-basis: 33.33%; }
-.col-3 { flex-basis: 50%; }
-.col-4 { flex-basis: 66.66%; }
-.col-5 { flex-basis: 83.33%; }
-.col-6 { flex-basis: 100%; }
+.col-1 {
+  flex-basis: 16.66%;
+}
+.col-2 {
+  flex-basis: 33.33%;
+}
+.col-3 {
+  flex-basis: 50%;
+}
+.col-4 {
+  flex-basis: 66.66%;
+}
+.col-5 {
+  flex-basis: 83.33%;
+}
+.col-6 {
+  flex-basis: 100%;
+}
 ```
 
-We immediately know `--row-display` is a value that changes. Initially, it will be `block`, so the flex values will be ignored. 
+We immediately know `--row-display` is a value that changes. Initially, it will be `block`, so the flex values will be ignored.
 
-This example is fairly simple, but if we expanded it to include a flexible width column that fills the remaining space, it's likely `flex-grow`, `flex-shrink` and `flex-basis` values would need to be converted to custom properties. You can try this or take a [look at a more detailed example here](https://codepen.io/MadeByMike/pen/f42ce1a954af9796ae76c62a9ea801f4/). 
+This example is fairly simple, but if we expanded it to include a flexible width column that fills the remaining space, it's likely `flex-grow`, `flex-shrink` and `flex-basis` values would need to be converted to custom properties. You can try this or take a [look at a more detailed example here](https://codepen.io/MadeByMike/pen/f42ce1a954af9796ae76c62a9ea801f4/).
 
 ### Custom Properties For Theming
 
-I've mostly argued against using custom properties for global dynamic variables and hopefully implied that attaching custom properties to the `:root` selector is in many cases considered harmful. But every rule has an exception, and for custom properties, it's theming. 
+I've mostly argued against using custom properties for global dynamic variables and hopefully implied that attaching custom properties to the `:root` selector is in many cases considered harmful. But every rule has an exception, and for custom properties, it's theming.
 
 Limited use of global custom properties can make theming a whole lot easier.
 
@@ -457,7 +479,7 @@ Custom properties are case sensitive and since most custom properties will be lo
 
 ```scss
 :root {
-  --THEME-COLOR: var(--user-theme-color, #d33a2c);            
+  --THEME-COLOR: var(--user-theme-color, #d33a2c);
 }
 ```
 
@@ -467,13 +489,13 @@ Capitalization of variables often signifies global constants. For us, this is go
 
 Custom properties accept a fallback value. It can be a useful to avoid directly overwriting the value of a global custom properties and keep user values separate. We can use the fallback value to do this.
 
-The example above sets the value of `--THEME-COLOR` to the value of `--user-theme-color` if it exists. If `--user-theme-color` is not set, the value of `#d33a2c` will be used. This way, we don’t need to provide a fallback every time we use `--THEME-COLOR`.  
+The example above sets the value of `--THEME-COLOR` to the value of `--user-theme-color` if it exists. If `--user-theme-color` is not set, the value of `#d33a2c` will be used. This way, we don’t need to provide a fallback every time we use `--THEME-COLOR`.
 
-You might expect in the example below that the background will be set to `green`. However, the value of `--user-theme-color` has not been set on the root element, so the value of `--THEME-COLOR` has not changed. 
+You might expect in the example below that the background will be set to `green`. However, the value of `--user-theme-color` has not been set on the root element, so the value of `--THEME-COLOR` has not changed.
 
 ```scss
 :root {
-  --THEME-COLOR: var(--user-theme-color, #d33a2c);            
+  --THEME-COLOR: var(--user-theme-color, #d33a2c);
 }
 body {
   --user-theme-color: green;
@@ -483,11 +505,11 @@ body {
 
 Indirectly setting global dynamic properties like this protects them from being overwritten locally and ensures user settings are always inherited from the root element. This is a useful convention to safeguard your theme values and avoid unintended inheritance.
 
-If we do want to expose specific properties to inheritance, we can replace the `:root` selector with a `*` selector: 
+If we do want to expose specific properties to inheritance, we can replace the `:root` selector with a `*` selector:
 
 ```scss
 * {
-  --THEME-COLOR: var(--user-theme-color, #d33a2c);            
+  --THEME-COLOR: var(--user-theme-color, #d33a2c);
 }
 body {
   --user-theme-color: green;
@@ -497,7 +519,7 @@ body {
 
 Now the value of `--THEME-COLOR` is recalculated for every element and therefore the local value of `--user-theme-color` can be used. In other words, the background color in this example will be `green`.
 
-You can see some more detailed examples of this pattern in the section on [Manipulating Color With Custom Properties](#manipulating-color-with-custom-properties). 
+You can see some more detailed examples of this pattern in the section on [Manipulating Color With Custom Properties](#manipulating-color-with-custom-properties).
 
 #### Updating Custom Properties With JavaScript
 
@@ -505,7 +527,7 @@ If you want to set custom properties using JavaScript there is a fairly simple A
 
 ```js
 const elm = document.documentElement;
-elm.style.setProperty('--USER-THEME-COLOR', 'tomato');
+elm.style.setProperty("--USER-THEME-COLOR", "tomato");
 ```
 
 Here I’m setting the value of `--USER-THEME-COLOR` on the document element, or in other words, the `:root` element where it will be inherited by all elements.
@@ -523,11 +545,11 @@ This means it's easy to apply local customizations:
 }
 ```
 
-Here I set a default value for `--note-color` and scope this to the `.note` component. I keep the variable declaration separate from the property declaration, even in this simple example. 
+Here I set a default value for `--note-color` and scope this to the `.note` component. I keep the variable declaration separate from the property declaration, even in this simple example.
 
 ```js
-const elm = document.querySelector('#note-uid');
-elm.style.setProperty('--note-color', 'yellow');
+const elm = document.querySelector("#note-uid");
+elm.style.setProperty("--note-color", "yellow");
 ```
 
 I then target a specific instance of a `.note` element and change the value of the `--note-color` custom property for that element only. This will now have higher specificity than the default value.
@@ -536,7 +558,7 @@ You can see how this works with this [example using React](https://codepen.io/Ma
 
 #### Manipulating Color With Custom Properties
 
-In addition to hex values and named colors, CSS has colors functions such as `rgb()` and  `hsl()`. These allow us to specify individual components of a color such as the hue or lightness. Custom properties can be used in conjunction with color functions.
+In addition to hex values and named colors, CSS has colors functions such as `rgb()` and `hsl()`. These allow us to specify individual components of a color such as the hue or lightness. Custom properties can be used in conjunction with color functions.
 
 ```scss
 :root {
@@ -556,9 +578,9 @@ desaturate($base-color, 20%);
 
 ```
 
-It would be useful to have some of these features in browsers. [They are coming](https://www.w3.org/TR/css-color-4/#funcdef-color-mod), but until we have native color modification functions in CSS, custom properties could fill some of that gap. 
+It would be useful to have some of these features in browsers. [They are coming](https://www.w3.org/TR/css-color-4/#funcdef-color-mod), but until we have native color modification functions in CSS, custom properties could fill some of that gap.
 
-We’ve seen that custom properties can be used inside existing color functions like `rgb()` and `hsl()` but they can also be used in `calc()`. This means that we can convert a real number to a percentage by multiplying it, e.g. `calc(50 * 1%)`  = `50%`.
+We’ve seen that custom properties can be used inside existing color functions like `rgb()` and `hsl()` but they can also be used in `calc()`. This means that we can convert a real number to a percentage by multiplying it, e.g. `calc(50 * 1%)` = `50%`.
 
 ```scss
 :root {
@@ -569,7 +591,7 @@ body {
 }
 ```
 
-The reason we want to store the lightness value as a real number is so that we can manipulate it with `calc` before converting it to a percentage. For example, if I want to darken a color by `20%`,  I can multiply its lightness by `0.8`. We can make this a little easier to read by separating the lightness calculation into a locally scoped custom property:
+The reason we want to store the lightness value as a real number is so that we can manipulate it with `calc` before converting it to a percentage. For example, if I want to darken a color by `20%`, I can multiply its lightness by `0.8`. We can make this a little easier to read by separating the lightness calculation into a locally scoped custom property:
 
 ```scss
 :root {
@@ -581,7 +603,7 @@ body {
 }
 ```
 
-We *could* even abstract away more of the calculations and create something like [color modification functions in CSS using custom properties](https://codepen.io/MadeByMike/pen/YLQWeb). This example is likely too complex for most practical cases of theming, but it demonstrates the full power of dynamic custom properties. 
+We _could_ even abstract away more of the calculations and create something like [color modification functions in CSS using custom properties](https://codepen.io/MadeByMike/pen/YLQWeb). This example is likely too complex for most practical cases of theming, but it demonstrates the full power of dynamic custom properties.
 
 #### Simplify Theming
 
@@ -649,16 +671,16 @@ If you want to take full advantage of all the dynamic features of custom propert
 We can extend this to load either `styles.css` or `styles.no-vars.css` depending on whether the browser supports custom properties. We can detect support like this:
 
 ```js
-if ( window.CSS && CSS.supports('color', 'var(--test)') ) {
-  loadCSS('styles.css');
+if (window.CSS && CSS.supports("color", "var(--test)")) {
+  loadCSS("styles.css");
 } else {
-  loadCSS('styles.no-vars.css');
+  loadCSS("styles.no-vars.css");
 }
 ```
 
-### Conclusion 
+### Conclusion
 
-If you’ve been struggling to organize CSS efficiently, have difficulty with responsive components, want to implement client-side theming, or just want to start off on the right foot with custom properties, this guide should tell you everything you need to know. 
+If you’ve been struggling to organize CSS efficiently, have difficulty with responsive components, want to implement client-side theming, or just want to start off on the right foot with custom properties, this guide should tell you everything you need to know.
 
 It comes down to understanding the difference between dynamic and static variables in CSS as well as a few simple rules:
 
