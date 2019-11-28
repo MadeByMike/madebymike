@@ -63,7 +63,7 @@ First of all, we need to consider what makes sensible abstractions in UI develop
 - UI states, and
 - Application logic
 
-If re-use or long-term maintainability is important, keeping these concerns separate is beneficial. Yet, this is not typically how teams approach the design of a component libray.
+If re-use or long-term maintainability is important, keeping these concerns separate is beneficial. Yet, this is not typically how teams approach the design of a component library.
 
 Components can do many things, they might fetch data, they might render HTML, they might call functions to execute business logic and manage application state. Sometimes a single component does all these things. There is usually little distinction around what the responsibility of a component should be. People draw boxes around the visual boundaries of a design and then mix this with application logic. That's how most components are built. We can do better than that.
 
