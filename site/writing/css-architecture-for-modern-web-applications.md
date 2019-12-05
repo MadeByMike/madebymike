@@ -37,7 +37,7 @@ Business jumped on the dogpile. They reasoned it would be cheaper to employ deve
 
 At the same time, developers working in spaces of growth and opportunity could sometimes be dismissive of skills that were not flavour of the month. There was pride, and hype, and reluctance to admit that new tooling and approaches were not always producing better, more re-useable, front-end architecture.
 
-I've been consulting in this space for the last 5 years and I've seen many different systems for building UIs with component-based architecture. The reality is, whilst some aspects of building large scale JavaScript applications is easier, the promise of better, more re-usable UI components hasn't been delivered. Front-end architecture is more varied in approach and the results less re-useable than it was before the rise of JavaScript tooling.
+I've been consulting in this space for the last 5 years and I've seen many different systems for building UIs with component-based architecture. The reality is, whilst some aspects of building large scale JavaScript applications are easier, the promise of better, more re-usable UI components hasn't been delivered. Front-end architecture is more varied in approach and the results less re-useable than it was before the rise of JavaScript tooling.
 
 Some people might challenge this, but I've seen enough examples to consider it an objective truth. What I have seen is:
 
