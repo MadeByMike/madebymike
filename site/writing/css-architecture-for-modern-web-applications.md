@@ -137,7 +137,7 @@ const Layout = ({items}) -> (
 )
 ```
 
-In the example above I'm ensuring the children of a `ul` will always be an `li`. At the same time I'm applying styles for the layout to both the parent and child items. These are managed somewhere in layout component.
+In the example above I'm ensuring the children of a `ul` will always be an `li`. At the same time I'm applying styles for the layout to both the parent and child items. These are managed somewhere in the layout component.
 
 ### Export styles to be used by child-items
 
