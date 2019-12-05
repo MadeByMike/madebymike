@@ -31,9 +31,9 @@ But it's not that simple. There are some non-human factors and context we need t
 
 Before the rise of JavaScript components. The strong and obvious naming conventions of BEM gave developers a system to follow that helped avoid specificity clashes in the "terrifying global scope" of CSS. This alone was reason enough for many people to use BEM. You could get good enough results, without necessarily understanding nuanced reasons behind the conventions.
 
-When JavaScript tooling provided a better solution than humans following naming conventions, it opened up UI development to a wider spectrum of developers who previously had less interest in, or reason to focus on style architecture.
+When JavaScript tooling provided a better solution than humans following naming conventions, it opened up UI development to a wider spectrum of developers who previously had less interest in, or reason to focus on, style architecture.
 
-Business jumped on the situation. They reasoned it would be cheaper to employ developers who could "do everything" and got what they considered to be adequate results by under-investing in UI specialists. Some developers who'd spent half a career perfecting skills in this area felt threatened. Perhaps some were defensive.
+Business jumped on the dogpile. They reasoned it would be cheaper to employ developers who could "do everything" and got what they considered to be adequate results by under-investing in UI specialists. Some developers who'd spent half a career perfecting skills in this area felt threatened. Perhaps some were defensive.
 
 At the same time, developers working in spaces of growth and opportunity could sometimes be dismissive of skills that were not flavour of the month. There was pride, and hype, and reluctance to admit that new tooling and approaches were not always producing better, more re-useable, front-end architecture.
 
