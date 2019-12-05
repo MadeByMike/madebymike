@@ -103,7 +103,7 @@ The solution is to co-locate the layout concerns with the parent item. There are
 
 ### Use A \* Selector
 
-Use the cascade to your advantage and apply a `*` selector target all immediate children of a layout component.
+Use the cascade to your advantage and apply a `*` selector to target all immediate children of a layout component.
 
 For example:
 
