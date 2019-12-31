@@ -63,7 +63,7 @@ First of all, we need to consider what makes sensible abstractions in UI develop
 - UI states, and
 - Application logic
 
-If re-use or long-term maintainability is important, keeping these concerns separate is beneficial. Yet, this is not typically how teams approach the design of a component libray.
+If re-use or long-term maintainability is important, keeping these concerns separate is beneficial. Yet, this is not typically how teams approach the design of a component library.
 
 Components can do many things, they might fetch data, they might render HTML, they might call functions to execute business logic and manage application state. Sometimes a single component does all these things. There is usually little distinction around what the responsibility of a component should be. People draw boxes around the visual boundaries of a design and then mix this with application logic. That's how most components are built. We can do better than that.
 
@@ -175,7 +175,7 @@ This is sometimes hard to achieve. Working on presentational components is going
 
 By adding CSS to presentational components to 'fix' layout issues, we are adding hidden dependencies between components. For long term maintainability, it's far better to fix these problems at the layout level.
 
-I know this is not always simple, so I'm going to give you an escape hatch. However, consider this the `!important` of CSS-in-JS. Use it when you absolutely must, and use it right. For certian types of components (usually `inline-block` elements where content is dependent on dynamic data and there is no obvious parent layout component) it sometimes makes sense to add a utility class, or a prop to set a single CSS property. If possible, these should still remain separate from the presentational component and be imported from a utility file. I suggest naming this `liabilities.js` or `debt.js`.
+I know this is not always simple, so I'm going to give you an escape hatch. However, consider this the `!important` of CSS-in-JS. Use it when you absolutely must, and use it right. For certain types of components (usually `inline-block` elements where content is dependent on dynamic data and there is no obvious parent layout component) it sometimes makes sense to add a utility class, or a prop to set a single CSS property. If possible, these should still remain separate from the presentational component and be imported from a utility file. I suggest naming this `liabilities.js` or `debt.js`.
 
 Always try to avoid hard coding `width` and `height` in presentational components.
 
