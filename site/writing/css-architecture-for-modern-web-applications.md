@@ -330,7 +330,7 @@ I know you can do it. To help, I've got some questions to ask yourself when plan
 ## Questions to ask when planning UI components
 
 - How many UI states does this component have?
-- Can I easily can I validate the current UI state?
+- Can I easily validate the current UI state?
 - How ergonomic are my styles? (i.e. how quickly can someone else read them)
 - Am I creating sensible UI abstractions? Or am I drawing boxes around the visual design?
 - Am I separating layout form visual design where possible?
