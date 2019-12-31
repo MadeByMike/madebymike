@@ -402,6 +402,10 @@ As is often the case with modern web development, there are many features you ca
 
 Whilst it is tempting to pick the simplest implementation from a development perspective, what is simple is sometimes more nuanced than this. The rendering process for CSS and SVG filters, whilst largely hidden from developers, is complicated due to its many features and abstractions. If we need to, we can take more direct control over the rendering process and have purpose-built applications that are amazingly fast. Although the path is less clear, and it may be more work initially, canvas can open a range [unique possibilities](/demos/image-effects/webgl-interactive.html) not available using more defined "paint by number" solutions.
 
+<div class="live-demo">
+  <iframe src="/demos/image-effects/webgl-interactive.html" style="height:700px; width:100%; border: none;"></iframe>
+</div>
+
 ## You might also be interested in reading
 
 - [Canvas image pixel manipulation](http://codepen.io/jakealbaugh/post/canvas-image-pixel-manipulation)
