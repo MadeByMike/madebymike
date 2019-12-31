@@ -11,10 +11,19 @@ h4 {
   font-weight: 700;
   hyphens: none;
 }
+
 .h1,
 h1 {
-  font-size: $SCALE-4;
+  font-size: $SCALE-3; // Limit H1 for mobile
 }
+
+@media (min-width: 600px) {
+  .h1,
+  h1 {
+    font-size: $SCALE-4;
+  }
+}
+
 .h2,
 h2 {
   font-size: $SCALE-3;

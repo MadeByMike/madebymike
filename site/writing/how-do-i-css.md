@@ -15,35 +15,35 @@ It's pretty simple choose a methodology, choose a set of guidelines and choose a
 
 ### Methodologies
 
-  - [BEM](https://en.bem.info/)
-  - [SMACSS](https://smacss.com/)
-  - [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
+- [BEM](https://en.bem.info/)
+- [SMACSS](https://smacss.com/)
+- [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
 ### Guidelines
 
-  - [codeguide.co](http://codeguide.co/#css)
-  - [cssguidelin.es](http://cssguidelin.es/)
-  - [idiomatic-css](https://github.com/necolas/idiomatic-css)
+- [codeguide.co](http://codeguide.co/#css)
+- [cssguidelin.es](http://cssguidelin.es/)
+- [idiomatic-css](https://github.com/necolas/idiomatic-css)
 
 It doesn't matter which set of methodologies or guidelines you prefer at the end of the day consistency is what you are after. You could just place these all on a big wheel and spin it.
 
-The problem we might have with this approach is they overlap, methodologies wander into the territory of guidelines, and guidelines get opinionated our build tools and processes. In my view we'd be better off if there were clearer guidelines for our guidelines. No, I'm not *actually* suggesting we write guidelines about guidelines. But if methodologies were primarily about organisation, structure and other big picture stuff, and guidelines were mostly about the style, formatting and other fine detail, we'd be more able to mix and match.
+The problem we might have with this approach is they overlap, methodologies wander into the territory of guidelines, and guidelines get opinionated our build tools and processes. In my view we'd be better off if there were clearer guidelines for our guidelines. No, I'm not _actually_ suggesting we write guidelines about guidelines. But if methodologies were primarily about organisation, structure and other big picture stuff, and guidelines were mostly about the style, formatting and other fine detail, we'd be more able to mix and match.
 
 So what do you do about that short of specifying every detail? I recently came across [Chris Coyier's tour of CodePen's CSS](http://codepen.io/chriscoyier/blog/codepens-css) which was a response to [Ian Feather's tour of Lonely Planet's CSS](http://ianfeather.co.uk/css-at-lonely-planet/), which was in response to [Mark Otto's tour of GitHub's CSS](http://markdotto.com/2014/07/23/githubs-css/). I promise I am not going to add another 'in response' article to add to that chain! But it did get me thinking. This is the perfect way to state your preferred methodologies and guidelines and how you apply them.
 
-Rather than doing this as a review of how you work what if you did this *before* starting a project as an agreed way of how you would like to work? You could state how strictly you follow certain guidelines, the things that matter most and where you are more agnostic. You can list your key points of difference and detail your preferred build process and importantly the reasons for these choices. It seems like a much faster way to arrive at a consensus in a new team.
+Rather than doing this as a review of how you work what if you did this _before_ starting a project as an agreed way of how you would like to work? You could state how strictly you follow certain guidelines, the things that matter most and where you are more agnostic. You can list your key points of difference and detail your preferred build process and importantly the reasons for these choices. It seems like a much faster way to arrive at a consensus in a new team.
 
 So I've written down how I CSS for a typical website project and I thought I'd share it. Remember this is how I like to CSS and I'm not saying this is how you should CSS, or even that this always works for me. I'll be flattered if you find this useful or apply this method for arriving at a consensus within your team. But there is no expectation that what I have written is right for you.
 
 ## How I CSS
 
-  - [I follow SMACSS conventions](#css-architecture)
-  - [I use SCSS](#preprocessors)
-  - [I use Autoprefixer](#autoprefixer)
-  - [I use CSSLint](#linting)
-  - [I comment extensively](#comments-docs)
-  - [I use Grunt for my build process](#build-it)
-  - [I don't always follow my own advice](#human-am-i)
+- [I follow SMACSS conventions](#css-architecture)
+- [I use SCSS](#preprocessors)
+- [I use Autoprefixer](#autoprefixer)
+- [I use CSSLint](#linting)
+- [I comment extensively](#comments-docs)
+- [I use Grunt for my build process](#build-it)
+- [I don't always follow my own advice](#human-am-i)
 
 <h3 id="css-architecture">CSS Architecture</h3>
 
@@ -53,12 +53,12 @@ I try to follow [these guidelines](http://mdo.github.io/code-guide/#css) by Mark
 
 Some of my key personal preferences include:
 
-  - using 'classy' selectors and not IDs
-  - don't nest media queries, it makes me sad :(
-  - I like tabs, but I don't hate spaces so don't hate me
-  - unlike this bullet point, I try to keep class names and selectors chains as short as possible without sacrificing clarity
-  - I care about accessibility and valid mark-up
-  - I like REM units, but I'm happy to use the odd pixel
+- using 'classy' selectors and not IDs
+- don't nest media queries, it makes me sad :(
+- I like tabs, but I don't hate spaces so don't hate me
+- unlike this bullet point, I try to keep class names and selectors chains as short as possible without sacrificing clarity
+- I care about accessibility and valid mark-up
+- I like REM units, but I'm happy to use the odd pixel
 
 <h3 id="preprocessors">Preprocessors</h3>
 
@@ -66,10 +66,10 @@ I use SASS and the SCSS syntax because it's widely used and understood. But more
 
 Source SCSS files are compiled into two separate stylesheets:
 
-  - a bare minimum set of styles for older devices and <IE9
-  - a fully featured and enhanced version for everything else
+- a bare minimum set of styles for older devices and <IE9
+- a fully featured and enhanced version for everything else
 
-I minifiy my CSS files straight out of SASS. I also generate source map files and publish my .SCSS files to production.  
+I minifiy my CSS files straight out of SASS. I also generate source map files and publish my .SCSS files to production.
 
 I did use LESS for a long time because it felt more declarative like CSS is 'meant' to be, however also I enjoyed creating wild experimental things with SASS. Eventually I made the switch using SASS almost exclusively, in part because of its growing popularity. I know, I'm a sell-out and a sheep!
 
@@ -115,6 +115,6 @@ Finally I should say that at best I do this only about 60-70% of the time. Somet
 
 ## You might like
 
-  - [Chris Coyier's tour of CodePen's CSS](http://codepen.io/chriscoyier/blog/codepens-css)
-  - [Ian Feather's tour of Lonely Planet's CSS](http://ianfeather.co.uk/css-at-lonely-planet/)
-  - [Mark Otto's tour of GitHub's CSS](http://markdotto.com/2014/07/23/githubs-css/).
+- [Chris Coyier's tour of CodePen's CSS](http://codepen.io/chriscoyier/blog/codepens-css)
+- [Ian Feather's tour of Lonely Planet's CSS](http://ianfeather.co.uk/css-at-lonely-planet/)
+- [Mark Otto's tour of GitHub's CSS](http://markdotto.com/2014/07/23/githubs-css/).

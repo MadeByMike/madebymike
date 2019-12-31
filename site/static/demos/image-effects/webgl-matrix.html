@@ -12,13 +12,18 @@
         display: flex;
         align-items: start;
         width: 100%;
+        flex-wrap: wrap;
       }
       canvas {
         max-width: 75%;
+        margin-right: 1rem;
+        flex-basis: 100%;
+        flex-shrink: 1;
       }
       figcaption {
         font-size: 0.65em;
-        margin: 0 1rem;
+        flex-basis: 150px;
+        flex-shrink: 0;
       }
     </style>
 
@@ -246,8 +251,8 @@
         image
           .parentNode
           .insertBefore(canvas, image);
-        canvas.width = image.width;
-        canvas.height = image.height;
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
         image
           .parentNode
           .removeChild(image);
