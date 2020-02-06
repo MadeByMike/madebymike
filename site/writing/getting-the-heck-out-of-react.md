@@ -84,11 +84,11 @@ This approach is very different from HTML or JSX that have a more declarative AP
 
 Animations or any action that occurs over time can be difficult to describe using a declarative API. This is because declarative components don't typically have a persistent state. Think about how animations work in CSS. New animations can be triggered by the addition of a classname but these properties will reset the existing animation, causing it to start from its initial state.
 
-Despite this, I see numerous attempts to "solve" the challenges of working with stateful media in React by creating libraries convert imperative APIs into a set of declarative React components. They do this by wrapping another layer of abstraction around 3rd-party tools and native APIs.
+Despite this, I see numerous attempts to "solve" the challenges of working with stateful media in React by creating libraries that convert imperative APIs into a set of declarative React components. They do this by wrapping another layer of abstraction around 3rd-party tools and native APIs.
 
 The [react-map-gl](https://github.com/uber/react-map-gl) library has more than 4000 stars. This recreation of the HTML5 canvas API [react-konva](https://github.com/konvajs/react-konva) has more than 2000. The [react-d3-components](https://github.com/codesuki/react-d3-components) library has over 1400 and there are many more like these.
 
-To me these are the jQuery plugins of this era. They all provide limited on-rails solutions that serves to comfort developers with a React mindset. Perhaps the only advantage is that the better-designed examples of these allow developers to continue splitting logic into smaller components.
+To me these are the jQuery plugins of this era. They all provide limited on-rails solutions that serve to comfort developers with a React mindset. Perhaps the only advantage is that the better-designed examples of these allow developers to continue splitting logic into smaller components.
 
 ## Escaping React
 
@@ -130,7 +130,7 @@ export { videoElement, Video };
 
 Instead of attaching it to a canvas or video element, the ref is attached to an empty `<div>` container. The video element is a detached DOM node that exists outside the component. I append this to the container once the React component is mounted.
 
-Because the video element exists outside a React component, even if React re-renders the container or unmounts the component, the video will be re-mounted without losing its source, play state, or any other data.
+Because the video element exists outside a React component, even if React re-renders the container, or unmounts the component, the video will be re-mounted without losing its source, play state, or any other data.
 
 We're exporting the `videoElement` so we can access it in different components. I can now create a load button that applies a video source to the element:
 
@@ -407,6 +407,6 @@ Here's an example of a map application that shares data between media elements, 
   </a>
 </div>
 
-I really like this approach because we can have two highly separate applications that work largely independently yet share the same data source. In theory, it's not necessary to mount the map into a React application. It could just as easily be mounted by a different framework or plain onld JavaScript. This makes things much more portable and easy to test.
+I really like this approach because we can have two highly separate applications that work largely independently yet share the same data source. In theory, it's not necessary to mount the map into a React application. It could just as easily be mounted by a different framework or plain old JavaScript. This makes things much more portable and easy to test.
 
 If you find working with canvas, video and 3rd-party libraries like D3.js, three.js, or mapbox difficult within React, I hope this has helped you understand some of the reasons, as well as some possible solutions.
