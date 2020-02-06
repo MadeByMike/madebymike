@@ -8,7 +8,7 @@ module.exports = {
   postsPerPage: 4,
   socialImage: "/img/mug/mike.jpg",
   theme: {
-    image: "/img/christmas.png",
+    // image: "/img/christmas.png",
     background: "black",
     text: "white"
   },
