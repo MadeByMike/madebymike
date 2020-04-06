@@ -12,7 +12,7 @@ Canvas has no DOM, so when compared to working with HTML and CSS it may be less 
 
 The problem is also the answer. We can take direct control over things like layout and rendering. This means we can effectively bypass many layers of abstraction (albeit often useful abstractions) put in place by the browser, and create very streamlined, purpose-built solutions.
 
-In this article I’m going to use the example of applying image an effect with canvas. I chose this example because it is simple enough, and there are directly comparable methods using CSS and SVG. The aim is not to argue that canvas is in any way better than CSS or SVG for this task. In fact the results and usage cases are slightly different. I want to demonstrate these differences and approaches to solving the problem with canvas.
+In this article I’m going to use the example of applying an image effect with canvas. I chose this example because it is simple enough, and there are directly comparable methods using CSS and SVG. The aim is not to argue that canvas is in any way better than CSS or SVG for this task. In fact the results and usage cases are slightly different. I want to demonstrate these differences and approaches to solving the problem with canvas.
 
 ## Why use canvas?
 
@@ -54,7 +54,7 @@ if (image.complete) {
   desaturateImage(image);
 } else {
   // On load
-  image.addEventListener("load", function() {
+  image.addEventListener("load", function () {
     desaturateImage(image);
   });
 }
@@ -183,7 +183,7 @@ I’m going to create a helper function to compile a WebGL program.
 function createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource) {
   this.ctx = ctx;
 
-  this.compileShader = function(shaderSource, shaderType) {
+  this.compileShader = function (shaderSource, shaderType) {
     var shader = this.ctx.createShader(shaderType);
     this.ctx.shaderSource(shader, shaderSource);
     this.ctx.compileShader(shader);
@@ -325,7 +325,7 @@ ctx.bufferData(
     image.width,
     0,
     image.width,
-    image.height
+    image.height,
   ]),
   ctx.STATIC_DRAW
 );
@@ -353,7 +353,7 @@ ctx.bufferData(
     1.0,
     0.0,
     1.0,
-    1.0
+    1.0,
   ]),
   ctx.STATIC_DRAW
 );

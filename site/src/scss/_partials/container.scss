@@ -20,3 +20,7 @@ $bp-container-small: 600px;
 .l-container {
   margin: 0 var(--container-margin);
 }
+
+.l-container p {
+  max-width: 65ch;
+}

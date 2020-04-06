@@ -21,26 +21,7 @@ module.exports = async (value, outputPath) => {
           width: 1201
         }
       ],
-      inline: true,
-      // Ignore is Experimental: Includes only layout & utility classes (requires '.l-' prefixed CSS)
-      // This makes a big difference to the size of the generated CSS.
-      // ignore: {
-      //   decl: (node, value) => {
-      //     // Layout classes
-      //     if (node.parent.selector.includes(".l-")) {
-      //       return false;
-      //     }
-      //     // Utility classes
-      //     if (
-      //       [".visually-hidden"].some(selector =>
-      //         node.parent.selector.includes(selector)
-      //       )
-      //     ) {
-      //       return false;
-      //     }
-      //     return true;
-      //   }
-      // }
+      inline: true
     });
 
     return html;
