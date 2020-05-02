@@ -1,14 +1,7 @@
 $bp-container: 800px;
-$bp-container-small: 600px;
 
 .l-container {
-  --container-margin: #{$BASE_UNIT / 4};
-}
-
-@media (min-width: $bp-container-small) {
-  .l-container {
-    --container-margin: #{$BASE_UNIT / 2};
-  }
+  --container-margin: #{$BASE_UNIT / 2};
 }
 
 @media (min-width: $bp-container) {
@@ -21,6 +14,6 @@ $bp-container-small: 600px;
   margin: 0 var(--container-margin);
 }
 
-.l-container p {
+.l-measure {
   max-width: 65ch;
 }

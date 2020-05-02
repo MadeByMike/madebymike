@@ -8,15 +8,22 @@ module.exports = {
   postsPerPage: 4,
   socialImage: "/img/mug/mike.jpg",
   theme: {
-    // image: "/img/christmas.png",
-    background: "black",
-    text: "white"
+    primary: {
+      background: "white",
+      text: "black",
+      highlight: "#666",
+    },
+    secondary: {
+      background: "black",
+      text: "white",
+      highlight: "#666",
+    },
   },
   keystone: {
     comments: true,
     bookmarks: true,
     claps: true,
-    login: false
+    login: false,
   },
-  criticalCSS: true //process.env.NODE_ENV === "production"
+  criticalCSS: true, //process.env.NODE_ENV === "production"
 };
