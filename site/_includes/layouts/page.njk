@@ -8,17 +8,24 @@
 </div>
 {% endset %}
 
+{% block intro %}
+  <div class="l-stack l-stack--large">
+    {% include "partials/intro.njk" %}
+  </div>
+{% endblock %}
+
 {% block content %}
-  <div class="l-stack">
-    <article class="h-entry t-page" class="l-container">
-      <div class="l-stack l-stack--large">
-        {% include "partials/post-intro.njk" %}
-        <div class="l-container">
-          <div class="l-stack l-body-content l-measure">
-            {{ content | safe }}
+  <div class="l-page">
+    <div class="l-stack">
+      <article class="h-entry t-page" class="l-container">
+        <div class="l-stack l-stack--large">
+          <div class="l-container">
+            <div class="l-stack l-body-content l-measure">
+              {{ content | safe }}
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 {% endblock %}

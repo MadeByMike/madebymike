@@ -24,10 +24,17 @@ permalink: /tags/{{ tag }}/
 {% set postListHeading %}Posts tagged: “{{ tag }}”{% endset %}
 {% set postListItems = collections[tag] %}
 
-{% block content %}
+{% block intro %}
   <div class="l-stack l-stack--large">
     {% include "partials/intro.njk" %}
-    {% include "partials/post-list.njk" %}
-    {% include "partials/pagination.njk" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="l-page">
+    <div class="l-stack l-stack--large">
+      {% include "partials/post-list.njk" %}
+      {% include "partials/pagination.njk" %}
+    </div>
   </div>
 {% endblock %}

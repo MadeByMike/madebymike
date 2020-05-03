@@ -1,5 +1,6 @@
 {# Intro content #}
 {% set introHeading = title %}
+{% set pageTheme = theme %}
 {% set footerSummary = site.footerSummary %}
 {% set metaDescription = description if description else 
   site.shortDesc %}
@@ -14,6 +15,7 @@
     
     {% if site.theme %}
     <style>
+      .theme-secondary,
       :root {
         {% if site.theme.secondary.background %}
           --THEME_BACKGROUND: {{site.theme.primary.background}};
@@ -37,6 +39,18 @@
           --THEME_HIGHLIGHT: {{site.theme.secondary.highlight}};
         {% endif %}
       }
+      
+      .theme-mute {
+        {% if site.theme.mute.background %}
+          --THEME_BACKGROUND: {{site.theme.mute.background}};
+        {% endif %}
+        {% if site.theme.mute.text %}
+          --THEME_COLOR: {{site.theme.mute.text}};
+        {% endif %}
+        {% if site.theme.mute.highlight %}
+          --THEME_HIGHLIGHT: {{site.theme.mute.highlight}};
+        {% endif %}
+      }
     </style>
     {% endif %}
 
@@ -54,19 +68,23 @@
     {% block head %}{% endblock %}
 
   </head>
-  <body>
+  <body class="{% if pageTheme %}theme-{{pageTheme}}{% endif %}">
     <a class="visually-hidden skip-content" href="#main-content">Skip to content</a>
-    <div class="l-page">
-      {% include "partials/global/site-head.njk" %}
-      <main id="main-content" tabindex="-1">
-        <div class="l-stack l-stack--large">
-          {% block content %}{% endblock content %}
-          {% block foot %}
-            {% include "partials/global/site-foot.njk" %}
-          {% endblock %}
-        </div>
-      </main>
+  
+    <div class="theme-secondary theme-bg theme-color">
+      <div class="l-page-section">
+        {% include "partials/global/site-head.njk" %}
+        {% block intro %}{% endblock intro %}
+      </div>
     </div>
+
+    <main tabindex="-1">
+      {% block content %}{% endblock content %}
+      {% block foot %}
+        {% include "partials/global/site-foot.njk" %}
+      {% endblock %}
+    </main>
+
     <script type="text/javascript" src="/js/service-worker.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     {% include "partials/services/keystone-login-scripts.njk" %}

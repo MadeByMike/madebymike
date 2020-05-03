@@ -1,14 +1,34 @@
---- 
+---
 title: "Let's make something brilliant!"
 metaTitle: Hire me
 layout: "layouts/page.njk"
-permalink: '/hire-me/'
+permalink: "/hire-me/"
 description: I build innovative applications, data visualisations and websites. I want to make amazing user experiences that focus on quality, performance and great design, with built-in accessibility. I write maintainable, future-proof code with the latest tools and techniques.
 ---
 
-<div style="float:right; margin-left: 1em; margin-bottom: 1em; text-align: center;">
+<style>
+  .get-in-touch {
+      text-align: center; 
+      margin-bottom: 1em; 
+  }
+
+  @media (min-width: 900px) {
+    .get-in-touch {
+        float:right;
+        margin-left: 1em;  
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .get-in-touch {
+        margin-left: calc(-25% + 1em); 
+        transform: translate(50%,0);
+    }
+  }
+</style>
+<div class="get-in-touch">
     <figure>
-        <img style="border-radius:50%;" src="/img/mug/mike.jpg"/>
+        <img style="border-radius:50%; border: solid 5px var(--THEME_HIGHLIGHT); width: 220px;" src="/img/mug/mike.jpg"/>
     </figure>
     Get in touch:
     <a href="mailto:mike@madebymike.com.au">mike@madebymike.com.au</a>

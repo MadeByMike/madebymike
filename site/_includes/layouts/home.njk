@@ -12,11 +12,18 @@
   {% set paginationNextUrl = '/writing' %}
 {% endif %}
 
-{% block content %}
+{% block intro %}
   <div class="l-stack l-stack--large">
     {% include "partials/intro.njk" %}
-    {% include "partials/post-list-home.njk" %}
-    {% include "partials/pagination.njk" %}
-    {% include "partials/services/keystone-bookmarks-list.njk" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="l-page">
+    <div class="l-stack l-stack--large">
+      {% include "partials/post-list-home.njk" %}
+      {% include "partials/pagination.njk" %}
+      {% include "partials/services/keystone-bookmarks-list.njk" %}
+    </div>
   </div>
 {% endblock %}

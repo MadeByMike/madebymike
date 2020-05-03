@@ -9,14 +9,19 @@ module.exports = {
   socialImage: "/img/mug/mike.jpg",
   theme: {
     primary: {
-      background: "white",
-      text: "black",
-      highlight: "#666",
+      background: "#c9f3e0",
+      text: "#333",
+      highlight: "#555",
     },
     secondary: {
-      background: "black",
-      text: "white",
-      highlight: "#666",
+      background: "white",
+      text: "#244e3b",
+      highlight: "#244e3b",
+    },
+    mute: {
+      background: "#fbfbfb",
+      text: "#555",
+      highlight: "#244e3b",
     },
   },
   keystone: {
@@ -25,5 +30,5 @@ module.exports = {
     claps: true,
     login: false,
   },
-  criticalCSS: true, //process.env.NODE_ENV === "production"
+  criticalCSS: process.env.NODE_ENV === "production",
 };

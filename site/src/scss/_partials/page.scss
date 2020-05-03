@@ -1,4 +1,10 @@
-.l-page {
+.l-page-section {
+  padding: 1px;
   max-width: $BASE_UNIT * 12;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 0 auto;
+}
+.l-page {
+  padding: 4rem 0;
+  max-width: $BASE_UNIT * 12;
+  margin: 0 auto 0 auto;
 }

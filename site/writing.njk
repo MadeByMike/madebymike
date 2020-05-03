@@ -21,10 +21,17 @@ pagination:
   {% set paginationPrevUrl = pagination.previousPageHref %}
 {% endif %}
 
-{% block content %}
-  <div class="l-stack l-stack--large l-stack--large">
+{% block intro %}
+  <div class="l-stack l-stack--large">
     {% include "partials/intro.njk" %}
-    {% include "partials/post-list.njk" %}
-    {% include "partials/pagination.njk" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="l-page">
+    <div class="l-stack l-stack--large l-stack--large">
+      {% include "partials/post-list.njk" %}
+      {% include "partials/pagination.njk" %}
+    </div>
   </div>
 {% endblock %}
