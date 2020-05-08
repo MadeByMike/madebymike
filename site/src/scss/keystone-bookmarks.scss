@@ -34,11 +34,11 @@
 
 .bookmark-button:focus,
 .bookmark-button:hover {
-  background: $COLOR_LIGHTER;
+  background: var(--THEME_BACKGROUND);
 }
 
 .bookmark-button--bookmarked {
-  background: $COLOR_LIGHTER;
+  background: var(--THEME_BACKGROUND);
 }
 
 .bookmark-button--bookmarked:focus,

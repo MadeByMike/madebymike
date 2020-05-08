@@ -41,6 +41,6 @@
 }
 
 .button:hover {
-  background-color: $COLOR_LIGHTER;
+  background-color: var(--THEME_HIGHLIGHT);
   cursor: pointer;
 }

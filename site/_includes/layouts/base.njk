@@ -15,28 +15,41 @@
     
     {% if site.theme %}
     <style>
-      .theme-secondary,
+      code:not([class]),
+      pre:not([class]) {
+        {% if site.theme.primary.background %}
+          --THEME_BACKGROUND: {{ site.theme.primary.background }};
+        {% endif %}
+        {% if site.theme.primary.background50 %}
+          --THEME_BACKGROUND_50: {{ site.theme.primary.background50 }};
+        {% endif %}
+        {% if site.theme.secondary.text %}
+          --THEME_COLOR: {{ site.theme.secondary.text }};
+        {% endif %}
+      }
+
+      .theme-primary,
       :root {
-        {% if site.theme.secondary.background %}
-          --THEME_BACKGROUND: {{site.theme.primary.background}};
+        {% if site.theme.primary.background %}
+          --THEME_BACKGROUND: {{ site.theme.primary.background }};
         {% endif %}
         {% if site.theme.primary.text %}
-          --THEME_COLOR: {{site.theme.primary.text}};
+          --THEME_COLOR: {{ site.theme.primary.text }};
         {% endif %}
         {% if site.theme.primary.highlight %}
-          --THEME_HIGHLIGHT: {{site.theme.primary.highlight}};
+          --THEME_HIGHLIGHT: {{ site.theme.primary.highlight }};
         {% endif %}
       }
 
       .theme-secondary {
         {% if site.theme.secondary.background %}
-          --THEME_BACKGROUND: {{site.theme.secondary.background}};
+          --THEME_BACKGROUND: {{ site.theme.secondary.background }};
         {% endif %}
         {% if site.theme.secondary.text %}
-          --THEME_COLOR: {{site.theme.secondary.text}};
+          --THEME_COLOR: {{ site.theme.secondary.text }};
         {% endif %}
         {% if site.theme.secondary.highlight %}
-          --THEME_HIGHLIGHT: {{site.theme.secondary.highlight}};
+          --THEME_HIGHLIGHT: {{ site.theme.secondary.highlight }};
         {% endif %}
       }
       

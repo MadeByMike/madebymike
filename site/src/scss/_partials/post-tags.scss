@@ -14,8 +14,8 @@
   display: inline-block;
   padding: 5px 10px;
   font-size: 0.8em;
-  background: $COLOR_LIGHTER;
-  border: solid 1px $COLOR_LIGHT;
+  background: var(--THEME_BACKGROUND);
+  border: solid 1px var(--THEME_HIGHLIGHT);
   text-decoration: none;
   margin-right: 5px;
   margin-bottom: 10px;

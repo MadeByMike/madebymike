@@ -73,8 +73,9 @@ code:not([class]) {
   display: inline-block;
   font-size: 0.85rem;
   font-family: $FONT_MONO;
-  background: $COLOR_LIGHTER;
-  border: solid 1px $COLOR_LIGHT;
+  color: var(--THEME_HIGHLIGHT);
+  background: var(--THEME_BACKGROUND_50);
+  border: solid 1px #ccc;
 }
 
 pre:not([class]) {
@@ -100,4 +101,10 @@ pre {
 
 pre code {
   background: transparent;
+}
+
+hr {
+  margin: 4em 0 !important;
+  border: none;
+  border-bottom: solid 1px var(--THEME_HIGHLIGHT);
 }

@@ -60,10 +60,10 @@
 }
 
 .clap-button:focus {
-  background: $COLOR_LIGHTER;
+  background: var(--THEME_BACKGROUND);
 }
 .clap-button:hover {
-  background: $COLOR_LIGHTER;
+  background: var(--THEME_BACKGROUND);
 
   .heart {
     width: 10px;

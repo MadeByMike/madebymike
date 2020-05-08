@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     primary: {
       background: "#c9f3e0",
+      background50: "#f2fcf8",
       text: "#333",
       highlight: "#555",
     },
