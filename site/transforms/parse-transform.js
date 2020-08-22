@@ -38,6 +38,11 @@ module.exports = function (value, outputPath) {
       });
     }
 
+    // Force native lazy-loading
+    document
+      .querySelectorAll("img")
+      .forEach((image) => image.setAttribute("loading", "lazy"));
+
     const articleHeadings = [
       ...document.querySelectorAll("main article h2, main article h3"),
     ];

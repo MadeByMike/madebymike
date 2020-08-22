@@ -26,8 +26,8 @@ module.exports = {
     },
   },
   keystone: {
-    comments: true,
-    bookmarks: true,
+    comments: false,
+    bookmarks: false,
     claps: true,
     login: false,
   },
