@@ -15,7 +15,7 @@ const addToCache = function (items) {
 
 self.addEventListener("install", () => {
   self.skipWaiting();
-  addToCache(CACHE_KEY, PRE_CACHE);
+  addToCache(PRE_CACHE);
 });
 
 self.addEventListener("activate", (evt) => {
