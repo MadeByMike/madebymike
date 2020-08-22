@@ -5,4 +5,4 @@ postsHeading: Stuff I wrote
 allPostsText: More stuff I wrote
 ---
 
-I’m a **web developer**. I make all sorts of stuff for the web. You can find some of my work on [CodePen](http://codepen.io/MadeByMike/) and [GitHub](https://github.com/MadeByMike). You can talk to me about it on [Twitter](https://twitter.com/MikeRiethmuller) and you can [Hire Me](/hire-me).</p>
+I’m a **web developer**. I make all sorts of stuff for the web. You can find some of my work on [CodePen](http://codepen.io/MadeByMike/) and [GitHub](https://github.com/madebymike). You can talk to me about it on [Twitter](https://twitter.com/MikeRiethmuller) and you can [Hire Me](/hire-me).</p>

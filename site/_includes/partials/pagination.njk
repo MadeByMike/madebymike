@@ -2,7 +2,7 @@
 
 {% if paginationNextUrl or paginationPrevUrl %}
   <footer class="l-container">
-    <nav class="l-pagination {{paginationModifierClasss}}">
+    <nav aria-label="pagination" class="l-pagination {{paginationModifierClasss}}">
       {% if paginationPrevUrl %}
         <a href="{{ paginationPrevUrl }}" data-direction="backwards" class="l-pagination-link l-pagination-link--left">
           <span aria-hidden="true">
