@@ -1,0 +1,494 @@
+--- 
+title: Project Kickoff 
+---
+{% extends 'layouts/base.njk' %}
+
+{% set introSummary %}
+Please take a moment to complete the questions below. We’ll go over your
+<a href="#project-overview">project overview</a>,
+<a href="#audience">audiences</a>,
+<a href="#competition">competition</a>,
+<a href="#current-site">current site</a>,
+<a href="#content">content</a>,
+<a href="#functionality">functionality</a>
+and
+<a href="#inspiration">inspiration</a>.</p>
+{% endset %}
+
+{% block intro %}
+<div class="l-stack l-stack--large">
+  {% include "partials/intro.njk" %}
+</div>
+{% endblock %}
+
+{% block content %}
+
+<form class="l-page" method="POST" data-netlify="true">
+  <div class="l-container">
+    <div class="l-stack l-stack--large">
+
+      <div class="l-form-row" id="project-overview">
+        <label for="what-is-your-name" class="label">Hi, I'm Mike. What's your name?</label>
+        <input id="what-is-your-name" name="what-is-your-name" class="input input--large"/>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="what-is-your-name" class="label">What is your email?</label>
+          <br>
+          This is not a mailing list. I'll only contact you about this form.
+        </p>
+        <input id="what-is-your-name" name="what-is-your-name" class="input input--large"/>
+      </div>
+
+      <div class="l-form-row">
+        <label for="describe-your-project" class="label">Describe your project in your own words</label>
+
+        <textarea id="describe-your-project" name="describe-your-project" class="textarea" rows="5"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <label for="create-your-design-brief" class="label">Create your design brief</label>
+        <p>
+          <strong>Create Brief</strong>
+          is a simple tool for creating a custom design brief for your project. It captures your business summary, color palette, look and feel, target audience and values. Visit
+          <a href="https://createbrief.com" target="blank">createbrief.com</a>
+          to create your brief and share the link below:</p>
+
+        <textarea id="create-your-design-brief" name="create-your-design-brief" class="textarea" rows="5"></textarea>
+      </div>
+
+      <h2 class="h3" id="audience">Your Audience</h2>
+      <h2 class="h4">Primary Audience</h2>
+
+      <div class="l-form-col">
+        <div class="l-form-row">
+          <p>
+            <label for="primary-who-are-they" class="label--small">Who is your primary audience?</label>
+            <br>
+            Location, age, occupation, interests, etc.
+          </p>
+          <textarea id="primary-who-are-they" name="primary-who-are-they" class="textarea" rows="3"></textarea>
+        </div>
+
+        <div class="l-form-row">
+          <p>
+            <label for="primary-cta" class="label--small" aria-label="Whate the main call to action for your primary audience?">What is their most important action?</label>
+            <br>
+            Create accounts, subscribe to newsletter, etc.
+          </p>
+          <textarea id="primary-cta" name="primary-cta" class="textarea" rows="3"></textarea>
+        </div>
+      </div>
+
+      <h2 class="h4">Secondary Audience</h2>
+      <div class="l-form-col">
+        <div class="l-form-row">
+          <p>
+            <label for="secondary-audience-who-are-they" class="label--small">Who is your secondary audience?</label>
+            <br>
+            Location, age, occupation, interests, etc.
+          </p>
+          <textarea id="secondary-audience-who-are-they" name="secondary-audience-who-are-they" class="textarea" rows="3"></textarea>
+        </div>
+
+        <div class="l-form-row">
+          <p>
+            <label for="secondary-audience-cta" class="label--small" aria-label="Whate the main call to action for your secondary audience?">What is their most important action?</label>
+            <br>
+            Create accounts, subscribe to newsletter, etc.
+          </p>
+          <textarea id="secondary-audience-cta" name="secondary-audience-cta" class="textarea" rows="3"></textarea>
+        </div>
+      </div>
+      <div id="other-audiences"></div>
+      <div class="theme-secondary">
+        <button id="btn-add-other-audience" class="button button--add-audience">
+          <svg class="button__icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 448">
+            <path fill="currentColor" d="M272 184a8 8 0 01-8-8V0h-80v176a8 8 0 01-8 8H0v80h176a8 8 0 018 8v176h80V272a8 8 0 018-8h176v-80zm0 0"/>
+          </svg>
+          Add another audience</button>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="how-should-audiences-percive-brand" class="label--small">How should these audiences perceive you?</label>
+        </p>
+        <textarea id="how-should-audiences-percive-brand" name="how-should-audiences-percive-brand" class="textarea" rows="3"></textarea>
+      </div>
+
+      <h2 class="h3" id="competition">Your competition</h2>
+
+      <div class="l-form-row">
+        <p>
+          <label for="closest-competitor" class="label--small">Who is your closest competitor?</label>
+        </p>
+        <textarea id="closest-competitor" name="closest-competitor" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="what-does-competitor-do-well" class="label--small">What do they do really well?</label>
+        </p>
+        <textarea id="what-does-competitor-do-well" name="what-does-competitor-do-well" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="which-audience-are-they-targeting" class="label--small">Which audiences are they targeting? Are they the same as your audiences?</label>
+        </p>
+        <textarea id="which-audience-are-they-targeting" name="which-audience-are-they-targeting" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="like-dislike" class="label--small">What do you like/dislike about their website?</label>
+        </p>
+        <textarea id="like-dislike" name="like-dislike" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="what-makes-you-different" class="label--small">What makes your company different?</label>
+        </p>
+        <textarea id="what-makes-you-different" name="what-makes-you-different" class="textarea" rows="3"></textarea>
+      </div>
+
+      <h2 class="h3" id="current-site">Your Current Site</h2>
+
+      <div class="l-form-row">
+        <p>
+          <label for="what-do-you-like-about-your-existing-website" class="label--small">What do you like about your existing website?</label>
+          <br/>
+          Things you would keep, elements that work particularly well etc.</p>
+
+        <textarea id="what-do-you-like-about-your-existing-website" name="what-do-you-like-about-your-existing-website" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="where-does-website-fall-short" class="label--small">Where does your existing website fall short?</label>
+          <br/>
+          Things that bother you, that you would get rid of etc.</p>
+        <textarea id="where-does-website-fall-short" name="where-does-website-fall-short" class="textarea" rows="3"></textarea>
+      </div>
+
+      <h2 class="h3" id="content">Your Content</h2>
+
+      <div class="l-form-row">
+        <p>
+          <label for="homepage-elements" class="label--small">Are there any specific elements you would like on the homepage?</label>
+          <br/>
+          Call-to-action, products description, services list, newsletter sign-up, etc.</p>
+        <textarea id="hompage-elements" name="hompage-elements" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="written-content" class="label--small">Do you have content written already?</label>
+          <br/>
+          Product features, customer benefits, services description, about page etc.</p>
+        <textarea id="written-content" name="written-content" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="content-to-add" class="label--small">What content do you want to add?</label>
+          <br/>
+          Product features, customer benefits, services description, about page etc.</p>
+        <textarea id="content-to-add" name="content-to-add" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="updated-regularly" class="label--small">What content do you expect will be updated regularly?</label>
+        </p>
+        <textarea id="updated-regularly" name="updated-regularly" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="tone-of-voice" class="label--small">Can you describe your tone of voice?</label>
+        </p>
+        <textarea id="tone-of-voice" name="tone-of-voice" class="textarea" rows="3"></textarea>
+      </div>
+
+      <h2 class="h3" id="functionality">Functionality</h2>
+
+      <div class="l-form-row">
+        <p>
+          <label for="need-cms" class="label--small">Do you need a Content Management System (CMS)?</label>
+          <br/>
+          A CMS will let you update content on your site without writing code. It will cost more and take and may require training.
+        </p>
+        <textarea id="need-cms" name="need-cms" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="what-features" class="label--small">What features should your website have?</label>
+          <br/>
+          Mobile optimized, videos, photo galleries, contact forms, comments, etc.
+        </p>
+        <textarea id="what-features" name="what-features" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-login" class="label--small">Do users login?</label>
+          <br/>
+          Specific user logins, single-sign-on, social media logins etc.
+        </p>
+        <textarea id="do-login" name="do-login" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="create-profile" class="label--small">If users can login, can they create personal profiles?</label>
+          <br/>
+          What kind? Public, private, for tracking orders, customisation etc.
+        </p>
+        <textarea id="create-profile" name="create-profile" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-payments" class="label--small">Will you accept payments? Do you now?</label>
+          <br/>
+          Credit cards, Paypal, Stripe, Shopify, Invoicing, etc.
+        </p>
+        <textarea id="do-payments" name="do-payments" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-reviews" class="label--small">Do people rate or review content?</label>
+          <br/>
+          Photos, videos, comments, purchases etc.
+        </p>
+        <textarea id="do-reviews" name="do-reviews" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-personal-data" class="label--small">Do you need to share data with another website or app?</label>
+          <br/>
+          Customer database, social network posts, marketing analytics, etc.
+        </p>
+        <textarea id="do-personal-data" name="do-personal-data" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-search" class="label--small">Will users need to search or filter content?</label>
+          <br/>
+          Search for blog posts, products, services etc.
+        </p>
+        <textarea id="do-search" name="do-search" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-search" class="label--small">Do you need to support more than one language?</label>
+          <br/>
+          Content in different languages, localised URLs, region-specific content etc.
+        </p>
+        <textarea id="do-search" name="do-search" class="textarea" rows="3"></textarea>
+      </div>
+
+      <div class="l-form-row">
+        <p>
+          <label for="do-other" class="label--small">Does your website need other custom functionality?</label>
+        </p>
+        <textarea id="do-other" name="do-other" class="textarea" rows="3"></textarea>
+      </div>
+
+      <h2 class="h3" id="inspiration">Inspiration</h2>
+      <h2 class="h4">What are some sites you love?</h2>
+      <p>List websites that you like the look, feel or functionality of within oroutside your industry.</p>
+
+      <div class="l-form-col">
+        <div class="l-form-row">
+
+          <p>
+            <label for="web-1-website" class="label--small">Website #1</label>
+          </p>
+          <textarea id="web-1-website" name="web-1-website" class="textarea" rows="3"></textarea>
+
+        </div>
+        <div class="l-form-row">
+
+          <p>
+            <label for="web-1-what-stands-out" class="label--small">What stands out?</label>
+          </p>
+          <textarea id="web-1-what-stands-out" name="web-1-what-stands-out" class="textarea" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div id="other-websites"></div>
+      <div class="theme-secondary">
+        <button id="btn-add-other-website" class="button button--add-audience">
+          <svg class="button__icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 448">
+            <path fill="currentColor" d="M272 184a8 8 0 01-8-8V0h-80v176a8 8 0 01-8 8H0v80h176a8 8 0 018 8v176h80V272a8 8 0 018-8h176v-80zm0 0"/>
+          </svg>
+          Add another website</button>
+      </div>
+
+      <div class="l-form-col">
+        <div class="l-form-row">
+          <button class="button">Submit</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+  let otherAudiences = 0;
+
+  let otherWebsites = [];
+
+  const createElement = (elm, classes) => {
+    const $ = document.createElement(elm);
+    if (classes) {
+      if (Array.isArray(classes)) {
+        $
+          .classList
+          .add(...classes)
+      }
+      $
+        .classList
+        .add(classes)
+    }
+    return $
+  }
+
+  const createInput = ({id, label, value, onChange}) => {
+    const row = createElement('div', 'l-form-row')
+    const p = createElement('p')
+    const l = createElement('label', 'label--small')
+    l.setAttribute('for', id)
+    l.innerHTML = label
+    const textarea = createElement('textarea', 'textarea');
+    textarea.setAttribute('rows', "3")
+    textarea.setAttribute('rows', "3")
+    textarea.setAttribute("id", id)
+    textarea.setAttribute("name", id);
+    textarea.addEventListener('change', onChange)
+    textarea.value = value;
+    row.appendChild(p)
+    p.appendChild(l)
+    row.appendChild(textarea)
+    return row;
+  }
+
+  const updateOtherWebsites = () => {
+
+    // Clear the element
+    document
+      .querySelector('#other-websites')
+      .innerHTML = "";
+
+    const section = createElement('div', ["l-stack", "l-stack--large"])
+
+    otherWebsites.forEach((fields, i) => {
+
+      const col = createElement('div', "l-form-col");
+
+      fields.forEach(({
+        name,
+        value,
+        label
+      }, ii) => {
+        const onChange = (e) => {
+          otherWebsites[i][ii].value = e.target.value
+        }
+        const row = createInput({id: `${name}-${i}`, value, label: label(i), onChange});
+        col.appendChild(row);
+      })
+
+      const button = createElement("button", "button");
+      button.innerHTML = "Remove website";
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        otherWebsites.splice(i, 1);
+        updateOtherWebsites();
+      });
+
+      section.appendChild(col);
+      section.appendChild(button);
+    });
+
+    document
+      .querySelector('#other-websites')
+      .appendChild(section);
+  }
+
+  const addOtherAudience = (e) => {
+    e.preventDefault(e);
+    otherAudiences++;
+    const container = document.createElement('div');
+    const section = document.createElement('div');
+    section
+      .classList
+      .add("l-stack", "l-stack--large")
+    section.innerHTML = `<h2 class="h4">Other Audience</h2>
+      <div class="l-form-col">
+        <div class="l-form-row">
+          <p>
+            <label for="other-audience-${otherAudiences}-who-are-they" class="label--small">Who is your other audience?</label>
+            <br>
+            Location, age, occupation, interests, etc.
+          </p>
+          <textarea id="other-audience-${otherAudiences}-who-are-they" name="other-audience-${otherAudiences}-who-are-they" class="textarea" rows="3"></textarea>
+        </div>
+        <div class="l-form-row">
+          <p>
+            <label for="other-audience-${otherAudiences}-cta" class="label--small" aria-label="Whate the main call to action for your other-audience audience?">What is their most important action?</label>
+            <br>
+            Create accounts, subscribe to newsletter, etc.
+          </p>
+          <textarea id="other-audience-${otherAudiences}-cta" name="other-audience-${otherAudiences}-cta" class="textarea" rows="3"></textarea>
+        </div>
+      </div>`;
+
+    const button = document.createElement('button');
+    button
+      .classList
+      .add("button");
+    button.innerHTML = "Remove audience"
+    button.addEventListener('click', () => {
+      container
+        .parentNode
+        .removeChild(container);
+    })
+    container.appendChild(section);
+    container.appendChild(button);
+
+    document
+      .querySelector('#other-audiences')
+      .appendChild(container)
+  }
+
+  document
+    .querySelector("#btn-add-other-audience")
+    .addEventListener('click', addOtherAudience);
+  document
+    .querySelector("#btn-add-other-website")
+    .addEventListener('click', (e) => {
+      e.preventDefault(e);
+      otherWebsites.push([
+        {
+          name: "web-website",
+          label: (i) => `Website #${i + 2}`,
+          value: ""
+        }, {
+          name: "web-what-stands-out",
+          label: () => "What stands out?",
+          value: ""
+        }
+      ]);
+      updateOtherWebsites();
+    });
+</script>
+{% endblock %}
