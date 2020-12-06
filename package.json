@@ -20,7 +20,7 @@
     "babel-loader": "^8.0.6",
     "clean-css": "^4.2.1",
     "critical": "^2.0.0-23",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.3",
     "css.escape": "^1.5.1",
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
